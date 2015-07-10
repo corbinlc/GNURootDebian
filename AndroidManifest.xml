@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gnuroot.debian"
     android:installLocation="preferExternal"
-    android:versionCode="5"
-    android:versionName="0.1.2" >
+    android:versionCode="9"
+    android:versionName="0.2.0_armel" >
     
     <supports-screens android:resizeable="true"
                       android:smallScreens="true"                       
@@ -13,7 +13,6 @@
                       android:anyDensity="true"/>
     <uses-sdk
         android:minSdkVersion="4"
-        android:maxSdkVersion="21"
         android:targetSdkVersion="19" />
     
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />

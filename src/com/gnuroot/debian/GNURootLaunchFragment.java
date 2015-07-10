@@ -56,7 +56,7 @@ public class GNURootLaunchFragment extends Fragment {
 	            	ArrayList<String> prerequisitesArrayList = new ArrayList<String>();
 			    	prerequisitesArrayList.add("gnuroot_rootfs");
 	            	((GNURootCoreActivity)getActivity()).runCommand("/bin/bash", prerequisitesArrayList);
-	            	//((GNURootCoreActivity)getActivity()).runCommand("/support/busybox sh");
+	            	//((GNURootCoreActivity)getActivity()).runCommand("/support/busybox sh", prerequisitesArrayList);
 	            }
 	        });
 		}

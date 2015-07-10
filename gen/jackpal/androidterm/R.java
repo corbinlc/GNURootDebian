@@ -61,25 +61,25 @@ public final class R {
 		public static final int ic_stat_service_notification_icon = 0x7f020064;
 	}
 	public static final class id {
-		public static final int action_help = 0x7f0a0069;
+		public static final int action_help = 0x7f0a006a;
 		public static final int imageview = 0x7f0a0006;
 		public static final int mainview = 0x7f0a0008;
-		public static final int menu_close_window = 0x7f0a0060;
-		public static final int menu_new_window = 0x7f0a005f;
-		public static final int menu_preferences = 0x7f0a0064;
-		public static final int menu_reset = 0x7f0a0065;
-		public static final int menu_send_email = 0x7f0a0066;
-		public static final int menu_special_keys = 0x7f0a0063;
-		public static final int menu_toggle_soft_keyboard = 0x7f0a0062;
-		public static final int menu_toggle_wakelock = 0x7f0a0067;
-		public static final int menu_toggle_wifilock = 0x7f0a0068;
-		public static final int menu_window_list = 0x7f0a0061;
+		public static final int menu_close_window = 0x7f0a0061;
+		public static final int menu_new_window = 0x7f0a0060;
+		public static final int menu_preferences = 0x7f0a0065;
+		public static final int menu_reset = 0x7f0a0066;
+		public static final int menu_send_email = 0x7f0a0067;
+		public static final int menu_special_keys = 0x7f0a0064;
+		public static final int menu_toggle_soft_keyboard = 0x7f0a0063;
+		public static final int menu_toggle_wakelock = 0x7f0a0068;
+		public static final int menu_toggle_wifilock = 0x7f0a0069;
+		public static final int menu_window_list = 0x7f0a0062;
 		public static final int scrollview = 0x7f0a0009;
 		public static final int textview = 0x7f0a0007;
-		public static final int view_flipper = 0x7f0a005b;
-		public static final int window_list_close = 0x7f0a005e;
-		public static final int window_list_label = 0x7f0a005c;
-		public static final int window_list_separator = 0x7f0a005d;
+		public static final int view_flipper = 0x7f0a005c;
+		public static final int window_list_close = 0x7f0a005f;
+		public static final int window_list_label = 0x7f0a005d;
+		public static final int window_list_separator = 0x7f0a005e;
 	}
 	public static final class integer {
 		public static final int pref_actionbar_default = 0x7f090001;

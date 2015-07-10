@@ -37,5 +37,13 @@
         android:layout_alignParentTop="true"
         android:text="@string/install_textview_text"
         />
+
+    <CheckBox
+        android:id="@+id/sdcard_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/install_button"
+        android:layout_centerHorizontal="true"
+        android:text="Install on sdcard\n(smaller internal size and slower performance)" />
           
 </RelativeLayout>

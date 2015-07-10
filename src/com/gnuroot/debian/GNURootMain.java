@@ -50,6 +50,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.FileProvider;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.gnuroot.debian.R;
@@ -227,13 +228,33 @@ public class GNURootMain extends GNURootCoreActivity {
 		}
 
 		//create a directory for binding the noexec directory to
-		tempFile = new File(installDir.getAbsolutePath()+"/debian/noexec");
+		tempFile = new File(installDir.getAbsolutePath()+"/debian/.proot.noexec");
 		if (!tempFile.exists()) {
 			tempFile.mkdir();
 		}
 
 		//create a directory for binding the sdcard to
 		tempFile = new File(installDir.getAbsolutePath()+"/debian/sdcard");
+		if (!tempFile.exists()) {
+			tempFile.mkdir();
+		}
+		
+		tempFile = new File(installDir.getAbsolutePath()+"/debian/dev");
+		if (!tempFile.exists()) {
+			tempFile.mkdir();
+		}
+
+		tempFile = new File(installDir.getAbsolutePath()+"/debian/proc");
+		if (!tempFile.exists()) {
+			tempFile.mkdir();
+		}
+		
+		tempFile = new File(installDir.getAbsolutePath()+"/debian/mnt");
+		if (!tempFile.exists()) {
+			tempFile.mkdir();
+		}
+		
+		tempFile = new File(installDir.getAbsolutePath()+"/debian/data");
 		if (!tempFile.exists()) {
 			tempFile.mkdir();
 		}
@@ -263,7 +284,7 @@ public class GNURootMain extends GNURootCoreActivity {
 		}
 
 		//create directory for support executables and scripts
-		tempFile = new File(installDir.getAbsolutePath() + "/debian/support");
+		tempFile = new File(installDir.getAbsolutePath() + "/support");
 		if (!tempFile.exists()) {
 			tempFile.mkdir();
 		}
@@ -271,10 +292,12 @@ public class GNURootMain extends GNURootCoreActivity {
 		//copy bare necessities to the now created support directory
 		copyAssets("com.gnuroot.debian");
 		
+		String shadowOption = ((CheckBox) findViewById(R.id.sdcard_checkbox)).isChecked() ? " -n " : " ";
+		
 		//create a script for running a command in proot
-		tempFile = new File(installDir.getAbsolutePath() + "/debian/support/launchProot");
-		writeToFile("#! " + installDir.getAbsolutePath()+"/debian/support/busybox sh\n" +
-					installDir.getAbsolutePath()+"/debian/support/busybox clear\n" +
+		tempFile = new File(installDir.getAbsolutePath() + "/support/launchProot");
+		writeToFile("#! " + installDir.getAbsolutePath()+"/support/busybox sh\n" +
+					installDir.getAbsolutePath()+"/support/busybox clear\n" +
 					"\nblue='\\033[0;34m'; NC='\\033[0m'; echo -e \"${blue}Sponsored by: \"\n" +
 					"echo \"                                          \"\n" +
 					"echo \" _____                   _                \"\n" +
@@ -283,18 +306,19 @@ public class GNURootMain extends GNURootCoreActivity {
 					"echo \"  |_|  |___||_|  |__,||___||_  ||_|_||___|\"\n" +
 					"echo \"                           |___|          \"\n" +
 					"echo -e \"${NC}\"\n" +
-					"LD_PRELOAD= PROOT_LOADER=" + installDir.getAbsolutePath() + "/debian/support/loader " + installDir.getAbsolutePath() + "/debian/support/proot -r " + installDir.getAbsolutePath() + "/debian -v -1 -0 -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard $@", tempFile); 
+					"LD_PRELOAD= PROOT_TMP_DIR=" + installDir.getAbsolutePath() + "/support/ " + installDir.getAbsolutePath() + "/support/proot -r " + installDir.getAbsolutePath() + "/debian -v -1 -H -l" + shadowOption + "-0 -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/.proot.noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard -b " + installDir.getAbsolutePath() + "/support/:/support $@", tempFile);
+					//"LD_PRELOAD= PROOT_TMP_DIR=" + installDir.getAbsolutePath() + "/support/ PROOT_LOADER=" + installDir.getAbsolutePath() + "/support/loader " + installDir.getAbsolutePath() + "/support/proot -r " + installDir.getAbsolutePath() + "/debian -v -1 -H -l" + shadowOption + "-0 -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/.proot.noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard -b " + installDir.getAbsolutePath() + "/support/:/support $@", tempFile);
 		exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
 
 		//create a script for untaring a file
-		tempFile = new File(installDir.getAbsolutePath() + "/debian/support/untargz");
+		tempFile = new File(installDir.getAbsolutePath() + "/support/untargz");
 		writeToFile("#!/support/busybox sh\n" +
 				"/support/busybox tar -xzvf /host-rootfs/$2\n" + 
 				"if [[ $? == 0 ]]; then touch /support/.$1_passed; else touch /support/.$1_failed; fi", tempFile); 
 		exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
 
 		//create a script for installing packages
-		tempFile = new File(installDir.getAbsolutePath() + "/debian/support/installPackages");
+		tempFile = new File(installDir.getAbsolutePath() + "/support/installPackages");
 		writeToFile("#!/bin/bash\napt-get update\n" +
 				"DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install ${@:2}\n" + 
 				"if [[ $? == 0 ]]; then touch /support/.$1_passed; apt-get clean; else touch /support/.$1_failed; fi", tempFile); 
@@ -316,9 +340,11 @@ public class GNURootMain extends GNURootCoreActivity {
 		if (fileOrDirectory.isDirectory())
 			for (File child : fileOrDirectory.listFiles())
 				deleteRecursive(child);
-
+		
 		fileOrDirectory.delete();
+		
 	}
+	
 
 	private void copyAssets(String packageName) {
 		Context friendContext = null;
@@ -328,7 +354,7 @@ public class GNURootMain extends GNURootCoreActivity {
 			return;
 		}
 		AssetManager assetManager = friendContext.getAssets();
-		File tempFile = new File(getInstallDir().getAbsolutePath() + "/debian/support");	
+		File tempFile = new File(getInstallDir().getAbsolutePath() + "/support");	
 		if (!tempFile.exists()) {
 			tempFile.mkdir();
 		}
