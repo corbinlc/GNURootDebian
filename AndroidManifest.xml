@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gnuroot.debian"
     android:installLocation="preferExternal"
-    android:versionCode="9"
-    android:versionName="0.2.0_armel" >
+    android:versionCode="20"
+    android:versionName="0.2.6_i386" >
     
     <supports-screens android:resizeable="true"
                       android:smallScreens="true"                       

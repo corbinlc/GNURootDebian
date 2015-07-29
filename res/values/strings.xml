@@ -21,7 +21,9 @@
 <resources>
     <string name="app_name">GNURoot Debian</string>
     <string name="install_button_text">Install/Reinstall</string>
-    <string name="install_textview_text">Will Install GNURoot Debian on your device.  This will take a little while and consume noticeable disk space.  This will overwrite any previous version installed.</string>
+    <string name="install_textview_text">Will install GNURoot Debian on your device.  This will take a little while and consume noticeable disk space.  This will overwrite any previous version installed.</string>
+    <string name="patch_button_text">Patch Installation</string>
+    <string name="patch_textview_text">Will patch GNURoot Debian with the latest set of improvements that don\'t require hitting the Install/Reinstall button.</string>
     <string name="launch_button_text">Launch</string>
     <string name="launch_textview_text">Launch into a GNURoot Debian terminal by hitting the button below.</string>
 </resources>

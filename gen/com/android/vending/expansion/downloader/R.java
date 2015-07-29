@@ -11,13 +11,13 @@ public final class R {
 		public static final int notify_panel_notification_icon_bg = 0x7f020065;
 	}
 	public static final class id {
-		public static final int appIcon = 0x7f0a0056;
-		public static final int description = 0x7f0a005b;
-		public static final int notificationLayout = 0x7f0a0055;
-		public static final int progress_bar = 0x7f0a005a;
-		public static final int progress_bar_frame = 0x7f0a0059;
-		public static final int progress_text = 0x7f0a0057;
-		public static final int time_remaining = 0x7f0a0058;
+		public static final int appIcon = 0x7f0a0058;
+		public static final int description = 0x7f0a005d;
+		public static final int notificationLayout = 0x7f0a0057;
+		public static final int progress_bar = 0x7f0a005c;
+		public static final int progress_bar_frame = 0x7f0a005b;
+		public static final int progress_text = 0x7f0a0059;
+		public static final int time_remaining = 0x7f0a005a;
 		public static final int title = 0x7f0a002f;
 	}
 	public static final class layout {

@@ -27,6 +27,8 @@ package com.gnuroot.debian;
 import com.gnuroot.library.GNURootCoreActivity;
 import com.gnuroot.debian.R;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -41,7 +43,8 @@ public class GNURootInstallFragment extends Fragment {
 
 	ListView listView;
 	ArrayAdapter<String> adapter;
-	Button button;
+	Button launchButton;
+	Button patchButton;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,13 +53,35 @@ public class GNURootInstallFragment extends Fragment {
 		View fragmentView = inflater.inflate(R.layout.fragment_install, container, false);
 		
 		if (getActivity() != null) {
-	        button = (Button) fragmentView.findViewById(R.id.install_button);
-	        button.setOnClickListener(new OnClickListener()
+	        launchButton = (Button) fragmentView.findViewById(R.id.install_button);
+	        launchButton.setOnClickListener(new OnClickListener()
 	        {
 	            @Override
 	            public void onClick(View view)
 	            {
-	            	((GNURootMain)getActivity()).installRootfs();
+	            	new AlertDialog.Builder((GNURootMain)getActivity())
+	                .setIcon(android.R.drawable.ic_dialog_alert)
+	                .setTitle("Confirm Install")
+	                .setMessage("This will delete any previous installation. Are you sure you want to do this?")
+	                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+	                    @Override
+	                    public void onClick(DialogInterface dialog, int which) {
+	                    	((GNURootMain)getActivity()).installRootfs();    
+	                    }
+
+	                })
+	                .setNegativeButton("No", null)
+	                .show();
+	            }
+	        });
+	        patchButton = (Button) fragmentView.findViewById(R.id.patch_button);
+	        patchButton.setOnClickListener(new OnClickListener()
+	        {
+	            @Override
+	            public void onClick(View view)
+	            {
+	            	((GNURootMain)getActivity()).installPatches();    
 	            }
 	        });
 		}

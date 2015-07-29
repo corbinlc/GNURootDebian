@@ -107,6 +107,7 @@ public class GNURootService extends IntentService {
 		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
 		termIntent.putExtra("jackpal.androidterm.iInitialCommand", scriptStr);
+		//termIntent.putExtra("jackpal.androidterm.iInitialCommand", "/data/data/com.gnuroot.debian/support/busybox sh");
 		startActivity(termIntent);
 		resultIntent.putExtra("resultCode", status);
 		sendBroadcast(resultIntent);

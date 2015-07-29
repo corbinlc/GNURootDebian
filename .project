@@ -34,12 +34,12 @@
 		<link>
 			<name>assets</name>
 			<type>2</type>
-			<location>C:/Users/champioc/workspace_droid/GNURootDebian/assets_armel</location>
+			<location>C:/Users/champioc/workspace_droid/GNURootDebian/assets_i386</location>
 		</link>
 		<link>
 			<name>libs</name>
 			<type>2</type>
-			<location>C:/Users/champioc/workspace_droid/GNURootDebian/libs_armel</location>
+			<location>C:/Users/champioc/workspace_droid/GNURootDebian/libs_i386</location>
 		</link>
 	</linkedResources>
 </projectDescription>

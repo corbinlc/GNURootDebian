@@ -143,6 +143,7 @@ public class GNURootMain extends GNURootCoreActivity {
 		Thread t = new Thread() { 
 			public void run() {
 				try {
+					setupSupportFiles();
 					setupFirstHalf();
 				} catch (Exception e) {
 					pdRing.dismiss();
@@ -151,6 +152,76 @@ public class GNURootMain extends GNURootCoreActivity {
 			}
 		};
 		t.start();
+	}
+
+	public void installPatches() {
+		pdRing = ProgressDialog.show(GNURootMain.this, "Patching GNURoot " + rootfsName, "This may take some time.",true);
+		pdRing.setCancelable(false);
+		Thread t = new Thread() { 
+			public void run() {
+				try {
+					setupSupportFiles();
+					//in the future, install some patch scripts probably
+					pdRing.dismiss();
+				} catch (Exception e) {
+					pdRing.dismiss();
+					Toast.makeText(GNURootMain.this, "Patching GNURoot " + rootfsName + " failed.  Something went wrong.", Toast.LENGTH_LONG).show();
+				}
+			}
+		};
+		t.start();
+	}
+
+	public void setupSupportFiles() {
+		File installDir = getInstallDir();
+		File sdcardInstallDir = getSdcardInstallDir();
+		
+		//create directory for support executables and scripts
+		File tempFile = new File(installDir.getAbsolutePath() + "/support");
+		if (!tempFile.exists()) {
+			tempFile.mkdir();
+		}
+		
+		//copy bare necessities to the now created support directory
+		copyAssets("com.gnuroot.debian");
+
+		String shadowOption = " ";
+		String linkOption = " ";
+
+		//create a script for running a command in proot
+		tempFile = new File(installDir.getAbsolutePath() + "/support/launchProot");
+		if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.KITKAT) {
+			linkOption = " -l ";
+			shadowOption = ((CheckBox) findViewById(R.id.sdcard_checkbox)).isChecked() ? " -n " : " ";
+		}
+		writeToFile("#!" + installDir.getAbsolutePath()+"/support/busybox sh\n" +
+				installDir.getAbsolutePath()+"/support/busybox clear\n" +
+				"\nblue='\\033[0;34m'; NC='\\033[0m'; echo -e \"${blue}Sponsored by: \"\n" +
+				"echo \"                                          \"\n" +
+				"echo \" _____                   _                \"\n" +
+				"echo \"|_   _| ___  ___  ___  _| | _ _  ___  ___ \"\n" +
+				"echo \"  | |  | -_||  _|| . || . || | ||   || -_|\"\n" +
+				"echo \"  |_|  |___||_|  |__,||___||_  ||_|_||___|\"\n" +
+				"echo \"                           |___|          \"\n" +
+				"echo -e \"${NC}\"\n" +
+				"LD_PRELOAD=/support/libdisableselinux.so PROOT_TMP_DIR=" + installDir.getAbsolutePath() + "/support/ " + installDir.getAbsolutePath() + "/support/proot -r " + installDir.getAbsolutePath() + "/debian -v -1 -H " + linkOption + shadowOption + "-0 -b /sys -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/.proot.noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard -b " + installDir.getAbsolutePath() + "/support/:/support $@", tempFile);
+		//"LD_PRELOAD= PROOT_FORCE_FOREIGN_BINARY=1 PROOT_TMP_DIR=" + installDir.getAbsolutePath() + "/support/ " + installDir.getAbsolutePath() + "/support/proot -r " + installDir.getAbsolutePath() + "/debian -q " + installDir.getAbsolutePath() + "/support/qemu -v 5 -H -l" + shadowOption + "-0 -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/.proot.noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard -b " + installDir.getAbsolutePath() + "/support/:/support $@", tempFile);
+		//"LD_PRELOAD= PROOT_TMP_DIR=" + installDir.getAbsolutePath() + "/support/ PROOT_LOADER=" + installDir.getAbsolutePath() + "/support/loader " + installDir.getAbsolutePath() + "/support/proot -r " + installDir.getAbsolutePath() + "/debian -v -1 -H -l" + shadowOption + "-0 -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/.proot.noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard -b " + installDir.getAbsolutePath() + "/support/:/support $@", tempFile);
+		exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
+
+		//create a script for untaring a file
+		tempFile = new File(installDir.getAbsolutePath() + "/support/untargz");
+		writeToFile("#!/support/busybox sh\n" +
+				"/support/busybox tar -xzvf /host-rootfs/$2\n" +
+				"if [[ $? == 0 ]]; then touch " + installDir.getAbsolutePath() + "/support/.$1_passed; else read -rsp $'An error occurred, please try again and if it persists provide this log to the deveolper.\\nPress any key to close...\\n' -n1 key; touch /support/.$1_failed; fi", tempFile);
+		exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
+
+		//create a script for installing packages
+		tempFile = new File(installDir.getAbsolutePath() + "/support/installPackages");
+		writeToFile("#!/bin/bash\napt-get update\n" +
+				"DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install ${@:2}\n" + 
+				"if [[ $? == 0 ]]; then touch /support/.$1_passed; apt-get clean; else read -rsp $'An error occurred, please try again and if it persists provide this log to the deveolper.\\nPress any key to close...\\n' -n1 key; touch /support/.$1_failed; fi", tempFile); 
+		exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
 	}
 
 	private void setupFirstHalf() {
@@ -238,7 +309,7 @@ public class GNURootMain extends GNURootCoreActivity {
 		if (!tempFile.exists()) {
 			tempFile.mkdir();
 		}
-		
+
 		tempFile = new File(installDir.getAbsolutePath()+"/debian/dev");
 		if (!tempFile.exists()) {
 			tempFile.mkdir();
@@ -248,13 +319,19 @@ public class GNURootMain extends GNURootCoreActivity {
 		if (!tempFile.exists()) {
 			tempFile.mkdir();
 		}
-		
+
 		tempFile = new File(installDir.getAbsolutePath()+"/debian/mnt");
 		if (!tempFile.exists()) {
 			tempFile.mkdir();
 		}
-		
+
 		tempFile = new File(installDir.getAbsolutePath()+"/debian/data");
+		if (!tempFile.exists()) {
+			tempFile.mkdir();
+		}
+
+
+		tempFile = new File(installDir.getAbsolutePath()+"/debian/sys");
 		if (!tempFile.exists()) {
 			tempFile.mkdir();
 		}
@@ -270,7 +347,7 @@ public class GNURootMain extends GNURootCoreActivity {
 		if (!tempFile.exists()) {
 			tempFile.mkdir();
 		}
-		
+
 		//create a directory for firing intents from
 		tempFile = new File(installDir.getAbsolutePath()+"/debian/intents");
 		if (!tempFile.exists()) {
@@ -282,47 +359,6 @@ public class GNURootMain extends GNURootCoreActivity {
 		if (!tempFile.exists()) {
 			tempFile.mkdir();
 		}
-
-		//create directory for support executables and scripts
-		tempFile = new File(installDir.getAbsolutePath() + "/support");
-		if (!tempFile.exists()) {
-			tempFile.mkdir();
-		}
-
-		//copy bare necessities to the now created support directory
-		copyAssets("com.gnuroot.debian");
-		
-		String shadowOption = ((CheckBox) findViewById(R.id.sdcard_checkbox)).isChecked() ? " -n " : " ";
-		
-		//create a script for running a command in proot
-		tempFile = new File(installDir.getAbsolutePath() + "/support/launchProot");
-		writeToFile("#! " + installDir.getAbsolutePath()+"/support/busybox sh\n" +
-					installDir.getAbsolutePath()+"/support/busybox clear\n" +
-					"\nblue='\\033[0;34m'; NC='\\033[0m'; echo -e \"${blue}Sponsored by: \"\n" +
-					"echo \"                                          \"\n" +
-					"echo \" _____                   _                \"\n" +
-					"echo \"|_   _| ___  ___  ___  _| | _ _  ___  ___ \"\n" +
-					"echo \"  | |  | -_||  _|| . || . || | ||   || -_|\"\n" +
-					"echo \"  |_|  |___||_|  |__,||___||_  ||_|_||___|\"\n" +
-					"echo \"                           |___|          \"\n" +
-					"echo -e \"${NC}\"\n" +
-					"LD_PRELOAD= PROOT_TMP_DIR=" + installDir.getAbsolutePath() + "/support/ " + installDir.getAbsolutePath() + "/support/proot -r " + installDir.getAbsolutePath() + "/debian -v -1 -H -l" + shadowOption + "-0 -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/.proot.noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard -b " + installDir.getAbsolutePath() + "/support/:/support $@", tempFile);
-					//"LD_PRELOAD= PROOT_TMP_DIR=" + installDir.getAbsolutePath() + "/support/ PROOT_LOADER=" + installDir.getAbsolutePath() + "/support/loader " + installDir.getAbsolutePath() + "/support/proot -r " + installDir.getAbsolutePath() + "/debian -v -1 -H -l" + shadowOption + "-0 -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/.proot.noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard -b " + installDir.getAbsolutePath() + "/support/:/support $@", tempFile);
-		exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
-
-		//create a script for untaring a file
-		tempFile = new File(installDir.getAbsolutePath() + "/support/untargz");
-		writeToFile("#!/support/busybox sh\n" +
-				"/support/busybox tar -xzvf /host-rootfs/$2\n" + 
-				"if [[ $? == 0 ]]; then touch /support/.$1_passed; else touch /support/.$1_failed; fi", tempFile); 
-		exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
-
-		//create a script for installing packages
-		tempFile = new File(installDir.getAbsolutePath() + "/support/installPackages");
-		writeToFile("#!/bin/bash\napt-get update\n" +
-				"DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install ${@:2}\n" + 
-				"if [[ $? == 0 ]]; then touch /support/.$1_passed; apt-get clean; else touch /support/.$1_failed; fi", tempFile); 
-		exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
 
 		//unpack the .obb file
 		GNURootMain.this.runOnUiThread(new Runnable() {
@@ -340,11 +376,11 @@ public class GNURootMain extends GNURootCoreActivity {
 		if (fileOrDirectory.isDirectory())
 			for (File child : fileOrDirectory.listFiles())
 				deleteRecursive(child);
-		
+
 		fileOrDirectory.delete();
-		
+
 	}
-	
+
 
 	private void copyAssets(String packageName) {
 		Context friendContext = null;

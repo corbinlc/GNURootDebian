@@ -111,7 +111,7 @@ public class GNURootDownloaderActivity extends Activity implements IDownloaderCl
     private static final XAPKFile[] xAPKS = {
             new XAPKFile(
                     true, // true signifies a main file
-                    9 // the version of the APK that the file was originally uploaded against
+                    11 // the version of the APK that the file was originally uploaded against
             ),
     };
 
