@@ -1,2 +1,0 @@
-set solib-search-path /home/corbin/StudioProjects/Term/Term/build/intermediates/binaries/debug/lib/mips
-directory /home/corbin/android-ndk-r10e/platforms/android-19/arch-mips/usr/include /home/corbin/StudioProjects/Term/Term/src/debug/jni /home/corbin/android-ndk-r10e/sources/cxx-stl/system/include /home/corbin/StudioProjects/Term/Term/src/jackpal-androidterm4/c /home/corbin/StudioProjects/Term/Term/src/jackpal-androidterm4/cpp /home/corbin/StudioProjects/Term/Term/src/main/jni

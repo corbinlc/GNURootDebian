@@ -1,8 +1,0 @@
-See file:///home/corbin/StudioProjects/Term/Term/build/tmp/compileX86DebugJackpal-androidterm4SharedLibraryJackpal-androidterm4MainCpp/output.txt for all output for compileX86DebugJackpal-androidterm4SharedLibraryJackpal-androidterm4MainCpp.
-compiling termExec.cpp successful.
-
-compiling fileCompat.cpp successful.
-
-compiling common.cpp successful.
-
-Finished compileX86DebugJackpal-androidterm4SharedLibraryJackpal-androidterm4MainCpp, see full log file:///home/corbin/StudioProjects/Term/Term/build/tmp/compileX86DebugJackpal-androidterm4SharedLibraryJackpal-androidterm4MainCpp/output.txt.

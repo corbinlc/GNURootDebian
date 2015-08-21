@@ -1,8 +1,0 @@
-See file:///home/corbin/StudioProjects/Term/Term/build/tmp/compileArmeabi-v7aDebugJackpal-androidterm4SharedLibraryJackpal-androidterm4MainCpp/output.txt for all output for compileArmeabi-v7aDebugJackpal-androidterm4SharedLibraryJackpal-androidterm4MainCpp.
-compiling termExec.cpp successful.
-
-compiling fileCompat.cpp successful.
-
-compiling common.cpp successful.
-
-Finished compileArmeabi-v7aDebugJackpal-androidterm4SharedLibraryJackpal-androidterm4MainCpp, see full log file:///home/corbin/StudioProjects/Term/Term/build/tmp/compileArmeabi-v7aDebugJackpal-androidterm4SharedLibraryJackpal-androidterm4MainCpp/output.txt.

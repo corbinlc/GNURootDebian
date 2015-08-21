@@ -1,4 +1,0 @@
-See file:///home/corbin/StudioProjects/Term/Term/build/tmp/linkMipsDebugJackpal-androidterm4SharedLibrary/output.txt for all output for linkMipsDebugJackpal-androidterm4SharedLibrary.
-linking libjackpal-androidterm4.so successful.
-
-Finished linkMipsDebugJackpal-androidterm4SharedLibrary, see full log file:///home/corbin/StudioProjects/Term/Term/build/tmp/linkMipsDebugJackpal-androidterm4SharedLibrary/output.txt.

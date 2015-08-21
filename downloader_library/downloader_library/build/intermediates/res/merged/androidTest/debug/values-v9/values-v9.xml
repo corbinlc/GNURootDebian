@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- From: file:/home/corbin/StudioProjects/downloader_library/downloader_library/build/intermediates/bundles/debug/res/values-v9/values-v9.xml -->
-    <eat-comment/>
-    <style name="NotificationText" parent="android:TextAppearance.StatusBar.EventContent"/>
-    <style name="NotificationTitle" parent="android:TextAppearance.StatusBar.EventContent.Title"/>
-</resources>

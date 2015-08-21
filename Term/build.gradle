@@ -1,15 +1,32 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-    repositories {
-        jcenter()
+apply plugin: 'com.android.model.library'
+
+model {
+    android {
+        compileSdkVersion = 19
+        buildToolsVersion = "22.0.1"
+
+        defaultConfig.with {
+            applicationId = "jackpal.androidterm"
+            minSdkVersion.apiLevel = 7
+            targetSdkVersion.apiLevel = 19
+        }
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle-experimental:0.2.0'
+
+    android.ndk {
+        moduleName = "jackpal-androidterm4"
+        ldLibs += "log"
+        ldLibs += "dl"
+    }
+
+    android.buildTypes {
+        release {
+            minifyEnabled = false
+            proguardFiles += file('proguard-rules.pro')
+        }
     }
 }
 
-allprojects {
-    repositories {
-        jcenter()
-    }
+dependencies {
+    compile project(':emulatorview')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 }

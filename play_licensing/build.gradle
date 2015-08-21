@@ -1,15 +1,19 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle-experimental:0.2.0'
-    }
-}
+apply plugin: 'com.android.model.library'
+model {
+    android {
+        compileSdkVersion = 15
+        buildToolsVersion = "22.0.1"
 
-allprojects {
-    repositories {
-        jcenter()
+        defaultConfig.with {
+            minSdkVersion.apiLevel = 3
+            targetSdkVersion.apiLevel = 15
+        }
+    }
+
+    android.buildTypes {
+        release {
+            minifyEnabled = false
+            proguardFiles += file('proguard-rules.pro')
+        }
     }
 }

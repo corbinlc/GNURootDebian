@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- From: file:/home/corbin/StudioProjects/downloader_library/downloader_library/build/intermediates/bundles/debug/res/values-v11/values-v11.xml -->
-    <eat-comment/>
-    <style name="NotificationTextSecondary" parent="NotificationText">
-        <item name="android:textSize">12sp</item>
-    </style>
-</resources>
