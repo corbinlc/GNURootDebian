@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ATE.iml" filepath="$PROJECT_DIR$/ATE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ATE/ATE-ATE.iml" filepath="$PROJECT_DIR$/ATE/ATE-ATE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/emulatorview/emulatorview.iml" filepath="$PROJECT_DIR$/emulatorview/emulatorview.iml" />
+    </modules>
+  </component>
+</project>

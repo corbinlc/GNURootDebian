@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/Term/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="89825455f32f5c139582fe541ab29efbb558a79b">
+        <dex dex="/home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/pre-dexed/debug/classes-2c94d8308be78c2881ba485d60386d923476c18d.jar" />
+    </item>
+    <item
+        jar="/home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/downloader_library/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="b5010c20eb9c9d774453979610e877ac4eef7e47">
+        <dex dex="/home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/pre-dexed/debug/classes-ed7d30136b99bbc4047541e86a93074cfda189d8.jar" />
+    </item>
+    <item
+        jar="/home/corbin/Android/Sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="/home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/pre-dexed/debug/support-v4-19.1.0-f1c9a0910c9fa1c566be32455df8abb4b1956da8.jar" />
+    </item>
+    <item
+        jar="/home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/play_licensing/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="bc4c772de9b2a63c1db95c89a2a0d7fa79c3cba8">
+        <dex dex="/home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/pre-dexed/debug/classes-76e3e301a8fa599a4692f158e15327d01023b928.jar" />
+    </item>
+    <item
+        jar="/home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28">
+        <dex dex="/home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/pre-dexed/debug/classes-c88198c1bf2b271610c26ad3a682cea7196f36ba.jar" />
+    </item>
+    <item
+        jar="/home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/GNURootLibrarySource/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="16738533e9dd8028617d5984586ddc09dddbe73a">
+        <dex dex="/home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/pre-dexed/debug/classes-f88508445b183b5e8a687bf5c0f879288158a92e.jar" />
+    </item>
+    <item
+        jar="/home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/emulatorview/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ebc06f8345b45899dc370f8c1a1e752533ec6eb0">
+        <dex dex="/home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/pre-dexed/debug/classes-87698942e0a891fb83a019fde79e8a97920cfcd1.jar" />
+    </item>
+
+</items>

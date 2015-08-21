@@ -1,0 +1,2 @@
+set solib-search-path /home/corbin/StudioProjects/ATE/ATE/build/intermediates/binaries/debug/lib/armeabi
+directory /home/corbin/android-ndk-r10e/platforms/android-9/arch-arm/usr/include /home/corbin/StudioProjects/ATE/ATE/src/jackpal-androidterm4/c /home/corbin/StudioProjects/ATE/ATE/src/main/jni /home/corbin/StudioProjects/ATE/ATE/src/jackpal-androidterm4/cpp /home/corbin/android-ndk-r10e/sources/cxx-stl/system/include /home/corbin/StudioProjects/ATE/ATE/src/debug/jni

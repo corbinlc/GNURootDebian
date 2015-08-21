@@ -1,0 +1,8 @@
+See file:///home/corbin/StudioProjects/ATE/ATE/build/tmp/compileMipsDebugJackpal-androidterm4SharedLibraryJackpal-androidterm4MainCpp/output.txt for all output for compileMipsDebugJackpal-androidterm4SharedLibraryJackpal-androidterm4MainCpp.
+compiling termExec.cpp successful.
+
+compiling fileCompat.cpp successful.
+
+compiling common.cpp successful.
+
+Finished compileMipsDebugJackpal-androidterm4SharedLibraryJackpal-androidterm4MainCpp, see full log file:///home/corbin/StudioProjects/ATE/ATE/build/tmp/compileMipsDebugJackpal-androidterm4SharedLibraryJackpal-androidterm4MainCpp/output.txt.

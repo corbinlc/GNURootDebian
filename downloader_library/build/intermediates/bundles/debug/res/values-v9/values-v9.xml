@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/corbin/StudioProjects/GNURootDebian/downloader_library/src/main/res/values-v9/styles.xml -->
+    <eat-comment/>
+    <style name="NotificationText" parent="android:TextAppearance.StatusBar.EventContent"/>
+    <style name="NotificationTitle" parent="android:TextAppearance.StatusBar.EventContent.Title"/>
+</resources>

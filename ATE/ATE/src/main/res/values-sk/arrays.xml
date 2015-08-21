@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (C) 2007 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+
+<resources>
+  <string-array name="entries_statusbar_preference">
+    <item>Zobraziť stavový riadok</item>
+    <item>Skryť stavový riadok</item>
+  </string-array>
+
+  <string-array name="entries_actionbar_preference">
+      <item>Vždy zobraziť panel akcií</item>
+      <item>Skryť panel akcií (pre zobrazenie sa dotknite vrchu obrazovky alebo tlačidla Ponuka)</item>
+  </string-array>
+
+  <string-array name="entries_cursorblink_preference">
+    <item>Neblikajúci kurzor</item>
+    <item>Blikajúci kurzor</item>
+  </string-array>
+  
+  <string-array name="entries_orientation_preference">
+        <item>Automatická</item>
+        <item>Na šírku</item>
+        <item>Na výšku</item>
+  </string-array>
+
+  <string-array name="entries_cursorstyle_preference">
+    <item>Obdĺžnikový</item>
+    <item>Podčiarknutý</item>
+    <item>Zvislá čiara</item>
+  </string-array>
+
+  <string-array name="entries_fontsize_preference">
+    <item>4 x 8 pixelov</item>
+    <item>6 bodov</item>
+    <item>7 bodov</item>
+    <item>8 bodov</item>
+    <item>9 bodov</item>
+    <item>10 bodov</item>
+    <item>12 bodov</item>
+    <item>14 bodov</item>
+    <item>16 bodov</item>
+    <item>20 bodov</item>
+    <item>24 bodov</item>
+    <item>28 bodov</item>
+    <item>32 bodov</item>
+    <item>36 bodov</item>
+    <item>42 bodov</item>
+    <item>48 bodov</item>
+    <item>64 bodov</item>
+    <item>72 bodov</item>
+    <item>96 bodov</item>
+    <item>144 bodov</item>
+    <item>288 bodov</item>
+  </string-array>
+
+  <string-array name="entries_color_preference">
+    <item>Čierny text na bbielom</item>
+    <item>Biely text na čiernom</item>
+    <item>Biely text na modrom</item>
+    <item>Zelený text na čiernom</item>
+    <item>Jantárový text na čiernom</item>
+    <item>Červený text na čiernom</item>
+    <item>Holo modrý text na čiernom</item>
+    <item>Solarizovaná svetlá</item>
+    <item>Solarizovaná tmavá</item>
+    <item>Linuxová konzola</item>
+  </string-array>
+
+  <string-array name="entries_backaction_preference">
+      <item>Zavrieť všetky okná terminálu</item>
+      <item>Zavrieť iba aktuálne okno terminálu</item>
+      <item>Zavrieť aktivitu, ponechať reláciu bežiacou</item>
+      <item>Odoslať ESC do terminálu</item>
+      <item>Odoslať TAB do terminálu</item>
+  </string-array>
+
+  <string-array name="entries_controlkey_preference">
+    <item>Gulička</item>
+    <item>Kláves \@</item>
+    <item>Kláves Ľavý Alt</item>
+    <item>Kláves Pravý Alt</item>
+    <item>Kláves Hlasitosť+</item>
+    <item>Kláves Hlasitosť-</item>
+    <item>Kláves Fotoaparát</item>
+    <item>Žiadny</item>
+  </string-array>
+
+  <string-array name="entries_fnkey_preference">
+    <item>Gulička</item>
+    <item>Kláves \@</item>
+    <item>Kláves Ľavý Alt</item>
+    <item>Kláves Pravý Alt</item>
+    <item>Kláves Hlasitosť+</item>
+    <item>Kláves Hlasitosť-</item>
+    <item>Kláves Fotoaparát</item>
+    <item>Žiadny</item>
+  </string-array>
+
+  <string-array name="entries_ime_preference">
+    <item>Po znakoch</item>
+    <item>Po slovách</item>
+  </string-array>
+
+  <!-- These are the 'short' names for the control keys. They are used in the special keys dialog. -->
+  <string-array name="control_keys_short_names">
+    <item>Gulička</item>
+    <item>\@</item>
+    <item>Ľavý Alt</item>
+    <item>Pravý Alt</item>
+    <item>Hlasitosť+</item>
+    <item>Hlasitosť-</item>
+    <item>Fotoaparát</item>
+    <item>Žiadny</item>
+  </string-array>
+
+  <!-- These are the 'short' names for the Fn keys. They are used in the special keys dialog. -->
+  <string-array name="fn_keys_short_names">
+    <item>Gulička</item>
+    <item>\@</item>
+    <item>Ľavý Alt</item>
+    <item>Pravý Alt</item>
+    <item>Hlasitosť+</item>
+    <item>Hlasitosť-</item>
+    <item>Fotoaparát</item>
+    <item>Žiadny</item>
+  </string-array>
+</resources>

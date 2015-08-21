@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/corbin/StudioProjects/ATE/ATE/build/intermediates/exploded-aar/ATE/emulatorview/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9bba90907f2b57915ce83cb79ded3a9395862988">
+        <dex dex="/home/corbin/StudioProjects/ATE/ATE/build/intermediates/pre-dexed/debug/classes-d8fb8b50f0af2fa34364db2f18a6194eb450be71.jar" />
+    </item>
+
+</items>

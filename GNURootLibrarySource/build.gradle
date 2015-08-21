@@ -1,0 +1,25 @@
+apply plugin: 'com.android.model.library'
+
+model {
+    android {
+        compileSdkVersion = 19
+        buildToolsVersion = "22.0.1"
+
+        defaultConfig.with {
+            minSdkVersion.apiLevel = 7
+            targetSdkVersion.apiLevel = 19
+        }
+    }
+
+    android.buildTypes {
+        release {
+            minifyEnabled = false
+            proguardFiles += file('proguard-rules.pro')
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:19.1.0'
+    compile 'com.android.support:appcompat-v7:19.1.0'
+}

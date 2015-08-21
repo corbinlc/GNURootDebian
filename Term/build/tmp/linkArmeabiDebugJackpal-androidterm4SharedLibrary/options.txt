@@ -1,0 +1,16 @@
+-shared
+-Wl,-soname,libjackpal-androidterm4.so
+-o
+/home/corbin/StudioProjects/GNURootDebian/Term/build/intermediates/binaries/debug/obj/armeabi/libjackpal-androidterm4.so
+/home/corbin/StudioProjects/GNURootDebian/Term/build/intermediates/objectFiles/armeabiDebugJackpal-androidterm4SharedLibrary/jackpal-androidterm4MainCpp/bbjt162gec6erz4y8ha2957gn/common.o
+/home/corbin/StudioProjects/GNURootDebian/Term/build/intermediates/objectFiles/armeabiDebugJackpal-androidterm4SharedLibrary/jackpal-androidterm4MainCpp/2g4mcj3n3q8y9qqlwtghgusrc/fileCompat.o
+/home/corbin/StudioProjects/GNURootDebian/Term/build/intermediates/objectFiles/armeabiDebugJackpal-androidterm4SharedLibrary/jackpal-androidterm4MainCpp/3myl2zi7etoogiapl072zrist/termExec.o
+-Wl,--no-undefined
+-Wl,-z,noexecstack
+-Wl,-z,relro
+-Wl,-z,now
+--sysroot=/home/corbin/android-ndk-r10e/platforms/android-19/arch-arm
+-Wl,--build-id
+-no-canonical-prefixes
+-llog
+-ldl

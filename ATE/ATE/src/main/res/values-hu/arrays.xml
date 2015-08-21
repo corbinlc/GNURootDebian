@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (C) 2007 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+
+<resources>
+    <string-array name="entries_statusbar_preference">
+        <item>Megjelenítés</item>
+        <item>Elrejtés</item>
+    </string-array>
+
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Akciósáv letiltva</item> -->
+        <item>Mindig jelenjen meg</item>
+        <item>Elrejtés (a megjelenítéshez érintsd meg a képernyő tetejét vagy a menü gombot)</item>
+    </string-array>
+
+    <string-array name="entries_orientation_preference">
+        <item>Automatikus</item>
+        <item>Fekvő</item>
+        <item>Álló</item>
+    </string-array>
+
+    <string-array name="entries_cursorblink_preference">
+        <item>Statikus kurzor</item>
+        <item>Villogó kurzor</item>
+    </string-array>
+
+    <string-array name="entries_cursorstyle_preference">
+        <item>Téglalap</item>
+        <item>Aláhúzás</item>
+        <item>Függőleges</item>
+    </string-array>
+
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 képpont</item>
+        <item>6 pt</item>
+        <item>7 pt</item>
+        <item>8 pt</item>
+        <item>9 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>20 pt</item>
+        <item>24 pt</item>
+        <item>28 pt</item>
+        <item>32 pt</item>
+        <item>36 pt</item>
+        <item>42 pt</item>
+        <item>48 pt</item>
+        <item>64 pt</item>
+        <item>72 pt</item>
+        <item>96 pt</item>
+        <item>144 pt</item>
+        <item>288 pt</item>
+    </string-array>
+
+    <string-array name="entries_color_preference">
+        <item>Fekete szöveg, fehér háttér</item>
+        <item>Fehér szöveg, fekete háttér</item>
+        <item>Fehér szöveg, kék háttér</item>
+        <item>Zöld szöveg, fekete háttér</item>
+        <item>Sárga szöveg, fekete háttér</item>
+        <item>Piros szöveg, fekete háttér</item>
+        <item>Holo kék szöveg, fekete háttér</item>
+        <item>Solarized világos</item>
+        <item>Solarized sötét</item>
+        <item>Linux konzol</item>
+    </string-array>
+
+    <string-array name="entries_backaction_preference">
+        <item>Bezárja az összes terminál ablakot</item>
+        <item>Bezárja az aktív terminál ablakot</item>
+        <item>Kilép a programból, de a munkamenetből nem</item>
+        <item>ESC-et küld a terminálra</item>
+        <item>TAB-ot küld a terminálra</item>
+    </string-array>
+
+    <string-array name="entries_controlkey_preference">
+        <item>Görgő</item>
+        <item>\@ billentyű</item>
+        <item>Bal Alt billentyű</item>
+        <item>Jobb Alt billentyű</item>
+        <item>Hangerő fel gomb</item>
+        <item>Hangerő le gomb</item>
+        <item>Kamera gomb</item>
+        <item>Nincs</item>
+    </string-array>
+
+    <string-array name="entries_fnkey_preference">
+        <item>Görgő</item>
+        <item>\@ billentyű</item>
+        <item>Bal Alt billentyű</item>
+        <item>Jobb Alt billentyű</item>
+        <item>Hangerő fel gomb</item>
+        <item>Hangerő le gomb</item>
+        <item>Kamera gomb</item>
+        <item>Nincs</item>
+    </string-array>
+
+    <string-array name="entries_ime_preference">
+        <item>Karakterenkénti bevitel</item>
+        <item>Szavankénti bevitel</item>
+    </string-array>
+
+    <!-- These are the 'short' names for the control keys. They are used in the special keys dialog. -->
+    <string-array name="control_keys_short_names">
+        <item>Görgő</item>
+        <item>\@</item>
+        <item>Bal-Alt</item>
+        <item>Jobb-Alt</item>
+        <item>Hangerő-fel</item>
+        <item>Hangerő-le</item>
+        <item>Kamera</item>
+        <item>Nincs</item>
+    </string-array>
+
+    <!-- These are the 'short' names for the Fn keys. They are used in the special keys dialog. -->
+    <string-array name="fn_keys_short_names">
+        <item>Görgő</item>
+        <item>\@</item>
+        <item>Bal-Alt</item>
+        <item>Jobb-Alt</item>
+        <item>Hangerő-fel</item>
+        <item>Hangerő-le</item>
+        <item>Kamera</item>
+        <item>Nincs</item>
+    </string-array>
+
+</resources>

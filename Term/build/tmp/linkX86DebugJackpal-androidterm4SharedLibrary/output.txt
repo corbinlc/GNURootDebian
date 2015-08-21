@@ -1,0 +1,4 @@
+See file:///home/corbin/StudioProjects/GNURootDebian/Term/build/tmp/linkX86DebugJackpal-androidterm4SharedLibrary/output.txt for all output for linkX86DebugJackpal-androidterm4SharedLibrary.
+linking libjackpal-androidterm4.so successful.
+
+Finished linkX86DebugJackpal-androidterm4SharedLibrary, see full log file:///home/corbin/StudioProjects/GNURootDebian/Term/build/tmp/linkX86DebugJackpal-androidterm4SharedLibrary/output.txt.
