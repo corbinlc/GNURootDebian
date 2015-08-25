@@ -33,7 +33,7 @@ ADDED from /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/src/mai
 		ADDED from /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/src/main/AndroidManifest.xml:10:23-50
 uses-sdk
 ADDED from /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/src/main/AndroidManifest.xml:15:5-17:41
-MERGED from [GNURootDebian:GNURootLibrarySource:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/GNURootLibrarySource/unspecified/AndroidManifest.xml:7:5-9:41
+MERGED from [GNURootDebian:GNURootLibrary:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/GNURootLibrary/unspecified/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:19.1.0] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/AndroidManifest.xml:18:5-42
 MERGED from [GNURootDebian:downloader_library:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/downloader_library/unspecified/AndroidManifest.xml:7:5-9:41
 MERGED from [GNURootDebian:play_licensing:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/play_licensing/unspecified/AndroidManifest.xml:21:5-23:41
@@ -85,25 +85,25 @@ ADDED from /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/src/mai
 		ADDED from /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/src/main/AndroidManifest.xml:26:22-73
 application
 ADDED from /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/src/main/AndroidManifest.xml:28:5-120:19
-MERGED from [GNURootDebian:GNURootLibrarySource:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/GNURootLibrarySource/unspecified/AndroidManifest.xml:11:5-15:19
+MERGED from [GNURootDebian:GNURootLibrary:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/GNURootLibrary/unspecified/AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support:appcompat-v7:19.1.0] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/AndroidManifest.xml:19:5-20
 MERGED from [GNURootDebian:Term:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/Term/unspecified/AndroidManifest.xml:41:5-154:19
 MERGED from [com.android.support:appcompat-v7:19.1.0] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/AndroidManifest.xml:19:5-20
 	android:label
 		ADDED from /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/src/main/AndroidManifest.xml:32:9-41
-		REJECTED from [GNURootDebian:GNURootLibrarySource:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/GNURootLibrarySource/unspecified/AndroidManifest.xml:13:9-41
+		REJECTED from [GNURootDebian:GNURootLibrary:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/GNURootLibrary/unspecified/AndroidManifest.xml:13:9-41
 		REJECTED from [GNURootDebian:Term:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/Term/unspecified/AndroidManifest.xml:44:9-53
 	android:allowBackup
 		ADDED from /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/src/main/AndroidManifest.xml:30:9-35
 	android:icon
 		ADDED from /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/src/main/AndroidManifest.xml:31:9-45
-		REJECTED from [GNURootDebian:GNURootLibrarySource:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/GNURootLibrarySource/unspecified/AndroidManifest.xml:12:9-45
+		REJECTED from [GNURootDebian:GNURootLibrary:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/GNURootLibrary/unspecified/AndroidManifest.xml:12:9-45
 		REJECTED from [GNURootDebian:Term:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/Term/unspecified/AndroidManifest.xml:43:9-45
 	android:hardwareAccelerated
 		ADDED from [GNURootDebian:Term:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/Term/unspecified/AndroidManifest.xml:42:9-43
 	android:theme
 		ADDED from /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/src/main/AndroidManifest.xml:33:9-47
-		REJECTED from [GNURootDebian:GNURootLibrarySource:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/GNURootLibrarySource/unspecified/AndroidManifest.xml:14:9-40
+		REJECTED from [GNURootDebian:GNURootLibrary:unspecified] /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/GNURootLibrary/unspecified/AndroidManifest.xml:14:9-40
 	tools:replace
 		ADDED from /home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/src/main/AndroidManifest.xml:29:9-67
 activity#com.gnuroot.debian.GNURootMain

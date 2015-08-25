@@ -1,1 +1,1 @@
-include ':GNURootDebianSource', ':GNURootLibrarySource', ':play_licensing', ':downloader_library', ':Term', ':emulatorview'
+include ':GNURootDebianSource', ':GNURootLibrary', ':play_licensing', ':downloader_library', ':Term', ':emulatorview'

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/GNURootLibrarySource/unspecified/res/values-v11/values-v11.xml -->
+    <!-- From: file:/home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/intermediates/exploded-aar/GNURootDebian/GNURootLibrary/unspecified/res/values-v11/values-v11.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
         <!-- API 11 theme customizations can go here. -->

@@ -27,7 +27,7 @@ model {
 }
 
 dependencies {
-    compile project(':GNURootLibrarySource')
+    compile project(':GNURootLibrary')
     compile project(':downloader_library')
     compile project(':Term')
     compile 'com.android.support:support-v4:19.1.0'

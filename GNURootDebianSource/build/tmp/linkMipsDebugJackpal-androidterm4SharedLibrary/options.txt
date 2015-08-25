@@ -9,7 +9,7 @@
 -Wl,-z,noexecstack
 -Wl,-z,relro
 -Wl,-z,now
---sysroot=/home/corbin/android-ndk-r10e/platforms/android-19/arch-mips
+--sysroot=/home/corbin/Android/Sdk/ndk-bundle/platforms/android-19/arch-mips
 -Wl,--build-id
 -no-canonical-prefixes
 -llog

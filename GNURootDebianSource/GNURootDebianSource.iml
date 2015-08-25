@@ -94,6 +94,6 @@
     <orderEntry type="library" exported="" name="support-v4-19.1.0" level="project" />
     <orderEntry type="module" module-name="Term" exported="" />
     <orderEntry type="module" module-name="downloader_library" exported="" />
-    <orderEntry type="module" module-name="GNURootLibrarySource" exported="" />
+    <orderEntry type="module" module-name="GNURootLibrary" exported="" />
   </component>
 </module>

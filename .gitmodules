@@ -1,0 +1,3 @@
+[submodule "GNURootLibrary"]
+	path = GNURootLibrary
+	url = git@github.com:corbinlc/GNURootLibrary.git

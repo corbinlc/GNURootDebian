@@ -6,7 +6,7 @@ c++
 -DANDROID_NDK
 -fno-rtti
 -fno-exceptions
---sysroot=/home/corbin/android-ndk-r10e/platforms/android-19/arch-arm
+--sysroot=/home/corbin/Android/Sdk/ndk-bundle/platforms/android-19/arch-arm
 -fpic
 -ffunction-sections
 -funwind-tables
@@ -26,4 +26,4 @@ c++
 -UNDEBUG
 -fno-omit-frame-pointer
 -fno-strict-aliasing
--I/home/corbin/android-ndk-r10e/sources/cxx-stl/system/include
+-I/home/corbin/Android/Sdk/ndk-bundle/sources/cxx-stl/system/include
