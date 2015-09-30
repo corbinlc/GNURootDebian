@@ -61,5 +61,21 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/patch_textview"
         android:text="@string/patch_button_text" />
+
+    <TextView
+        android:id="@+id/install_x_textview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/patch_button"
+        android:text="@string/install_x_textview_text" />
+
+    <Button
+        android:id="@+id/install_x_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/install_x_textview"
+        android:text="@string/install_x_button_text" />
           
 </RelativeLayout>

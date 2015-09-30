@@ -3,19 +3,13 @@ apply plugin: 'com.android.model.library'
 model {
     android {
         compileSdkVersion = 19
-        buildToolsVersion = "22.0.1"
+        buildToolsVersion = "23.0.1"
 
         defaultConfig.with {
             applicationId = "jackpal.androidterm"
             minSdkVersion.apiLevel = 7
             targetSdkVersion.apiLevel = 19
         }
-    }
-
-    android.ndk {
-        moduleName = "jackpal-androidterm4"
-        ldLibs += "log"
-        ldLibs += "dl"
     }
 
     android.buildTypes {

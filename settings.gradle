@@ -1,1 +1,4 @@
 include ':GNURootDebianSource', ':GNURootLibrary', ':play_licensing', ':downloader_library', ':Term', ':emulatorview'
+include ':pubkeyGenerator'
+include ':zoomerWithKeys'
+include ':bVNC'

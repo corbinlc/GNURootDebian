@@ -33,8 +33,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 
 import com.gnuroot.library.GNURootCoreActivity;
+
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBar.Tab;
 import android.app.ProgressDialog;
@@ -65,6 +69,7 @@ public class GNURootMain extends GNURootCoreActivity {
 	String rootfsName = "Debian";
 	Boolean errOcc;
 	Boolean expectingResult;
+    Boolean installingXStep1 = false;
 	ProgressDialog pdRing;
 	Integer downloadResultCode;
 	File mainFile;
@@ -109,8 +114,19 @@ public class GNURootMain extends GNURootCoreActivity {
 			}
 		});
 
+        onNewIntent(getIntent());
+
 		//TODO: set initial tab based on whether this has been installed previously
 	}
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        String action = intent.getAction();
+        if (action.equals("com.gnuroot.debian.NEW_WINDOW"))
+            launchTerm();
+        else if (action.equals("com.gnuroot.debian.NEW_XWINDOW"))
+            launchXTerm();
+    }
 
 	@Override
 	public void onTabReselected(Tab tab, FragmentTransaction ft) {
@@ -143,11 +159,15 @@ public class GNURootMain extends GNURootCoreActivity {
 		Thread t = new Thread() { 
 			public void run() {
 				try {
-					setupSupportFiles();
+					setupSupportFiles(true);
 					setupFirstHalf();
 				} catch (Exception e) {
 					pdRing.dismiss();
-					Toast.makeText(GNURootMain.this, "Installing GNURoot " + rootfsName + " failed.  Something went wrong.", Toast.LENGTH_LONG).show();
+                    GNURootMain.this.runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(getApplicationContext(), "Installing GNURoot " + rootfsName + " failed.  Something went wrong.", Toast.LENGTH_LONG).show();
+                        }
+                    });
 				}
 			}
 		};
@@ -160,21 +180,44 @@ public class GNURootMain extends GNURootCoreActivity {
 		Thread t = new Thread() { 
 			public void run() {
 				try {
-					setupSupportFiles();
+					setupSupportFiles(false);
+
 					//in the future, install some patch scripts probably
 					pdRing.dismiss();
 				} catch (Exception e) {
 					pdRing.dismiss();
-					Toast.makeText(GNURootMain.this, "Patching GNURoot " + rootfsName + " failed.  Something went wrong.", Toast.LENGTH_LONG).show();
+                    GNURootMain.this.runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(getApplicationContext(), "Patching GNURoot " + rootfsName + " failed.  Something went wrong.", Toast.LENGTH_LONG).show();
+                        }
+                    });
 				}
 			}
 		};
 		t.start();
 	}
 
-	public void setupSupportFiles() {
+    //first install packages
+    //then apply custom tar file that provides a simple xstartup adn passwd file
+	public void installX() {
+        installingXStep1 = true;
+		ArrayList<String> packageNameArrayList = new ArrayList<String>();
+		packageNameArrayList.add("libgl1-mesa-swx11");
+		packageNameArrayList.add("tightvncserver");
+		packageNameArrayList.add("xterm");
+		packageNameArrayList.add("xfonts-base");
+		packageNameArrayList.add("twm");
+		ArrayList<String> prerequisitesArrayList = new ArrayList<String>();
+		prerequisitesArrayList.add("gnuroot_rootfs");
+		installPackages(packageNameArrayList, "gnuroot_x_support_step1", prerequisitesArrayList);
+	}
+
+	public void setupSupportFiles(boolean deleteFirst) throws NameNotFoundException {
 		File installDir = getInstallDir();
 		File sdcardInstallDir = getSdcardInstallDir();
+
+        if (deleteFirst)
+            deleteRecursive(new File(installDir.getAbsolutePath() + "/support"));
 		
 		//create directory for support executables and scripts
 		File tempFile = new File(installDir.getAbsolutePath() + "/support");
@@ -209,6 +252,13 @@ public class GNURootMain extends GNURootCoreActivity {
 		//"LD_PRELOAD= PROOT_TMP_DIR=" + installDir.getAbsolutePath() + "/support/ PROOT_LOADER=" + installDir.getAbsolutePath() + "/support/loader " + installDir.getAbsolutePath() + "/support/proot -r " + installDir.getAbsolutePath() + "/debian -v -1 -H -l" + shadowOption + "-0 -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/.proot.noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard -b " + installDir.getAbsolutePath() + "/support/:/support $@", tempFile);
 		exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
 
+        //create a script for running a command in proot and waiting for completion
+        tempFile = new File(installDir.getAbsolutePath() + "/support/installScript");
+        writeToFile("#!/support/busybox sh\n" +
+                "${@:2}\n" +
+                "if [[ $? == 0 ]]; then touch " + installDir.getAbsolutePath() + "/support/.$1_passed; else read -rsp $'An error occurred, please try again and if it persists provide this log to the deveolper.\\nPress any key to close...\\n' -n1 key; touch /support/.$1_failed; fi", tempFile);
+        exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
+
 		//create a script for untaring a file
 		tempFile = new File(installDir.getAbsolutePath() + "/support/untargz");
 		writeToFile("#!/support/busybox sh\n" +
@@ -218,10 +268,46 @@ public class GNURootMain extends GNURootCoreActivity {
 
 		//create a script for installing packages
 		tempFile = new File(installDir.getAbsolutePath() + "/support/installPackages");
-		writeToFile("#!/bin/bash\napt-get update\n" +
-				"DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install ${@:2}\n" + 
+		writeToFile("#!/bin/bash\n" +
+                "for i in 1 2 3; do apt-get update && break || sleep 1; done \n" +
+				"for i in 1 2 3; do DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install ${@:2} && break || sleep 1; done\n" +
 				"if [[ $? == 0 ]]; then touch /support/.$1_passed; apt-get clean; else read -rsp $'An error occurred, please try again and if it persists provide this log to the deveolper.\\nPress any key to close...\\n' -n1 key; touch /support/.$1_failed; fi", tempFile); 
 		exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
+
+        //create a script for running a command and making a status file on completion
+        tempFile = new File(installDir.getAbsolutePath() + "/support/blockingScript");
+        writeToFile("#!/bin/bash\n" +
+                "${@:2}\n" +
+                "if [[ $? == 0 ]]; then touch /support/.$1_passed; else read -rsp $'An error occurred, please try again and if it persists provide this log to the deveolper.\\nPress any key to close...\\n' -n1 key; touch /support/.$1_failed; fi", tempFile);
+        exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
+
+        //create a script for starting a xterm
+        //start vncserver if not already running
+        //start new xterm
+        tempFile = new File(installDir.getAbsolutePath() + "/support/startX");
+        writeToFile("#!/bin/bash\n" +
+				"cp /root/.Xauthority /home/.Xauthority\n" +
+                "DISPLAY=localhost:51 xterm -geometry 80x24+0+0 -e exit\n" +
+                "if [[ $? == 0 ]]; then\n" +
+				"cp /root/.Xauthority /home/.Xauthority\n" +
+                "DISPLAY=localhost:51 xterm -geometry 80x24+0+0 -e $@ &\n" +
+                "\nblue='\\033[0;34m'; NC='\\033[0m'; echo -e \"${blue}Killing this terminal will kill your xterm\"\n" +
+                "echo -e \"${NC}\"\n" +
+                "else\n" +
+                "rm /tmp/.X51-lock\n" +
+                "rm /tmp/.X11-unix/X51\n" +
+                "HOME=/root tightvncserver -geometry 1024x768 :51\n" +
+				"cp /root/.Xauthority /home/.Xauthority\n" +
+                "DISPLAY=localhost:51 xterm -geometry 80x24+0+0 -e $@ &\n" +
+                "\nblue='\\033[0;34m'; NC='\\033[0m'; echo -e \"${blue}Killing this terminal will kill your vnc server and xterm\"\n" +
+                "echo -e \"${NC}\"\n" +
+                "fi",tempFile);
+        exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
+
+        SharedPreferences.Editor editor = getSharedPreferences("MAIN", MODE_PRIVATE).edit();
+        PackageInfo pi = getPackageManager().getPackageInfo("com.gnuroot.debian", 0);
+        editor.putString("patchVersion", pi.versionName);
+        editor.commit();
 	}
 
 	private void setupFirstHalf() {
@@ -248,14 +334,26 @@ public class GNURootMain extends GNURootCoreActivity {
 								setupSecondHalf(downloadResultCode);
 							} catch (Exception e) {
 								pdRing.dismiss();
-								Toast.makeText(getApplicationContext(), "Installing GNURoot Debian failed.  Something went wrong.", Toast.LENGTH_LONG).show();
+                                GNURootMain.this.runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        Toast.makeText(getApplicationContext(), "Installing GNURoot Debian failed.  Something went wrong.", Toast.LENGTH_LONG).show();
+                                    }
+                                });
 							}
 						}
 					};
 					t.start();
 				} else {
 					pdRing.dismiss();
-					Toast.makeText(getApplicationContext(), "Installing GNURoot Debian failed.  Couldn't get necessary .obb files.", Toast.LENGTH_LONG).show();
+                    GNURootMain.this.runOnUiThread(new Runnable() {
+                        public void run() {
+                            GNURootMain.this.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    Toast.makeText(getApplicationContext(), "Installing GNURoot Debian failed.  Couldn't get necessary .obb files.", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
+                    });
 				}
 			}
 		}
@@ -364,7 +462,6 @@ public class GNURootMain extends GNURootCoreActivity {
 		GNURootMain.this.runOnUiThread(new Runnable() {
 			public void run() {
 				installTar(Uri.fromFile(mainFile),"gnuroot_rootfs", null);
-				//installTar(mainFile.getAbsolutePath());
 			}
 		});
 
@@ -372,6 +469,7 @@ public class GNURootMain extends GNURootCoreActivity {
 
 	}
 
+    /*
 	void deleteRecursive(File fileOrDirectory) {
 		if (fileOrDirectory.isDirectory())
 			for (File child : fileOrDirectory.listFiles())
@@ -380,6 +478,10 @@ public class GNURootMain extends GNURootCoreActivity {
 		fileOrDirectory.delete();
 
 	}
+	*/
+    void deleteRecursive(File fileOrDirectory) {
+        exec(getInstallDir().getAbsolutePath() + "/support/busybox rm -rf " + fileOrDirectory.getAbsolutePath(), true);
+    }
 
 
 	private void copyAssets(String packageName) {
@@ -406,8 +508,11 @@ public class GNURootMain extends GNURootCoreActivity {
 			try {
 				in = assetManager.open(filename);
 				filename = filename.replace(".mp2", "");
-				File outFile = new File(tempFile, filename);
-				out = new FileOutputStream(outFile);
+                filename = filename.replace(".mp3", ".tar.gz");
+                File outFile = new File(tempFile, filename);
+                out = new FileOutputStream(outFile);
+                if (filename.contains(".tar.gz"))
+                    out = openFileOutput(filename,MODE_PRIVATE);
 				copyFile(in, out);
 				in.close();
 				in = null;
@@ -485,9 +590,17 @@ public class GNURootMain extends GNURootCoreActivity {
 		if (intent.getStringExtra("packageName").equals(getPackageName())) {
 			int resultCode = intent.getIntExtra("resultCode",0);
 			int requestCode = intent.getIntExtra("requestCode",0);
-			int found = intent.getIntExtra("found",0);
 
-			if (((requestCode == CHECK_STATUS) && (found == 1)) || (requestCode == RUN_SCRIPT)) {
+            if (installingXStep1 && ((requestCode == CHECK_STATUS) && (resultCode != GNURootCoreActivity.STATUS_FILE_NOT_FOUND))) {
+                installingXStep1 = false;
+                if (resultCode == GNURootCoreActivity.PASS) {
+                    File fileHandle = new File(getFilesDir() + "/xsupport.tar.gz");
+                    ArrayList<String> prerequisitesArrayList = new ArrayList<String>();
+                    prerequisitesArrayList.add("gnuroot_rootfs");
+                    prerequisitesArrayList.add("gnuroot_x_support_step1");
+                    installTar(FileProvider.getUriForFile(this, "com.gnuroot.debian.fileprovider", fileHandle), "gnuroot_x_support", prerequisitesArrayList);
+                }
+            } else if (((requestCode == CHECK_STATUS) && (resultCode != GNURootCoreActivity.STATUS_FILE_NOT_FOUND)) || (requestCode == RUN_SCRIPT)) {
 				Thread thread = new Thread() {
 
 					@Override
@@ -515,4 +628,18 @@ public class GNURootMain extends GNURootCoreActivity {
 		}
 
 	}
+
+    public void launchTerm() {
+        ArrayList<String> prerequisitesArrayList = new ArrayList<String>();
+        prerequisitesArrayList.add("gnuroot_rootfs");
+        runCommand("/bin/bash", prerequisitesArrayList);
+        //((GNURootCoreActivity)getActivity()).runCommand("/data/data/com.gnuroot.debian/support/busybox sh", prerequisitesArrayList);
+    }
+
+    public void launchXTerm() {
+        ArrayList<String> prerequisitesArrayList = new ArrayList<String>();
+        prerequisitesArrayList.add("gnuroot_rootfs");
+        prerequisitesArrayList.add("gnuroot_x_support");
+        runXCommand("/bin/bash", prerequisitesArrayList);
+    }
 }

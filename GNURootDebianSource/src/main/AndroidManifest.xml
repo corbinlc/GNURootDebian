@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:installLocation="preferExternal"
     android:versionCode="19"
-    android:versionName="0.2.6_armhf" >
+    android:versionName="0.3.0_armhf" >
     
     <supports-screens android:resizeable="true"
                       android:smallScreens="true"                       
@@ -13,7 +13,7 @@
                       android:xlargeScreens="true"
                       android:anyDensity="true"/>
     <uses-sdk
-        android:minSdkVersion="4"
+        android:minSdkVersion="8"
         android:targetSdkVersion="19" />
     
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
@@ -26,7 +26,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     <application
-        tools:replace="android:icon, android:label, android:theme"
+        tools:replace="android:icon, android:label, android:theme, android:allowBackup"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -40,6 +40,14 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter android:label="Create New Term">
+                <action android:name="com.gnuroot.debian.NEW_WINDOW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter android:label="Create New XTerm">
+                <action android:name="com.gnuroot.debian.NEW_XWINDOW" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         
@@ -62,6 +70,14 @@
 				<action android:name="com.gnuroot.debian.RUN_SCRIPT_STR" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
+            <intent-filter>
+                <action android:name="com.gnuroot.debian.RUN_XSCRIPT_STR" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.gnuroot.debian.RUN_BLOCKING_SCRIPT_STR" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
 			<intent-filter>
 				<action android:name="com.gnuroot.debian.INSTALL_PACKAGES" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -70,8 +86,16 @@
 				<action android:name="com.gnuroot.debian.CHECK_STATUS" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
+            <intent-filter>
+                <action android:name="com.gnuroot.debian.CHECK_PREREQ" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.gnuroot.debian.CONNECT_VNC_VIEWER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
 		</service>
-		
+
         <activity android:name="jackpal.androidterm.Term"
                 tools:replace="android:theme"
                 android:theme="@style/Theme.AppCompat"
@@ -110,6 +134,17 @@
         <activity android:name="jackpal.androidterm.WindowList"
                 android:label="@string/window_list" />
         <service android:name="jackpal.androidterm.TermService" />
+
+        <activity
+            tools:replace="android:label, android:theme"
+            android:exported="false"
+            android:label="GNURootDebian"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|keyboardHidden|keyboard"
+            android:name="com.iiordanov.bVNC.RemoteCanvasActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:theme="@style/Theme.AppCompat.CompactMenu">
+        </activity>
         
         <activity android:name="com.gnuroot.debian.GNURootDownloaderActivity"
                 android:excludeFromRecents="true"
@@ -117,6 +152,16 @@
         </activity>
         <service android:name="com.gnuroot.debian.GNURootDownloaderService" />
         <receiver android:name="com.gnuroot.debian.GNURootAlarmReceiver" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.gnuroot.debian.fileprovider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths" />
+        </provider>
     </application>
 
 </manifest>

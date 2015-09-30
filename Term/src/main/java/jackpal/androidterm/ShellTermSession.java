@@ -140,7 +140,7 @@ public class ShellTermSession extends TermSession {
         path = "/usr/sbin" + ":" + path;
         path = "/usr/local/bin" + ":" + path;
         path = "/usr/local/sbin" + ":" + path;
-        String[] env = new String[8];
+        String[] env = new String[9];
         env[0] = "TERM=" + settings.getTermType();
         env[1] = "PATH=" + path;
         env[2] = "HOME=/home";
@@ -149,6 +149,7 @@ public class ShellTermSession extends TermSession {
         env[5] = "ACTUAL_HOME=" + Environment.getExternalStorageDirectory() + "/GNURoot/home";
         env[6] = "LD_LIBRARY_PATH= ";
         env[7] = "LD_PRELOAD= ";
+        env[8] = "USER=root";
         //CCX
 
         //CCXcreateSubprocess(processId, settings.getShell(), env);

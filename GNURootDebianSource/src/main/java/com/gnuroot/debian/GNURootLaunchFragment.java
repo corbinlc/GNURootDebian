@@ -39,30 +39,37 @@ import android.widget.CheckBox;
 
 public class GNURootLaunchFragment extends Fragment {
 
-	Button button;
+	Button launch_button;
+	Button launch_x_button;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
 		View fragmentView = inflater.inflate(R.layout.fragment_launch, container, false);
-		if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.KITKAT) {
+		//if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.KITKAT) {
 			((CheckBox) ((GNURootCoreActivity)getActivity()).findViewById(R.id.sdcard_checkbox)).setEnabled(false);
-		}
+		//}
 		
 		if (getActivity() != null) {
-	        button = (Button) fragmentView.findViewById(R.id.launch_button);
-	        button.setOnClickListener(new OnClickListener()
+	        launch_button = (Button) fragmentView.findViewById(R.id.launch_button);
+	        launch_button.setOnClickListener(new OnClickListener()
 	        {
 	            @Override
 	            public void onClick(View view)
 	            {
-	            	ArrayList<String> prerequisitesArrayList = new ArrayList<String>();
-	            	prerequisitesArrayList.add("gnuroot_rootfs");
-	            	((GNURootCoreActivity)getActivity()).runCommand("/bin/bash", prerequisitesArrayList);
-	            	//((GNURootCoreActivity)getActivity()).runCommand("/data/data/com.gnuroot.debian/support/busybox sh", prerequisitesArrayList);
+					((GNURootMain)getActivity()).launchTerm();
 	            }
 	        });
+			launch_x_button = (Button) fragmentView.findViewById(R.id.launch_x_button);
+			launch_x_button.setOnClickListener(new OnClickListener()
+			{
+				@Override
+				public void onClick(View view)
+				{
+					((GNURootMain)getActivity()).launchXTerm();
+				}
+			});
 		}
 	
 		return fragmentView;

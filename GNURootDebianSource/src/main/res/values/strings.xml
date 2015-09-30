@@ -24,6 +24,10 @@
     <string name="install_textview_text">Will install GNURoot Debian on your device.  This will take a little while and consume noticeable disk space.  This will overwrite any previous version installed.</string>
     <string name="patch_button_text">Patch Installation</string>
     <string name="patch_textview_text">Will patch GNURoot Debian with the latest set of improvements that don\'t require hitting the Install/Reinstall button.</string>
+    <string name="install_x_button_text">Install X Support</string>
+    <string name="install_x_textview_text">Will install the required packages needed for you to be able to run X applications.</string>
     <string name="launch_button_text">Launch</string>
     <string name="launch_textview_text">Launch into a GNURoot Debian terminal by hitting the button below.</string>
+    <string name="launch_x_button_text">Launch X</string>
+    <string name="launch_x_textview_text">Launch into a GNURoot Debian X terminal by hitting the button below.</string>
 </resources>

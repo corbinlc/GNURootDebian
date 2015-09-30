@@ -791,6 +791,8 @@ public class Term extends Activity implements UpdateCallback {
             return;
         }
 
+        //CCX
+        /*
         TermSession session = createTermSession();
         mTermSessions.add(session);
 
@@ -799,6 +801,11 @@ public class Term extends Activity implements UpdateCallback {
 
         mViewFlipper.addView(view);
         mViewFlipper.setDisplayedChild(mViewFlipper.getChildCount()-1);
+        */
+        Intent newWindowIntent = new Intent("com.gnuroot.debian.NEW_WINDOW");
+        newWindowIntent.addCategory(Intent.CATEGORY_DEFAULT);
+        startActivity(newWindowIntent);
+        //CCX
     }
 
     private void confirmCloseWindow() {

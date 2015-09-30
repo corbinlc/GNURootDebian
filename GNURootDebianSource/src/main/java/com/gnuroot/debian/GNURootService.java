@@ -33,177 +33,230 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import com.gnuroot.library.GNURootCoreActivity;
 
 import android.app.IntentService;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.net.Uri;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
+
+import com.iiordanov.bVNC.Constants;
 
 public class GNURootService extends IntentService {
 
 	public GNURootService() {
 		super("GNURootService");
 	}
+	public boolean errOcc = false;
 
 	@Override
 	protected void onHandleIntent(Intent intent) {
-		if (intent.getAction().equals("com.gnuroot.debian.RUN_SCRIPT_STR")) {
-			runScriptStr(intent);
-		} else if (intent.getAction().equals("com.gnuroot.debian.INSTALL_PACKAGES")) {
-			installPackages(intent);
-		} else if (intent.getAction().equals("com.gnuroot.debian.INSTALL_TAR")) {
-			installTar(intent);
-		} else if (intent.getAction().equals("com.gnuroot.debian.CHECK_STATUS")) {
-			checkStatus(intent);
-		}
-	}
-	
-	public void installPackages(Intent intent) {
-		int status = 0;
+        SharedPreferences prefs = getSharedPreferences("MAIN", MODE_PRIVATE);
+        try {
+            PackageInfo pi = getPackageManager().getPackageInfo("com.gnuroot.debian", 0);
+            String patchVersion = prefs.getString("patchVersion", null);
+            if ((patchVersion == null) || (patchVersion.equals(pi.versionName) == false)) {
+                sendResponse(intent, GNURootCoreActivity.PATCH_NEEDED);
+            } else if (intent.getAction().equals("com.gnuroot.debian.RUN_SCRIPT_STR")) {
+                runScriptStr(intent);
+            } else if (intent.getAction().equals("com.gnuroot.debian.RUN_XSCRIPT_STR")) {
+                runXScriptStr(intent);
+            } else if (intent.getAction().equals("com.gnuroot.debian.INSTALL_PACKAGES")) {
+                installPackages(intent);
+            } else if (intent.getAction().equals("com.gnuroot.debian.INSTALL_TAR")) {
+                installTar(intent);
+            } else if (intent.getAction().equals("com.gnuroot.debian.CHECK_STATUS")) {
+                checkStatus(intent);
+            } else if (intent.getAction().equals("com.gnuroot.debian.CHECK_PREREQ")) {
+                checkPrerequisites(intent);
+            } else if (intent.getAction().equals("com.gnuroot.debian.RUN_BLOCKING_SCRIPT_STR")) {
+                runInstallScriptStr(intent);
+            } else if (intent.getAction().equals("com.gnuroot.debian.CONNECT_VNC_VIEWER")) {
+                connectVncViewer(intent);
+            } else {
+                sendResponse(intent, GNURootCoreActivity.ERROR);
+            }
+        } catch (Exception e) {
+            sendResponse(intent, GNURootCoreActivity.ERROR);
+        }
+    }
+
+	public void sendResponse(Intent intent, int resultCode) {
+        int requestCode = GNURootCoreActivity.UNKNOWN_ACTION;
 		Intent resultIntent = new Intent("com.gnuroot.debian.GNURootService.status");
 		resultIntent.putExtra("packageName", intent.getStringExtra("packageName"));
-		resultIntent.putExtra("requestCode",GNURootCoreActivity.INSTALL_PACKAGES);
+        if (intent.getAction().equals("com.gnuroot.debian.RUN_SCRIPT_STR")) {
+            requestCode = GNURootCoreActivity.RUN_SCRIPT;
+        } else if (intent.getAction().equals("com.gnuroot.debian.RUN_XSCRIPT_STR")) {
+            requestCode = GNURootCoreActivity.RUN_XSCRIPT;
+        } else if (intent.getAction().equals("com.gnuroot.debian.INSTALL_PACKAGES")) {
+            requestCode = GNURootCoreActivity.INSTALL_PACKAGES;
+        } else if (intent.getAction().equals("com.gnuroot.debian.INSTALL_TAR")) {
+            requestCode = GNURootCoreActivity.INSTALL_TAR;
+        } else if (intent.getAction().equals("com.gnuroot.debian.CHECK_STATUS")) {
+            requestCode = GNURootCoreActivity.CHECK_STATUS;
+        } else if (intent.getAction().equals("com.gnuroot.debian.CHECK_PREREQ")) {
+            requestCode = GNURootCoreActivity.CHECK_PREREQ;
+        } else if (intent.getAction().equals("com.gnuroot.debian.RUN_BLOCKING_SCRIPT_STR")) {
+            requestCode = GNURootCoreActivity.RUN_BLOCKING_SCRIPT;
+        } else if (intent.getAction().equals("com.gnuroot.debian.CONNECT_VNC_VIEWER")) {
+            requestCode = GNURootCoreActivity.CONNECT_VNC_VIEWER;
+        }
+		resultIntent.putExtra("requestCode", requestCode);
+		resultIntent.putExtra("resultCode", resultCode);
+
+        String missingPreq = intent.getStringExtra("missingPreq");
+        if (missingPreq != null)
+            resultIntent.putExtra("missingPreq", missingPreq);
+		sendBroadcast(resultIntent);
+	}
+
+	public void deleteStatusFiles(Intent intent) {
 		exec("rm " + intent.getStringExtra("statusFileDirectory") + "." + intent.getStringExtra("statusFileName") + "_failed");
 		exec("rm " + intent.getStringExtra("statusFileDirectory") + "." + intent.getStringExtra("statusFileName") + "_passed");
+	}
 
-		status = checkPrerequisites(intent);
-		if (status == 1) {
-			resultIntent.putExtra("resultCode", 2);
-			sendBroadcast(resultIntent);
+    public int checkPrerequisitesInternal(Intent intent) {
+        ArrayList<String> prerequisites = intent.getStringArrayListExtra("prerequisites");
+        if (prerequisites == null)
+            return GNURootCoreActivity.PASS;
+        String statusFileDirectory = intent.getStringExtra("statusFileDirectory");
+        for (int i = 0; i < prerequisites.size(); i++) {
+            File tempFile = new File(statusFileDirectory + "." + prerequisites.get(i) + "_passed");
+            if (!isSymlink(tempFile) && !tempFile.exists()) {
+                intent.putExtra("missingPreq",prerequisites.get(i));
+                sendResponse(intent, GNURootCoreActivity.MISSING_PREREQ);
+                return GNURootCoreActivity.MISSING_PREREQ;
+            }
+        }
+        return GNURootCoreActivity.PASS;
+    }
+
+    public int launchTermInternal(Intent intent) {
+        int status = GNURootCoreActivity.PASS;
+        String scriptStr = intent.getStringExtra("scriptStr");
+        Intent termIntent = new Intent(this,jackpal.androidterm.RemoteInterface.class);
+        termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+        termIntent.addCategory(Intent.CATEGORY_DEFAULT);
+        termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+        termIntent.putExtra("jackpal.androidterm.iInitialCommand", scriptStr);
+        startActivity(termIntent);
+        return status;
+    }
+
+    public void checkPrerequisites(Intent intent) {
+        int status = GNURootCoreActivity.PASS;
+
+        status = checkPrerequisitesInternal(intent);
+        if (status != GNURootCoreActivity.PASS)
+            return;
+
+        sendResponse(intent, status);
+    }
+
+	public void installPackages(Intent intent) {
+		int status = GNURootCoreActivity.PASS;
+
+		deleteStatusFiles(intent);
+
+		status = checkPrerequisitesInternal(intent);
+		if (status != GNURootCoreActivity.PASS)
 			return;
-		}
-		
-		String scriptStr = intent.getStringExtra("scriptStr");
-		Intent termIntent = new Intent("jackpal.androidterm.RUN_SCRIPT");
-		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
-		termIntent.putExtra("jackpal.androidterm.iInitialCommand", scriptStr);
-		startActivity(termIntent);
-		resultIntent.putExtra("resultCode", status);
-		sendBroadcast(resultIntent);
-		return;
+
+        status = launchTermInternal(intent);
+
+		sendResponse(intent, status);
 	}
 
 	public void runScriptStr(Intent intent) {
-		int status = 0;
-		Intent resultIntent = new Intent("com.gnuroot.debian.GNURootService.status");
-		resultIntent.putExtra("packageName", intent.getStringExtra("packageName"));
-		resultIntent.putExtra("requestCode",GNURootCoreActivity.RUN_SCRIPT);
+		int status = GNURootCoreActivity.PASS;
 
-		status = checkPrerequisites(intent);
-		if (status == 1) {
-			resultIntent.putExtra("resultCode", 2);
-			sendBroadcast(resultIntent);
+		status = checkPrerequisitesInternal(intent);
+		if (status != GNURootCoreActivity.PASS)
 			return;
-		}
-		
-		String scriptStr = intent.getStringExtra("scriptStr");
-		Intent termIntent = new Intent("jackpal.androidterm.RUN_SCRIPT");
-		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
-		termIntent.putExtra("jackpal.androidterm.iInitialCommand", scriptStr);
-		//termIntent.putExtra("jackpal.androidterm.iInitialCommand", "/data/data/com.gnuroot.debian/support/busybox sh");
-		startActivity(termIntent);
-		resultIntent.putExtra("resultCode", status);
-		sendBroadcast(resultIntent);
-		return;
+
+        status = launchTermInternal(intent);
+
+		sendResponse(intent, status);
+	}
+
+	public void runXScriptStr(Intent intent) {
+		deleteStatusFiles(intent);
+        runScriptStr(intent);
+	}
+
+    public void connectVncViewer(Intent intent) {
+        int status = GNURootCoreActivity.PASS;
+
+        Intent bvncIntent = new Intent(this, com.iiordanov.bVNC.RemoteCanvasActivity.class);
+        bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?"+Constants.PARAM_VNC_PWD+"=gnuroot"));
+        bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        try {
+            startActivity(bvncIntent);
+        } catch (ActivityNotFoundException e) {
+            status = GNURootCoreActivity.ERROR;
+        }
+
+        sendResponse(intent, status);
+    }
+
+	public void runInstallScriptStr(Intent intent) {
+		deleteStatusFiles(intent);
+		runScriptStr(intent);
 	}
 
 	public void installTar(Intent intent) {
 		Uri srcUri = intent.getData();
 		String scriptStr = intent.getStringExtra("scriptStr");
 		InputStream srcStream;
-		int status = 0;
-		Intent resultIntent = new Intent("com.gnuroot.debian.GNURootService.status");
-		resultIntent.putExtra("packageName", intent.getStringExtra("packageName"));
-		resultIntent.putExtra("requestCode",GNURootCoreActivity.INSTALL_TAR);
-		status = checkPrerequisites(intent);
-		if (status == 1) {
-			resultIntent.putExtra("resultCode", 2);
-			sendBroadcast(resultIntent);
-			return;
-		}
-		exec("rm " + intent.getStringExtra("statusFileDirectory") + "." + intent.getStringExtra("statusFileName") + "_failed");
-		exec("rm " + intent.getStringExtra("statusFileDirectory") + "." + intent.getStringExtra("statusFileName") + "_passed");
-		Intent termIntent = new Intent("jackpal.androidterm.RUN_SCRIPT");
-		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
+        int status = GNURootCoreActivity.PASS;
+
+        deleteStatusFiles(intent);
+
+        status = checkPrerequisitesInternal(intent);
+        if (status != GNURootCoreActivity.PASS)
+            return;
+
 		try {
 			srcStream = getContentResolver().openInputStream(srcUri);
 			File srcFile = new File(srcUri.getPath());
 			File destFolder = getFilesDir();
 			File destFile = new File(destFolder.getAbsolutePath()+"/"+srcFile.getName());
 			try {
-				copyFile(srcStream,destFile);
+				if ((intent.getStringExtra("packageName").equals(getPackageName()) == false) || (srcFile.getAbsolutePath().startsWith("/my_root") == false))
+					copyFile(srcStream,new FileOutputStream(destFile));
 			} catch (IOException e) {
-				status = 1;
+				status = GNURootCoreActivity.ERROR;
 			}
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand", scriptStr + " " + destFile.getAbsolutePath() + "");
-			startActivity(termIntent);
+            intent.putExtra("scriptStr",scriptStr + " " + destFile.getAbsolutePath() + "");
+            launchTermInternal(intent);
 		} catch (FileNotFoundException e1) {
-			status = 1;
+			status = GNURootCoreActivity.ERROR;
 		}
-		resultIntent.putExtra("resultCode", status);
-		sendBroadcast(resultIntent);
-		return;
+
+        sendResponse(intent, status);
 	}
 
 	public void checkStatus(Intent intent) {
-		Intent resultIntent = new Intent("com.gnuroot.debian.GNURootService.status");
-		resultIntent.putExtra("packageName", intent.getStringExtra("packageName"));
-		resultIntent.putExtra("requestCode",GNURootCoreActivity.CHECK_STATUS);
+        int status = GNURootCoreActivity.STATUS_FILE_NOT_FOUND;
+
 		String statusFileDirectory = intent.getStringExtra("statusFileDirectory");
 		String statusFileName = intent.getStringExtra("statusFileName");
-		File tempFile = new File(statusFileDirectory + "." + statusFileName + "_failed");
+        File tempFile = new File(statusFileDirectory + "." + statusFileName + "_passed");
+        if (isSymlink(tempFile) || tempFile.exists()) {
+            status = GNURootCoreActivity.PASS;
+        }
+		tempFile = new File(statusFileDirectory + "." + statusFileName + "_failed");
 		if (isSymlink(tempFile) || tempFile.exists()) {
-			resultIntent.putExtra("resultCode", 1);
-			resultIntent.putExtra("found", 1);
-			sendBroadcast(resultIntent);
-			return;
-		}
-		tempFile = new File(statusFileDirectory + "." + statusFileName + "_passed");
-		if (isSymlink(tempFile) || tempFile.exists()) {
-			resultIntent.putExtra("resultCode", 0);
-			resultIntent.putExtra("found", 1);
-			sendBroadcast(resultIntent);
-			return;
-		}
-		resultIntent.putExtra("resultCode", 0);
-		resultIntent.putExtra("found", 0);
-		sendBroadcast(resultIntent);
+            status = GNURootCoreActivity.ERROR;
+        }
+
+        sendResponse(intent, status);
 		return;
-	}
-
-	public int checkPrerequisites(Intent intent) {
-		ArrayList<String> prerequisites = intent.getStringArrayListExtra("prerequisites");
-		if (prerequisites == null)
-			return 0;
-		String statusFileDirectory = intent.getStringExtra("statusFileDirectory");
-		for (int i = 0; i < prerequisites.size(); i++) {
-			File tempFile = new File(statusFileDirectory + "." + prerequisites.get(i) + "_passed");
-			if (!isSymlink(tempFile) && !tempFile.exists()) {
-				return 1;
-			}
-		}
-		return 0;
-	}
-
-	public void copyFile(InputStream src, File dst) throws IOException {
-		OutputStream out = new FileOutputStream(dst);
-
-		// Transfer bytes from in to out
-		byte[] buf = new byte[1024];
-		int len;
-		while ((len = src.read(buf)) > 0) {
-			out.write(buf, 0, len);
-		}
-		src.close();
-		out.close();
 	}
 
 	private boolean exec(String command) {
@@ -251,19 +304,13 @@ public class GNURootService extends IntentService {
 			return false;
 		}
 	}
-	
-	private String mHandle;
-    private static final int REQUEST_WINDOW_HANDLE = 1;
-    private static final int RESULT_OK = 1;
-	
-	protected void onActivityResult(int request, int result, Intent data) {
-        if (result != RESULT_OK) {
-            return;
-        }
 
-        if (request == REQUEST_WINDOW_HANDLE && data != null) {
-            mHandle = data.getStringExtra("jackpal.androidterm.window_handle");
-        }
-    }
+	private void copyFile(InputStream in, OutputStream out) throws IOException {
+		byte[] buffer = new byte[1024];
+		int read;
+		while((read = in.read(buffer)) != -1){
+			out.write(buffer, 0, read);
+		}
+	}
 
 }

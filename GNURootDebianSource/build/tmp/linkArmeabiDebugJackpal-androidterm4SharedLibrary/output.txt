@@ -1,4 +1,0 @@
-See file:///home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/tmp/linkArmeabiDebugJackpal-androidterm4SharedLibrary/output.txt for all output for linkArmeabiDebugJackpal-androidterm4SharedLibrary.
-linking libjackpal-androidterm4.so successful.
-
-Finished linkArmeabiDebugJackpal-androidterm4SharedLibrary, see full log file:///home/corbin/StudioProjects/GNURootDebian/GNURootDebianSource/build/tmp/linkArmeabiDebugJackpal-androidterm4SharedLibrary/output.txt.

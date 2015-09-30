@@ -3,19 +3,13 @@ apply plugin: 'com.android.model.application'
 model {
     android {
         compileSdkVersion = 19
-        buildToolsVersion = "22.0.1"
+        buildToolsVersion = "23.0.1"
 
         defaultConfig.with {
             applicationId = "com.gnuroot.debian"
-            minSdkVersion.apiLevel = 7
+            minSdkVersion.apiLevel = 8
             targetSdkVersion.apiLevel = 19
         }
-    }
-
-    android.ndk {
-        moduleName = "jackpal-androidterm4"
-        ldLibs += "log"
-        ldLibs += "dl"
     }
 
     android.buildTypes {
@@ -24,12 +18,52 @@ model {
             proguardFiles += file('proguard-rules.pro')
         }
     }
+
+    android.productFlavors {
+        create("armel") {
+            applicationId = "com.gnuroot.debian"
+            versionName = "0.2.6_armel"
+            versionCode = 18
+            buildConfigFields.with {
+                create() {
+                    type = "int"
+                    name = 'OBBVERSION'
+                    value = "9"
+                }
+            }
+        }
+        create("armhf") {
+            applicationId = "com.gnuroot.debian"
+            versionName = "0.2.6_armhf"
+            versionCode = 19
+            buildConfigFields.with {
+                create() {
+                    type = "int"
+                    name = 'OBBVERSION'
+                    value = "10"
+                }
+            }
+        }
+        create("i386") {
+            applicationId = "com.gnuroot.debian"
+            versionName = "0.2.6_i386"
+            versionCode = 20
+            buildConfigFields.with {
+                create() {
+                    type = "int"
+                    name = 'OBBVERSION'
+                    value = "11"
+                }
+            }
+        }
+    }
 }
 
 dependencies {
     compile project(':GNURootLibrary')
     compile project(':downloader_library')
     compile project(':Term')
+    compile project(':bVNC')
     compile 'com.android.support:support-v4:19.1.0'
     compile 'com.android.support:appcompat-v7:19.1.0'
     compile fileTree(dir: 'libs', include: ['*.jar'])

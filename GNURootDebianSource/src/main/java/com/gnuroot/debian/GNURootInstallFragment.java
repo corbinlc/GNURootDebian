@@ -43,8 +43,9 @@ public class GNURootInstallFragment extends Fragment {
 
 	ListView listView;
 	ArrayAdapter<String> adapter;
-	Button launchButton;
+	Button installButton;
 	Button patchButton;
+	Button installXButton;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,8 +54,8 @@ public class GNURootInstallFragment extends Fragment {
 		View fragmentView = inflater.inflate(R.layout.fragment_install, container, false);
 		
 		if (getActivity() != null) {
-	        launchButton = (Button) fragmentView.findViewById(R.id.install_button);
-	        launchButton.setOnClickListener(new OnClickListener()
+	        installButton = (Button) fragmentView.findViewById(R.id.install_button);
+	        installButton.setOnClickListener(new OnClickListener()
 	        {
 	            @Override
 	            public void onClick(View view)
@@ -84,6 +85,15 @@ public class GNURootInstallFragment extends Fragment {
 	            	((GNURootMain)getActivity()).installPatches();    
 	            }
 	        });
+			installXButton = (Button) fragmentView.findViewById(R.id.install_x_button);
+			installXButton.setOnClickListener(new OnClickListener()
+			{
+				@Override
+				public void onClick(View view)
+				{
+                    ((GNURootMain)getActivity()).installX();
+				}
+			});
 		}
 	
 		return fragmentView;
