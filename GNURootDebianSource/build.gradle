@@ -1,6 +1,7 @@
 apply plugin: 'com.android.model.application'
 
 model {
+
     android {
         compileSdkVersion = 19
         buildToolsVersion = "23.0.1"
@@ -22,8 +23,8 @@ model {
     android.productFlavors {
         create("armel") {
             applicationId = "com.gnuroot.debian"
-            versionName = "0.2.6_armel"
-            versionCode = 18
+            versionName = "0.3.0_armel"
+            versionCode = 21
             buildConfigFields.with {
                 create() {
                     type = "int"
@@ -34,8 +35,8 @@ model {
         }
         create("armhf") {
             applicationId = "com.gnuroot.debian"
-            versionName = "0.2.6_armhf"
-            versionCode = 19
+            versionName = "0.3.0_armhf"
+            versionCode = 22
             buildConfigFields.with {
                 create() {
                     type = "int"
@@ -46,8 +47,8 @@ model {
         }
         create("i386") {
             applicationId = "com.gnuroot.debian"
-            versionName = "0.2.6_i386"
-            versionCode = 20
+            versionName = "0.3.0_i386"
+            versionCode = 23
             buildConfigFields.with {
                 create() {
                     type = "int"
@@ -57,6 +58,7 @@ model {
             }
         }
     }
+
 }
 
 dependencies {
@@ -66,5 +68,5 @@ dependencies {
     compile project(':bVNC')
     compile 'com.android.support:support-v4:19.1.0'
     compile 'com.android.support:appcompat-v7:19.1.0'
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
 }

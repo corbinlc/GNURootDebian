@@ -95,56 +95,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 		</service>
-
-        <activity android:name="jackpal.androidterm.Term"
-                tools:replace="android:theme"
-                android:theme="@style/Theme.AppCompat"
-                android:launchMode="singleTask"
-                android:configChanges="keyboard|keyboardHidden|orientation"
-                android:windowSoftInputMode="adjustResize|stateAlwaysVisible">
-        </activity>
-        <activity-alias android:name="TermInternal"
-                android:targetActivity="jackpal.androidterm.Term"
-                android:exported="false">
-            <intent-filter>
-                <action android:name="jackpal.androidterm.private.OPEN_NEW_WINDOW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="jackpal.androidterm.private.SWITCH_WINDOW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity-alias>
-        <activity android:name="jackpal.androidterm.RemoteInterface"
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="jackpal.androidterm.OPEN_NEW_WINDOW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity-alias android:name="jackpal.androidterm.RunScript"
-                android:targetActivity="jackpal.androidterm.RemoteInterface">
-            <intent-filter>
-                <action android:name="jackpal.androidterm.RUN_SCRIPT" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity-alias>
-        <activity android:name="jackpal.androidterm.TermPreferences"
-                android:label="@string/preferences"/>
-        <activity android:name="jackpal.androidterm.WindowList"
-                android:label="@string/window_list" />
-        <service android:name="jackpal.androidterm.TermService" />
-
-        <activity
-            tools:replace="android:label, android:theme"
-            android:exported="false"
-            android:label="GNURootDebian"
-            android:screenOrientation="unspecified"
-            android:configChanges="orientation|keyboardHidden|keyboard"
-            android:name="com.iiordanov.bVNC.RemoteCanvasActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize"
-            android:theme="@style/Theme.AppCompat.CompactMenu">
-        </activity>
         
         <activity android:name="com.gnuroot.debian.GNURootDownloaderActivity"
                 android:excludeFromRecents="true"

@@ -46,8 +46,8 @@ import jackpal.androidterm.util.TermSettings;
 public class RemoteInterface extends Activity {
     private static final String ACTION_RUN_SCRIPT = "jackpal.androidterm.RUN_SCRIPT";
 
-    static final String PRIVACT_OPEN_NEW_WINDOW = "jackpal.androidterm.private.OPEN_NEW_WINDOW";
-    static final String PRIVACT_SWITCH_WINDOW = "jackpal.androidterm.private.SWITCH_WINDOW";
+    static final String PRIVACT_OPEN_NEW_WINDOW = "jackpal.androidterm.private.gnurootdebian.OPEN_NEW_WINDOW";
+    static final String PRIVACT_SWITCH_WINDOW = "jackpal.androidterm.private.gnurootdebian.SWITCH_WINDOW";
 
     private static final String EXTRA_WINDOW_HANDLE = "jackpal.androidterm.window_handle";
     private static final String EXTRA_INITIAL_COMMAND = "jackpal.androidterm.iInitialCommand";

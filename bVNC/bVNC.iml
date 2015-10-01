@@ -92,8 +92,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="com.antlersoft.android.db" level="project" />
     <orderEntry type="library" exported="" name="sqlcipher" level="project" />
-    <orderEntry type="library" exported="" name="com.antlersoft.android.contentxml" level="project" />
     <orderEntry type="library" exported="" name="sqlcipher-javadoc" level="project" />
+    <orderEntry type="library" exported="" name="com.antlersoft.android.contentxml" level="project" />
     <orderEntry type="library" exported="" name="support-v4-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-21.0.3" level="project" />
     <orderEntry type="module" module-name="zoomerWithKeys" exported="" />

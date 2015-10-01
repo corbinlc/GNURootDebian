@@ -30,4 +30,6 @@
     <string name="launch_textview_text">Launch into a GNURoot Debian terminal by hitting the button below.</string>
     <string name="launch_x_button_text">Launch X</string>
     <string name="launch_x_textview_text">Launch into a GNURoot Debian X terminal by hitting the button below.</string>
+    <string name="reconnect_button_text">Reconnect to X</string>
+    <string name="reconnect_textview_text">Reopen your X terms, if you have previously hit &quot;Launch X&quot;, by hitting the button below.</string>
 </resources>

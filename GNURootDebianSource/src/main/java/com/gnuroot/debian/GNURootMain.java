@@ -642,4 +642,11 @@ public class GNURootMain extends GNURootCoreActivity {
         prerequisitesArrayList.add("gnuroot_x_support");
         runXCommand("/bin/bash", prerequisitesArrayList);
     }
+
+	public void reconnectX() {
+		Intent vncIntent = new Intent("com.gnuroot.debian.CONNECT_VNC_VIEWER");
+		vncIntent.addCategory(Intent.CATEGORY_DEFAULT);
+		vncIntent.putExtra("packageName", getPackageName());
+		startService(vncIntent);
+	}
 }

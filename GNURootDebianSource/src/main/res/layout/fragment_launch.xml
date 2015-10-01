@@ -57,5 +57,23 @@
         android:text="@string/launch_x_button_text"
         />
 
+    <TextView
+        android:id="@+id/reconnect_textview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/launch_x_button"
+        android:text="@string/reconnect_textview_text"
+        />
+
+    <Button
+        android:id="@+id/reconnect_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/reconnect_textview"
+        android:text="@string/reconnect_button_text"
+        />
+
       
 </RelativeLayout>

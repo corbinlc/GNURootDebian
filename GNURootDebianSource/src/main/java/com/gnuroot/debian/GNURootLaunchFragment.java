@@ -41,6 +41,7 @@ public class GNURootLaunchFragment extends Fragment {
 
 	Button launch_button;
 	Button launch_x_button;
+	Button reconnect_button;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,6 +69,15 @@ public class GNURootLaunchFragment extends Fragment {
 				public void onClick(View view)
 				{
 					((GNURootMain)getActivity()).launchXTerm();
+				}
+			});
+			reconnect_button = (Button) fragmentView.findViewById(R.id.reconnect_button);
+			reconnect_button.setOnClickListener(new OnClickListener()
+			{
+				@Override
+				public void onClick(View view)
+				{
+					((GNURootMain)getActivity()).reconnectX();
 				}
 			});
 		}
