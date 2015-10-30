@@ -2,7 +2,7 @@
  *
  * This file is part of PRoot.
  *
- * Copyright (C) 2014 STMicroelectronics
+ * Copyright (C) 2015 STMicroelectronics
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -78,8 +78,6 @@ extern void chop_finality(char *path);
 
 extern int translate_path(Tracee *tracee, char host_path[PATH_MAX],
 			int dir_fd, const char *guest_path, bool deref_final);
-extern int translate_path_and_notify(Tracee *tracee, char host_path[PATH_MAX],
-			int dir_fd, const char *guest_path, bool deref_final, bool notify);
 
 extern int detranslate_path(Tracee *tracee, char path[PATH_MAX], const char t_referrer[PATH_MAX]);
 extern bool belongs_to_guestfs(const Tracee *tracee, const char *path);

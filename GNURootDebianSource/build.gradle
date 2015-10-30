@@ -23,8 +23,8 @@ model {
     android.productFlavors {
         create("armel") {
             applicationId = "com.gnuroot.debian"
-            versionName = "0.3.0_armel"
-            versionCode = 21
+            versionName = "0.3.1_armel"
+            versionCode = 24
             buildConfigFields.with {
                 create() {
                     type = "int"
@@ -35,8 +35,8 @@ model {
         }
         create("armhf") {
             applicationId = "com.gnuroot.debian"
-            versionName = "0.3.0_armhf"
-            versionCode = 22
+            versionName = "0.3.1_armhf"
+            versionCode = 25
             buildConfigFields.with {
                 create() {
                     type = "int"
@@ -47,8 +47,8 @@ model {
         }
         create("i386") {
             applicationId = "com.gnuroot.debian"
-            versionName = "0.3.0_i386"
-            versionCode = 23
+            versionName = "0.3.1_i386"
+            versionCode = 26
             buildConfigFields.with {
                 create() {
                     type = "int"

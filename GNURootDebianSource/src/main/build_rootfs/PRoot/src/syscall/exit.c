@@ -2,7 +2,7 @@
  *
  * This file is part of PRoot.
  *
- * Copyright (C) 2014 STMicroelectronics
+ * Copyright (C) 2015 STMicroelectronics
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -30,6 +30,7 @@
 #include "syscall/socket.h"
 #include "syscall/chain.h"
 #include "syscall/heap.h"
+#include "syscall/rlimit.h"
 #include "execve/execve.h"
 #include "tracee/tracee.h"
 #include "tracee/reg.h"
@@ -38,7 +39,6 @@
 #include "path/path.h"
 #include "ptrace/ptrace.h"
 #include "ptrace/wait.h"
-#include "ptrace/direct_ptracee.h"
 #include "extension/extension.h"
 #include "arch.h"
 
@@ -436,21 +436,24 @@ void translate_syscall_exit(Tracee *tracee)
 
 	case PR_wait4:
 	case PR_waitpid:
-		if (tracee->as_ptracer.waits_in != WAITS_IN_PROOT) {
-			pid_t pid;
-
-			/* See ptrace/wait.c for explanation.  */
-			pid = (pid_t) syscall_result;
-			if (pid > 0 && is_exited_direct_ptracee(tracee, pid)) {
-				remove_exited_direct_ptracee(tracee, pid);
-				restart_original_syscall(tracee);
-			}
-
+		if (tracee->as_ptracer.waits_in != WAITS_IN_PROOT)
 			goto end;
-		}
 
 		status = translate_wait_exit(tracee);
 		break;
+
+	case PR_setrlimit:
+	case PR_prlimit64:
+		/* Error reported by the kernel.  */
+		if ((int) syscall_result < 0)
+			goto end;
+
+		status = translate_setrlimit_exit(tracee, syscall_number == PR_prlimit64);
+		if (status < 0)
+			break;
+
+		/* Don't overwrite the syscall result.  */
+		goto end;
 
 	default:
 		goto end;

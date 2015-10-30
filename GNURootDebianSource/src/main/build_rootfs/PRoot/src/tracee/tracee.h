@@ -2,7 +2,7 @@
  *
  * This file is part of PRoot.
  *
- * Copyright (C) 2014 STMicroelectronics
+ * Copyright (C) 2015 STMicroelectronics
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -29,6 +29,7 @@
 #include <sys/queue.h> /* LIST_*, */
 #include <sys/ptrace.h>/* enum __ptrace_request */
 #include <talloc.h>    /* talloc_*, */
+#include <stdint.h>    /* *int*_t, */
 
 #include "arch.h" /* word_t, user_regs_struct, */
 #include "compat.h"
@@ -43,7 +44,6 @@ typedef enum {
 struct bindings;
 struct load_info;
 struct extensions;
-struct direct_ptracees;
 struct chained_syscalls;
 
 /* Information related to a file-system name-space.  */
@@ -67,7 +67,6 @@ typedef struct {
 typedef struct {
 	word_t base;
 	size_t size;
-	size_t prealloc_size;
 	bool disabled;
 } Heap;
 
@@ -83,8 +82,15 @@ typedef struct tracee {
 	/* Process identifier. */
 	pid_t pid;
 
+	/* Unique tracee identifier. */
+	uint64_t vpid;
+
 	/* Is it currently running or not?  */
 	bool running;
+
+	/* Is this tracee ready to be freed?  TODO: move to a list
+	 * dedicated to terminated tracees instead.  */
+	bool terminated;
 
 	/* Parent of this tracee, NULL if none.  */
 	struct tracee *parent;
@@ -96,8 +102,6 @@ typedef struct tracee {
 	struct {
 		size_t nb_ptracees;
 		LIST_HEAD(zombies, tracee) zombies;
-
-		struct direct_ptracees *direct_ptracees;
 
 		pid_t wait_pid;
 		word_t wait_options;
@@ -190,19 +194,6 @@ typedef struct tracee {
 	 * execve sysexit.  */
 	struct load_info *load_info;
 
-	/* Current state of the loading process.  */
-	struct {
-		enum {
-			LOADING_STEP_NONE = 0,
-			LOADING_STEP_OPEN,
-			LOADING_STEP_MMAP,
-			LOADING_STEP_CLOSE
-		} step;
-
-		struct load_info *info;
-		size_t index;
-	} loading;
-
 
 	/**********************************************************************
 	 * Private but inherited resources                                    *
@@ -235,6 +226,7 @@ typedef struct tracee {
 
 	/* Path to the executable, à la /proc/self/exe.  */
 	char *exe;
+	char *new_exe;
 
 
 	/**********************************************************************
@@ -277,6 +269,7 @@ extern Tracee *get_stopped_ptracee(const Tracee *ptracer, pid_t pid,
 extern bool has_ptracees(const Tracee *ptracer, pid_t pid, word_t wait_options);
 extern int new_child(Tracee *parent, word_t clone_flags);
 extern Tracee *new_dummy_tracee(TALLOC_CTX *context);
+extern void free_terminated_tracees();
 extern int swap_config(Tracee *tracee1, Tracee *tracee2);
 extern void kill_all_tracees();
 

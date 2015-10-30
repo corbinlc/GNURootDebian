@@ -2,7 +2,7 @@
  *
  * This file is part of PRoot.
  *
- * Copyright (C) 2014 STMicroelectronics
+ * Copyright (C) 2015 STMicroelectronics
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -74,7 +74,7 @@ static inline bool is_32on64_mode(const Tracee *tracee)
 		return true;
 
 	case 0x33:
-		if (tracee->_regs[ORIGINAL].ds == 0x2B)
+		if (tracee->_regs[CURRENT].ds == 0x2B)
 			return true;
 		/* Fall through.  */
 	default:

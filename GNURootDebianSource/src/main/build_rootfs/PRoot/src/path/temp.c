@@ -49,8 +49,8 @@ const char *get_temp_directory()
 
 /**
  * Remove recursively the content of the current working directory.
- * This latter has to lie in temp_directory (ie. "/tmp" on most 
- * systems). This function returns -1 if a fatal error occured
+ * This latter has to lie in temp_directory (ie. "/tmp" on most
+ * systems).  This function returns -1 if a fatal error occured
  * (ie. the recursion must be stopped), the number of non-fatal errors
  * otherwise.
  *
@@ -360,5 +360,7 @@ error:
 	if (fd >= 0)
 		close(fd);
 	note(NULL, ERROR, SYSTEM, "can't create temporary file");
+	note(NULL, INFO, USER, "Please set PROOT_TMP_DIR env. variable "
+		"to an alternate location (with write permission).");
 	return NULL;
 }

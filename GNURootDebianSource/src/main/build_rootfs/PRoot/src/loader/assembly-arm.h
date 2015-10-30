@@ -2,7 +2,7 @@
  *
  * This file is part of PRoot.
  *
- * Copyright (C) 2014 STMicroelectronics
+ * Copyright (C) 2015 STMicroelectronics
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -29,10 +29,13 @@
  */
 #define BRANCH(stack_pointer, destination) do {			\
 	asm volatile (						\
+		"// Restore initial stack pointer.	\n\t"	\
 		"mov sp, %0				\n\t"	\
 		"					\n\t"	\
+		"// Clear rtld_fini.			\n\t"	\
 		"mov r0, #0				\n\t"	\
 		"					\n\t"	\
+		"// Start the program.			\n\t"	\
 		"mov pc, %1				\n"	\
 		: /* no output */				\
 		: "r" (stack_pointer), "r" (destination)	\
@@ -85,4 +88,6 @@
 #define MMAP_OFFSET_SHIFT 12
 #define EXECVE	11
 #define EXIT	1
+#define PRCTL	172
+#define MPROTECT 125
 

@@ -6,7 +6,7 @@
 #include "cli/cli.h"
 
 #ifndef VERSION
-#define VERSION "5.0.0"
+#define VERSION "5.1.0"
 #endif
 
 static const char *recommended_bindings[] = {
@@ -57,10 +57,10 @@ static int handle_option_V(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_h(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_k(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_0(Tracee *tracee, const Cli *cli, const char *value);
-static int handle_option_i(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_n(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_l(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_H(Tracee *tracee, const Cli *cli, const char *value);
+static int handle_option_i(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_R(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_S(Tracee *tracee, const Cli *cli, const char *value);
 
@@ -73,7 +73,7 @@ static Cli proot_cli = {
 	.subtitle = "chroot, mount --bind, and binfmt_misc without privilege/setup",
 	.synopsis = "proot [option] ... [command]",
 	.colophon = "Visit http://proot.me for help, bug reports, suggestions, patchs, ...\n\
-Copyright (C) 2014 STMicroelectronics, licensed under GPL v2 or later.",
+Copyright (C) 2015 STMicroelectronics, licensed under GPL v2 or later.",
 	.logo = "\
  _____ _____              ___\n\
 |  __ \\  __ \\_____  _____|   |_\n\
@@ -157,30 +157,30 @@ Copyright (C) 2014 STMicroelectronics, licensed under GPL v2 or later.",
 \tinformation is printed to the standard error stream.  A negative\n\
 \tvalue makes PRoot quiet except on fatal errors.",
 	},
-	{ .class = "Regular options",
-	  .arguments = {
-		{ .name = "-H", .separator = '\0', .value = NULL },
-		{ .name = NULL, .separator = '\0', .value = NULL } },
-	  .handler = handle_option_H,
-	  .description = "Hide files and directories starting with '.proot.' .",
-	  .detail = "",
-	},
-	{ .class = "Regular options",
-	  .arguments = {
-		{ .name = "-n", .separator = '\0', .value = NULL },
-		{ .name = NULL, .separator = '\0', .value = NULL } },
-	  .handler = handle_option_n,
-	  .description = "Shadow files contents to live on the '.proot.noexec' binding except when currently being executed, open or memory mapped.",
-	  .detail = "",
-	},
-	{ .class = "Regular options",
-	  .arguments = {
-		{ .name = "-l", .separator = '\0', .value = NULL },
-		{ .name = NULL, .separator = '\0', .value = NULL } },
-	  .handler = handle_option_l,
-	  .description = "Convert hard links to be symbolic links.",
-	  .detail = "",
-	},
+        { .class = "Regular options",
+          .arguments = {
+                { .name = "-H", .separator = '\0', .value = NULL },
+                { .name = NULL, .separator = '\0', .value = NULL } },
+          .handler = handle_option_H,
+          .description = "Hide files and directories starting with '.proot.' .",
+          .detail = "",
+        },
+        { .class = "Regular options",
+          .arguments = {
+                { .name = "-n", .separator = '\0', .value = NULL },
+                { .name = NULL, .separator = '\0', .value = NULL } },
+          .handler = handle_option_n,
+          .description = "Shadow files contents to live on the '.proot.noexec' binding except when currently being executed, open or memory mapped.",
+          .detail = "",
+        },
+        { .class = "Regular options",
+          .arguments = {
+                { .name = "-l", .separator = '\0', .value = NULL },
+                { .name = NULL, .separator = '\0', .value = NULL } },
+          .handler = handle_option_l,
+          .description = "Convert hard links to be symbolic links.",
+          .detail = "",
+        },
 	{ .class = "Regular options",
 	  .arguments = {
 		{ .name = "-V", .separator = '\0', .value = NULL },
@@ -271,6 +271,8 @@ Copyright (C) 2014 STMicroelectronics, licensed under GPL v2 or later.",
 \t    * /sys/\n\
 \t    * /proc/\n\
 \t    * /tmp/\n\
+\t    * /run/\n\
+\t    * /var/run/dbus/system_bus_socket\n\
 \t    * $HOME",
 	},
 	{ .class = "Alias options",
@@ -287,10 +289,12 @@ Copyright (C) 2014 STMicroelectronics, licensed under GPL v2 or later.",
 \t    * /etc/host.conf\n\
 \t    * /etc/hosts\n\
 \t    * /etc/nsswitch.conf\n\
+\t    * /etc/resolv.conf\n\
 \t    * /dev/\n\
 \t    * /sys/\n\
 \t    * /proc/\n\
 \t    * /tmp/\n\
+\t    * /run/shm\n\
 \t    * $HOME",
 	},
 	END_OF_OPTIONS,

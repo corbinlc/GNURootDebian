@@ -2,7 +2,7 @@
  *
  * This file is part of PRoot.
  *
- * Copyright (C) 2014 STMicroelectronics
+ * Copyright (C) 2015 STMicroelectronics
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -25,7 +25,6 @@
 
 #include <sys/queue.h> /* LIST_, */
 #include <stdint.h>    /* intptr_t, */
-#include <stdbool.h>   /* bool, */
 
 #include "tracee/tracee.h"
 #include "syscall/seccomp.h"
@@ -41,28 +40,27 @@ typedef enum {
 	GUEST_PATH,
 
 	/* translate_and_check_exec notifies extensions with the host
-	 * path of the executable that is being checked */
-	EXEC_PATH,
+         * path of the executable that is being checked */
+        EXEC_PATH,
 
-	/* link2symlink notifies other extensions when it is moving 
-	 * a file */
-	LINK2SYMLINK_RENAME,
+        /* link2symlink notifies other extensions when it is moving
+         * a file */
+        LINK2SYMLINK_RENAME,
 
-	/* link2symlink notifies other extensions when it is unlinking 
-	 * a file */
-	LINK2SYMLINK_UNLINK,
-
+        /* link2symlink notifies other extensions when it is unlinking
+         * a file */
+        LINK2SYMLINK_UNLINK,
 
 	/* The canonicalization succeed: "(char *) data1" is the
-	 * translated path from the host point-of-view.  It can be
-	 * substituted by the extension.  If the extension returns <
-	 * 0, then PRoot reports this errno as-is.  */
-	TRANSLATED_PATH,
+         * translated path from the host point-of-view.  It can be
+         * substituted by the extension.  If the extension returns <
+         * 0, then PRoot reports this errno as-is.  */
+        TRANSLATED_PATH,
 
 	/* A canonicalized host path is being accessed during the
 	 * translation of a guest path: "(char *) data1" is the
 	 * canonicalized host path and "(bool) data2" is true if it is
-	 * the final path.  Note that several host paths are accessed
+	 * the last iteration.  Note that several host paths are accessed
 	 * for a given guest path since PRoot has to walk along all
 	 * parent directories and symlinks in order to translate it.
 	 * If the extension returns < 0, then PRoot reports this errno
@@ -172,6 +170,7 @@ typedef LIST_HEAD(extensions, extension) Extensions;
 
 extern int initialize_extension(Tracee *tracee, extension_callback_t callback, const char *cli);
 extern void inherit_extensions(Tracee *child, Tracee *parent, word_t clone_flags);
+extern Extension *get_extension(Tracee *tracee, extension_callback_t callback);
 
 /**
  * Notify all extensions of @tracee that the given @event occured.

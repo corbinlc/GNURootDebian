@@ -234,9 +234,9 @@ public class GNURootMain extends GNURootCoreActivity {
 		//create a script for running a command in proot
 		tempFile = new File(installDir.getAbsolutePath() + "/support/launchProot");
 		if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.KITKAT) {
-			linkOption = " -l ";
 			shadowOption = ((CheckBox) findViewById(R.id.sdcard_checkbox)).isChecked() ? " -n " : " ";
 		}
+		linkOption = " -l ";
 		writeToFile("#!" + installDir.getAbsolutePath()+"/support/busybox sh\n" +
 				installDir.getAbsolutePath()+"/support/busybox clear\n" +
 				"\nblue='\\033[0;34m'; NC='\\033[0m'; echo -e \"${blue}Sponsored by: \"\n" +

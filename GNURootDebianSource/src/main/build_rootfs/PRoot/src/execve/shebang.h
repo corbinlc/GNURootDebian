@@ -2,7 +2,7 @@
  *
  * This file is part of PRoot.
  *
- * Copyright (C) 2014 STMicroelectronics
+ * Copyright (C) 2015 STMicroelectronics
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -24,12 +24,9 @@
 #define SHEBANG_H
 
 #include <linux/limits.h>  /* PATH_MAX, ARG_MAX, */
-#include <linux/binfmts.h> /* BINPRM_BUF_SIZE, */
 
 #include "tracee/tracee.h"
 
-extern int extract_shebang(const Tracee *tracee, const char *host_path,
-		char user_path[PATH_MAX], char argument[BINPRM_BUF_SIZE]);
 extern int expand_shebang(Tracee *tracee, char host_path[PATH_MAX], char user_path[PATH_MAX]);
 
 #endif /* SHEBANG_H */

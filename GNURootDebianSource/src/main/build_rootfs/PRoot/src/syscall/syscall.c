@@ -2,7 +2,7 @@
  *
  * This file is part of PRoot.
  *
- * Copyright (C) 2014 STMicroelectronics
+ * Copyright (C) 2015 STMicroelectronics
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -70,23 +70,23 @@ int get_sysarg_path(const Tracee *tracee, char path[PATH_MAX], Reg reg)
  */
 static int set_sysarg_data(Tracee *tracee, const void *tracer_ptr, word_t size, Reg reg)
 {
-       word_t tracee_ptr;
-       int status;
+	word_t tracee_ptr;
+	int status;
 
-       /* Allocate space into the tracee's memory to host the new data. */
-       tracee_ptr = alloc_mem(tracee, size);
-       if (tracee_ptr == 0)
-               return -EFAULT;
+	/* Allocate space into the tracee's memory to host the new data. */
+	tracee_ptr = alloc_mem(tracee, size);
+	if (tracee_ptr == 0)
+		return -EFAULT;
 
-       /* Copy the new data into the previously allocated space. */
-       status = write_data(tracee, tracee_ptr, tracer_ptr, size);
-       if (status < 0)
-               return status;
+	/* Copy the new data into the previously allocated space. */
+	status = write_data(tracee, tracee_ptr, tracer_ptr, size);
+	if (status < 0)
+		return status;
 
-       /* Make this argument point to the new data. */
-       poke_reg(tracee, reg, tracee_ptr);
+	/* Make this argument point to the new data. */
+	poke_reg(tracee, reg, tracee_ptr);
 
-       return 0;
+	return 0;
 }
 
 /**

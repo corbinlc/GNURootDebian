@@ -2,7 +2,7 @@
  *
  * This file is part of PRoot.
  *
- * Copyright (C) 2013 STMicroelectronics
+ * Copyright (C) 2015 STMicroelectronics
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -27,6 +27,8 @@
 
 extern int translate_ptrace_enter(Tracee *tracee);
 extern int translate_ptrace_exit(Tracee *tracee);
+extern void attach_to_ptracer(Tracee *ptracee, Tracee *ptracer);
+extern void detach_from_ptracer(Tracee *ptracee);
 
 #define PTRACEE (ptracee->as_ptracee)
 #define PTRACER (ptracer->as_ptracer)

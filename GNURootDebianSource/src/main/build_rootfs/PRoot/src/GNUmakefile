@@ -8,12 +8,15 @@ SRC    = $(dir $(firstword $(MAKEFILE_LIST)))
 GIT      = git
 RM       = rm
 INSTALL  = install
-CC       = gcc
-LD       = $(CC) -static 
+CC       = $(CROSS_COMPILE)gcc
+LD       = $(CC) -static
+STRIP    = $(CROSS_COMPILE)strip
+OBJCOPY  = $(CROSS_COMPILE)objcopy
+OBJDUMP  = $(CROSS_COMPILE)objdump
 
 CPPFLAGS += -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -I. -I$(VPATH)
-CFLAGS   += -Wall -Wextra -g -O2
-LDFLAGS  += -ltalloc
+CFLAGS   += -Wall -Wextra -O2
+LDFLAGS  += -ltalloc -Wl,-z,noexecstack
 
 CARE_LDFLAGS = -larchive
 
@@ -42,6 +45,7 @@ OBJECTS += \
 	syscall/sysnum.o	\
 	syscall/socket.o	\
 	syscall/heap.o		\
+	syscall/rlimit.o	\
 	tracee/tracee.o		\
 	tracee/mem.o		\
 	tracee/reg.o		\
@@ -49,14 +53,13 @@ OBJECTS += \
 	ptrace/ptrace.o		\
 	ptrace/user.o		\
 	ptrace/wait.o		\
-	ptrace/direct_ptracee.o	\
 	extension/extension.o	\
 	extension/kompat/kompat.o \
 	extension/fake_id0/fake_id0.o \
-	extension/hidden_files/hidden_files.o \
-	extension/link2symlink/link2symlink.o \
-	extension/noexec_shadow/fuser.o \
-	extension/noexec_shadow/noexec_shadow.o \
+        extension/hidden_files/hidden_files.o \
+        extension/link2symlink/link2symlink.o \
+        extension/noexec_shadow/fuser.o \
+        extension/noexec_shadow/noexec_shadow.o \
 	loader/loader-wrapped.o
 
 define define_from_arch.h
@@ -132,6 +135,8 @@ build.h: $(CHECK_RESULTS)
 	$(Q)cat $^                      >> $@
 	$(Q)echo "#endif /* BUILD_H */" >> $@
 
+BUILD_ID_NONE := $(shell if ld --build-id=none --version >/dev/null 2>&1; then echo ',--build-id=none'; fi)
+
 ######################################################################
 # Build rules
 
@@ -139,11 +144,11 @@ COMPILE = $($(quiet)CC) $(CPPFLAGS) $(CFLAGS) -MD -c $(SRC)$< -o $@
 LINK    = $($(quiet)LD) -o $@ $^ $(LDFLAGS)
 
 OBJIFY = $($(quiet)GEN)									\
-	objcopy										\
+	$(OBJCOPY)									\
 		--input binary								\
-		--output `env LANG=C objdump -f cli/cli.o |				\
+		--output `env LANG=C $(OBJDUMP) -f cli/cli.o |				\
 			grep 'file format' | awk '{print $$4}'`				\
-		--binary-architecture `env LANG=C objdump -f cli/cli.o |		\
+		--binary-architecture `env LANG=C $(OBJDUMP) -f cli/cli.o |		\
 				grep architecture | cut -f 1 -d , | awk '{print $$2}'`	\
 		$< $@
 
@@ -182,7 +187,7 @@ $(eval $(call define_from_arch.h,$1,LOADER_ARCH_CFLAGS))
 $(eval $(call define_from_arch.h,$1,LOADER_ADDRESS))
 
 LOADER_CFLAGS$1  += -fPIC -ffreestanding $(LOADER_ARCH_CFLAGS$1)
-LOADER_LDFLAGS$1 += -static -nostdlib -Wl,-Ttext=$(LOADER_ADDRESS$1)
+LOADER_LDFLAGS$1 += -static -nostdlib -Wl$(BUILD_ID_NONE),-Ttext=$(LOADER_ADDRESS$1),-z,noexecstack
 
 loader/loader$1.o: loader/loader.c
 	@mkdir -p $$(dir $$@)
@@ -198,7 +203,7 @@ loader/loader$1: $$(LOADER$1_OBJECTS)
 .INTERMEDIATE: loader$1.exe
 loader$1.exe: loader/loader$1
 	$$(Q)cp $$< $$@
-	$$(Q)strip $$@
+	$$(Q)$(STRIP) $$@
 
 loader/loader$1-wrapped.o: loader$1.exe cli/cli.o
 	$$(OBJIFY)
