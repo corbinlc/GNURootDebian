@@ -157,7 +157,7 @@ public class ShellTermSession extends TermSession {
         	createSubprocess(processId, mInitialCommand, env);
         else
         	createSubprocess(processId, Environment.getDataDirectory() + "/data/com.gnuroot.debian/app_install/support/busybox sh", env);
-        	//CCXcreateSubprocess(processId, Environment.getDataDirectory() + "/data/com.gnuroot.debian/support/busybox sh", env);
+        //createSubprocess(processId, Environment.getDataDirectory() + "/data/com.gnuroot.debian/support/busybox sh", env);
         mProcId = processId[0];
 
         setTermOut(new FileOutputStream(mTermFd));

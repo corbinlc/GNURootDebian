@@ -229,14 +229,14 @@ public class GNURootMain extends GNURootCoreActivity {
 		copyAssets("com.gnuroot.debian");
 
 		String shadowOption = " ";
-		String linkOption = " ";
+		//String linkOption = " ";
 
 		//create a script for running a command in proot
 		tempFile = new File(installDir.getAbsolutePath() + "/support/launchProot");
 		if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.KITKAT) {
 			shadowOption = ((CheckBox) findViewById(R.id.sdcard_checkbox)).isChecked() ? " -n " : " ";
 		}
-		linkOption = " -l ";
+		//linkOption = " -l ";
 		writeToFile("#!" + installDir.getAbsolutePath()+"/support/busybox sh\n" +
 				installDir.getAbsolutePath()+"/support/busybox clear\n" +
 				"\nblue='\\033[0;34m'; NC='\\033[0m'; echo -e \"${blue}Sponsored by: \"\n" +
@@ -247,7 +247,10 @@ public class GNURootMain extends GNURootCoreActivity {
 				"echo \"  |_|  |___||_|  |__,||___||_  ||_|_||___|\"\n" +
 				"echo \"                           |___|          \"\n" +
 				"echo -e \"${NC}\"\n" +
-				"LD_PRELOAD=/support/libdisableselinux.so PROOT_TMP_DIR=" + installDir.getAbsolutePath() + "/support/ " + installDir.getAbsolutePath() + "/support/proot -r " + installDir.getAbsolutePath() + "/debian -v -1 -H " + linkOption + shadowOption + "-0 -b /sys -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/.proot.noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard -b " + installDir.getAbsolutePath() + "/support/:/support $@", tempFile);
+                "rm " + installDir.getAbsolutePath()+"/support/testln &> /dev/null;\n" +
+                "ln " + installDir.getAbsolutePath()+"/support/busybox " + installDir.getAbsolutePath()+"/support/testln &> /dev/null\n" +
+                "if [[ $? == 0 ]]; then linkOption=\" \"; else linkOption=\"-l\"; fi\n" +
+				"LD_PRELOAD=/support/libdisableselinux.so PROOT_TMP_DIR=" + installDir.getAbsolutePath() + "/support/ " + installDir.getAbsolutePath() + "/support/proot -r " + installDir.getAbsolutePath() + "/debian -v -1 -H $linkOption " + shadowOption + "-0 -b /sys -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/.proot.noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard -b " + installDir.getAbsolutePath() + "/support/:/support $@", tempFile);
 		//"LD_PRELOAD= PROOT_FORCE_FOREIGN_BINARY=1 PROOT_TMP_DIR=" + installDir.getAbsolutePath() + "/support/ " + installDir.getAbsolutePath() + "/support/proot -r " + installDir.getAbsolutePath() + "/debian -q " + installDir.getAbsolutePath() + "/support/qemu -v 5 -H -l" + shadowOption + "-0 -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/.proot.noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard -b " + installDir.getAbsolutePath() + "/support/:/support $@", tempFile);
 		//"LD_PRELOAD= PROOT_TMP_DIR=" + installDir.getAbsolutePath() + "/support/ PROOT_LOADER=" + installDir.getAbsolutePath() + "/support/loader " + installDir.getAbsolutePath() + "/support/proot -r " + installDir.getAbsolutePath() + "/debian -v -1 -H -l" + shadowOption + "-0 -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/.proot.noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard -b " + installDir.getAbsolutePath() + "/support/:/support $@", tempFile);
 		exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
