@@ -3,8 +3,8 @@
     package="com.gnuroot.debian"
     xmlns:tools="http://schemas.android.com/tools"
     android:installLocation="preferExternal"
-    android:versionCode="29"
-    android:versionName="0.3.2_armhf" >
+    android:versionCode="35"
+    android:versionName="0.4.1_armhf" >
     
     <supports-screens android:resizeable="true"
                       android:smallScreens="true"                       
