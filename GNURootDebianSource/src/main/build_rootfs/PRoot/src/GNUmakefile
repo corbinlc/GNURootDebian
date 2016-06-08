@@ -57,6 +57,7 @@ OBJECTS += \
 	extension/kompat/kompat.o \
 	extension/fake_id0/fake_id0.o \
         extension/hidden_files/hidden_files.o \
+        extension/port_switch/port_switch.o \
         extension/link2symlink/link2symlink.o \
         extension/noexec_shadow/fuser.o \
         extension/noexec_shadow/noexec_shadow.o \

@@ -60,6 +60,7 @@ static int handle_option_0(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_n(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_l(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_H(Tracee *tracee, const Cli *cli, const char *value);
+static int handle_option_p(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_i(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_R(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_S(Tracee *tracee, const Cli *cli, const char *value);
@@ -163,6 +164,14 @@ Copyright (C) 2015 STMicroelectronics, licensed under GPL v2 or later.",
                 { .name = NULL, .separator = '\0', .value = NULL } },
           .handler = handle_option_H,
           .description = "Hide files and directories starting with '.proot.' .",
+          .detail = "",
+        },
+        { .class = "Regular options",
+          .arguments = {
+                { .name = "-p", .separator = '\0', .value = NULL },
+                { .name = NULL, .separator = '\0', .value = NULL } },
+          .handler = handle_option_p,
+          .description = "Modify bindings to protected ports to use a higher port number.",
           .detail = "",
         },
         { .class = "Regular options",
