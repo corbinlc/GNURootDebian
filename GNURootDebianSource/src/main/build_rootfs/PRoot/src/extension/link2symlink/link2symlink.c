@@ -43,9 +43,10 @@ static int my_readlink(const char symlink[PATH_MAX], char value[PATH_MAX])
  * point to the new location.  This function returns -errno if an
  * error occured, otherwise 0.
  */
-static int move_and_symlink_path(Tracee *tracee, Reg sysarg)
+static int move_and_symlink_path(Tracee *tracee, Reg sysarg, Reg sysarg2)
 {
 	char original[PATH_MAX];
+	char original_newpath[PATH_MAX];
 	char intermediate[PATH_MAX];
 	char new_intermediate[PATH_MAX];
 	char final[PATH_MAX];
@@ -57,6 +58,16 @@ static int move_and_symlink_path(Tracee *tracee, Reg sysarg)
 	int link_count;
 	int first_link = 1;
 	int intermediate_suffix = 1;
+
+	/* Note: this path was already canonicalized.  */
+	size = read_string(tracee, original_newpath, peek_reg(tracee, CURRENT, sysarg2), PATH_MAX);
+	if (size < 0)
+		return size;
+	if (size >= PATH_MAX)
+		return -ENAMETOOLONG;
+	/* If newpath already exists, return appropriate error. */
+	if(access(original_newpath, F_OK) == 0)
+		return -EEXIST;
 
 	/* Note: this path was already canonicalized.  */
 	size = read_string(tracee, original, peek_reg(tracee, CURRENT, sysarg), PATH_MAX);
@@ -503,7 +514,7 @@ int link2symlink_callback(Extension *extension, ExtensionEvent event,
 			 *     int symlink(const char *oldpath, const char *newpath);
 			 */
 
-			status = move_and_symlink_path(tracee, SYSARG_1);
+			status = move_and_symlink_path(tracee, SYSARG_1, SYSARG_2);
 			if (status < 0)
 				return status;
 
@@ -527,7 +538,7 @@ int link2symlink_callback(Extension *extension, ExtensionEvent event,
 			 *   newdirfd + newpath -> newpath
 			 */
 
-			status = move_and_symlink_path(tracee, SYSARG_2);
+			status = move_and_symlink_path(tracee, SYSARG_2, SYSARG_4);
 			if (status < 0)
 				return status;
 
@@ -556,6 +567,7 @@ int link2symlink_callback(Extension *extension, ExtensionEvent event,
 		case PR_openat:
 		case PR_lstat:
 		case PR_lstat64:
+		case PR_lchown:
 			translated_path((char *) data1);
 			break;
 		default:
