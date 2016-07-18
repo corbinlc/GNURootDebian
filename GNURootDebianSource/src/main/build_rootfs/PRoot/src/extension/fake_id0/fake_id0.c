@@ -360,7 +360,7 @@ static int read_meta_file(char path[PATH_MAX], mode_t *mode, uid_t *owner, gid_t
 
 /** Determines whether the file specified by path exists.
  */
-static int path_exists(Tracee *tracee, char path[PATH_MAX])
+static int path_exists(char path[PATH_MAX])
 {
     return access(path, F_OK);  
 }
@@ -482,7 +482,7 @@ static int handle_open(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
         flags = 0;
 
     /* If the metafile doesn't exist and we aren't creating a new file, get out. */
-    if(path_exists(tracee, meta_path) < 0 && (flags & O_CREAT) != O_CREAT)
+    if(path_exists(meta_path) < 0 && (flags & O_CREAT) != O_CREAT)
         return 0;
 
     status = get_fd_path(tracee, rel_path, fd_sysarg);
@@ -502,7 +502,7 @@ static int handle_open(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
          *  the O_CREAT flag even when the file already exists, so a check is
          *  necessary. 
          */
-        if(path_exists(tracee, orig_path) == 0)
+        if(path_exists(orig_path) == 0)
             return 0;
 
         status = check_dir_perms('w', meta_path, rel_path, config);
@@ -604,7 +604,7 @@ static int handle_unlink(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg, const C
     /** If the meta_file relating to the file being unlinked exists,
      *  unlink that as well.
      */   
-    status = path_exists(tracee, meta_path);
+    status = path_exists(meta_path);
     if(status == 0) 
         unlink(meta_path);
 
@@ -878,7 +878,7 @@ static int handle_access(Tracee *tracee, Reg path_sysarg,
 
     mode = peek_reg(tracee, ORIGINAL, mode_sysarg);
     if(mode & F_OK) {
-        status = path_exists(tracee, path);
+        status = path_exists(path);
         return status;
     }
 
@@ -922,7 +922,7 @@ static int handle_exec(Tracee *tracee, Reg filename_sysarg, const Config *config
     
 
     /* If metafile doesn't exist, get out, but don't error. */
-    status = path_exists(tracee, meta_path);
+    status = path_exists(meta_path);
     if(status < 0) 
         return 0;
     
@@ -939,6 +939,86 @@ static int handle_exec(Tracee *tracee, Reg filename_sysarg, const Config *config
     /** TODO Add logic to determine interpreter being used, and check
      *  permissions for it.
      */
+
+    return 0;
+}
+
+/** Handles link and linkat. Returns -EACCES if search permission is not
+ *  given for the entire relative oldpath and the entire relative newpath
+ *  except where write permission is needed (on the final directory component).
+ */
+static int handle_link(Tracee *tracee, Reg olddirfd_sysarg, Reg oldpath_sysarg,
+    Reg newdirfd_sysarg, Reg newpath_sysarg, const Config *config)
+{
+    int status;
+    char oldpath[PATH_MAX];
+    char rel_oldpath[PATH_MAX];
+    char newpath[PATH_MAX];
+    char rel_newpath[PATH_MAX];
+
+    status = read_sysarg_path(tracee, oldpath, oldpath_sysarg);
+    if(status < 0)
+        return status;
+    if(status == 1)
+        return 0;
+
+    status = read_sysarg_path(tracee, newpath, newpath_sysarg);
+    if(status < 0)
+        return status;
+    if(status == 1)
+        return 0;
+
+    status = get_fd_path(tracee, rel_oldpath, olddirfd_sysarg);
+    if(status < 0)
+        return status;
+
+    status = get_fd_path(tracee, rel_newpath, newdirfd_sysarg);
+    if(status < 0)
+        return status;
+
+    status = check_dir_perms('r', oldpath, rel_oldpath, config);
+    if(status < 0)
+        return status;
+
+    status = check_dir_perms('w', newpath, rel_newpath, config);
+    if(status < 0)
+        return status;
+
+    return 0;
+}
+
+/** Handles symlink and symlinkat syscalls. Returns -EACCES if search
+ *  permission is not found for the directories except the final in newpath.
+ *  Write permission is required for that directory. Unlike with link(2), 
+ *  symlink does not require permissions on the original path.
+ */
+static int handle_symlink(Tracee *tracee, Reg oldpath_sysarg,
+    Reg newdirfd_sysarg, Reg newpath_sysarg, const Config *config)
+{
+    int status;
+    char oldpath[PATH_MAX];
+    char newpath[PATH_MAX];
+    char rel_newpath[PATH_MAX];
+
+    status = read_sysarg_path(tracee, oldpath, oldpath_sysarg);
+    if(status < 0)
+        return status;
+    if(status == 1)
+        return 0;
+
+    status = read_sysarg_path(tracee, newpath, newpath_sysarg);
+    if(status < 0)
+        return status;
+    if(status == 1)
+        return 0;
+
+    status = get_fd_path(tracee, rel_newpath, newdirfd_sysarg);
+    if(status < 0)
+        return status;
+
+    status = check_dir_perms('w', newpath, rel_newpath, config);
+    if(status < 0)
+        return status;
 
     return 0;
 }
@@ -1150,6 +1230,20 @@ static int handle_sysenter_end(Tracee *tracee, const Config *config)
     /* handle_exec(tracee, filename_sysarg, config) */
     case PR_execve:
         return handle_exec(tracee, SYSARG_1, config);
+
+    /* handle_link(tracee, olddirfd_sysarg, oldpath_sysarg, newdirfd_sysarg, newpath_sysarg, config) */
+    /* int link(const char *oldpath, const char *newpath) */
+    case PR_link:
+        return handle_link(tracee, IGNORE_SYSARG, SYSARG_1, IGNORE_SYSARG, SYSARG_2, config);
+    /* int linkat(int olddirfd, const char *oldpath, int newdirfd, const char *newpath, int flags) */
+    case PR_linkat:
+        return handle_link(tracee, SYSARG_1, SYSARG_2, SYSARG_3, SYSARG_4, config);
+    /* int symlink(const char *target, const char *linkpath); */
+    case PR_symlink:
+        return handle_symlink(tracee, SYSARG_1, IGNORE_SYSARG, SYSARG_2, config);
+    /* int symlinkat(const char *target, int newdirfd, const char *linkpath); */
+    case PR_symlinkat:
+        return handle_symlink(tracee, SYSARG_1, SYSARG_2, SYSARG_3, config);
 
     case PR_setuid:
     case PR_setuid32:
@@ -1549,7 +1643,7 @@ static int handle_sysexit_end(Tracee *tracee, Config *config)
         
         status = get_meta_path(path, meta_path);
         if(status == 0) {
-            status = path_exists(tracee, meta_path);
+            status = path_exists(meta_path);
             if(status == 0) {
                 read_meta_file(meta_path, &mode, &uid, &gid, config);
                 /** TODO Could potentially just use the address, but would need
@@ -1642,7 +1736,7 @@ static int handle_sysexit_end(Tracee *tracee, Config *config)
             return 0;
 
         /* If the file exists, it doesn't matter if a metafile exists. */
-        if(path_exists(tracee, path) == 0)
+        if(path_exists(path) == 0)
             return 0; 
 
         status = get_meta_path(path, meta_path);
@@ -1650,7 +1744,7 @@ static int handle_sysexit_end(Tracee *tracee, Config *config)
             return status;
 
         /* If the metafile exists and the original file does not, delete it. */
-        if(path_exists(tracee, meta_path) == 0) 
+        if(path_exists(meta_path) == 0) 
             unlink(meta_path);
 
         return 0;
@@ -1816,7 +1910,7 @@ int fake_id0_callback(Extension *extension, ExtensionEvent event, intptr_t data1
             return status;
 
         /* If meta doesn't exist, get out. */
-        if(path_exists(TRACEE(extension), old_meta) != 0)
+        if(path_exists(old_meta) != 0)
             return 0; 
 
         status = get_meta_path((char *) data2, new_meta);
@@ -1839,7 +1933,7 @@ int fake_id0_callback(Extension *extension, ExtensionEvent event, intptr_t data1
             return status;
 
         /* If metafile doesn't already exist, get out */
-        if(path_exists(TRACEE(extension), meta_path) != 0)
+        if(path_exists(meta_path) != 0)
             return 0;
 
         status = unlink(meta_path);

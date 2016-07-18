@@ -176,7 +176,6 @@ static int move_and_symlink_path(Tracee *tracee, Reg sysarg, Reg sysarg2)
 	return 0;
 }
 
-
 /* If path points a file that is a symlink to a file that begins
  *   with PREFIX, let the file be deleted, but also delete the 
  *   symlink that was created and decremnt the count that is tacked
@@ -366,13 +365,18 @@ static int handle_sysexit_end(Tracee *tracee)
 		if (status < 0) 
 			return status;
 
-		finalStat.st_nlink = atoi(final + strlen(final) - 4);
-
 		/* Get the address of the 'stat' structure.  */
 		if (sysnum == PR_fstatat64 || sysnum == PR_newfstatat)
 			sysarg_stat = SYSARG_3;
 		else
 			sysarg_stat = SYSARG_2;
+
+        /* Get the data from the stat call that may have been modified by fake_id0. */
+        read_data(tracee, &statl, peek_reg(tracee, MODIFIED, sysarg_stat), sizeof(statl));
+        finalStat.st_mode = statl.st_mode;
+        finalStat.st_uid = statl.st_uid;
+        finalStat.st_gid = statl.st_gid;
+		finalStat.st_nlink = atoi(final + strlen(final) - 4);
 
 		status = write_data(tracee, peek_reg(tracee, ORIGINAL,  sysarg_stat), &finalStat, sizeof(finalStat));
 		if (status < 0)
