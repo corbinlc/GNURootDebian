@@ -1,3 +1,4 @@
+#include <dirent.h>    /* DIR, struct dirent, opendir, closedir, readdir) */
 #include <stdio.h>     /* rename(2), */
 #include <stdlib.h>    /* atoi */
 #include <unistd.h>    /* symlink(2), symlinkat(2), readlink(2), lstat(2), unlink(2), unlinkat(2)*/
@@ -52,12 +53,13 @@ static int move_and_symlink_path(Tracee *tracee, Reg sysarg, Reg sysarg2)
 	char final[PATH_MAX];
 	char new_final[PATH_MAX];
 	char * name;
-	struct stat statl;
-	ssize_t size;
+    char nlinks[6];
 	int status;
-	int link_count;
+	int link_count = 0;
 	int first_link = 1;
 	int intermediate_suffix = 1;
+	struct stat statl;
+	ssize_t size;
 
 	/* Note: this path was already canonicalized.  */
 	size = read_string(tracee, original_newpath, peek_reg(tracee, CURRENT, sysarg2), PATH_MAX);
@@ -123,8 +125,59 @@ static int move_and_symlink_path(Tracee *tracee, Reg sysarg, Reg sysarg2)
 		} while ((access(new_intermediate,F_OK) != -1) && (intermediate_suffix < 1000)); 
 		strcpy(intermediate, new_intermediate);
 
+        /** Check to see if the old path has links already. If it does, change
+         *  them to symbolic links.
+         */
+        if((int) statl.st_nlink > 1) {
+            //Find the directory in which files are being linked
+            int offset;
+            ino_t inode;
+            char dir_path[PATH_MAX];
+            char full_path[PATH_MAX];
+            struct stat dir_stat;
+            struct dirent *dir;
+            DIR *d;
+
+            strcpy(dir_path, original);
+            offset = strlen(dir_path) - 1; 
+            if (offset > 0) { 
+                /* Skip trailing path separators. */
+                while (offset > 1 && dir_path[offset] == '/') 
+                    offset--;
+
+                /* Search for the previous path separator. */
+                while (offset > 1 && dir_path[offset] != '/') 
+                    offset--;
+
+                /* Cut the end of the string before the last component. */
+                dir_path[offset] = '\0';
+            }   
+ 
+            /* Search the directory for files with the same inode number. */
+            inode = statl.st_ino;
+            d = opendir(dir_path);
+            while((dir = readdir(d)) != NULL) {
+                /* Canonicalize the directory name */
+                sprintf(full_path, "%s/%s", dir_path, dir->d_name); 
+                stat(full_path, &dir_stat);
+
+                if(dir_stat.st_ino == inode && strcmp(full_path, original) != 0) {
+                    /* Recreate the hard link as a symlink. */
+                    unlink(full_path);
+                    status = symlink(intermediate, full_path);
+                    link_count++;
+                }
+            }
+            closedir(d);
+        }
+
+        /** Format the final file correctly. Add zeros until the length of
+         *  nlinks (without the terminating \0) is 4. 
+         */   
+        sprintf(nlinks, ".%04d", link_count+2);  
 		strcpy(final, intermediate);
-		strcat(final, ".0002");
+        strcat(final, nlinks);
+
 		status = rename(original, final);
 		if (status < 0)
 			return status;
@@ -138,10 +191,12 @@ static int move_and_symlink_path(Tracee *tracee, Reg sysarg, Reg sysarg2)
 			return status;	
 
 		/* Symlink the original path to the intermediate one.  */
-        	status = symlink(intermediate, original);
-        	if (status < 0)
-			return status;
-	} else {
+        status = symlink(intermediate, original);
+        if (status < 0)
+        return status;
+	} 
+    
+    else {
 		/*Move the original content to new location, by incrementing count at end of path. */
 		status = my_readlink(intermediate, final);
 		if (status < 0)

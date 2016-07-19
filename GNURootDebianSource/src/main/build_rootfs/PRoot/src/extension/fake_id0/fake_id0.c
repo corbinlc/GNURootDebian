@@ -502,7 +502,7 @@ static int handle_open(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
          *  the O_CREAT flag even when the file already exists, so a check is
          *  necessary. 
          */
-        if(path_exists(orig_path) == 0)
+        if(path_exists(orig_path) == 0) 
             return 0;
 
         status = check_dir_perms('w', meta_path, rel_path, config);
@@ -604,8 +604,7 @@ static int handle_unlink(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg, const C
     /** If the meta_file relating to the file being unlinked exists,
      *  unlink that as well.
      */   
-    status = path_exists(meta_path);
-    if(status == 0) 
+    if(path_exists(meta_path) == 0)
         unlink(meta_path);
 
     return 0;
@@ -655,11 +654,14 @@ static int handle_rename(Tracee *tracee, Reg oldfd_sysarg, Reg oldpath_sysarg,
     status = check_dir_perms('w', newpath, rel_newpath, config);
     if(status < 0)
         return status;
-   
-    // "Copy" the old meta_file to a new one relating to the new path.
+
+    // If a meta file exists, "copy" it to the new path.
     status = get_meta_path(oldpath, meta_path);
     if(status < 0)
         return status;
+
+    if(path_exists(meta_path) != 0)
+        return 0;
 
     read_meta_file(meta_path, &mode, &uid, &gid, config);
     unlink(meta_path);
@@ -703,6 +705,13 @@ static int handle_chmod(Tracee *tracee, Reg path_sysarg, Reg mode_sysarg,
 		return 0;
     }
 
+    status = get_meta_path(path, meta_path);
+    if(status < 0)
+        return status;
+
+    if(path_exists(meta_path) != 0)
+        return 0;
+
     status = get_fd_path(tracee, rel_path, dirfd_sysarg);
     if(status < 0)
         return status;
@@ -712,11 +721,6 @@ static int handle_chmod(Tracee *tracee, Reg path_sysarg, Reg mode_sysarg,
         return status;
     }
     
-    status = get_meta_path(path, meta_path);
-    if(status < 0)
-        return status;
-
-
     read_meta_file(meta_path, &read_mode, &owner, &group, config);
     if(config->euid != owner && config->euid != 0) 
         return -EPERM;
@@ -756,15 +760,18 @@ static int handle_chown(Tracee *tracee, Reg path_sysarg, Reg owner_sysarg,
 		return 0;
     }
 
+    status = get_meta_path(path, meta_path);
+    if(status < 0)
+        return status;
+
+    if(path_exists(meta_path) != 0)
+        return 0;
+
     status = get_fd_path(tracee, rel_path, dirfd_sysarg);
     if(status < 0)
         return status;
 
     status = check_dir_perms('r', path, rel_path, config);
-    if(status < 0)
-        return status;
-
-    status = get_meta_path(path, meta_path);
     if(status < 0)
         return status;
 
@@ -876,11 +883,10 @@ static int handle_access(Tracee *tracee, Reg path_sysarg,
     if(status < 0)
         return status;
 
+    // Only care about calls checking permissions.
     mode = peek_reg(tracee, ORIGINAL, mode_sysarg);
-    if(mode & F_OK) {
-        status = path_exists(path);
-        return status;
-    }
+    if(mode & F_OK) 
+        return 0;
 
     mask = 0;
     if((mode & R_OK) == R_OK)
@@ -919,7 +925,6 @@ static int handle_exec(Tracee *tracee, Reg filename_sysarg, const Config *config
     status = get_meta_path(path, meta_path);
     if(status < 0) 
         return status;
-    
 
     /* If metafile doesn't exist, get out, but don't error. */
     status = path_exists(meta_path);
