@@ -66,6 +66,8 @@ typedef struct {
     gid_t egid;
     gid_t sgid;
     gid_t fsgid;
+
+    mode_t umask;
 } Config;
 
 typedef struct {
@@ -262,15 +264,21 @@ static int get_meta_path(char orig_path[PATH_MAX], char meta_path[PATH_MAX])
  *  is used in cases where the function is used to find relative paths
  *  for __at calls.
  */
-static int get_fd_path(Tracee *tracee, char path[PATH_MAX], Reg fd_sysarg)
+static int get_fd_path(Tracee *tracee, char path[PATH_MAX], Reg fd_sysarg, bool on_exit)
 {
     int status;
     if(fd_sysarg != IGNORE_SYSARG) {
-        if( (signed int)peek_reg(tracee, CURRENT, fd_sysarg) == -100)
+        // AT_CWD translates to -100, so replace it with a canonicalized version
+        if( (signed int)peek_reg(tracee, CURRENT, fd_sysarg) == -100) 
             status = getcwd2(tracee, path);
-        else
-            status = readlink_proc_pid_fd(tracee->pid, peek_reg(tracee, CURRENT, fd_sysarg), path);
-
+        // See read_sysarg_path for an explanation of the use of modified.
+        else {
+            if(on_exit) 
+                status = readlink_proc_pid_fd(tracee->pid, peek_reg(tracee, MODIFIED, fd_sysarg), path);
+            
+            else
+                status = readlink_proc_pid_fd(tracee->pid, peek_reg(tracee, CURRENT, fd_sysarg), path);
+        }
         if(status < 0) 
             return status;
     }
@@ -288,10 +296,18 @@ static int get_fd_path(Tracee *tracee, char path[PATH_MAX], Reg fd_sysarg)
 
 /** Reads a path from path_sysarg into path.
  */
-static int read_sysarg_path(Tracee *tracee, char path[PATH_MAX], Reg path_sysarg)
+static int read_sysarg_path(Tracee *tracee, char path[PATH_MAX], Reg path_sysarg, bool on_exit)
 {
     int size;
-    size = read_string(tracee, path, peek_reg(tracee, CURRENT, path_sysarg), PATH_MAX);
+    /** Note: this path has already been canonicalized. Modified is used here
+     *  for exit calls because on ARM architectures, the result to a system
+     *  call is placed in SYSARG_1. Using MODIFIED allows the original path to
+     *  be read.
+     */
+    if(on_exit) 
+        size = read_string(tracee, path, peek_reg(tracee, MODIFIED, path_sysarg), PATH_MAX);
+    else
+        size = read_string(tracee, path, peek_reg(tracee, CURRENT, path_sysarg), PATH_MAX);
     if(size < 0) 
         return size;
     if(size >= PATH_MAX) 
@@ -310,9 +326,8 @@ static int read_sysarg_path(Tracee *tracee, char path[PATH_MAX], Reg path_sysarg
  *  is_creat is set to true, the umask needs to be used since it would have
  *  been by a real system call.
  */
-static int write_meta_file(char path[PATH_MAX], mode_t mode, uid_t owner, gid_t group, bool is_creat)
+static int write_meta_file(char path[PATH_MAX], mode_t mode, uid_t owner, gid_t group, bool is_creat, const Config *config)
 {
-    mode_t um;
     FILE *fp;
     fp = fopen(path, "w");
     if(!fp) 
@@ -323,14 +338,12 @@ static int write_meta_file(char path[PATH_MAX], mode_t mode, uid_t owner, gid_t 
      *  for example, the umask isn't used in determining the permissions of the
      *  the file.
      */
-    if(is_creat) {
-        /** The first call sets um to current umask value, and current umask value
-         *  to 0. The second call resets the umask value to it's original value.
+    if(is_creat) 
+        /** The typical default value of 022 is used to avoid cases when the
+         *  umask has already been modified.
          */
-        um = umask(0);
-        umask(um);
-        mode = mode & ~(um);
-    }
+        mode = (mode & ~(config->umask) & 0777);
+    
     fprintf(fp, "%d\n%d\n%d\n", dtoo(mode), owner, group);
     fclose(fp);
     return 0; 
@@ -404,8 +417,10 @@ static int get_permissions(char meta_path[PATH_MAX], const Config *config)
  *  by rel_path. If type is specified to be "read", it checks only execute 
  *  permissions. If type is specified to be "write, it makes sure that the 
  *  parent directory of the file specified by path also has write permissions.
+ *  The permission check uses guest paths only.
  */
-static int check_dir_perms(char type, char path[PATH_MAX], char rel_path[PATH_MAX], const Config *config)
+static int check_dir_perms(Tracee *tracee, char type, char path[PATH_MAX], 
+    char rel_path[PATH_MAX], const Config *config)
 {
     int status, perms;
     char meta_path[PATH_MAX];
@@ -420,35 +435,28 @@ static int check_dir_perms(char type, char path[PATH_MAX], char rel_path[PATH_MA
 
     perms = get_permissions(meta_path, config);
 
-    if(type == 'w') {
-        if((perms & w) == w) 
-            status = 0;
-        else 
-            return -EACCES;
-    }
+    if(type == 'w' && (perms & w) != w) 
+        return -EACCES;
     
-    if(type == 'r') {
-        if((perms & x) == x) 
-            status = 0;
-        else 
-            return -EACCES;
-    }
+    if(type == 'r' && (perms & x) != x) 
+        return -EACCES;
 
     while(strcmp(shorten_path, rel_path) != 0 && strlen(rel_path) < strlen(shorten_path)) {
         get_dir_path(shorten_path, shorten_path);
+        if(!belongs_to_guestfs(tracee, shorten_path))
+            break;
+
         status = get_meta_path(shorten_path, meta_path);
         if(status < 0)
             return status;
 
         perms = get_permissions(meta_path, config);
-        if((perms & x) == x) 
-            status = 0;
-        else 
+        if((perms & x) != x) 
             return -EACCES;
         
     }
 
-    return status;
+    return 0;
 }
 
 /** Handles open, openat, and creat syscalls. Creates meta files to match the
@@ -466,14 +474,14 @@ static int handle_open(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
     word_t flags;
     mode_t mode;
    
-    status = read_sysarg_path(tracee, orig_path, path_sysarg); 
+    status = read_sysarg_path(tracee, orig_path, path_sysarg, 0); 
     if(status < 0) 
         return status;
-    if(status == 1)
+    if(status == 1) 
         return 0;
 
     status = get_meta_path(orig_path, meta_path);
-    if(status < 0)
+    if(status < 0) 
         return status;
  
     if(flags_sysarg != IGNORE_SYSARG) 
@@ -482,10 +490,10 @@ static int handle_open(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
         flags = 0;
 
     /* If the metafile doesn't exist and we aren't creating a new file, get out. */
-    if(path_exists(meta_path) < 0 && (flags & O_CREAT) != O_CREAT)
+    if(path_exists(meta_path) < 0 && (flags & O_CREAT) != O_CREAT) 
         return 0;
 
-    status = get_fd_path(tracee, rel_path, fd_sysarg);
+    status = get_fd_path(tracee, rel_path, fd_sysarg, 0);
     if(status < 0) 
         return status; 
     
@@ -505,17 +513,17 @@ static int handle_open(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
         if(path_exists(orig_path) == 0) 
             return 0;
 
-        status = check_dir_perms('w', meta_path, rel_path, config);
+        status = check_dir_perms(tracee, 'w', meta_path, rel_path, config);
         if(status < 0) 
             return status;
 
         mode = peek_reg(tracee, ORIGINAL, mode_sysarg);
-        poke_reg(tracee, mode_sysarg, otod(700));
-        return write_meta_file(meta_path, mode, config->euid, config->egid, 1);
+        poke_reg(tracee, mode_sysarg, (mode|0700));
+        return write_meta_file(meta_path, mode, config->euid, config->egid, 1, config);
     }
 
     else { 
-        status = check_dir_perms('r', meta_path, rel_path, config);
+        status = check_dir_perms(tracee, 'r', meta_path, rel_path, config);
         if(status < 0) 
             return status;
         
@@ -544,31 +552,31 @@ static int handle_mk(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
     char rel_path[PATH_MAX];
     char meta_path[PATH_MAX];
 
-    status  = read_sysarg_path(tracee, orig_path, path_sysarg);
+    status  = read_sysarg_path(tracee, orig_path, path_sysarg, 0);
     if(status < 0)
         return status;
     if(status == 1)
+        return 0;
+
+    /* If the path exists, get out. The syscall itself will return EEXIST. */
+    if(path_exists(orig_path) == 0)
         return 0;
 
     status = get_meta_path(orig_path, meta_path);
     if(status < 0)
         return status;
 
-    status = get_fd_path(tracee, rel_path, fd_sysarg);
+    status = get_fd_path(tracee, rel_path, fd_sysarg, 0);
     if(status < 0) 
         return status;
     
-    status = check_dir_perms('w', orig_path, rel_path, config);
+    status = check_dir_perms(tracee, 'w', orig_path, rel_path, config);
     if(status < 0) 
         return status;
     
     mode = peek_reg(tracee, ORIGINAL, mode_sysarg);
-
-    status = write_meta_file(meta_path, mode, config->euid, config->egid, 1);
-    if(status < 0)
-        return status;
-
-    return 0;
+    poke_reg(tracee, mode_sysarg, (mode|0700));
+    return write_meta_file(meta_path, mode, config->euid, config->egid, 1, config);
 }
 
 /** Handles unlink, unlinkat, and rmdir syscalls. Checks permissions in meta 
@@ -583,7 +591,7 @@ static int handle_unlink(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg, const C
     char rel_path[PATH_MAX];
     char meta_path[PATH_MAX];
     
-    status = read_sysarg_path(tracee, orig_path, path_sysarg); 
+    status = read_sysarg_path(tracee, orig_path, path_sysarg, 0); 
     if(status < 0) 
         return status;
     if(status == 1)
@@ -593,11 +601,11 @@ static int handle_unlink(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg, const C
     if(status < 0) 
         return status;
     
-    status = get_fd_path(tracee, rel_path, fd_sysarg);
+    status = get_fd_path(tracee, rel_path, fd_sysarg, 0);
     if(status < 0) 
         return status;
     
-    status = check_dir_perms('w', orig_path, rel_path, config);
+    status = check_dir_perms(tracee, 'w', orig_path, rel_path, config);
     if(status < 0) 
         return status;
  
@@ -627,31 +635,31 @@ static int handle_rename(Tracee *tracee, Reg oldfd_sysarg, Reg oldpath_sysarg,
     char rel_newpath[PATH_MAX];
     char meta_path[PATH_MAX];
 
-    status = read_sysarg_path(tracee, oldpath, oldpath_sysarg); 
+    status = read_sysarg_path(tracee, oldpath, oldpath_sysarg, 0); 
     if(status < 0)
         return status;
     if(status == 1)
         return 0;
 
-    status = read_sysarg_path(tracee, newpath, newpath_sysarg); 
+    status = read_sysarg_path(tracee, newpath, newpath_sysarg, 0); 
     if(status < 0)
         return status;
     if(status == 1)
         return 0;
 
-    status = get_fd_path(tracee, rel_oldpath, oldfd_sysarg);
+    status = get_fd_path(tracee, rel_oldpath, oldfd_sysarg, 0);
     if(status < 0)
         return status;
 
-    status = get_fd_path(tracee, rel_newpath, newfd_sysarg);
+    status = get_fd_path(tracee, rel_newpath, newfd_sysarg, 0);
     if(status < 0)
         return status;
 
-    status = check_dir_perms('w', oldpath, rel_oldpath, config);
+    status = check_dir_perms(tracee, 'w', oldpath, rel_oldpath, config);
     if(status < 0)
         return status;
 
-    status = check_dir_perms('w', newpath, rel_newpath, config);
+    status = check_dir_perms(tracee, 'w', newpath, rel_newpath, config);
     if(status < 0)
         return status;
 
@@ -671,9 +679,7 @@ static int handle_rename(Tracee *tracee, Reg oldfd_sysarg, Reg oldpath_sysarg,
     if(status < 0)
         return status;
 
-    write_meta_file(meta_path, mode, uid, gid, 0); 
-
-    return 0;
+    return write_meta_file(meta_path, mode, uid, gid, 0, config); 
 }
 
 /** Handles chmod, fchmod, and fchmodat syscalls. Changes meta files to the new
@@ -693,9 +699,9 @@ static int handle_chmod(Tracee *tracee, Reg path_sysarg, Reg mode_sysarg,
 
     // When path_sysarg is set to IGNORE, the call being handled is fchmod.
     if(path_sysarg == IGNORE_SYSARG) 
-        status = get_fd_path(tracee, path, fd_sysarg);
+        status = get_fd_path(tracee, path, fd_sysarg, 0);
     else
-        status = read_sysarg_path(tracee, path, path_sysarg);
+        status = read_sysarg_path(tracee, path, path_sysarg, 0);
     if(status < 0)
         return status;
     // If the file exists outside the guestfs, drop the syscall.
@@ -712,24 +718,23 @@ static int handle_chmod(Tracee *tracee, Reg path_sysarg, Reg mode_sysarg,
     if(path_exists(meta_path) != 0)
         return 0;
 
-    status = get_fd_path(tracee, rel_path, dirfd_sysarg);
+    status = get_fd_path(tracee, rel_path, dirfd_sysarg, 0);
     if(status < 0)
         return status;
 
-    status = check_dir_perms('r', path, rel_path, config);
-    if(status < 0) {
+    status = check_dir_perms(tracee, 'r', path, rel_path, config);
+    if(status < 0) 
         return status;
-    }
+    
     
     read_meta_file(meta_path, &read_mode, &owner, &group, config);
     if(config->euid != owner && config->euid != 0) 
         return -EPERM;
 
     call_mode = peek_reg(tracee, ORIGINAL, mode_sysarg);
-    write_meta_file(meta_path, call_mode, owner, group, 0);
     set_sysnum(tracee, PR_void);
+    return write_meta_file(meta_path, call_mode, owner, group, 0, config);
     
-    return 0;
 }
 
 /** Handles chown, lchown, fchown, and fchownat syscalls. Changes the meta file
@@ -748,9 +753,9 @@ static int handle_chown(Tracee *tracee, Reg path_sysarg, Reg owner_sysarg,
     char meta_path[PATH_MAX];
     
     if(path_sysarg == IGNORE_SYSARG)
-        status = get_fd_path(tracee, path, fd_sysarg);
+        status = get_fd_path(tracee, path, fd_sysarg, 0);
     else
-        status = read_sysarg_path(tracee, path, path_sysarg);
+        status = read_sysarg_path(tracee, path, path_sysarg, 0);
     if(status < 0)
         return status;
     // If the path exists outside the guestfs, drop the syscall.
@@ -767,11 +772,11 @@ static int handle_chown(Tracee *tracee, Reg path_sysarg, Reg owner_sysarg,
     if(path_exists(meta_path) != 0)
         return 0;
 
-    status = get_fd_path(tracee, rel_path, dirfd_sysarg);
+    status = get_fd_path(tracee, rel_path, dirfd_sysarg, 0);
     if(status < 0)
         return status;
 
-    status = check_dir_perms('r', path, rel_path, config);
+    status = check_dir_perms(tracee, 'r', path, rel_path, config);
     if(status < 0)
         return status;
 
@@ -786,15 +791,15 @@ static int handle_chown(Tracee *tracee, Reg path_sysarg, Reg owner_sysarg,
         owner = read_owner;
     group = peek_reg(tracee, ORIGINAL, group_sysarg);
     if(config->euid == 0) 
-        write_meta_file(meta_path, mode, owner, group, 0);
-    
+        write_meta_file(meta_path, mode, owner, group, 0, config);
     
     //TODO Handle chown properly: owner can only change the group of
     //  a file to another group they belong to.
     else if(config->euid == read_owner) {
-        write_meta_file(meta_path, mode, read_owner, group, 0);
+        write_meta_file(meta_path, mode, read_owner, group, 0, config);
         poke_reg(tracee, owner_sysarg, read_owner);    
     }
+
     else if(config->euid != read_owner)
         return -EPERM;
 
@@ -828,14 +833,14 @@ static int handle_utimensat(Tracee *tracee, Reg dirfd_sysarg,
 
     fd = peek_reg(tracee, ORIGINAL, dirfd_sysarg);
     if(fd == AT_FDCWD) {
-        status = read_sysarg_path(tracee, path, path_sysarg);
+        status = read_sysarg_path(tracee, path, path_sysarg, 0);
         if(status < 0) 
             return status;
         if(status == 1)
             return 0;
     }
     else {
-        status = get_fd_path(tracee, path, dirfd_sysarg);
+        status = get_fd_path(tracee, path, dirfd_sysarg, 0);
         if(status < 0)
             return status;
     }
@@ -869,17 +874,17 @@ static int handle_access(Tracee *tracee, Reg path_sysarg,
     char rel_path[PATH_MAX];
     char meta_path[PATH_MAX];
 
-    status = read_sysarg_path(tracee, path, path_sysarg);
+    status = read_sysarg_path(tracee, path, path_sysarg, 0);
     if(status < 0)
         return status;
     if(status == 1)
         return 0;
 
-    status = get_fd_path(tracee, rel_path, dirfd_sysarg);
+    status = get_fd_path(tracee, rel_path, dirfd_sysarg, 0);
     if(status < 0)
         return status;
 
-    status = check_dir_perms('r', path, rel_path, config);
+    status = check_dir_perms(tracee, 'r', path, rel_path, config);
     if(status < 0)
         return status;
 
@@ -888,6 +893,10 @@ static int handle_access(Tracee *tracee, Reg path_sysarg,
     if(mode & F_OK) 
         return 0;
 
+    status = get_meta_path(path, meta_path);
+    if(status < 0)
+        return status;
+
     mask = 0;
     if((mode & R_OK) == R_OK)
         mask += 4;
@@ -895,10 +904,6 @@ static int handle_access(Tracee *tracee, Reg path_sysarg,
         mask += 2;
     if((mode & X_OK) == X_OK)
         mask += 1; 
-    
-    status = get_meta_path(path, meta_path);
-    if(status < 0)
-        return status;
 
     perms = get_permissions(meta_path, config);
     if((perms & mask) != mask)
@@ -916,10 +921,10 @@ static int handle_exec(Tracee *tracee, Reg filename_sysarg, const Config *config
     char path[PATH_MAX];
     char meta_path[PATH_MAX];
 
-    status = read_sysarg_path(tracee, path, filename_sysarg);
+    status = read_sysarg_path(tracee, path, filename_sysarg, 0);
     if(status < 0) 
         return status;
-    if(status == 1)
+    if(status == 1) 
         return 0;
 
     status = get_meta_path(path, meta_path);
@@ -932,13 +937,13 @@ static int handle_exec(Tracee *tracee, Reg filename_sysarg, const Config *config
         return 0;
     
     /* Check perms relative to / since there is no dirfd argument to execve */
-    status = check_dir_perms('r', meta_path, "/", config);
+    status = check_dir_perms(tracee, 'r', meta_path, "/", config);
     if(status < 0) 
         return status;
     
     /* Check whether the file has execute permission. */
     perms = get_permissions(meta_path, config);
-    if((perms & 1) != 1) 
+    if((perms & 1) != 1)
         return -EACCES;
 
     /** TODO Add logic to determine interpreter being used, and check
@@ -961,31 +966,31 @@ static int handle_link(Tracee *tracee, Reg olddirfd_sysarg, Reg oldpath_sysarg,
     char newpath[PATH_MAX];
     char rel_newpath[PATH_MAX];
 
-    status = read_sysarg_path(tracee, oldpath, oldpath_sysarg);
+    status = read_sysarg_path(tracee, oldpath, oldpath_sysarg, 0);
     if(status < 0)
         return status;
     if(status == 1)
         return 0;
 
-    status = read_sysarg_path(tracee, newpath, newpath_sysarg);
+    status = read_sysarg_path(tracee, newpath, newpath_sysarg, 0);
     if(status < 0)
         return status;
     if(status == 1)
         return 0;
 
-    status = get_fd_path(tracee, rel_oldpath, olddirfd_sysarg);
+    status = get_fd_path(tracee, rel_oldpath, olddirfd_sysarg, 0);
     if(status < 0)
         return status;
 
-    status = get_fd_path(tracee, rel_newpath, newdirfd_sysarg);
+    status = get_fd_path(tracee, rel_newpath, newdirfd_sysarg, 0);
     if(status < 0)
         return status;
 
-    status = check_dir_perms('r', oldpath, rel_oldpath, config);
+    status = check_dir_perms(tracee, 'r', oldpath, rel_oldpath, config);
     if(status < 0)
         return status;
 
-    status = check_dir_perms('w', newpath, rel_newpath, config);
+    status = check_dir_perms(tracee, 'w', newpath, rel_newpath, config);
     if(status < 0)
         return status;
 
@@ -1005,23 +1010,23 @@ static int handle_symlink(Tracee *tracee, Reg oldpath_sysarg,
     char newpath[PATH_MAX];
     char rel_newpath[PATH_MAX];
 
-    status = read_sysarg_path(tracee, oldpath, oldpath_sysarg);
+    status = read_sysarg_path(tracee, oldpath, oldpath_sysarg, 0);
     if(status < 0)
         return status;
     if(status == 1)
         return 0;
 
-    status = read_sysarg_path(tracee, newpath, newpath_sysarg);
+    status = read_sysarg_path(tracee, newpath, newpath_sysarg, 0);
     if(status < 0)
         return status;
     if(status == 1)
         return 0;
 
-    status = get_fd_path(tracee, rel_newpath, newdirfd_sysarg);
+    status = get_fd_path(tracee, rel_newpath, newdirfd_sysarg, 0);
     if(status < 0)
         return status;
 
-    status = check_dir_perms('w', newpath, rel_newpath, config);
+    status = check_dir_perms(tracee, 'w', newpath, rel_newpath, config);
     if(status < 0)
         return status;
 
@@ -1557,6 +1562,11 @@ static int handle_sysexit_end(Tracee *tracee, Config *config)
         POKE_MEM_ID(SYSARG_3, sgid);
         return 0;
 
+    case PR_umask:
+        config->umask = (mode_t) peek_reg(tracee, ORIGINAL, SYSARG_1); 
+        return 0;
+        
+
     case PR_setdomainname:
     case PR_sethostname:
     case PR_setgroups:
@@ -1623,13 +1633,17 @@ static int handle_sysexit_end(Tracee *tracee, Config *config)
             return 0;
 
         /* Get the pathname of the file to be 'stat'. */
-        if(sysnum == PR_fstat) {
-            status =get_fd_path(tracee, path, SYSARG_1);
+        if(sysnum == PR_fstat || sysnum == PR_fstat64) {
+            status = get_fd_path(tracee, path, SYSARG_1, 1);
+
+            /* Get out if the fd describes a pipe. */
+            if(strncmp(path, "pipe", 4) == 0) 
+                return 0;
         }
-        else if(sysnum == PR_fstatat64 || sysnum == PR_newfstatat)
-            status = read_sysarg_path(tracee, path, SYSARG_2);
-        else
-            status = read_sysarg_path(tracee, path, SYSARG_1);
+        else if(sysnum == PR_fstatat64 || sysnum == PR_newfstatat) 
+            status = read_sysarg_path(tracee, path, SYSARG_2, 1);
+        else 
+            status = read_sysarg_path(tracee, path, SYSARG_1, 1);
 
         if(status < 0)
             return status;
@@ -1734,23 +1748,23 @@ static int handle_sysexit_end(Tracee *tracee, Config *config)
         else
             sysarg = SYSARG_2;
         
-        status = read_sysarg_path(tracee, path, sysarg);
-        if(status < 0)
+        status = read_sysarg_path(tracee, path, sysarg, 1);
+        if(status < 0) 
             return status;
-        if(status == 1)
+        if(status == 1) 
             return 0;
 
         /* If the file exists, it doesn't matter if a metafile exists. */
-        if(path_exists(path) == 0)
+        if(path_exists(path) == 0) 
             return 0; 
 
         status = get_meta_path(path, meta_path);
-        if(status < 0)
+        if(status < 0) 
             return status;
 
         /* If the metafile exists and the original file does not, delete it. */
         if(path_exists(meta_path) == 0) 
-            unlink(meta_path);
+            status = unlink(meta_path);
 
         return 0;
     }    
@@ -1859,6 +1873,8 @@ int fake_id0_callback(Extension *extension, ExtensionEvent event, intptr_t data1
         config->egid  = gid;
         config->sgid  = gid;
         config->fsgid = gid;
+        /* Set the umask to the typical linux value. */
+        config->umask = 022;
 
         extension->filtered_sysnums = filtered_sysnums;
         return 0;
