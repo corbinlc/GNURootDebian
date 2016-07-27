@@ -1,3 +1,4 @@
+#include <dirent.h>    /* DIR, struct dirent, opendir, closedir, readdir) */
 #include <stdio.h>     /* rename(2), */
 #include <stdlib.h>    /* atoi */
 #include <unistd.h>    /* symlink(2), symlinkat(2), readlink(2), lstat(2), unlink(2), unlinkat(2)*/
@@ -43,20 +44,32 @@ static int my_readlink(const char symlink[PATH_MAX], char value[PATH_MAX])
  * point to the new location.  This function returns -errno if an
  * error occured, otherwise 0.
  */
-static int move_and_symlink_path(Tracee *tracee, Reg sysarg)
+static int move_and_symlink_path(Tracee *tracee, Reg sysarg, Reg sysarg2)
 {
 	char original[PATH_MAX];
+	char original_newpath[PATH_MAX];
 	char intermediate[PATH_MAX];
 	char new_intermediate[PATH_MAX];
 	char final[PATH_MAX];
 	char new_final[PATH_MAX];
 	char * name;
-	struct stat statl;
-	ssize_t size;
+    char nlinks[6];
 	int status;
-	int link_count;
+	int link_count = 0;
 	int first_link = 1;
 	int intermediate_suffix = 1;
+	struct stat statl;
+	ssize_t size;
+
+	/* Note: this path was already canonicalized.  */
+	size = read_string(tracee, original_newpath, peek_reg(tracee, CURRENT, sysarg2), PATH_MAX);
+	if (size < 0)
+		return size;
+	if (size >= PATH_MAX)
+		return -ENAMETOOLONG;
+	/* If newpath already exists, return appropriate error. */
+	if(access(original_newpath, F_OK) == 0)
+		return -EEXIST;
 
 	/* Note: this path was already canonicalized.  */
 	size = read_string(tracee, original, peek_reg(tracee, CURRENT, sysarg), PATH_MAX);
@@ -112,8 +125,59 @@ static int move_and_symlink_path(Tracee *tracee, Reg sysarg)
 		} while ((access(new_intermediate,F_OK) != -1) && (intermediate_suffix < 1000)); 
 		strcpy(intermediate, new_intermediate);
 
+        /** Check to see if the old path has links already. If it does, change
+         *  them to symbolic links.
+         */
+        if((int) statl.st_nlink > 1) {
+            //Find the directory in which files are being linked
+            int offset;
+            ino_t inode;
+            char dir_path[PATH_MAX];
+            char full_path[PATH_MAX];
+            struct stat dir_stat;
+            struct dirent *dir;
+            DIR *d;
+
+            strcpy(dir_path, original);
+            offset = strlen(dir_path) - 1; 
+            if (offset > 0) { 
+                /* Skip trailing path separators. */
+                while (offset > 1 && dir_path[offset] == '/') 
+                    offset--;
+
+                /* Search for the previous path separator. */
+                while (offset > 1 && dir_path[offset] != '/') 
+                    offset--;
+
+                /* Cut the end of the string before the last component. */
+                dir_path[offset] = '\0';
+            }   
+ 
+            /* Search the directory for files with the same inode number. */
+            inode = statl.st_ino;
+            d = opendir(dir_path);
+            while((dir = readdir(d)) != NULL) {
+                /* Canonicalize the directory name */
+                sprintf(full_path, "%s/%s", dir_path, dir->d_name); 
+                stat(full_path, &dir_stat);
+
+                if(dir_stat.st_ino == inode && strcmp(full_path, original) != 0) {
+                    /* Recreate the hard link as a symlink. */
+                    unlink(full_path);
+                    status = symlink(intermediate, full_path);
+                    link_count++;
+                }
+            }
+            closedir(d);
+        }
+
+        /** Format the final file correctly. Add zeros until the length of
+         *  nlinks (without the terminating \0) is 4. 
+         */   
+        sprintf(nlinks, ".%04d", link_count+2);  
 		strcpy(final, intermediate);
-		strcat(final, ".0002");
+        strcat(final, nlinks);
+
 		status = rename(original, final);
 		if (status < 0)
 			return status;
@@ -127,10 +191,12 @@ static int move_and_symlink_path(Tracee *tracee, Reg sysarg)
 			return status;	
 
 		/* Symlink the original path to the intermediate one.  */
-        	status = symlink(intermediate, original);
-        	if (status < 0)
-			return status;
-	} else {
+        status = symlink(intermediate, original);
+        if (status < 0)
+        return status;
+	} 
+    
+    else {
 		/*Move the original content to new location, by incrementing count at end of path. */
 		status = my_readlink(intermediate, final);
 		if (status < 0)
@@ -164,7 +230,6 @@ static int move_and_symlink_path(Tracee *tracee, Reg sysarg)
 
 	return 0;
 }
-
 
 /* If path points a file that is a symlink to a file that begins
  *   with PREFIX, let the file be deleted, but also delete the 
@@ -355,13 +420,18 @@ static int handle_sysexit_end(Tracee *tracee)
 		if (status < 0) 
 			return status;
 
-		finalStat.st_nlink = atoi(final + strlen(final) - 4);
-
 		/* Get the address of the 'stat' structure.  */
 		if (sysnum == PR_fstatat64 || sysnum == PR_newfstatat)
 			sysarg_stat = SYSARG_3;
 		else
 			sysarg_stat = SYSARG_2;
+
+        /* Get the data from the stat call that may have been modified by fake_id0. */
+        read_data(tracee, &statl, peek_reg(tracee, MODIFIED, sysarg_stat), sizeof(statl));
+        finalStat.st_mode = statl.st_mode;
+        finalStat.st_uid = statl.st_uid;
+        finalStat.st_gid = statl.st_gid;
+		finalStat.st_nlink = atoi(final + strlen(final) - 4);
 
 		status = write_data(tracee, peek_reg(tracee, ORIGINAL,  sysarg_stat), &finalStat, sizeof(finalStat));
 		if (status < 0)
@@ -503,7 +573,7 @@ int link2symlink_callback(Extension *extension, ExtensionEvent event,
 			 *     int symlink(const char *oldpath, const char *newpath);
 			 */
 
-			status = move_and_symlink_path(tracee, SYSARG_1);
+			status = move_and_symlink_path(tracee, SYSARG_1, SYSARG_2);
 			if (status < 0)
 				return status;
 
@@ -527,7 +597,7 @@ int link2symlink_callback(Extension *extension, ExtensionEvent event,
 			 *   newdirfd + newpath -> newpath
 			 */
 
-			status = move_and_symlink_path(tracee, SYSARG_2);
+			status = move_and_symlink_path(tracee, SYSARG_2, SYSARG_4);
 			if (status < 0)
 				return status;
 
@@ -556,6 +626,7 @@ int link2symlink_callback(Extension *extension, ExtensionEvent event,
 		case PR_openat:
 		case PR_lstat:
 		case PR_lstat64:
+		case PR_lchown:
 			translated_path((char *) data1);
 			break;
 		default:

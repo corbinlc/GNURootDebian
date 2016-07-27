@@ -7,7 +7,7 @@ mkdir $2
 cp -r PRoot $2 
 cp -r disableselinux.c $2 
 if [ "$1" = "i386" ] ; then
-  debootstrap --variant=minbase --include=sudo,dropbear jessie $2 http://ftp.debian.org/debian
+  debootstrap --arch i386 --variant=minbase --include=sudo,dropbear jessie $2 http://ftp.debian.org/debian
 else
   qemu-debootstrap --arch=$1 --variant=minbase --include=sudo,dropbear jessie $2 http://ftp.debian.org/debian
 fi
