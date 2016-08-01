@@ -410,6 +410,11 @@ static int get_permissions(char meta_path[PATH_MAX], const Config *config)
         omode = omode % 10;        
     }
 
+    /** Root always has RW permissions for every file. Has weird interactions 
+     *  with sudo v su, EG su can echo into a file with perms of 400 but sudo cannot.
+     */
+    if(config->euid == 0)
+        omode |= 6;
     return omode;
 }
 
@@ -490,7 +495,7 @@ static int handle_open(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
         flags = 0;
 
     /* If the metafile doesn't exist and we aren't creating a new file, get out. */
-    if(path_exists(meta_path) < 0 && (flags & O_CREAT) != O_CREAT) 
+    if(path_exists(meta_path) != 0 && (flags & O_CREAT) != O_CREAT) 
         return 0;
 
     status = get_fd_path(tracee, rel_path, fd_sysarg, 0);
@@ -505,13 +510,15 @@ static int handle_open(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
      *  A value in flags_sysarg of IGNORE_SYSARG signifies a creat(2) call.
      */
     if((flags & O_CREAT) == O_CREAT || flags_sysarg == IGNORE_SYSARG) { 
-        /** To preserve original functionality, we don't create meta files for
-         *  files that already exist. System calls have a tendency to include
-         *  the O_CREAT flag even when the file already exists, so a check is
-         *  necessary. 
+
+        /** Many open calls include O_CREAT flags even if the file exists
+         *  already. Probably because many things don't check existence and
+         *  just tell open to create a file if it doesn't exist. In the cases
+         *  a file does exist already, the permissions of it still need to be
+         *  checked.
          */
         if(path_exists(orig_path) == 0) 
-            return 0;
+            goto check;
 
         status = check_dir_perms(tracee, 'w', meta_path, rel_path, config);
         if(status < 0) 
@@ -522,19 +529,20 @@ static int handle_open(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
         return write_meta_file(meta_path, mode, config->euid, config->egid, 1, config);
     }
 
-    else { 
-        status = check_dir_perms(tracee, 'r', meta_path, rel_path, config);
-        if(status < 0) 
-            return status;
-        
-        perms = get_permissions(meta_path, config); 
-        access_mode = (flags & O_ACCMODE);
+check:
 
-        if((access_mode == O_WRONLY && (perms & 2) != 2) ||
-        (access_mode == O_RDONLY && (perms & 4) != 4) ||
-        (access_mode == O_RDWR && (perms & 6) != 6)) {
-            return -EACCES;
-        }
+    status = check_dir_perms(tracee, 'r', meta_path, rel_path, config);
+    if(status < 0) 
+        return status;
+    
+    perms = get_permissions(meta_path, config); 
+    access_mode = (flags & O_ACCMODE);
+
+    /* 0 = RDONLY, 1 = WRONLY, 2 = RDWR */
+    if((access_mode == O_WRONLY && (perms & 2) != 2) ||
+    (access_mode == O_RDONLY && (perms & 4) != 4) ||
+    (access_mode == O_RDWR && (perms & 6) != 6)) {
+        return -EACCES;
     }
 
     return 0;
@@ -734,7 +742,6 @@ static int handle_chmod(Tracee *tracee, Reg path_sysarg, Reg mode_sysarg,
     call_mode = peek_reg(tracee, ORIGINAL, mode_sysarg);
     set_sysnum(tracee, PR_void);
     return write_meta_file(meta_path, call_mode, owner, group, 0, config);
-    
 }
 
 /** Handles chown, lchown, fchown, and fchownat syscalls. Changes the meta file
@@ -792,7 +799,7 @@ static int handle_chown(Tracee *tracee, Reg path_sysarg, Reg owner_sysarg,
     group = peek_reg(tracee, ORIGINAL, group_sysarg);
     if(config->euid == 0) 
         write_meta_file(meta_path, mode, owner, group, 0, config);
-    
+
     //TODO Handle chown properly: owner can only change the group of
     //  a file to another group they belong to.
     else if(config->euid == read_owner) {
