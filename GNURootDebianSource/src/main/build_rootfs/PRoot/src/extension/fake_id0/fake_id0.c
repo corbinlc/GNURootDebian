@@ -1179,7 +1179,6 @@ static void override_permissions(const Tracee *tracee, const char *path, bool is
  */
 static int handle_sysenter_end(Tracee *tracee, Config *config)
 {
-    int status;
     word_t sysnum;
    
     sysnum = get_sysnum(tracee, ORIGINAL);
