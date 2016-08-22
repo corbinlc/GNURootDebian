@@ -50,7 +50,6 @@
 #include "arch.h"
 
 #define META_TAG        ".proot-meta-file."
-#define META_LEN        17
 #define IGNORE_SYSARG   2000
 #define OWNER_PERMS     0
 #define GROUP_PERMS     1
@@ -238,23 +237,21 @@ static int get_dir_path(char path[PATH_MAX], char dir_path[PATH_MAX])
 static int get_meta_path(char orig_path[PATH_MAX], char meta_path[PATH_MAX]) 
 {
     char *filename;
-    char meta_tag[PATH_MAX];
 
+    /*Separate the final component from the path. */
     get_dir_path(orig_path, meta_path);
-
-    strcpy(meta_tag, META_TAG);
-
     filename = get_name(orig_path);
-    strcat(meta_tag, filename);
 
-    // This avoids situations like //.proot-meta-file.etc.
+    /* Add a trailing / to the path minus final component. */
     if(strcmp(meta_path, "/") != 0)
         strcat(meta_path, "/");
 
-    if(strlen(meta_path) + META_LEN >= PATH_MAX)
+    if(strlen(meta_path) + strlen(filename) + strlen(META_TAG) >= PATH_MAX)
         return -ENAMETOOLONG;
 
-    strcat(meta_path, meta_tag);
+    /* Insert the meta_tag between the path and its final component. */
+    strcat(meta_path, META_TAG);
+    strcat(meta_path, filename);
     return 0;
 }
 
@@ -267,13 +264,15 @@ static int get_meta_path(char orig_path[PATH_MAX], char meta_path[PATH_MAX])
 static int get_fd_path(Tracee *tracee, char path[PATH_MAX], Reg fd_sysarg, bool on_exit)
 {
     int status;
+
     if(fd_sysarg != IGNORE_SYSARG) {
         // AT_CWD translates to -100, so replace it with a canonicalized version
-        if( (signed int)peek_reg(tracee, CURRENT, fd_sysarg) == -100) 
+        if((signed int) peek_reg(tracee, CURRENT, fd_sysarg) == -100) 
             status = getcwd2(tracee, path);
-        // See read_sysarg_path for an explanation of the use of modified.
+
         else {
             if(on_exit) 
+                // See read_sysarg_path for an explanation of the use of modified.
                 status = readlink_proc_pid_fd(tracee->pid, peek_reg(tracee, MODIFIED, fd_sysarg), path);
             
             else
@@ -282,9 +281,10 @@ static int get_fd_path(Tracee *tracee, char path[PATH_MAX], Reg fd_sysarg, bool 
         if(status < 0) 
             return status;
     }
-    else
-        strcpy(path, "/");
 
+    else 
+        translate_path(tracee, path, AT_FDCWD, "/", true);
+    
     /** If a path does not belong to the guestfs, a handler either exits with 0
      *  or sets the syscall to void (in the case of chmod and chown.
      */
@@ -351,7 +351,7 @@ static int write_meta_file(char path[PATH_MAX], mode_t mode, uid_t owner, gid_t 
 {
     FILE *fp;
     fp = fopen(path, "w");
-    if(!fp) 
+    if(!fp)
         //Errno is set
         return -1;
 
@@ -593,7 +593,7 @@ static int handle_mk(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
         return 0;
 
     /* If the path exists, get out. The syscall itself will return EEXIST. */
-    if(path_exists(orig_path) == 0)
+    if(path_exists(orig_path) == 0) 
         return 0;
 
     status = get_meta_path(orig_path, meta_path);
@@ -645,7 +645,7 @@ static int handle_unlink(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg, Config 
  
     /** If the meta_file relating to the file being unlinked exists,
      *  unlink that as well.
-     */   
+     */ 
     if(path_exists(meta_path) == 0) 
         unlink(meta_path);
 
@@ -702,7 +702,7 @@ static int handle_rename(Tracee *tracee, Reg oldfd_sysarg, Reg oldpath_sysarg,
     if(status < 0)
         return status;
 
-    if(path_exists(meta_path) != 0)
+    if(path_exists(meta_path) != 0) 
         return 0;
 
     read_meta_file(meta_path, &mode, &uid, &gid, config);
@@ -745,7 +745,7 @@ static int handle_chmod(Tracee *tracee, Reg path_sysarg, Reg mode_sysarg,
     }
 
     status = get_meta_path(path, meta_path);
-    if(path_exists(meta_path) < 0)
+    if(path_exists(meta_path) < 0) 
         return 0;
 
     status = get_fd_path(tracee, rel_path, dirfd_sysarg, 0);
@@ -796,7 +796,7 @@ static int handle_chown(Tracee *tracee, Reg path_sysarg, Reg owner_sysarg,
     if(status < 0)
         return status;
 
-    if(path_exists(meta_path) != 0)
+    if(path_exists(meta_path) != 0) 
         return 0;
 
     status = get_fd_path(tracee, rel_path, dirfd_sysarg, 0);
@@ -878,9 +878,8 @@ static int handle_utimensat(Tracee *tracee, Reg dirfd_sysarg,
 
     // Current user must be owner of file or root.
     read_meta_file(meta_path, &ignore_m, &owner, &ignore_g, config);
-    if(config->euid != owner && config->euid != 0) {
+    if(config->euid != owner && config->euid != 0) 
         return -EACCES;
-    }
 
     // If write permissions are on the file, continue.
     perms = get_permissions(meta_path, config, 0);
@@ -962,8 +961,7 @@ static int handle_exec(Tracee *tracee, Reg filename_sysarg, Config *config)
         return status;
 
     /* If metafile doesn't exist, get out, but don't error. */
-    status = path_exists(meta_path);
-    if(status < 0) 
+    if(path_exists(meta_path) != 0) 
         return 0;
     
     /* Check perms relative to / since there is no dirfd argument to execve */
@@ -1181,11 +1179,12 @@ static void override_permissions(const Tracee *tracee, const char *path, bool is
  */
 static int handle_sysenter_end(Tracee *tracee, Config *config)
 {
+    int status;
     word_t sysnum;
    
     sysnum = get_sysnum(tracee, ORIGINAL);
     switch (sysnum) {
-
+    
     /* handle_open(tracee, fd_sysarg, path_sysarg, flags_sysarg, mode_sysarg, config) */
     /* int openat(int dirfd, const char *pathname, int flags, mode_t mode) */
     case PR_openat:
@@ -1200,7 +1199,7 @@ static int handle_sysenter_end(Tracee *tracee, Config *config)
     /* handle_mk(tracee, fd_sysarg, path_sysarg, mode_sysarg, config) */
     /* int mkdirat(int dirfd, const char *pathname, mode_t mode) */
     case PR_mkdirat:
-       return handle_mk(tracee, SYSARG_1, SYSARG_2, SYSARG_3, config);
+        return handle_mk(tracee, SYSARG_1, SYSARG_2, SYSARG_3, config);
     /* int mkdir(const char *pathname, mode_t mode) */
     case PR_mkdir:
         return handle_mk(tracee, IGNORE_SYSARG, SYSARG_1, SYSARG_2, config); 
@@ -1224,8 +1223,7 @@ static int handle_sysenter_end(Tracee *tracee, Config *config)
         return handle_unlink(tracee, IGNORE_SYSARG, SYSARG_1, config);
 
     /* handle_rename(tracee, oldfd_sysarg, oldpath_sysarg, newfd_sysarg, newpath_sysarg, config) */
-    /* int renameat(int olddirfd, const char *oldpath,
-                    int newdirfd, const char *newpath) */
+    /* int renameat(int olddirfd, const char *oldpath, int newdirfd, const char *newpath) */
     case PR_renameat:
         return handle_rename(tracee, SYSARG_1, SYSARG_2, SYSARG_3, SYSARG_4, config);
     /* int rename(const char *oldpath, const char *newpath) */
@@ -1424,7 +1422,7 @@ static int handle_sysenter_end(Tracee *tracee, Config *config)
         || (r ## id == config->e ## id && (e ## id == config->r ## id || UNCHANGED_ID(e ## id))) \
         || (e ## id == config->r ## id && (r ## id == config->e ## id || UNCHANGED_ID(r ## id))) \
         || (e ## id == config->s ## id && UNCHANGED_ID(r ## id))); \
-    if (!allowed)                            \
+    if (!allowed)                          \
         return -EPERM;                      \
                                     \
     /* "Supplying a value of -1 for either the real or effective    \
@@ -1481,7 +1479,7 @@ static int handle_sysenter_end(Tracee *tracee, Config *config)
         || ((UNSET_ID(r ## type ## id) || EQUALS_ANY_ID(r ## type ## id, type)) \
          && (UNSET_ID(e ## type ## id) || EQUALS_ANY_ID(e ## type ## id, type)) \
          && (UNSET_ID(s ## type ## id) || EQUALS_ANY_ID(s ## type ## id, type)))); \
-    if (!allowed)                             \
+    if (!allowed)                            \
         return -EPERM;                      \
                                     \
     /* "If one of the arguments equals -1, the corresponding value  \
@@ -1594,7 +1592,7 @@ static int handle_sysexit_end(Tracee *tracee, Config *config)
         return 0;
 
     case PR_getresuid:
-    case PR_getresuid32:
+    case PR_getresuid32: 
         POKE_MEM_ID(SYSARG_1, ruid);
         POKE_MEM_ID(SYSARG_2, euid);
         POKE_MEM_ID(SYSARG_3, suid);
@@ -1680,10 +1678,14 @@ static int handle_sysexit_end(Tracee *tracee, Config *config)
         if(sysnum == PR_fstat || sysnum == PR_fstat64) {
             status = get_fd_path(tracee, path, SYSARG_1, 1);
 
+            if(strcmp(path + strlen(path) - strlen(" (deleted)"), " (deleted)") == 0)
+                path[strlen(path) - strlen(" (deleted)")] = '\0';
+
             /* Get out if the fd describes a pipe. */
             if(strncmp(path, "pipe", 4) == 0) 
                 return 0;
         }
+
         else if(sysnum == PR_fstatat64 || sysnum == PR_newfstatat) 
             status = read_sysarg_path(tracee, path, SYSARG_2, MODIFIED);
         else 
@@ -1693,7 +1695,7 @@ static int handle_sysexit_end(Tracee *tracee, Config *config)
             return status;
         if(status == 1) 
             return 0;
-        
+
         /* Get the address of the 'stat' structure.  */
         if (sysnum == PR_fstatat64 || sysnum == PR_newfstatat)
             sysarg = SYSARG_3;
@@ -1713,11 +1715,11 @@ static int handle_sysexit_end(Tracee *tracee, Config *config)
                 /** Get the file type and sticky/set-id bits of the original 
                  *  file and add them to the mode found in the meta_file.
                  */
-                read_data(tracee, &my_stat, peek_reg(tracee, MODIFIED, sysarg), sizeof(struct stat));
+                read_data(tracee, &my_stat, peek_reg(tracee, ORIGINAL, sysarg), sizeof(struct stat));
                 my_stat.st_mode = (mode | ((my_stat.st_mode & S_IFMT) | (my_stat.st_mode & 07000)));
                 my_stat.st_uid = uid;
                 my_stat.st_gid = gid;
-                write_data(tracee, peek_reg(tracee, MODIFIED, sysarg), &my_stat, sizeof(struct stat));
+                write_data(tracee, peek_reg(tracee, ORIGINAL, sysarg), &my_stat, sizeof(struct stat));
                 return 0;
             }
         }
@@ -1792,7 +1794,7 @@ static int handle_sysexit_end(Tracee *tracee, Config *config)
             sysarg = SYSARG_1;
         else
             sysarg = SYSARG_2;
-        
+
         status = read_sysarg_path(tracee, path, sysarg, MODIFIED);
         if(status < 0) 
             return status;
@@ -1906,7 +1908,7 @@ int fake_id0_callback(Extension *extension, ExtensionEvent event, intptr_t data1
             gid = getgid();
 
         extension->config = talloc(extension, Config);
-        if (extension->config == NULL)
+        if (extension->config == NULL) 
             return -1;
 
         config = talloc_get_type_abort(extension->config, Config);
@@ -1943,7 +1945,7 @@ int fake_id0_callback(Extension *extension, ExtensionEvent event, intptr_t data1
 
         Extension *parent = (Extension *) data1;
         extension->config = talloc_zero(extension, Config);
-        if (extension->config == NULL)
+        if (extension->config == NULL) 
             return -1;
 
         memcpy(extension->config, parent->config, sizeof(Config));

@@ -82,7 +82,7 @@ static int move_and_symlink_path(Tracee *tracee, Reg sysarg, Reg sysarg2)
 	status = lstat(original, &statl);
 	if (status < 0)
 		return status;
-	if (S_ISDIR(statl.st_mode))
+	if (S_ISDIR(statl.st_mode)) 
 		return -EPERM;
 
 	/* Check if it is a symbolic link.  */
@@ -179,7 +179,7 @@ static int move_and_symlink_path(Tracee *tracee, Reg sysarg, Reg sysarg2)
         strcat(final, nlinks);
 
 		status = rename(original, final);
-		if (status < 0)
+		if (status < 0) 
 			return status;
 		status = notify_extensions(tracee, LINK2SYMLINK_RENAME, (intptr_t) original, (intptr_t) final);
 		if (status < 0)
@@ -187,13 +187,13 @@ static int move_and_symlink_path(Tracee *tracee, Reg sysarg, Reg sysarg2)
 
 		/* Symlink the intermediate to the final file.  */
 		status = symlink(final, intermediate);
-		if (status < 0)
-			return status;	
+		if (status < 0) 
+			return status;
 
 		/* Symlink the original path to the intermediate one.  */
         status = symlink(intermediate, original);
-        if (status < 0)
-        return status;
+		if (status < 0) 
+			return status;
 	} 
     
     else {
@@ -209,7 +209,7 @@ static int move_and_symlink_path(Tracee *tracee, Reg sysarg, Reg sysarg2)
 		sprintf(new_final + strlen(final) - 4, "%04d", link_count);		
 		
 		status = rename(final, new_final);
-		if (status < 0)
+		if (status < 0) 
 			return status;
 		status = notify_extensions(tracee, LINK2SYMLINK_RENAME, (intptr_t) final, (intptr_t) new_final);
 		if (status < 0)
@@ -217,16 +217,16 @@ static int move_and_symlink_path(Tracee *tracee, Reg sysarg, Reg sysarg2)
 		strcpy(final, new_final);
 		/* Symlink the intermediate to the final file.  */
 		status = unlink(intermediate);
-		if (status < 0)
+		if (status < 0) 
 			return status;
 		status = symlink(final, intermediate);
-		if (status < 0)
+		if (status < 0) 
 			return status;
 	}
 	
 	status = set_sysarg_path(tracee, intermediate, sysarg);
-	if (status < 0)
-		return status;
+    if (status < 0) 
+        return status;
 
 	return 0;
 }
@@ -363,6 +363,8 @@ static int handle_sysexit_end(Tracee *tracee)
 			status = readlink_proc_pid_fd(tracee->pid, peek_reg(tracee, MODIFIED, SYSARG_1), original);
 			if (strcmp(original + strlen(original) - strlen(DELETED_SUFFIX), DELETED_SUFFIX) == 0)
 				original[strlen(original) - strlen(DELETED_SUFFIX)] = '\0'; 
+            if(strncmp(original, "pipe", 4) == 0) 
+                return 0;
 			if (status < 0)
 				return status;
 		} else {
@@ -426,13 +428,12 @@ static int handle_sysexit_end(Tracee *tracee)
 		else
 			sysarg_stat = SYSARG_2;
 
-        /* Get the data from the stat call that may have been modified by fake_id0. */
-        read_data(tracee, &statl, peek_reg(tracee, MODIFIED, sysarg_stat), sizeof(statl));
+        /* Overwrite the stat struct with the correct number of "links". */
+        read_data(tracee, &statl, peek_reg(tracee, ORIGINAL, sysarg_stat), sizeof(statl));
         finalStat.st_mode = statl.st_mode;
         finalStat.st_uid = statl.st_uid;
         finalStat.st_gid = statl.st_gid;
 		finalStat.st_nlink = atoi(final + strlen(final) - 4);
-
 		status = write_data(tracee, peek_reg(tracee, ORIGINAL,  sysarg_stat), &finalStat, sizeof(finalStat));
 		if (status < 0)
 			return status;
