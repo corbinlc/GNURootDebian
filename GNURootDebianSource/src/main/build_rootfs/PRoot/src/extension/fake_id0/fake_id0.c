@@ -242,7 +242,7 @@ static int get_meta_path(char orig_path[PATH_MAX], char meta_path[PATH_MAX])
     get_dir_path(orig_path, meta_path);
     filename = get_name(orig_path);
 
-    /* Add a trailing / to the path minus final component. */
+    /* Add a / between the final component and the rest of the path. */
     if(strcmp(meta_path, "/") != 0)
         strcat(meta_path, "/");
 
@@ -593,7 +593,7 @@ static int handle_mk(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
         return 0;
 
     /* If the path exists, get out. The syscall itself will return EEXIST. */
-    if(path_exists(orig_path) == 0) 
+    if(path_exists(orig_path) == 0)
         return 0;
 
     status = get_meta_path(orig_path, meta_path);
@@ -645,7 +645,7 @@ static int handle_unlink(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg, Config 
  
     /** If the meta_file relating to the file being unlinked exists,
      *  unlink that as well.
-     */ 
+     */
     if(path_exists(meta_path) == 0) 
         unlink(meta_path);
 
@@ -702,7 +702,7 @@ static int handle_rename(Tracee *tracee, Reg oldfd_sysarg, Reg oldpath_sysarg,
     if(status < 0)
         return status;
 
-    if(path_exists(meta_path) != 0) 
+    if(path_exists(meta_path) != 0)
         return 0;
 
     read_meta_file(meta_path, &mode, &uid, &gid, config);
@@ -741,11 +741,11 @@ static int handle_chmod(Tracee *tracee, Reg path_sysarg, Reg mode_sysarg,
     // If the file exists outside the guestfs, drop the syscall.
     else if(status == 1) {
         set_sysnum(tracee, PR_void);
-		return 0;
+        return 0;
     }
 
     status = get_meta_path(path, meta_path);
-    if(path_exists(meta_path) < 0) 
+    if(path_exists(meta_path) < 0)
         return 0;
 
     status = get_fd_path(tracee, rel_path, dirfd_sysarg, 0);
@@ -796,7 +796,7 @@ static int handle_chown(Tracee *tracee, Reg path_sysarg, Reg owner_sysarg,
     if(status < 0)
         return status;
 
-    if(path_exists(meta_path) != 0) 
+    if(path_exists(meta_path) != 0)
         return 0;
 
     status = get_fd_path(tracee, rel_path, dirfd_sysarg, 0);
@@ -961,7 +961,7 @@ static int handle_exec(Tracee *tracee, Reg filename_sysarg, Config *config)
         return status;
 
     /* If metafile doesn't exist, get out, but don't error. */
-    if(path_exists(meta_path) != 0) 
+    if(path_exists(meta_path) != 0)
         return 0;
     
     /* Check perms relative to / since there is no dirfd argument to execve */
@@ -1183,7 +1183,7 @@ static int handle_sysenter_end(Tracee *tracee, Config *config)
    
     sysnum = get_sysnum(tracee, ORIGINAL);
     switch (sysnum) {
-    
+
     /* handle_open(tracee, fd_sysarg, path_sysarg, flags_sysarg, mode_sysarg, config) */
     /* int openat(int dirfd, const char *pathname, int flags, mode_t mode) */
     case PR_openat:
@@ -1591,7 +1591,7 @@ static int handle_sysexit_end(Tracee *tracee, Config *config)
         return 0;
 
     case PR_getresuid:
-    case PR_getresuid32: 
+    case PR_getresuid32:
         POKE_MEM_ID(SYSARG_1, ruid);
         POKE_MEM_ID(SYSARG_2, euid);
         POKE_MEM_ID(SYSARG_3, suid);
@@ -1907,7 +1907,7 @@ int fake_id0_callback(Extension *extension, ExtensionEvent event, intptr_t data1
             gid = getgid();
 
         extension->config = talloc(extension, Config);
-        if (extension->config == NULL) 
+        if (extension->config == NULL)
             return -1;
 
         config = talloc_get_type_abort(extension->config, Config);
@@ -1944,7 +1944,7 @@ int fake_id0_callback(Extension *extension, ExtensionEvent event, intptr_t data1
 
         Extension *parent = (Extension *) data1;
         extension->config = talloc_zero(extension, Config);
-        if (extension->config == NULL) 
+        if (extension->config == NULL)
             return -1;
 
         memcpy(extension->config, parent->config, sizeof(Config));
