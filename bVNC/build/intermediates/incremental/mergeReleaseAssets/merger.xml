@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="C:\Work\GNURootDebian\bVNC\src\main\assets"><file name="icudt46l.zip" path="C:\Work\GNURootDebian\bVNC\src\main\assets\icudt46l.zip"/><file name="layouts" path="C:\Work\GNURootDebian\bVNC\src\main\assets\layouts"/></source><source path="C:\Work\GNURootDebian\bVNC\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="C:\Work\GNURootDebian\bVNC\src\release\assets"/></dataSet></merger>

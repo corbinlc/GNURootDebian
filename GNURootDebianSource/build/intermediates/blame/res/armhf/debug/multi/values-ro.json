@@ -1,0 +1,2083 @@
+[
+    {
+        "outputFile": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\res\\merged\\armhf\\debug\\values-ro\\values-ro.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 11,
+                    "endColumn": 19,
+                    "endOffset": 371
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 11,
+                        "endColumn": 19,
+                        "endOffset": 371
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 376,
+                    "endLine": 16,
+                    "endColumn": 19,
+                    "endOffset": 673
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 376,
+                        "endLine": 16,
+                        "endColumn": 19,
+                        "endOffset": 673
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 678,
+                    "endLine": 23,
+                    "endColumn": 19,
+                    "endOffset": 1021
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 678,
+                        "endLine": 23,
+                        "endColumn": 19,
+                        "endOffset": 1021
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1026,
+                    "endLine": 35,
+                    "endColumn": 19,
+                    "endOffset": 1492
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1026,
+                        "endLine": 35,
+                        "endColumn": 19,
+                        "endOffset": 1492
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 36,
+                    "startColumn": 4,
+                    "startOffset": 1497,
+                    "endLine": 45,
+                    "endColumn": 19,
+                    "endOffset": 1857
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 36,
+                        "startColumn": 4,
+                        "startOffset": 1497,
+                        "endLine": 45,
+                        "endColumn": 19,
+                        "endOffset": 1857
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 46,
+                    "startColumn": 4,
+                    "startOffset": 1862,
+                    "endLine": 49,
+                    "endColumn": 19,
+                    "endOffset": 2015
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 46,
+                        "startColumn": 4,
+                        "startOffset": 1862,
+                        "endLine": 49,
+                        "endColumn": 19,
+                        "endOffset": 2015
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 50,
+                    "startColumn": 4,
+                    "startOffset": 2020,
+                    "endLine": 54,
+                    "endColumn": 19,
+                    "endOffset": 2191
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 50,
+                        "startColumn": 4,
+                        "startOffset": 2020,
+                        "endLine": 54,
+                        "endColumn": 19,
+                        "endOffset": 2191
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 55,
+                    "startColumn": 4,
+                    "startOffset": 2196,
+                    "endLine": 64,
+                    "endColumn": 19,
+                    "endOffset": 2551
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 55,
+                        "startColumn": 4,
+                        "startOffset": 2196,
+                        "endLine": 64,
+                        "endColumn": 19,
+                        "endOffset": 2551
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 65,
+                    "startColumn": 4,
+                    "startOffset": 2556,
+                    "endLine": 87,
+                    "endColumn": 19,
+                    "endOffset": 3277
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 65,
+                        "startColumn": 4,
+                        "startOffset": 2556,
+                        "endLine": 87,
+                        "endColumn": 19,
+                        "endOffset": 3277
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 88,
+                    "startColumn": 4,
+                    "startOffset": 3282,
+                    "endLine": 91,
+                    "endColumn": 19,
+                    "endOffset": 3422
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 88,
+                        "startColumn": 4,
+                        "startOffset": 3282,
+                        "endLine": 91,
+                        "endColumn": 19,
+                        "endOffset": 3422
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 92,
+                    "startColumn": 4,
+                    "startOffset": 3427,
+                    "endLine": 95,
+                    "endColumn": 19,
+                    "endOffset": 3585
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 92,
+                        "startColumn": 4,
+                        "startOffset": 3427,
+                        "endLine": 95,
+                        "endColumn": 19,
+                        "endOffset": 3585
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 96,
+                    "startColumn": 4,
+                    "startOffset": 3590,
+                    "endLine": 105,
+                    "endColumn": 19,
+                    "endOffset": 3901
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 96,
+                        "startColumn": 4,
+                        "startOffset": 3590,
+                        "endLine": 105,
+                        "endColumn": 19,
+                        "endOffset": 3901
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 106,
+                    "startColumn": 4,
+                    "startOffset": 3906,
+                    "endColumn": 120,
+                    "endOffset": 4022
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 276,
+                        "endColumn": 120,
+                        "endOffset": 392
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 107,
+                    "startColumn": 4,
+                    "startOffset": 4027,
+                    "endColumn": 107,
+                    "endOffset": 4130
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 397,
+                        "endColumn": 107,
+                        "endOffset": 500
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 108,
+                    "startColumn": 4,
+                    "startOffset": 4135,
+                    "endColumn": 122,
+                    "endOffset": 4253
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 505,
+                        "endColumn": 122,
+                        "endOffset": 623
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 109,
+                    "startColumn": 4,
+                    "startOffset": 4258,
+                    "endColumn": 103,
+                    "endOffset": 4357
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 628,
+                        "endColumn": 103,
+                        "endOffset": 727
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 110,
+                    "startColumn": 4,
+                    "startOffset": 4362,
+                    "endColumn": 112,
+                    "endOffset": 4470
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 732,
+                        "endColumn": 112,
+                        "endOffset": 840
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 111,
+                    "startColumn": 4,
+                    "startOffset": 4475,
+                    "endColumn": 87,
+                    "endOffset": 4558
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 845,
+                        "endColumn": 87,
+                        "endOffset": 928
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 112,
+                    "startColumn": 4,
+                    "startOffset": 4563,
+                    "endColumn": 111,
+                    "endOffset": 4670
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 933,
+                        "endColumn": 111,
+                        "endOffset": 1040
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 113,
+                    "startColumn": 4,
+                    "startOffset": 4675,
+                    "endColumn": 120,
+                    "endOffset": 4791
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 1045,
+                        "endColumn": 120,
+                        "endOffset": 1161
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 114,
+                    "startColumn": 4,
+                    "startOffset": 4796,
+                    "endColumn": 111,
+                    "endOffset": 4903
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1166,
+                        "endColumn": 111,
+                        "endOffset": 1273
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 115,
+                    "startColumn": 4,
+                    "startOffset": 4908,
+                    "endColumn": 112,
+                    "endOffset": 5016
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1278,
+                        "endColumn": 112,
+                        "endOffset": 1386
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 116,
+                    "startColumn": 4,
+                    "startOffset": 5021,
+                    "endColumn": 99,
+                    "endOffset": 5116
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1391,
+                        "endColumn": 99,
+                        "endOffset": 1486
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 117,
+                    "startColumn": 4,
+                    "startOffset": 5121,
+                    "endColumn": 113,
+                    "endOffset": 5230
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1491,
+                        "endColumn": 113,
+                        "endOffset": 1600
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 118,
+                    "startColumn": 4,
+                    "startOffset": 5235,
+                    "endColumn": 104,
+                    "endOffset": 5335
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1605,
+                        "endColumn": 104,
+                        "endOffset": 1705
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 119,
+                    "startColumn": 4,
+                    "startOffset": 5340,
+                    "endColumn": 105,
+                    "endOffset": 5441
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1710,
+                        "endColumn": 105,
+                        "endOffset": 1811
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 120,
+                    "startColumn": 4,
+                    "startOffset": 5446,
+                    "endColumn": 120,
+                    "endOffset": 5562
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1816,
+                        "endColumn": 120,
+                        "endOffset": 1932
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 121,
+                    "startColumn": 4,
+                    "startOffset": 5567,
+                    "endColumn": 102,
+                    "endOffset": 5665
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-ro\\values.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1937,
+                        "endColumn": 102,
+                        "endOffset": 2035
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 122,
+                    "startColumn": 4,
+                    "startOffset": 5670,
+                    "endColumn": 65,
+                    "endOffset": 5731
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 106,
+                        "startColumn": 4,
+                        "startOffset": 3906,
+                        "endColumn": 65,
+                        "endOffset": 3967
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 123,
+                    "startColumn": 4,
+                    "startOffset": 5736,
+                    "endColumn": 81,
+                    "endOffset": 5813
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 107,
+                        "startColumn": 4,
+                        "startOffset": 3972,
+                        "endColumn": 81,
+                        "endOffset": 4049
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 124,
+                    "startColumn": 4,
+                    "startOffset": 5818,
+                    "endColumn": 77,
+                    "endOffset": 5891
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 108,
+                        "startColumn": 4,
+                        "startOffset": 4054,
+                        "endColumn": 77,
+                        "endOffset": 4127
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 125,
+                    "startColumn": 4,
+                    "startOffset": 5896,
+                    "endColumn": 68,
+                    "endOffset": 5960
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 109,
+                        "startColumn": 4,
+                        "startOffset": 4132,
+                        "endColumn": 68,
+                        "endOffset": 4196
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 126,
+                    "startColumn": 4,
+                    "startOffset": 5965,
+                    "endColumn": 62,
+                    "endOffset": 6023
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 110,
+                        "startColumn": 4,
+                        "startOffset": 4201,
+                        "endColumn": 62,
+                        "endOffset": 4259
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 127,
+                    "startColumn": 4,
+                    "startOffset": 6028,
+                    "endColumn": 87,
+                    "endOffset": 6111
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 111,
+                        "startColumn": 4,
+                        "startOffset": 4264,
+                        "endColumn": 87,
+                        "endOffset": 4347
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 128,
+                    "startColumn": 4,
+                    "startOffset": 6116,
+                    "endColumn": 99,
+                    "endOffset": 6211
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 112,
+                        "startColumn": 4,
+                        "startOffset": 4352,
+                        "endColumn": 99,
+                        "endOffset": 4447
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 129,
+                    "startColumn": 4,
+                    "startOffset": 6216,
+                    "endColumn": 94,
+                    "endOffset": 6306
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 113,
+                        "startColumn": 4,
+                        "startOffset": 4452,
+                        "endColumn": 94,
+                        "endOffset": 4542
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 130,
+                    "startColumn": 4,
+                    "startOffset": 6311,
+                    "endColumn": 85,
+                    "endOffset": 6392
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 114,
+                        "startColumn": 4,
+                        "startOffset": 4547,
+                        "endColumn": 85,
+                        "endOffset": 4628
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 131,
+                    "startColumn": 4,
+                    "startOffset": 6397,
+                    "endColumn": 50,
+                    "endOffset": 6443
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 115,
+                        "startColumn": 4,
+                        "startOffset": 4633,
+                        "endColumn": 50,
+                        "endOffset": 4679
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 132,
+                    "startColumn": 4,
+                    "startOffset": 6448,
+                    "endColumn": 92,
+                    "endOffset": 6536
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 116,
+                        "startColumn": 4,
+                        "startOffset": 4684,
+                        "endColumn": 92,
+                        "endOffset": 4772
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 133,
+                    "startColumn": 4,
+                    "startOffset": 6541,
+                    "endColumn": 96,
+                    "endOffset": 6633
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 117,
+                        "startColumn": 4,
+                        "startOffset": 4777,
+                        "endColumn": 96,
+                        "endOffset": 4869
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 134,
+                    "startColumn": 4,
+                    "startOffset": 6638,
+                    "endColumn": 72,
+                    "endOffset": 6706
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 118,
+                        "startColumn": 4,
+                        "startOffset": 4874,
+                        "endColumn": 72,
+                        "endOffset": 4942
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 135,
+                    "startColumn": 4,
+                    "startOffset": 6711,
+                    "endColumn": 78,
+                    "endOffset": 6785
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 119,
+                        "startColumn": 4,
+                        "startOffset": 4947,
+                        "endColumn": 78,
+                        "endOffset": 5021
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 136,
+                    "startColumn": 4,
+                    "startOffset": 6790,
+                    "endColumn": 80,
+                    "endOffset": 6866
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 120,
+                        "startColumn": 4,
+                        "startOffset": 5026,
+                        "endColumn": 80,
+                        "endOffset": 5102
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 137,
+                    "startColumn": 4,
+                    "startOffset": 6871,
+                    "endColumn": 77,
+                    "endOffset": 6944
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 121,
+                        "startColumn": 4,
+                        "startOffset": 5107,
+                        "endColumn": 77,
+                        "endOffset": 5180
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 138,
+                    "startColumn": 4,
+                    "startOffset": 6949,
+                    "endColumn": 68,
+                    "endOffset": 7013
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 122,
+                        "startColumn": 4,
+                        "startOffset": 5185,
+                        "endColumn": 68,
+                        "endOffset": 5249
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 139,
+                    "startColumn": 4,
+                    "startOffset": 7018,
+                    "endColumn": 83,
+                    "endOffset": 7097
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 123,
+                        "startColumn": 4,
+                        "startOffset": 5254,
+                        "endColumn": 83,
+                        "endOffset": 5333
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 140,
+                    "startColumn": 4,
+                    "startOffset": 7102,
+                    "endColumn": 75,
+                    "endOffset": 7173
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 124,
+                        "startColumn": 4,
+                        "startOffset": 5338,
+                        "endColumn": 75,
+                        "endOffset": 5409
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 141,
+                    "startColumn": 4,
+                    "startOffset": 7178,
+                    "endColumn": 85,
+                    "endOffset": 7259
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 125,
+                        "startColumn": 4,
+                        "startOffset": 5414,
+                        "endColumn": 85,
+                        "endOffset": 5495
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 142,
+                    "startColumn": 4,
+                    "startOffset": 7264,
+                    "endColumn": 77,
+                    "endOffset": 7337
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 126,
+                        "startColumn": 4,
+                        "startOffset": 5500,
+                        "endColumn": 77,
+                        "endOffset": 5573
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 143,
+                    "startColumn": 4,
+                    "startOffset": 7342,
+                    "endColumn": 75,
+                    "endOffset": 7413
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 127,
+                        "startColumn": 4,
+                        "startOffset": 5578,
+                        "endColumn": 75,
+                        "endOffset": 5649
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 144,
+                    "startColumn": 4,
+                    "startOffset": 7418,
+                    "endColumn": 52,
+                    "endOffset": 7466
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 128,
+                        "startColumn": 4,
+                        "startOffset": 5654,
+                        "endColumn": 52,
+                        "endOffset": 5702
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 145,
+                    "startColumn": 4,
+                    "startOffset": 7471,
+                    "endColumn": 60,
+                    "endOffset": 7527
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 129,
+                        "startColumn": 4,
+                        "startOffset": 5707,
+                        "endColumn": 60,
+                        "endOffset": 5763
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 146,
+                    "startColumn": 4,
+                    "startOffset": 7532,
+                    "endColumn": 55,
+                    "endOffset": 7583
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 130,
+                        "startColumn": 4,
+                        "startOffset": 5768,
+                        "endColumn": 55,
+                        "endOffset": 5819
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 147,
+                    "startColumn": 4,
+                    "startOffset": 7588,
+                    "endColumn": 61,
+                    "endOffset": 7645
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 131,
+                        "startColumn": 4,
+                        "startOffset": 5824,
+                        "endColumn": 61,
+                        "endOffset": 5881
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 148,
+                    "startColumn": 4,
+                    "startOffset": 7650,
+                    "endColumn": 43,
+                    "endOffset": 7689
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 132,
+                        "startColumn": 4,
+                        "startOffset": 5886,
+                        "endColumn": 43,
+                        "endOffset": 5925
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 149,
+                    "startColumn": 4,
+                    "startOffset": 7694,
+                    "endColumn": 89,
+                    "endOffset": 7779
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 133,
+                        "startColumn": 4,
+                        "startOffset": 5930,
+                        "endColumn": 89,
+                        "endOffset": 6015
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 150,
+                    "startColumn": 4,
+                    "startOffset": 7784,
+                    "endColumn": 94,
+                    "endOffset": 7874
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 134,
+                        "startColumn": 4,
+                        "startOffset": 6020,
+                        "endColumn": 94,
+                        "endOffset": 6110
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 151,
+                    "startColumn": 4,
+                    "startOffset": 7879,
+                    "endColumn": 94,
+                    "endOffset": 7969
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 135,
+                        "startColumn": 4,
+                        "startOffset": 6115,
+                        "endColumn": 94,
+                        "endOffset": 6205
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 152,
+                    "startColumn": 4,
+                    "startOffset": 7974,
+                    "endColumn": 144,
+                    "endOffset": 8114
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 136,
+                        "startColumn": 4,
+                        "startOffset": 6210,
+                        "endColumn": 144,
+                        "endOffset": 6350
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 153,
+                    "startColumn": 4,
+                    "startOffset": 8119,
+                    "endColumn": 169,
+                    "endOffset": 8284
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 137,
+                        "startColumn": 4,
+                        "startOffset": 6355,
+                        "endColumn": 169,
+                        "endOffset": 6520
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 154,
+                    "startColumn": 4,
+                    "startOffset": 8289,
+                    "endColumn": 52,
+                    "endOffset": 8337
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 138,
+                        "startColumn": 4,
+                        "startOffset": 6525,
+                        "endColumn": 52,
+                        "endOffset": 6573
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 155,
+                    "startColumn": 4,
+                    "startOffset": 8342,
+                    "endColumn": 61,
+                    "endOffset": 8399
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 139,
+                        "startColumn": 4,
+                        "startOffset": 6578,
+                        "endColumn": 61,
+                        "endOffset": 6635
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 156,
+                    "startColumn": 4,
+                    "startOffset": 8404,
+                    "endColumn": 79,
+                    "endOffset": 8479
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 140,
+                        "startColumn": 4,
+                        "startOffset": 6640,
+                        "endColumn": 79,
+                        "endOffset": 6715
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 157,
+                    "startColumn": 4,
+                    "startOffset": 8484,
+                    "endColumn": 45,
+                    "endOffset": 8525
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 141,
+                        "startColumn": 4,
+                        "startOffset": 6720,
+                        "endColumn": 45,
+                        "endOffset": 6761
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 158,
+                    "startColumn": 4,
+                    "startOffset": 8530,
+                    "endColumn": 89,
+                    "endOffset": 8615
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 142,
+                        "startColumn": 4,
+                        "startOffset": 6766,
+                        "endColumn": 89,
+                        "endOffset": 6851
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 159,
+                    "startColumn": 4,
+                    "startOffset": 8620,
+                    "endColumn": 54,
+                    "endOffset": 8670
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 143,
+                        "startColumn": 4,
+                        "startOffset": 6856,
+                        "endColumn": 54,
+                        "endOffset": 6906
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 160,
+                    "startColumn": 4,
+                    "startOffset": 8675,
+                    "endColumn": 58,
+                    "endOffset": 8729
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 144,
+                        "startColumn": 4,
+                        "startOffset": 6911,
+                        "endColumn": 58,
+                        "endOffset": 6965
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 161,
+                    "startColumn": 4,
+                    "startOffset": 8734,
+                    "endColumn": 70,
+                    "endOffset": 8800
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 145,
+                        "startColumn": 4,
+                        "startOffset": 6970,
+                        "endColumn": 70,
+                        "endOffset": 7036
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 162,
+                    "startColumn": 4,
+                    "startOffset": 8805,
+                    "endColumn": 47,
+                    "endOffset": 8848
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 146,
+                        "startColumn": 4,
+                        "startOffset": 7041,
+                        "endColumn": 47,
+                        "endOffset": 7084
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 163,
+                    "startColumn": 4,
+                    "startOffset": 8853,
+                    "endColumn": 60,
+                    "endOffset": 8909
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 147,
+                        "startColumn": 4,
+                        "startOffset": 7089,
+                        "endColumn": 60,
+                        "endOffset": 7145
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 164,
+                    "startColumn": 4,
+                    "startOffset": 8914,
+                    "endColumn": 80,
+                    "endOffset": 8990
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 148,
+                        "startColumn": 4,
+                        "startOffset": 7150,
+                        "endColumn": 80,
+                        "endOffset": 7226
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 165,
+                    "startColumn": 4,
+                    "startOffset": 8995,
+                    "endColumn": 57,
+                    "endOffset": 9048
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 149,
+                        "startColumn": 4,
+                        "startOffset": 7231,
+                        "endColumn": 57,
+                        "endOffset": 7284
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 166,
+                    "startColumn": 4,
+                    "startOffset": 9053,
+                    "endColumn": 124,
+                    "endOffset": 9173
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 150,
+                        "startColumn": 4,
+                        "startOffset": 7289,
+                        "endColumn": 124,
+                        "endOffset": 7409
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 167,
+                    "startColumn": 4,
+                    "startOffset": 9178,
+                    "endColumn": 150,
+                    "endOffset": 9324
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 151,
+                        "startColumn": 4,
+                        "startOffset": 7414,
+                        "endColumn": 150,
+                        "endOffset": 7560
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 168,
+                    "startColumn": 4,
+                    "startOffset": 9329,
+                    "endColumn": 105,
+                    "endOffset": 9430
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 152,
+                        "startColumn": 4,
+                        "startOffset": 7565,
+                        "endColumn": 105,
+                        "endOffset": 7666
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 169,
+                    "startColumn": 4,
+                    "startOffset": 9435,
+                    "endColumn": 81,
+                    "endOffset": 9512
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 153,
+                        "startColumn": 4,
+                        "startOffset": 7671,
+                        "endColumn": 81,
+                        "endOffset": 7748
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 170,
+                    "startColumn": 4,
+                    "startOffset": 9517,
+                    "endColumn": 82,
+                    "endOffset": 9595
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 154,
+                        "startColumn": 4,
+                        "startOffset": 7753,
+                        "endColumn": 82,
+                        "endOffset": 7831
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 171,
+                    "startColumn": 4,
+                    "startOffset": 9600,
+                    "endColumn": 89,
+                    "endOffset": 9685
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 155,
+                        "startColumn": 4,
+                        "startOffset": 7836,
+                        "endColumn": 89,
+                        "endOffset": 7921
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 172,
+                    "startColumn": 4,
+                    "startOffset": 9690,
+                    "endColumn": 87,
+                    "endOffset": 9773
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 156,
+                        "startColumn": 4,
+                        "startOffset": 7926,
+                        "endColumn": 87,
+                        "endOffset": 8009
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 173,
+                    "startColumn": 4,
+                    "startOffset": 9778,
+                    "endColumn": 150,
+                    "endOffset": 9924
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 157,
+                        "startColumn": 4,
+                        "startOffset": 8014,
+                        "endColumn": 150,
+                        "endOffset": 8160
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 174,
+                    "startColumn": 4,
+                    "startOffset": 9929,
+                    "endColumn": 72,
+                    "endOffset": 9997
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 158,
+                        "startColumn": 4,
+                        "startOffset": 8165,
+                        "endColumn": 72,
+                        "endOffset": 8233
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 175,
+                    "startColumn": 4,
+                    "startOffset": 10002,
+                    "endColumn": 99,
+                    "endOffset": 10097
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 159,
+                        "startColumn": 4,
+                        "startOffset": 8238,
+                        "endColumn": 99,
+                        "endOffset": 8333
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 176,
+                    "startColumn": 4,
+                    "startOffset": 10102,
+                    "endColumn": 96,
+                    "endOffset": 10194
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 160,
+                        "startColumn": 4,
+                        "startOffset": 8338,
+                        "endColumn": 96,
+                        "endOffset": 8430
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 177,
+                    "startColumn": 4,
+                    "startOffset": 10199,
+                    "endColumn": 91,
+                    "endOffset": 10286
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 161,
+                        "startColumn": 4,
+                        "startOffset": 8435,
+                        "endColumn": 91,
+                        "endOffset": 8522
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 178,
+                    "startColumn": 4,
+                    "startOffset": 10291,
+                    "endColumn": 111,
+                    "endOffset": 10398
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 162,
+                        "startColumn": 4,
+                        "startOffset": 8527,
+                        "endColumn": 111,
+                        "endOffset": 8634
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 179,
+                    "startColumn": 4,
+                    "startOffset": 10403,
+                    "endColumn": 126,
+                    "endOffset": 10525
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 163,
+                        "startColumn": 4,
+                        "startOffset": 8639,
+                        "endColumn": 126,
+                        "endOffset": 8761
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 180,
+                    "startColumn": 4,
+                    "startOffset": 10530,
+                    "endColumn": 51,
+                    "endOffset": 10577
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 164,
+                        "startColumn": 4,
+                        "startOffset": 8766,
+                        "endColumn": 51,
+                        "endOffset": 8813
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 181,
+                    "startColumn": 4,
+                    "startOffset": 10582,
+                    "endColumn": 72,
+                    "endOffset": 10650
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 165,
+                        "startColumn": 4,
+                        "startOffset": 8818,
+                        "endColumn": 72,
+                        "endOffset": 8886
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 182,
+                    "startColumn": 4,
+                    "startOffset": 10655,
+                    "endColumn": 87,
+                    "endOffset": 10738
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 166,
+                        "startColumn": 4,
+                        "startOffset": 8891,
+                        "endColumn": 87,
+                        "endOffset": 8974
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 183,
+                    "startColumn": 4,
+                    "startOffset": 10743,
+                    "endColumn": 89,
+                    "endOffset": 10828
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 167,
+                        "startColumn": 4,
+                        "startOffset": 8979,
+                        "endColumn": 89,
+                        "endOffset": 9064
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 184,
+                    "startColumn": 4,
+                    "startOffset": 10833,
+                    "endColumn": 105,
+                    "endOffset": 10934
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 168,
+                        "startColumn": 4,
+                        "startOffset": 9069,
+                        "endColumn": 105,
+                        "endOffset": 9170
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 185,
+                    "startColumn": 4,
+                    "startOffset": 10939,
+                    "endColumn": 59,
+                    "endOffset": 10994
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 169,
+                        "startColumn": 4,
+                        "startOffset": 9175,
+                        "endColumn": 59,
+                        "endOffset": 9230
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 186,
+                    "startColumn": 4,
+                    "startOffset": 10999,
+                    "endColumn": 71,
+                    "endOffset": 11066
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 170,
+                        "startColumn": 4,
+                        "startOffset": 9235,
+                        "endColumn": 71,
+                        "endOffset": 9302
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 187,
+                    "startColumn": 4,
+                    "startOffset": 11071,
+                    "endColumn": 78,
+                    "endOffset": 11145
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 171,
+                        "startColumn": 4,
+                        "startOffset": 9307,
+                        "endColumn": 78,
+                        "endOffset": 9381
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 188,
+                    "startColumn": 4,
+                    "startOffset": 11150,
+                    "endColumn": 70,
+                    "endOffset": 11216
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 172,
+                        "startColumn": 4,
+                        "startOffset": 9386,
+                        "endColumn": 70,
+                        "endOffset": 9452
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 189,
+                    "startColumn": 4,
+                    "startOffset": 11221,
+                    "endColumn": 89,
+                    "endOffset": 11306
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 173,
+                        "startColumn": 4,
+                        "startOffset": 9457,
+                        "endColumn": 89,
+                        "endOffset": 9542
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 190,
+                    "startColumn": 4,
+                    "startOffset": 11311,
+                    "endColumn": 61,
+                    "endOffset": 11368
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 174,
+                        "startColumn": 4,
+                        "startOffset": 9547,
+                        "endColumn": 61,
+                        "endOffset": 9604
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 191,
+                    "startColumn": 4,
+                    "startOffset": 11373,
+                    "endColumn": 76,
+                    "endOffset": 11445
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 175,
+                        "startColumn": 4,
+                        "startOffset": 9609,
+                        "endColumn": 76,
+                        "endOffset": 9681
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 192,
+                    "startColumn": 4,
+                    "startOffset": 11450,
+                    "endColumn": 68,
+                    "endOffset": 11514
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 176,
+                        "startColumn": 4,
+                        "startOffset": 9686,
+                        "endColumn": 68,
+                        "endOffset": 9750
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 193,
+                    "startColumn": 4,
+                    "startOffset": 11519,
+                    "endColumn": 78,
+                    "endOffset": 11593
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 177,
+                        "startColumn": 4,
+                        "startOffset": 9755,
+                        "endColumn": 78,
+                        "endOffset": 9829
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 194,
+                    "startColumn": 4,
+                    "startOffset": 11598,
+                    "endColumn": 69,
+                    "endOffset": 11663
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 178,
+                        "startColumn": 4,
+                        "startOffset": 9834,
+                        "endColumn": 69,
+                        "endOffset": 9899
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 195,
+                    "startColumn": 4,
+                    "startOffset": 11668,
+                    "endColumn": 70,
+                    "endOffset": 11734
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 179,
+                        "startColumn": 4,
+                        "startOffset": 9904,
+                        "endColumn": 70,
+                        "endOffset": 9970
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 196,
+                    "startColumn": 4,
+                    "startOffset": 11739,
+                    "endColumn": 68,
+                    "endOffset": 11803
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 180,
+                        "startColumn": 4,
+                        "startOffset": 9975,
+                        "endColumn": 68,
+                        "endOffset": 10039
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 197,
+                    "startColumn": 4,
+                    "startOffset": 11808,
+                    "endColumn": 77,
+                    "endOffset": 11881
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 181,
+                        "startColumn": 4,
+                        "startOffset": 10044,
+                        "endColumn": 77,
+                        "endOffset": 10117
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 198,
+                    "startColumn": 4,
+                    "startOffset": 11886,
+                    "endColumn": 84,
+                    "endOffset": 11966
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 182,
+                        "startColumn": 4,
+                        "startOffset": 10122,
+                        "endColumn": 84,
+                        "endOffset": 10202
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 199,
+                    "startColumn": 4,
+                    "startOffset": 11971,
+                    "endColumn": 69,
+                    "endOffset": 12036
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 183,
+                        "startColumn": 4,
+                        "startOffset": 10207,
+                        "endColumn": 69,
+                        "endOffset": 10272
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 200,
+                    "startColumn": 4,
+                    "startOffset": 12041,
+                    "endColumn": 50,
+                    "endOffset": 12087
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 184,
+                        "startColumn": 4,
+                        "startOffset": 10277,
+                        "endColumn": 50,
+                        "endOffset": 10323
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 201,
+                    "startColumn": 4,
+                    "startOffset": 12092,
+                    "endColumn": 52,
+                    "endOffset": 12140
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-ro\\values-ro.xml",
+                    "position": {
+                        "startLine": 185,
+                        "startColumn": 4,
+                        "startOffset": 10328,
+                        "endColumn": 52,
+                        "endOffset": 10376
+                    }
+                }
+            }
+        ]
+    }
+]

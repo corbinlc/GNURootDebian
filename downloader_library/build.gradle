@@ -2,19 +2,20 @@ apply plugin: 'com.android.model.library'
 
 model {
     android {
-        compileSdkVersion = 15
-        buildToolsVersion = "23.0.1"
+        //Note: some features of downloader_library become deprecated at API level 22.
+        compileSdkVersion 21
+        buildToolsVersion "23.0.1"
 
         defaultConfig.with {
-            minSdkVersion.apiLevel = 4
-            targetSdkVersion.apiLevel = 15
+            minSdkVersion.apiLevel 4
+            targetSdkVersion.apiLevel 15
         }
     }
 
     android.buildTypes {
         release {
-            minifyEnabled = false
-            proguardFiles += file('proguard-rules.pro')
+            minifyEnabled false
+            proguardFiles.add(file('proguard-rules.pro'))
         }
     }
 }

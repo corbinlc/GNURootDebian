@@ -1,0 +1,5203 @@
+[
+    {
+        "outputFile": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\values-ru\\values-ru.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 5,
+                    "endColumn": 15,
+                    "endOffset": 196
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 0,
+                        "startOffset": 2547,
+                        "endLine": 32,
+                        "endColumn": 15,
+                        "endOffset": 2691
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 201,
+                    "endLine": 17,
+                    "endColumn": 15,
+                    "endOffset": 717
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 36,
+                        "startColumn": 0,
+                        "startOffset": 2849,
+                        "endLine": 47,
+                        "endColumn": 15,
+                        "endOffset": 3376
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 722,
+                    "endLine": 28,
+                    "endColumn": 15,
+                    "endOffset": 1180
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 59,
+                        "startColumn": 0,
+                        "startOffset": 3912,
+                        "endLine": 69,
+                        "endColumn": 15,
+                        "endOffset": 4380
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 29,
+                    "startColumn": 4,
+                    "startOffset": 1185,
+                    "endLine": 36,
+                    "endColumn": 15,
+                    "endOffset": 1558
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 94,
+                        "startColumn": 0,
+                        "startOffset": 6109,
+                        "endLine": 101,
+                        "endColumn": 15,
+                        "endOffset": 6489
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 37,
+                    "startColumn": 4,
+                    "startOffset": 1563,
+                    "endLine": 40,
+                    "endColumn": 15,
+                    "endOffset": 1719
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 362,
+                        "startColumn": 0,
+                        "startOffset": 32154,
+                        "endLine": 365,
+                        "endColumn": 15,
+                        "endOffset": 32313
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 41,
+                    "startColumn": 4,
+                    "startOffset": 1724,
+                    "endLine": 45,
+                    "endColumn": 15,
+                    "endOffset": 1916
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 368,
+                        "startColumn": 0,
+                        "startOffset": 32448,
+                        "endLine": 372,
+                        "endColumn": 15,
+                        "endOffset": 32644
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 46,
+                    "startColumn": 4,
+                    "startOffset": 1921,
+                    "endLine": 49,
+                    "endColumn": 15,
+                    "endOffset": 2083
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 498,
+                        "startColumn": 0,
+                        "startOffset": 41471,
+                        "endLine": 501,
+                        "endColumn": 15,
+                        "endOffset": 41636
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 50,
+                    "startColumn": 4,
+                    "startOffset": 2088,
+                    "endColumn": 460,
+                    "endOffset": 2544
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 0,
+                        "startOffset": 606,
+                        "endColumn": 456,
+                        "endOffset": 1062
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 51,
+                    "startColumn": 4,
+                    "startOffset": 2549,
+                    "endColumn": 126,
+                    "endOffset": 2671
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 0,
+                        "startOffset": 1064,
+                        "endColumn": 122,
+                        "endOffset": 1186
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 52,
+                    "startColumn": 4,
+                    "startOffset": 2676,
+                    "endColumn": 131,
+                    "endOffset": 2803
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 0,
+                        "startOffset": 1188,
+                        "endColumn": 127,
+                        "endOffset": 1315
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 53,
+                    "startColumn": 4,
+                    "startOffset": 2808,
+                    "endColumn": 155,
+                    "endOffset": 2959
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 0,
+                        "startOffset": 1317,
+                        "endColumn": 151,
+                        "endOffset": 1468
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 54,
+                    "startColumn": 4,
+                    "startOffset": 2964,
+                    "endColumn": 105,
+                    "endOffset": 3065
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 0,
+                        "startOffset": 345,
+                        "endColumn": 101,
+                        "endOffset": 446
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 55,
+                    "startColumn": 4,
+                    "startOffset": 3070,
+                    "endColumn": 160,
+                    "endOffset": 3226
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 0,
+                        "startOffset": 448,
+                        "endColumn": 156,
+                        "endOffset": 604
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 56,
+                    "startColumn": 4,
+                    "startOffset": 3231,
+                    "endColumn": 54,
+                    "endOffset": 3281
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 0,
+                        "startOffset": 53,
+                        "endColumn": 50,
+                        "endOffset": 103
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 57,
+                    "startColumn": 4,
+                    "startOffset": 3286,
+                    "endColumn": 59,
+                    "endOffset": 3341
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 0,
+                        "startOffset": 105,
+                        "endColumn": 55,
+                        "endOffset": 160
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 58,
+                    "startColumn": 4,
+                    "startOffset": 3346,
+                    "endColumn": 68,
+                    "endOffset": 3410
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 162,
+                        "endColumn": 64,
+                        "endOffset": 226
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 59,
+                    "startColumn": 4,
+                    "startOffset": 3415,
+                    "endColumn": 58,
+                    "endOffset": 3469
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 0,
+                        "startOffset": 228,
+                        "endColumn": 54,
+                        "endOffset": 282
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 60,
+                    "startColumn": 4,
+                    "startOffset": 3474,
+                    "endColumn": 63,
+                    "endOffset": 3533
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 0,
+                        "startOffset": 284,
+                        "endColumn": 59,
+                        "endOffset": 343
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 61,
+                    "startColumn": 4,
+                    "startOffset": 3538,
+                    "endColumn": 41,
+                    "endOffset": 3575
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 0,
+                        "startOffset": 1470,
+                        "endColumn": 37,
+                        "endOffset": 1507
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 62,
+                    "startColumn": 4,
+                    "startOffset": 3580,
+                    "endColumn": 51,
+                    "endOffset": 3627
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 0,
+                        "startOffset": 1509,
+                        "endColumn": 47,
+                        "endOffset": 1556
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 63,
+                    "startColumn": 4,
+                    "startOffset": 3632,
+                    "endColumn": 52,
+                    "endOffset": 3680
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 0,
+                        "startOffset": 1558,
+                        "endColumn": 48,
+                        "endOffset": 1606
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 64,
+                    "startColumn": 4,
+                    "startOffset": 3685,
+                    "endColumn": 54,
+                    "endOffset": 3735
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 0,
+                        "startOffset": 1608,
+                        "endColumn": 50,
+                        "endOffset": 1658
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 65,
+                    "startColumn": 4,
+                    "startOffset": 3740,
+                    "endColumn": 50,
+                    "endOffset": 3786
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 0,
+                        "startOffset": 1660,
+                        "endColumn": 46,
+                        "endOffset": 1706
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 66,
+                    "startColumn": 4,
+                    "startOffset": 3791,
+                    "endColumn": 37,
+                    "endOffset": 3824
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 0,
+                        "startOffset": 1708,
+                        "endColumn": 33,
+                        "endOffset": 1741
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 67,
+                    "startColumn": 4,
+                    "startOffset": 3829,
+                    "endColumn": 48,
+                    "endOffset": 3873
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 0,
+                        "startOffset": 1987,
+                        "endColumn": 44,
+                        "endOffset": 2031
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 68,
+                    "startColumn": 4,
+                    "startOffset": 3878,
+                    "endColumn": 246,
+                    "endOffset": 4120
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 0,
+                        "startOffset": 1743,
+                        "endColumn": 242,
+                        "endOffset": 1985
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 69,
+                    "startColumn": 4,
+                    "startOffset": 4125,
+                    "endColumn": 56,
+                    "endOffset": 4177
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 0,
+                        "startOffset": 2033,
+                        "endColumn": 52,
+                        "endOffset": 2085
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 70,
+                    "startColumn": 4,
+                    "startOffset": 4182,
+                    "endColumn": 87,
+                    "endOffset": 4265
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 0,
+                        "startOffset": 2087,
+                        "endColumn": 83,
+                        "endOffset": 2170
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 71,
+                    "startColumn": 4,
+                    "startOffset": 4270,
+                    "endColumn": 72,
+                    "endOffset": 4338
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 0,
+                        "startOffset": 2172,
+                        "endColumn": 68,
+                        "endOffset": 2240
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 72,
+                    "startColumn": 4,
+                    "startOffset": 4343,
+                    "endColumn": 53,
+                    "endOffset": 4392
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 0,
+                        "startOffset": 2242,
+                        "endColumn": 49,
+                        "endOffset": 2291
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 73,
+                    "startColumn": 4,
+                    "startOffset": 4397,
+                    "endColumn": 69,
+                    "endOffset": 4462
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 0,
+                        "startOffset": 2293,
+                        "endColumn": 65,
+                        "endOffset": 2358
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 74,
+                    "startColumn": 4,
+                    "startOffset": 4467,
+                    "endColumn": 51,
+                    "endOffset": 4514
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 0,
+                        "startOffset": 2360,
+                        "endColumn": 47,
+                        "endOffset": 2407
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 75,
+                    "startColumn": 4,
+                    "startOffset": 4519,
+                    "endColumn": 66,
+                    "endOffset": 4581
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 0,
+                        "startOffset": 2409,
+                        "endColumn": 62,
+                        "endOffset": 2471
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 76,
+                    "startColumn": 4,
+                    "startOffset": 4586,
+                    "endColumn": 76,
+                    "endOffset": 4658
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 0,
+                        "startOffset": 2473,
+                        "endColumn": 72,
+                        "endOffset": 2545
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 77,
+                    "startColumn": 4,
+                    "startOffset": 4663,
+                    "endColumn": 53,
+                    "endOffset": 4712
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 34,
+                        "startColumn": 0,
+                        "startOffset": 2744,
+                        "endColumn": 49,
+                        "endOffset": 2793
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 78,
+                    "startColumn": 4,
+                    "startOffset": 4717,
+                    "endColumn": 53,
+                    "endOffset": 4766
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 33,
+                        "startColumn": 0,
+                        "startOffset": 2693,
+                        "endColumn": 49,
+                        "endOffset": 2742
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 79,
+                    "startColumn": 4,
+                    "startOffset": 4771,
+                    "endColumn": 52,
+                    "endOffset": 4819
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 48,
+                        "startColumn": 0,
+                        "startOffset": 3378,
+                        "endColumn": 48,
+                        "endOffset": 3426
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 80,
+                    "startColumn": 4,
+                    "startOffset": 4824,
+                    "endColumn": 56,
+                    "endOffset": 4876
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 49,
+                        "startColumn": 0,
+                        "startOffset": 3428,
+                        "endColumn": 52,
+                        "endOffset": 3480
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 81,
+                    "startColumn": 4,
+                    "startOffset": 4881,
+                    "endColumn": 54,
+                    "endOffset": 4931
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 54,
+                        "startColumn": 0,
+                        "startOffset": 3689,
+                        "endColumn": 50,
+                        "endOffset": 3739
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 82,
+                    "startColumn": 4,
+                    "startOffset": 4936,
+                    "endColumn": 65,
+                    "endOffset": 4997
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 55,
+                        "startColumn": 0,
+                        "startOffset": 3741,
+                        "endColumn": 61,
+                        "endOffset": 3802
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 83,
+                    "startColumn": 4,
+                    "startOffset": 5002,
+                    "endColumn": 50,
+                    "endOffset": 5048
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 50,
+                        "startColumn": 0,
+                        "startOffset": 3482,
+                        "endColumn": 46,
+                        "endOffset": 3528
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 84,
+                    "startColumn": 4,
+                    "startOffset": 5053,
+                    "endColumn": 52,
+                    "endOffset": 5101
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 57,
+                        "startColumn": 0,
+                        "startOffset": 3860,
+                        "endColumn": 48,
+                        "endOffset": 3908
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 85,
+                    "startColumn": 4,
+                    "startOffset": 5106,
+                    "endColumn": 58,
+                    "endOffset": 5160
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 56,
+                        "startColumn": 0,
+                        "startOffset": 3804,
+                        "endColumn": 54,
+                        "endOffset": 3858
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 86,
+                    "startColumn": 4,
+                    "startOffset": 5165,
+                    "endColumn": 54,
+                    "endOffset": 5215
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 51,
+                        "startColumn": 0,
+                        "startOffset": 3530,
+                        "endColumn": 50,
+                        "endOffset": 3580
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 87,
+                    "startColumn": 4,
+                    "startOffset": 5220,
+                    "endColumn": 59,
+                    "endOffset": 5275
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 52,
+                        "startColumn": 0,
+                        "startOffset": 3582,
+                        "endColumn": 55,
+                        "endOffset": 3637
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 88,
+                    "startColumn": 4,
+                    "startOffset": 5280,
+                    "endColumn": 52,
+                    "endOffset": 5328
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 53,
+                        "startColumn": 0,
+                        "startOffset": 3639,
+                        "endColumn": 48,
+                        "endOffset": 3687
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 89,
+                    "startColumn": 4,
+                    "startOffset": 5333,
+                    "endColumn": 56,
+                    "endOffset": 5385
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 35,
+                        "startColumn": 0,
+                        "startOffset": 2795,
+                        "endColumn": 52,
+                        "endOffset": 2847
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 90,
+                    "startColumn": 4,
+                    "startOffset": 5390,
+                    "endColumn": 163,
+                    "endOffset": 5549
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 74,
+                        "startColumn": 0,
+                        "startOffset": 4764,
+                        "endColumn": 159,
+                        "endOffset": 4923
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 91,
+                    "startColumn": 4,
+                    "startOffset": 5554,
+                    "endColumn": 170,
+                    "endOffset": 5720
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 73,
+                        "startColumn": 0,
+                        "startOffset": 4596,
+                        "endColumn": 166,
+                        "endOffset": 4762
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 92,
+                    "startColumn": 4,
+                    "startOffset": 5725,
+                    "endColumn": 76,
+                    "endOffset": 5797
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 70,
+                        "startColumn": 0,
+                        "startOffset": 4382,
+                        "endColumn": 72,
+                        "endOffset": 4454
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 93,
+                    "startColumn": 4,
+                    "startOffset": 5802,
+                    "endColumn": 72,
+                    "endOffset": 5870
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 71,
+                        "startColumn": 0,
+                        "startOffset": 4456,
+                        "endColumn": 68,
+                        "endOffset": 4524
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 94,
+                    "startColumn": 4,
+                    "startOffset": 5875,
+                    "endColumn": 72,
+                    "endOffset": 5943
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 72,
+                        "startColumn": 0,
+                        "startOffset": 4526,
+                        "endColumn": 68,
+                        "endOffset": 4594
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 95,
+                    "startColumn": 4,
+                    "startOffset": 5948,
+                    "endColumn": 60,
+                    "endOffset": 6004
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 75,
+                        "startColumn": 0,
+                        "startOffset": 4925,
+                        "endColumn": 56,
+                        "endOffset": 4981
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 96,
+                    "startColumn": 4,
+                    "startOffset": 6009,
+                    "endColumn": 82,
+                    "endOffset": 6087
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 76,
+                        "startColumn": 0,
+                        "startOffset": 4983,
+                        "endColumn": 78,
+                        "endOffset": 5061
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 97,
+                    "startColumn": 4,
+                    "startOffset": 6092,
+                    "endColumn": 47,
+                    "endOffset": 6135
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 77,
+                        "startColumn": 0,
+                        "startOffset": 5063,
+                        "endColumn": 43,
+                        "endOffset": 5106
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 98,
+                    "startColumn": 4,
+                    "startOffset": 6140,
+                    "endColumn": 41,
+                    "endOffset": 6177
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 78,
+                        "startColumn": 0,
+                        "startOffset": 5108,
+                        "endColumn": 37,
+                        "endOffset": 5145
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 99,
+                    "startColumn": 4,
+                    "startOffset": 6182,
+                    "endColumn": 63,
+                    "endOffset": 6241
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 79,
+                        "startColumn": 0,
+                        "startOffset": 5147,
+                        "endColumn": 59,
+                        "endOffset": 5206
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 100,
+                    "startColumn": 4,
+                    "startOffset": 6246,
+                    "endColumn": 53,
+                    "endOffset": 6295
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 80,
+                        "startColumn": 0,
+                        "startOffset": 5208,
+                        "endColumn": 49,
+                        "endOffset": 5257
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 101,
+                    "startColumn": 4,
+                    "startOffset": 6300,
+                    "endColumn": 55,
+                    "endOffset": 6351
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 81,
+                        "startColumn": 0,
+                        "startOffset": 5259,
+                        "endColumn": 51,
+                        "endOffset": 5310
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 102,
+                    "startColumn": 4,
+                    "startOffset": 6356,
+                    "endColumn": 58,
+                    "endOffset": 6410
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 82,
+                        "startColumn": 0,
+                        "startOffset": 5312,
+                        "endColumn": 54,
+                        "endOffset": 5366
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 103,
+                    "startColumn": 4,
+                    "startOffset": 6415,
+                    "endColumn": 62,
+                    "endOffset": 6473
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 83,
+                        "startColumn": 0,
+                        "startOffset": 5368,
+                        "endColumn": 58,
+                        "endOffset": 5426
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 104,
+                    "startColumn": 4,
+                    "startOffset": 6478,
+                    "endColumn": 51,
+                    "endOffset": 6525
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 84,
+                        "startColumn": 0,
+                        "startOffset": 5428,
+                        "endColumn": 47,
+                        "endOffset": 5475
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 105,
+                    "startColumn": 4,
+                    "startOffset": 6530,
+                    "endColumn": 70,
+                    "endOffset": 6596
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 85,
+                        "startColumn": 0,
+                        "startOffset": 5477,
+                        "endColumn": 66,
+                        "endOffset": 5543
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 106,
+                    "startColumn": 4,
+                    "startOffset": 6601,
+                    "endColumn": 55,
+                    "endOffset": 6652
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 86,
+                        "startColumn": 0,
+                        "startOffset": 5545,
+                        "endColumn": 51,
+                        "endOffset": 5596
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 107,
+                    "startColumn": 4,
+                    "startOffset": 6657,
+                    "endColumn": 74,
+                    "endOffset": 6727
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 87,
+                        "startColumn": 0,
+                        "startOffset": 5598,
+                        "endColumn": 70,
+                        "endOffset": 5668
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 108,
+                    "startColumn": 4,
+                    "startOffset": 6732,
+                    "endColumn": 61,
+                    "endOffset": 6789
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 90,
+                        "startColumn": 0,
+                        "startOffset": 5800,
+                        "endColumn": 57,
+                        "endOffset": 5857
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 109,
+                    "startColumn": 4,
+                    "startOffset": 6794,
+                    "endColumn": 57,
+                    "endOffset": 6847
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 88,
+                        "startColumn": 0,
+                        "startOffset": 5670,
+                        "endColumn": 53,
+                        "endOffset": 5723
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 110,
+                    "startColumn": 4,
+                    "startOffset": 6852,
+                    "endColumn": 77,
+                    "endOffset": 6925
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 89,
+                        "startColumn": 0,
+                        "startOffset": 5725,
+                        "endColumn": 73,
+                        "endOffset": 5798
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 111,
+                    "startColumn": 4,
+                    "startOffset": 6930,
+                    "endColumn": 81,
+                    "endOffset": 7007
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 91,
+                        "startColumn": 0,
+                        "startOffset": 5859,
+                        "endColumn": 77,
+                        "endOffset": 5936
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 112,
+                    "startColumn": 4,
+                    "startOffset": 7012,
+                    "endColumn": 88,
+                    "endOffset": 7096
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 93,
+                        "startColumn": 0,
+                        "startOffset": 6023,
+                        "endColumn": 84,
+                        "endOffset": 6107
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 113,
+                    "startColumn": 4,
+                    "startOffset": 7101,
+                    "endColumn": 87,
+                    "endOffset": 7184
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 92,
+                        "startColumn": 0,
+                        "startOffset": 5938,
+                        "endColumn": 83,
+                        "endOffset": 6021
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 114,
+                    "startColumn": 4,
+                    "startOffset": 7189,
+                    "endColumn": 46,
+                    "endOffset": 7231
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 102,
+                        "startColumn": 0,
+                        "startOffset": 6491,
+                        "endColumn": 42,
+                        "endOffset": 6533
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 115,
+                    "startColumn": 4,
+                    "startOffset": 7236,
+                    "endColumn": 62,
+                    "endOffset": 7294
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 103,
+                        "startColumn": 0,
+                        "startOffset": 6535,
+                        "endColumn": 58,
+                        "endOffset": 6593
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 116,
+                    "startColumn": 4,
+                    "startOffset": 7299,
+                    "endColumn": 53,
+                    "endOffset": 7348
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 104,
+                        "startColumn": 0,
+                        "startOffset": 6595,
+                        "endColumn": 49,
+                        "endOffset": 6644
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 117,
+                    "startColumn": 4,
+                    "startOffset": 7353,
+                    "endColumn": 65,
+                    "endOffset": 7414
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 105,
+                        "startColumn": 0,
+                        "startOffset": 6646,
+                        "endColumn": 61,
+                        "endOffset": 6707
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 118,
+                    "startColumn": 4,
+                    "startOffset": 7419,
+                    "endColumn": 61,
+                    "endOffset": 7476
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 106,
+                        "startColumn": 0,
+                        "startOffset": 6709,
+                        "endColumn": 57,
+                        "endOffset": 6766
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 119,
+                    "startColumn": 4,
+                    "startOffset": 7481,
+                    "endColumn": 65,
+                    "endOffset": 7542
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 107,
+                        "startColumn": 0,
+                        "startOffset": 6768,
+                        "endColumn": 61,
+                        "endOffset": 6829
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 120,
+                    "startColumn": 4,
+                    "startOffset": 7547,
+                    "endColumn": 48,
+                    "endOffset": 7591
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 109,
+                        "startColumn": 0,
+                        "startOffset": 6928,
+                        "endColumn": 44,
+                        "endOffset": 6972
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 121,
+                    "startColumn": 4,
+                    "startOffset": 7596,
+                    "endColumn": 99,
+                    "endOffset": 7691
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 108,
+                        "startColumn": 0,
+                        "startOffset": 6831,
+                        "endColumn": 95,
+                        "endOffset": 6926
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 122,
+                    "startColumn": 4,
+                    "startOffset": 7696,
+                    "endColumn": 60,
+                    "endOffset": 7752
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 111,
+                        "startColumn": 0,
+                        "startOffset": 7026,
+                        "endColumn": 56,
+                        "endOffset": 7082
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 123,
+                    "startColumn": 4,
+                    "startOffset": 7757,
+                    "endColumn": 54,
+                    "endOffset": 7807
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 110,
+                        "startColumn": 0,
+                        "startOffset": 6974,
+                        "endColumn": 50,
+                        "endOffset": 7024
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 124,
+                    "startColumn": 4,
+                    "startOffset": 7812,
+                    "endColumn": 54,
+                    "endOffset": 7862
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 143,
+                        "startColumn": 0,
+                        "startOffset": 12465,
+                        "endColumn": 50,
+                        "endOffset": 12515
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 125,
+                    "startColumn": 4,
+                    "startOffset": 7867,
+                    "endColumn": 71,
+                    "endOffset": 7934
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 142,
+                        "startColumn": 0,
+                        "startOffset": 12396,
+                        "endColumn": 67,
+                        "endOffset": 12463
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 126,
+                    "startColumn": 4,
+                    "startOffset": 7939,
+                    "endColumn": 70,
+                    "endOffset": 8005
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 136,
+                        "startColumn": 0,
+                        "startOffset": 11671,
+                        "endColumn": 66,
+                        "endOffset": 11737
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 127,
+                    "startColumn": 4,
+                    "startOffset": 8010,
+                    "endColumn": 77,
+                    "endOffset": 8083
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 135,
+                        "startColumn": 0,
+                        "startOffset": 11596,
+                        "endColumn": 73,
+                        "endOffset": 11669
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 128,
+                    "startColumn": 4,
+                    "startOffset": 8088,
+                    "endColumn": 117,
+                    "endOffset": 8201
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 112,
+                        "startColumn": 0,
+                        "startOffset": 7084,
+                        "endColumn": 113,
+                        "endOffset": 7197
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 129,
+                    "startColumn": 4,
+                    "startOffset": 8206,
+                    "endColumn": 293,
+                    "endOffset": 8495
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 115,
+                        "startColumn": 0,
+                        "startOffset": 7434,
+                        "endColumn": 289,
+                        "endOffset": 7723
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 130,
+                    "startColumn": 4,
+                    "startOffset": 8500,
+                    "endColumn": 186,
+                    "endOffset": 8682
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 116,
+                        "startColumn": 0,
+                        "startOffset": 7725,
+                        "endColumn": 182,
+                        "endOffset": 7907
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 131,
+                    "startColumn": 4,
+                    "startOffset": 8687,
+                    "endColumn": 197,
+                    "endOffset": 8880
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 120,
+                        "startColumn": 0,
+                        "startOffset": 8657,
+                        "endColumn": 193,
+                        "endOffset": 8850
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 132,
+                    "startColumn": 4,
+                    "startOffset": 8885,
+                    "endColumn": 202,
+                    "endOffset": 9083
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 119,
+                        "startColumn": 0,
+                        "startOffset": 8457,
+                        "endColumn": 198,
+                        "endOffset": 8655
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 133,
+                    "startColumn": 4,
+                    "startOffset": 9088,
+                    "endColumn": 366,
+                    "endOffset": 9450
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 118,
+                        "startColumn": 0,
+                        "startOffset": 8093,
+                        "endColumn": 362,
+                        "endOffset": 8455
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 134,
+                    "startColumn": 4,
+                    "startOffset": 9455,
+                    "endColumn": 186,
+                    "endOffset": 9637
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 117,
+                        "startColumn": 0,
+                        "startOffset": 7909,
+                        "endColumn": 182,
+                        "endOffset": 8091
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 135,
+                    "startColumn": 4,
+                    "startOffset": 9642,
+                    "endColumn": 100,
+                    "endOffset": 9738
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 132,
+                        "startColumn": 0,
+                        "startOffset": 11301,
+                        "endColumn": 96,
+                        "endOffset": 11397
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 136,
+                    "startColumn": 4,
+                    "startOffset": 9743,
+                    "endColumn": 94,
+                    "endOffset": 9833
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 133,
+                        "startColumn": 0,
+                        "startOffset": 11399,
+                        "endColumn": 90,
+                        "endOffset": 11489
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 137,
+                    "startColumn": 4,
+                    "startOffset": 9838,
+                    "endColumn": 285,
+                    "endOffset": 10119
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 122,
+                        "startColumn": 0,
+                        "startOffset": 9021,
+                        "endColumn": 281,
+                        "endOffset": 9302
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 138,
+                    "startColumn": 4,
+                    "startOffset": 10124,
+                    "endColumn": 308,
+                    "endOffset": 10428
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 123,
+                        "startColumn": 0,
+                        "startOffset": 9304,
+                        "endColumn": 304,
+                        "endOffset": 9608
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 139,
+                    "startColumn": 4,
+                    "startOffset": 10433,
+                    "endColumn": 268,
+                    "endOffset": 10697
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 126,
+                        "startColumn": 0,
+                        "startOffset": 10053,
+                        "endColumn": 264,
+                        "endOffset": 10317
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 140,
+                    "startColumn": 4,
+                    "startOffset": 10702,
+                    "endColumn": 163,
+                    "endOffset": 10861
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 131,
+                        "startColumn": 0,
+                        "startOffset": 11140,
+                        "endColumn": 159,
+                        "endOffset": 11299
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 141,
+                    "startColumn": 4,
+                    "startOffset": 10866,
+                    "endColumn": 185,
+                    "endOffset": 11047
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 129,
+                        "startColumn": 0,
+                        "startOffset": 10790,
+                        "endColumn": 181,
+                        "endOffset": 10971
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 142,
+                    "startColumn": 4,
+                    "startOffset": 11052,
+                    "endColumn": 169,
+                    "endOffset": 11217
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 130,
+                        "startColumn": 0,
+                        "startOffset": 10973,
+                        "endColumn": 165,
+                        "endOffset": 11138
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 143,
+                    "startColumn": 4,
+                    "startOffset": 11222,
+                    "endColumn": 245,
+                    "endOffset": 11463
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 128,
+                        "startColumn": 0,
+                        "startOffset": 10547,
+                        "endColumn": 241,
+                        "endOffset": 10788
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 144,
+                    "startColumn": 4,
+                    "startOffset": 11468,
+                    "endColumn": 266,
+                    "endOffset": 11730
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 124,
+                        "startColumn": 0,
+                        "startOffset": 9610,
+                        "endColumn": 262,
+                        "endOffset": 9872
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 145,
+                    "startColumn": 4,
+                    "startOffset": 11735,
+                    "endColumn": 181,
+                    "endOffset": 11912
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 125,
+                        "startColumn": 0,
+                        "startOffset": 9874,
+                        "endColumn": 177,
+                        "endOffset": 10051
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 146,
+                    "startColumn": 4,
+                    "startOffset": 11917,
+                    "endColumn": 171,
+                    "endOffset": 12084
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 121,
+                        "startColumn": 0,
+                        "startOffset": 8852,
+                        "endColumn": 167,
+                        "endOffset": 9019
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 147,
+                    "startColumn": 4,
+                    "startOffset": 12089,
+                    "endColumn": 230,
+                    "endOffset": 12315
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 127,
+                        "startColumn": 0,
+                        "startOffset": 10319,
+                        "endColumn": 226,
+                        "endOffset": 10545
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 148,
+                    "startColumn": 4,
+                    "startOffset": 12320,
+                    "endColumn": 93,
+                    "endOffset": 12409
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 113,
+                        "startColumn": 0,
+                        "startOffset": 7199,
+                        "endColumn": 89,
+                        "endOffset": 7288
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 149,
+                    "startColumn": 4,
+                    "startOffset": 12414,
+                    "endColumn": 146,
+                    "endOffset": 12556
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 114,
+                        "startColumn": 0,
+                        "startOffset": 7290,
+                        "endColumn": 142,
+                        "endOffset": 7432
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 150,
+                    "startColumn": 4,
+                    "startOffset": 12561,
+                    "endColumn": 107,
+                    "endOffset": 12664
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 134,
+                        "startColumn": 0,
+                        "startOffset": 11491,
+                        "endColumn": 103,
+                        "endOffset": 11594
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 151,
+                    "startColumn": 4,
+                    "startOffset": 12669,
+                    "endColumn": 119,
+                    "endOffset": 12784
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 138,
+                        "startColumn": 0,
+                        "startOffset": 11892,
+                        "endColumn": 115,
+                        "endOffset": 12007
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 152,
+                    "startColumn": 4,
+                    "startOffset": 12789,
+                    "endColumn": 155,
+                    "endOffset": 12940
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 137,
+                        "startColumn": 0,
+                        "startOffset": 11739,
+                        "endColumn": 151,
+                        "endOffset": 11890
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 153,
+                    "startColumn": 4,
+                    "startOffset": 12945,
+                    "endColumn": 51,
+                    "endOffset": 12992
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 140,
+                        "startColumn": 0,
+                        "startOffset": 12300,
+                        "endColumn": 47,
+                        "endOffset": 12347
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 154,
+                    "startColumn": 4,
+                    "startOffset": 12997,
+                    "endColumn": 41,
+                    "endOffset": 13034
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 141,
+                        "startColumn": 0,
+                        "startOffset": 12349,
+                        "endColumn": 45,
+                        "endOffset": 12394
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 155,
+                    "startColumn": 4,
+                    "startOffset": 13039,
+                    "endColumn": 79,
+                    "endOffset": 13114
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 145,
+                        "startColumn": 0,
+                        "startOffset": 12592,
+                        "endColumn": 75,
+                        "endOffset": 12667
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 156,
+                    "startColumn": 4,
+                    "startOffset": 13119,
+                    "endColumn": 77,
+                    "endOffset": 13192
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 144,
+                        "startColumn": 0,
+                        "startOffset": 12517,
+                        "endColumn": 73,
+                        "endOffset": 12590
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 157,
+                    "startColumn": 4,
+                    "startOffset": 13197,
+                    "endColumn": 69,
+                    "endOffset": 13262
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 146,
+                        "startColumn": 0,
+                        "startOffset": 12669,
+                        "endColumn": 65,
+                        "endOffset": 12734
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 158,
+                    "startColumn": 4,
+                    "startOffset": 13267,
+                    "endColumn": 43,
+                    "endOffset": 13306
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 339,
+                        "startColumn": 0,
+                        "startOffset": 30736,
+                        "endColumn": 39,
+                        "endOffset": 30775
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 159,
+                    "startColumn": 4,
+                    "startOffset": 13311,
+                    "endColumn": 77,
+                    "endOffset": 13384
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 147,
+                        "startColumn": 0,
+                        "startOffset": 12736,
+                        "endColumn": 73,
+                        "endOffset": 12809
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 160,
+                    "startColumn": 4,
+                    "startOffset": 13389,
+                    "endColumn": 50,
+                    "endOffset": 13435
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 148,
+                        "startColumn": 0,
+                        "startOffset": 12811,
+                        "endColumn": 46,
+                        "endOffset": 12857
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 161,
+                    "startColumn": 4,
+                    "startOffset": 13440,
+                    "endColumn": 45,
+                    "endOffset": 13481
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 149,
+                        "startColumn": 0,
+                        "startOffset": 12859,
+                        "endColumn": 49,
+                        "endOffset": 12908
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 162,
+                    "startColumn": 4,
+                    "startOffset": 13486,
+                    "endColumn": 43,
+                    "endOffset": 13525
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 151,
+                        "startColumn": 0,
+                        "startOffset": 12975,
+                        "endColumn": 39,
+                        "endOffset": 13014
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 163,
+                    "startColumn": 4,
+                    "startOffset": 13530,
+                    "endColumn": 75,
+                    "endOffset": 13601
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 153,
+                        "startColumn": 0,
+                        "startOffset": 13095,
+                        "endColumn": 71,
+                        "endOffset": 13166
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 164,
+                    "startColumn": 4,
+                    "startOffset": 13606,
+                    "endColumn": 184,
+                    "endOffset": 13786
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 157,
+                        "startColumn": 0,
+                        "startOffset": 13520,
+                        "endColumn": 180,
+                        "endOffset": 13700
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 165,
+                    "startColumn": 4,
+                    "startOffset": 13791,
+                    "endColumn": 310,
+                    "endOffset": 14097
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 164,
+                        "startColumn": 0,
+                        "startOffset": 14209,
+                        "endColumn": 306,
+                        "endOffset": 14515
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 166,
+                    "startColumn": 4,
+                    "startOffset": 14102,
+                    "endColumn": 81,
+                    "endOffset": 14179
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 152,
+                        "startColumn": 0,
+                        "startOffset": 13016,
+                        "endColumn": 77,
+                        "endOffset": 13093
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 167,
+                    "startColumn": 4,
+                    "startOffset": 14184,
+                    "endColumn": 57,
+                    "endOffset": 14237
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 163,
+                        "startColumn": 0,
+                        "startOffset": 14154,
+                        "endColumn": 53,
+                        "endOffset": 14207
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 168,
+                    "startColumn": 4,
+                    "startOffset": 14242,
+                    "endColumn": 77,
+                    "endOffset": 14315
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 161,
+                        "startColumn": 0,
+                        "startOffset": 13994,
+                        "endColumn": 73,
+                        "endOffset": 14067
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 169,
+                    "startColumn": 4,
+                    "startOffset": 14320,
+                    "endColumn": 72,
+                    "endOffset": 14388
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 158,
+                        "startColumn": 0,
+                        "startOffset": 13702,
+                        "endColumn": 74,
+                        "endOffset": 13776
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 170,
+                    "startColumn": 4,
+                    "startOffset": 14393,
+                    "endColumn": 107,
+                    "endOffset": 14496
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 160,
+                        "startColumn": 0,
+                        "startOffset": 13883,
+                        "endColumn": 109,
+                        "endOffset": 13992
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 171,
+                    "startColumn": 4,
+                    "startOffset": 14501,
+                    "endColumn": 101,
+                    "endOffset": 14598
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 159,
+                        "startColumn": 0,
+                        "startOffset": 13778,
+                        "endColumn": 103,
+                        "endOffset": 13881
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 172,
+                    "startColumn": 4,
+                    "startOffset": 14603,
+                    "endColumn": 92,
+                    "endOffset": 14691
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 154,
+                        "startColumn": 0,
+                        "startOffset": 13168,
+                        "endColumn": 88,
+                        "endOffset": 13256
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 173,
+                    "startColumn": 4,
+                    "startOffset": 14696,
+                    "endColumn": 67,
+                    "endOffset": 14759
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 155,
+                        "startColumn": 0,
+                        "startOffset": 13258,
+                        "endColumn": 63,
+                        "endOffset": 13321
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 174,
+                    "startColumn": 4,
+                    "startOffset": 14764,
+                    "endColumn": 199,
+                    "endOffset": 14959
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 156,
+                        "startColumn": 0,
+                        "startOffset": 13323,
+                        "endColumn": 195,
+                        "endOffset": 13518
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 175,
+                    "startColumn": 4,
+                    "startOffset": 14964,
+                    "endColumn": 87,
+                    "endOffset": 15047
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 162,
+                        "startColumn": 0,
+                        "startOffset": 14069,
+                        "endColumn": 83,
+                        "endOffset": 14152
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 176,
+                    "startColumn": 4,
+                    "startOffset": 15052,
+                    "endColumn": 50,
+                    "endOffset": 15098
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 219,
+                        "startColumn": 0,
+                        "startOffset": 17111,
+                        "endColumn": 46,
+                        "endOffset": 17157
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 177,
+                    "startColumn": 4,
+                    "startOffset": 15103,
+                    "endColumn": 375,
+                    "endOffset": 15474
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 268,
+                        "startColumn": 0,
+                        "startOffset": 20557,
+                        "endColumn": 371,
+                        "endOffset": 20928
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 178,
+                    "startColumn": 4,
+                    "startOffset": 15479,
+                    "endColumn": 86,
+                    "endOffset": 15561
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 267,
+                        "startColumn": 0,
+                        "startOffset": 20473,
+                        "endColumn": 82,
+                        "endOffset": 20555
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 179,
+                    "startColumn": 4,
+                    "startOffset": 15566,
+                    "endColumn": 79,
+                    "endOffset": 15641
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 220,
+                        "startColumn": 0,
+                        "startOffset": 17159,
+                        "endColumn": 75,
+                        "endOffset": 17234
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 180,
+                    "startColumn": 4,
+                    "startOffset": 15646,
+                    "endColumn": 67,
+                    "endOffset": 15709
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 150,
+                        "startColumn": 0,
+                        "startOffset": 12910,
+                        "endColumn": 63,
+                        "endOffset": 12973
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 181,
+                    "startColumn": 4,
+                    "startOffset": 15714,
+                    "endLine": 222,
+                    "endColumn": 9,
+                    "endOffset": 18322
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 221,
+                        "startColumn": 0,
+                        "startOffset": 17236,
+                        "endLine": 262,
+                        "endColumn": 9,
+                        "endOffset": 19885
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 223,
+                    "startColumn": 4,
+                    "startOffset": 18327,
+                    "endColumn": 71,
+                    "endOffset": 18394
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 263,
+                        "startColumn": 0,
+                        "startOffset": 19887,
+                        "endColumn": 67,
+                        "endOffset": 19954
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 224,
+                    "startColumn": 4,
+                    "startOffset": 18399,
+                    "endColumn": 83,
+                    "endOffset": 18478
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 264,
+                        "startColumn": 0,
+                        "startOffset": 19956,
+                        "endColumn": 79,
+                        "endOffset": 20035
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 225,
+                    "startColumn": 4,
+                    "startOffset": 18483,
+                    "endColumn": 64,
+                    "endOffset": 18543
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 269,
+                        "startColumn": 0,
+                        "startOffset": 20930,
+                        "endColumn": 60,
+                        "endOffset": 20990
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 226,
+                    "startColumn": 4,
+                    "startOffset": 18548,
+                    "endColumn": 327,
+                    "endOffset": 18871
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 270,
+                        "startColumn": 0,
+                        "startOffset": 20992,
+                        "endColumn": 323,
+                        "endOffset": 21315
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 227,
+                    "startColumn": 4,
+                    "startOffset": 18876,
+                    "endColumn": 355,
+                    "endOffset": 19227
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 266,
+                        "startColumn": 0,
+                        "startOffset": 20120,
+                        "endColumn": 351,
+                        "endOffset": 20471
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 228,
+                    "startColumn": 4,
+                    "startOffset": 19232,
+                    "endColumn": 85,
+                    "endOffset": 19313
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 265,
+                        "startColumn": 0,
+                        "startOffset": 20037,
+                        "endColumn": 81,
+                        "endOffset": 20118
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 229,
+                    "startColumn": 4,
+                    "startOffset": 19318,
+                    "endColumn": 64,
+                    "endOffset": 19378
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 271,
+                        "startColumn": 0,
+                        "startOffset": 21317,
+                        "endColumn": 60,
+                        "endOffset": 21377
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 230,
+                    "startColumn": 4,
+                    "startOffset": 19383,
+                    "endColumn": 342,
+                    "endOffset": 19721
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 272,
+                        "startColumn": 0,
+                        "startOffset": 21379,
+                        "endColumn": 338,
+                        "endOffset": 21717
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 231,
+                    "startColumn": 4,
+                    "startOffset": 19726,
+                    "endColumn": 47,
+                    "endOffset": 19769
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 165,
+                        "startColumn": 0,
+                        "startOffset": 14517,
+                        "endColumn": 43,
+                        "endOffset": 14560
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 232,
+                    "startColumn": 4,
+                    "startOffset": 19774,
+                    "endColumn": 64,
+                    "endOffset": 19834
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 166,
+                        "startColumn": 0,
+                        "startOffset": 14562,
+                        "endColumn": 60,
+                        "endOffset": 14622
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 233,
+                    "startColumn": 4,
+                    "startOffset": 19839,
+                    "endColumn": 33,
+                    "endOffset": 19868
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 167,
+                        "startColumn": 0,
+                        "startOffset": 14624,
+                        "endColumn": 37,
+                        "endOffset": 14661
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 234,
+                    "startColumn": 4,
+                    "startOffset": 19873,
+                    "endLine": 282,
+                    "endColumn": 9,
+                    "endOffset": 22076
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 168,
+                        "startColumn": 0,
+                        "startOffset": 14663,
+                        "endLine": 216,
+                        "endColumn": 9,
+                        "endOffset": 16986
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 283,
+                    "startColumn": 4,
+                    "startOffset": 22081,
+                    "endColumn": 80,
+                    "endOffset": 22157
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 217,
+                        "startColumn": 0,
+                        "startOffset": 16988,
+                        "endColumn": 76,
+                        "endOffset": 17064
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 284,
+                    "startColumn": 4,
+                    "startOffset": 22162,
+                    "endColumn": 39,
+                    "endOffset": 22197
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 218,
+                        "startColumn": 0,
+                        "startOffset": 17066,
+                        "endColumn": 43,
+                        "endOffset": 17109
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 285,
+                    "startColumn": 4,
+                    "startOffset": 22202,
+                    "endColumn": 58,
+                    "endOffset": 22256
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 273,
+                        "startColumn": 0,
+                        "startOffset": 21719,
+                        "endColumn": 54,
+                        "endOffset": 21773
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 286,
+                    "startColumn": 4,
+                    "startOffset": 22261,
+                    "endColumn": 48,
+                    "endOffset": 22305
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 274,
+                        "startColumn": 0,
+                        "startOffset": 21775,
+                        "endColumn": 44,
+                        "endOffset": 21819
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 287,
+                    "startColumn": 4,
+                    "startOffset": 22310,
+                    "endColumn": 47,
+                    "endOffset": 22353
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 275,
+                        "startColumn": 0,
+                        "startOffset": 21821,
+                        "endColumn": 43,
+                        "endOffset": 21864
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 288,
+                    "startColumn": 4,
+                    "startOffset": 22358,
+                    "endColumn": 56,
+                    "endOffset": 22410
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 276,
+                        "startColumn": 0,
+                        "startOffset": 21866,
+                        "endColumn": 52,
+                        "endOffset": 21918
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 289,
+                    "startColumn": 4,
+                    "startOffset": 22415,
+                    "endColumn": 105,
+                    "endOffset": 22516
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 277,
+                        "startColumn": 0,
+                        "startOffset": 21920,
+                        "endColumn": 101,
+                        "endOffset": 22021
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 290,
+                    "startColumn": 4,
+                    "startOffset": 22521,
+                    "endColumn": 66,
+                    "endOffset": 22583
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 278,
+                        "startColumn": 0,
+                        "startOffset": 22023,
+                        "endColumn": 62,
+                        "endOffset": 22085
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 291,
+                    "startColumn": 4,
+                    "startOffset": 22588,
+                    "endLine": 327,
+                    "endColumn": 329,
+                    "endOffset": 28836
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 279,
+                        "startColumn": 0,
+                        "startOffset": 22087,
+                        "endLine": 315,
+                        "endColumn": 329,
+                        "endOffset": 28371
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 328,
+                    "startColumn": 4,
+                    "startOffset": 28841,
+                    "endColumn": 75,
+                    "endOffset": 28912
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 316,
+                        "startColumn": 0,
+                        "startOffset": 28373,
+                        "endColumn": 71,
+                        "endOffset": 28444
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 329,
+                    "startColumn": 4,
+                    "startOffset": 28917,
+                    "endColumn": 73,
+                    "endOffset": 28986
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 317,
+                        "startColumn": 0,
+                        "startOffset": 28446,
+                        "endColumn": 69,
+                        "endOffset": 28515
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 330,
+                    "startColumn": 4,
+                    "startOffset": 28991,
+                    "endColumn": 170,
+                    "endOffset": 29157
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 319,
+                        "startColumn": 0,
+                        "startOffset": 28683,
+                        "endColumn": 166,
+                        "endOffset": 28849
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 331,
+                    "startColumn": 4,
+                    "startOffset": 29162,
+                    "endColumn": 168,
+                    "endOffset": 29326
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 318,
+                        "startColumn": 0,
+                        "startOffset": 28517,
+                        "endColumn": 164,
+                        "endOffset": 28681
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 332,
+                    "startColumn": 4,
+                    "startOffset": 29331,
+                    "endColumn": 145,
+                    "endOffset": 29472
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 322,
+                        "startColumn": 0,
+                        "startOffset": 29072,
+                        "endColumn": 141,
+                        "endOffset": 29213
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 333,
+                    "startColumn": 4,
+                    "startOffset": 29477,
+                    "endColumn": 120,
+                    "endOffset": 29593
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 320,
+                        "startColumn": 0,
+                        "startOffset": 28851,
+                        "endColumn": 116,
+                        "endOffset": 28967
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 334,
+                    "startColumn": 4,
+                    "startOffset": 29598,
+                    "endColumn": 105,
+                    "endOffset": 29699
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 321,
+                        "startColumn": 0,
+                        "startOffset": 28969,
+                        "endColumn": 101,
+                        "endOffset": 29070
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 335,
+                    "startColumn": 4,
+                    "startOffset": 29704,
+                    "endColumn": 147,
+                    "endOffset": 29847
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 323,
+                        "startColumn": 0,
+                        "startOffset": 29215,
+                        "endColumn": 143,
+                        "endOffset": 29358
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 336,
+                    "startColumn": 4,
+                    "startOffset": 29852,
+                    "endColumn": 119,
+                    "endOffset": 29967
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 324,
+                        "startColumn": 0,
+                        "startOffset": 29360,
+                        "endColumn": 115,
+                        "endOffset": 29475
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 337,
+                    "startColumn": 4,
+                    "startOffset": 29972,
+                    "endColumn": 68,
+                    "endOffset": 30036
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 325,
+                        "startColumn": 0,
+                        "startOffset": 29477,
+                        "endColumn": 64,
+                        "endOffset": 29541
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 338,
+                    "startColumn": 4,
+                    "startOffset": 30041,
+                    "endColumn": 71,
+                    "endOffset": 30108
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 326,
+                        "startColumn": 0,
+                        "startOffset": 29543,
+                        "endColumn": 67,
+                        "endOffset": 29610
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 339,
+                    "startColumn": 4,
+                    "startOffset": 30113,
+                    "endColumn": 71,
+                    "endOffset": 30180
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 329,
+                        "startColumn": 0,
+                        "startOffset": 29796,
+                        "endColumn": 67,
+                        "endOffset": 29863
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 340,
+                    "startColumn": 4,
+                    "startOffset": 30185,
+                    "endColumn": 104,
+                    "endOffset": 30285
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 331,
+                        "startColumn": 0,
+                        "startOffset": 30224,
+                        "endColumn": 100,
+                        "endOffset": 30324
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 341,
+                    "startColumn": 4,
+                    "startOffset": 30290,
+                    "endColumn": 361,
+                    "endOffset": 30647
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 330,
+                        "startColumn": 0,
+                        "startOffset": 29865,
+                        "endColumn": 357,
+                        "endOffset": 30222
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 342,
+                    "startColumn": 4,
+                    "startOffset": 30652,
+                    "endColumn": 73,
+                    "endOffset": 30721
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 327,
+                        "startColumn": 0,
+                        "startOffset": 29612,
+                        "endColumn": 69,
+                        "endOffset": 29681
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 343,
+                    "startColumn": 4,
+                    "startOffset": 30726,
+                    "endColumn": 115,
+                    "endOffset": 30837
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 328,
+                        "startColumn": 0,
+                        "startOffset": 29683,
+                        "endColumn": 111,
+                        "endOffset": 29794
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 344,
+                    "startColumn": 4,
+                    "startOffset": 30842,
+                    "endColumn": 70,
+                    "endOffset": 30908
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 332,
+                        "startColumn": 0,
+                        "startOffset": 30326,
+                        "endColumn": 66,
+                        "endOffset": 30392
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 345,
+                    "startColumn": 4,
+                    "startOffset": 30913,
+                    "endColumn": 76,
+                    "endOffset": 30985
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 333,
+                        "startColumn": 0,
+                        "startOffset": 30394,
+                        "endColumn": 72,
+                        "endOffset": 30466
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 346,
+                    "startColumn": 4,
+                    "startOffset": 30990,
+                    "endColumn": 59,
+                    "endOffset": 31045
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 335,
+                        "startColumn": 0,
+                        "startOffset": 30522,
+                        "endColumn": 55,
+                        "endOffset": 30577
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 347,
+                    "startColumn": 4,
+                    "startOffset": 31050,
+                    "endColumn": 56,
+                    "endOffset": 31102
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 334,
+                        "startColumn": 0,
+                        "startOffset": 30468,
+                        "endColumn": 52,
+                        "endOffset": 30520
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 348,
+                    "startColumn": 4,
+                    "startOffset": 31107,
+                    "endColumn": 54,
+                    "endOffset": 31157
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 336,
+                        "startColumn": 0,
+                        "startOffset": 30579,
+                        "endColumn": 50,
+                        "endOffset": 30629
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 349,
+                    "startColumn": 4,
+                    "startOffset": 31162,
+                    "endColumn": 72,
+                    "endOffset": 31230
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 337,
+                        "startColumn": 0,
+                        "startOffset": 30631,
+                        "endColumn": 68,
+                        "endOffset": 30699
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 350,
+                    "startColumn": 4,
+                    "startOffset": 31235,
+                    "endColumn": 37,
+                    "endOffset": 31268
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 338,
+                        "startColumn": 0,
+                        "startOffset": 30701,
+                        "endColumn": 33,
+                        "endOffset": 30734
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 351,
+                    "startColumn": 4,
+                    "startOffset": 31273,
+                    "endColumn": 50,
+                    "endOffset": 31319
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 340,
+                        "startColumn": 0,
+                        "startOffset": 30777,
+                        "endColumn": 46,
+                        "endOffset": 30823
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 352,
+                    "startColumn": 4,
+                    "startOffset": 31324,
+                    "endColumn": 52,
+                    "endOffset": 31372
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 341,
+                        "startColumn": 0,
+                        "startOffset": 30825,
+                        "endColumn": 48,
+                        "endOffset": 30873
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 353,
+                    "startColumn": 4,
+                    "startOffset": 31377,
+                    "endColumn": 76,
+                    "endOffset": 31449
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 344,
+                        "startColumn": 0,
+                        "startOffset": 30967,
+                        "endColumn": 72,
+                        "endOffset": 31039
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 354,
+                    "startColumn": 4,
+                    "startOffset": 31454,
+                    "endColumn": 60,
+                    "endOffset": 31510
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 345,
+                        "startColumn": 0,
+                        "startOffset": 31041,
+                        "endColumn": 56,
+                        "endOffset": 31097
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 355,
+                    "startColumn": 4,
+                    "startOffset": 31515,
+                    "endColumn": 60,
+                    "endOffset": 31571
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 346,
+                        "startColumn": 0,
+                        "startOffset": 31099,
+                        "endColumn": 56,
+                        "endOffset": 31155
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 356,
+                    "startColumn": 4,
+                    "startOffset": 31576,
+                    "endColumn": 64,
+                    "endOffset": 31636
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 347,
+                        "startColumn": 0,
+                        "startOffset": 31157,
+                        "endColumn": 60,
+                        "endOffset": 31217
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 357,
+                    "startColumn": 4,
+                    "startOffset": 31641,
+                    "endColumn": 56,
+                    "endOffset": 31693
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 348,
+                        "startColumn": 0,
+                        "startOffset": 31219,
+                        "endColumn": 52,
+                        "endOffset": 31271
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 358,
+                    "startColumn": 4,
+                    "startOffset": 31698,
+                    "endColumn": 49,
+                    "endOffset": 31743
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 349,
+                        "startColumn": 0,
+                        "startOffset": 31273,
+                        "endColumn": 45,
+                        "endOffset": 31318
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 359,
+                    "startColumn": 4,
+                    "startOffset": 31748,
+                    "endColumn": 53,
+                    "endOffset": 31797
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 350,
+                        "startColumn": 0,
+                        "startOffset": 31320,
+                        "endColumn": 49,
+                        "endOffset": 31369
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 360,
+                    "startColumn": 4,
+                    "startOffset": 31802,
+                    "endColumn": 42,
+                    "endOffset": 31840
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 351,
+                        "startColumn": 0,
+                        "startOffset": 31371,
+                        "endColumn": 38,
+                        "endOffset": 31409
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 361,
+                    "startColumn": 4,
+                    "startOffset": 31845,
+                    "endColumn": 46,
+                    "endOffset": 31887
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 352,
+                        "startColumn": 0,
+                        "startOffset": 31411,
+                        "endColumn": 42,
+                        "endOffset": 31453
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 362,
+                    "startColumn": 4,
+                    "startOffset": 31892,
+                    "endColumn": 85,
+                    "endOffset": 31973
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 353,
+                        "startColumn": 0,
+                        "startOffset": 31455,
+                        "endColumn": 81,
+                        "endOffset": 31536
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 363,
+                    "startColumn": 4,
+                    "startOffset": 31978,
+                    "endColumn": 63,
+                    "endOffset": 32037
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 354,
+                        "startColumn": 0,
+                        "startOffset": 31538,
+                        "endColumn": 59,
+                        "endOffset": 31597
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 364,
+                    "startColumn": 4,
+                    "startOffset": 32042,
+                    "endColumn": 90,
+                    "endOffset": 32128
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 356,
+                        "startColumn": 0,
+                        "startOffset": 31659,
+                        "endColumn": 86,
+                        "endOffset": 31745
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 365,
+                    "startColumn": 4,
+                    "startOffset": 32133,
+                    "endColumn": 90,
+                    "endOffset": 32219
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 358,
+                        "startColumn": 0,
+                        "startOffset": 31825,
+                        "endColumn": 86,
+                        "endOffset": 31911
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 366,
+                    "startColumn": 4,
+                    "startOffset": 32224,
+                    "endColumn": 80,
+                    "endOffset": 32300
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 357,
+                        "startColumn": 0,
+                        "startOffset": 31747,
+                        "endColumn": 76,
+                        "endOffset": 31823
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 367,
+                    "startColumn": 4,
+                    "startOffset": 32305,
+                    "endColumn": 75,
+                    "endOffset": 32376
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 360,
+                        "startColumn": 0,
+                        "startOffset": 32008,
+                        "endColumn": 71,
+                        "endOffset": 32079
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 368,
+                    "startColumn": 4,
+                    "startOffset": 32381,
+                    "endColumn": 62,
+                    "endOffset": 32439
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 355,
+                        "startColumn": 0,
+                        "startOffset": 31599,
+                        "endColumn": 58,
+                        "endOffset": 31657
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 369,
+                    "startColumn": 4,
+                    "startOffset": 32444,
+                    "endColumn": 75,
+                    "endOffset": 32515
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 361,
+                        "startColumn": 0,
+                        "startOffset": 32081,
+                        "endColumn": 71,
+                        "endOffset": 32152
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 370,
+                    "startColumn": 4,
+                    "startOffset": 32520,
+                    "endColumn": 97,
+                    "endOffset": 32613
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 359,
+                        "startColumn": 0,
+                        "startOffset": 31913,
+                        "endColumn": 93,
+                        "endOffset": 32006
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 371,
+                    "startColumn": 4,
+                    "startOffset": 32618,
+                    "endColumn": 84,
+                    "endOffset": 32698
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 366,
+                        "startColumn": 0,
+                        "startOffset": 32315,
+                        "endColumn": 80,
+                        "endOffset": 32395
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 372,
+                    "startColumn": 4,
+                    "startOffset": 32703,
+                    "endColumn": 53,
+                    "endOffset": 32752
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 367,
+                        "startColumn": 0,
+                        "startOffset": 32397,
+                        "endColumn": 49,
+                        "endOffset": 32446
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 373,
+                    "startColumn": 4,
+                    "startOffset": 32757,
+                    "endColumn": 50,
+                    "endOffset": 32803
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 375,
+                        "startColumn": 0,
+                        "startOffset": 32786,
+                        "endColumn": 46,
+                        "endOffset": 32832
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 374,
+                    "startColumn": 4,
+                    "startOffset": 32808,
+                    "endColumn": 72,
+                    "endOffset": 32876
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 373,
+                        "startColumn": 0,
+                        "startOffset": 32646,
+                        "endColumn": 68,
+                        "endOffset": 32714
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 375,
+                    "startColumn": 4,
+                    "startOffset": 32881,
+                    "endColumn": 72,
+                    "endOffset": 32949
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 374,
+                        "startColumn": 0,
+                        "startOffset": 32716,
+                        "endColumn": 68,
+                        "endOffset": 32784
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 376,
+                    "startColumn": 4,
+                    "startOffset": 32954,
+                    "endLine": 431,
+                    "endColumn": 9,
+                    "endOffset": 35176
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 376,
+                        "startColumn": 0,
+                        "startOffset": 32834,
+                        "endLine": 431,
+                        "endColumn": 9,
+                        "endOffset": 35195
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 432,
+                    "startColumn": 4,
+                    "startOffset": 35181,
+                    "endColumn": 84,
+                    "endOffset": 35261
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 432,
+                        "startColumn": 0,
+                        "startOffset": 35197,
+                        "endColumn": 80,
+                        "endOffset": 35277
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 433,
+                    "startColumn": 4,
+                    "startOffset": 35266,
+                    "endLine": 458,
+                    "endColumn": 101,
+                    "endOffset": 38190
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 433,
+                        "startColumn": 0,
+                        "startOffset": 35279,
+                        "endLine": 458,
+                        "endColumn": 101,
+                        "endOffset": 38228
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 459,
+                    "startColumn": 4,
+                    "startOffset": 38195,
+                    "endColumn": 56,
+                    "endOffset": 38247
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 459,
+                        "startColumn": 0,
+                        "startOffset": 38230,
+                        "endColumn": 52,
+                        "endOffset": 38282
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 460,
+                    "startColumn": 4,
+                    "startOffset": 38252,
+                    "endColumn": 94,
+                    "endOffset": 38342
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 460,
+                        "startColumn": 0,
+                        "startOffset": 38284,
+                        "endColumn": 90,
+                        "endOffset": 38374
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 461,
+                    "startColumn": 4,
+                    "startOffset": 38347,
+                    "endColumn": 66,
+                    "endOffset": 38409
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 461,
+                        "startColumn": 0,
+                        "startOffset": 38376,
+                        "endColumn": 62,
+                        "endOffset": 38438
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 462,
+                    "startColumn": 4,
+                    "startOffset": 38414,
+                    "endColumn": 63,
+                    "endOffset": 38473
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 462,
+                        "startColumn": 0,
+                        "startOffset": 38440,
+                        "endColumn": 59,
+                        "endOffset": 38499
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 463,
+                    "startColumn": 4,
+                    "startOffset": 38478,
+                    "endColumn": 69,
+                    "endOffset": 38543
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 463,
+                        "startColumn": 0,
+                        "startOffset": 38501,
+                        "endColumn": 65,
+                        "endOffset": 38566
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 464,
+                    "startColumn": 4,
+                    "startOffset": 38548,
+                    "endColumn": 66,
+                    "endOffset": 38610
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 464,
+                        "startColumn": 0,
+                        "startOffset": 38568,
+                        "endColumn": 62,
+                        "endOffset": 38630
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 465,
+                    "startColumn": 4,
+                    "startOffset": 38615,
+                    "endColumn": 65,
+                    "endOffset": 38676
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 465,
+                        "startColumn": 0,
+                        "startOffset": 38632,
+                        "endColumn": 61,
+                        "endOffset": 38693
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 466,
+                    "startColumn": 4,
+                    "startOffset": 38681,
+                    "endColumn": 261,
+                    "endOffset": 38938
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 466,
+                        "startColumn": 0,
+                        "startOffset": 38695,
+                        "endColumn": 257,
+                        "endOffset": 38952
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 467,
+                    "startColumn": 4,
+                    "startOffset": 38943,
+                    "endColumn": 71,
+                    "endOffset": 39010
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 467,
+                        "startColumn": 0,
+                        "startOffset": 38954,
+                        "endColumn": 67,
+                        "endOffset": 39021
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 468,
+                    "startColumn": 4,
+                    "startOffset": 39015,
+                    "endColumn": 58,
+                    "endOffset": 39069
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 468,
+                        "startColumn": 0,
+                        "startOffset": 39023,
+                        "endColumn": 54,
+                        "endOffset": 39077
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 469,
+                    "startColumn": 4,
+                    "startOffset": 39074,
+                    "endColumn": 78,
+                    "endOffset": 39148
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 469,
+                        "startColumn": 0,
+                        "startOffset": 39079,
+                        "endColumn": 74,
+                        "endOffset": 39153
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 470,
+                    "startColumn": 4,
+                    "startOffset": 39153,
+                    "endColumn": 65,
+                    "endOffset": 39214
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 470,
+                        "startColumn": 0,
+                        "startOffset": 39155,
+                        "endColumn": 61,
+                        "endOffset": 39216
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 471,
+                    "startColumn": 4,
+                    "startOffset": 39219,
+                    "endColumn": 54,
+                    "endOffset": 39269
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 471,
+                        "startColumn": 0,
+                        "startOffset": 39218,
+                        "endColumn": 50,
+                        "endOffset": 39268
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 472,
+                    "startColumn": 4,
+                    "startOffset": 39274,
+                    "endColumn": 83,
+                    "endOffset": 39353
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 472,
+                        "startColumn": 0,
+                        "startOffset": 39270,
+                        "endColumn": 79,
+                        "endOffset": 39349
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 473,
+                    "startColumn": 4,
+                    "startOffset": 39358,
+                    "endColumn": 60,
+                    "endOffset": 39414
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 473,
+                        "startColumn": 0,
+                        "startOffset": 39351,
+                        "endColumn": 56,
+                        "endOffset": 39407
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 474,
+                    "startColumn": 4,
+                    "startOffset": 39419,
+                    "endColumn": 42,
+                    "endOffset": 39457
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 474,
+                        "startColumn": 0,
+                        "startOffset": 39409,
+                        "endColumn": 38,
+                        "endOffset": 39447
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 475,
+                    "startColumn": 4,
+                    "startOffset": 39462,
+                    "endColumn": 58,
+                    "endOffset": 39516
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 475,
+                        "startColumn": 0,
+                        "startOffset": 39449,
+                        "endColumn": 54,
+                        "endOffset": 39503
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 476,
+                    "startColumn": 4,
+                    "startOffset": 39521,
+                    "endColumn": 49,
+                    "endOffset": 39566
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 477,
+                        "startColumn": 0,
+                        "startOffset": 39537,
+                        "endColumn": 45,
+                        "endOffset": 39582
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 477,
+                    "startColumn": 4,
+                    "startOffset": 39571,
+                    "endColumn": 67,
+                    "endOffset": 39634
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 478,
+                        "startColumn": 0,
+                        "startOffset": 39584,
+                        "endColumn": 63,
+                        "endOffset": 39647
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 478,
+                    "startColumn": 4,
+                    "startOffset": 39639,
+                    "endColumn": 45,
+                    "endOffset": 39680
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 479,
+                        "startColumn": 0,
+                        "startOffset": 39649,
+                        "endColumn": 41,
+                        "endOffset": 39690
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 479,
+                    "startColumn": 4,
+                    "startOffset": 39685,
+                    "endColumn": 57,
+                    "endOffset": 39738
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 480,
+                        "startColumn": 0,
+                        "startOffset": 39692,
+                        "endColumn": 53,
+                        "endOffset": 39745
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 480,
+                    "startColumn": 4,
+                    "startOffset": 39743,
+                    "endColumn": 52,
+                    "endOffset": 39791
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 481,
+                        "startColumn": 0,
+                        "startOffset": 39747,
+                        "endColumn": 48,
+                        "endOffset": 39795
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 481,
+                    "startColumn": 4,
+                    "startOffset": 39796,
+                    "endColumn": 71,
+                    "endOffset": 39863
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 482,
+                        "startColumn": 0,
+                        "startOffset": 39797,
+                        "endColumn": 67,
+                        "endOffset": 39864
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 482,
+                    "startColumn": 4,
+                    "startOffset": 39868,
+                    "endColumn": 85,
+                    "endOffset": 39949
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 483,
+                        "startColumn": 0,
+                        "startOffset": 39866,
+                        "endColumn": 81,
+                        "endOffset": 39947
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 483,
+                    "startColumn": 4,
+                    "startOffset": 39954,
+                    "endColumn": 153,
+                    "endOffset": 40103
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 484,
+                        "startColumn": 0,
+                        "startOffset": 39949,
+                        "endColumn": 149,
+                        "endOffset": 40098
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 484,
+                    "startColumn": 4,
+                    "startOffset": 40108,
+                    "endColumn": 157,
+                    "endOffset": 40261
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 485,
+                        "startColumn": 0,
+                        "startOffset": 40100,
+                        "endColumn": 153,
+                        "endOffset": 40253
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 485,
+                    "startColumn": 4,
+                    "startOffset": 40266,
+                    "endColumn": 100,
+                    "endOffset": 40362
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 488,
+                        "startColumn": 0,
+                        "startOffset": 40532,
+                        "endColumn": 96,
+                        "endOffset": 40628
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 486,
+                    "startColumn": 4,
+                    "startOffset": 40367,
+                    "endColumn": 155,
+                    "endOffset": 40518
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 486,
+                        "startColumn": 0,
+                        "startOffset": 40255,
+                        "endColumn": 151,
+                        "endOffset": 40406
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 487,
+                    "startColumn": 4,
+                    "startOffset": 40523,
+                    "endColumn": 126,
+                    "endOffset": 40645
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 487,
+                        "startColumn": 0,
+                        "startOffset": 40408,
+                        "endColumn": 122,
+                        "endOffset": 40530
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 488,
+                    "startColumn": 4,
+                    "startOffset": 40650,
+                    "endColumn": 149,
+                    "endOffset": 40795
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 489,
+                        "startColumn": 0,
+                        "startOffset": 40630,
+                        "endColumn": 145,
+                        "endOffset": 40775
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 489,
+                    "startColumn": 4,
+                    "startOffset": 40800,
+                    "endColumn": 67,
+                    "endOffset": 40863
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 490,
+                        "startColumn": 0,
+                        "startOffset": 40777,
+                        "endColumn": 63,
+                        "endOffset": 40840
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 490,
+                    "startColumn": 4,
+                    "startOffset": 40868,
+                    "endColumn": 68,
+                    "endOffset": 40932
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 491,
+                        "startColumn": 0,
+                        "startOffset": 40842,
+                        "endColumn": 64,
+                        "endOffset": 40906
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 491,
+                    "startColumn": 4,
+                    "startOffset": 40937,
+                    "endColumn": 67,
+                    "endOffset": 41000
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 492,
+                        "startColumn": 0,
+                        "startOffset": 40908,
+                        "endColumn": 63,
+                        "endOffset": 40971
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 492,
+                    "startColumn": 4,
+                    "startOffset": 41005,
+                    "endColumn": 75,
+                    "endOffset": 41076
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 493,
+                        "startColumn": 0,
+                        "startOffset": 40973,
+                        "endColumn": 71,
+                        "endOffset": 41044
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 493,
+                    "startColumn": 4,
+                    "startOffset": 41081,
+                    "endColumn": 76,
+                    "endOffset": 41153
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 494,
+                        "startColumn": 0,
+                        "startOffset": 41046,
+                        "endColumn": 72,
+                        "endOffset": 41118
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 494,
+                    "startColumn": 4,
+                    "startOffset": 41158,
+                    "endColumn": 136,
+                    "endOffset": 41290
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 496,
+                        "startColumn": 0,
+                        "startOffset": 41268,
+                        "endColumn": 132,
+                        "endOffset": 41400
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 495,
+                    "startColumn": 4,
+                    "startOffset": 41295,
+                    "endColumn": 150,
+                    "endOffset": 41441
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 495,
+                        "startColumn": 0,
+                        "startOffset": 41120,
+                        "endColumn": 146,
+                        "endOffset": 41266
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 496,
+                    "startColumn": 4,
+                    "startOffset": 41446,
+                    "endColumn": 71,
+                    "endOffset": 41513
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 497,
+                        "startColumn": 0,
+                        "startOffset": 41402,
+                        "endColumn": 67,
+                        "endOffset": 41469
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 497,
+                    "startColumn": 4,
+                    "startOffset": 41518,
+                    "endLine": 550,
+                    "endColumn": 9,
+                    "endOffset": 43673
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 502,
+                        "startColumn": 0,
+                        "startOffset": 41638,
+                        "endLine": 555,
+                        "endColumn": 9,
+                        "endOffset": 43927
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 551,
+                    "startColumn": 4,
+                    "startOffset": 43678,
+                    "endColumn": 90,
+                    "endOffset": 43764
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 556,
+                        "startColumn": 0,
+                        "startOffset": 43929,
+                        "endColumn": 86,
+                        "endOffset": 44015
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 552,
+                    "startColumn": 4,
+                    "startOffset": 43769,
+                    "endLine": 574,
+                    "endColumn": 101,
+                    "endOffset": 46632
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 557,
+                        "startColumn": 0,
+                        "startOffset": 44017,
+                        "endLine": 579,
+                        "endColumn": 101,
+                        "endOffset": 46902
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 575,
+                    "startColumn": 4,
+                    "startOffset": 46637,
+                    "endColumn": 60,
+                    "endOffset": 46693
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 580,
+                        "startColumn": 0,
+                        "startOffset": 46904,
+                        "endColumn": 56,
+                        "endOffset": 46960
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 576,
+                    "startColumn": 4,
+                    "startOffset": 46698,
+                    "endColumn": 98,
+                    "endOffset": 46792
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 581,
+                        "startColumn": 0,
+                        "startOffset": 46962,
+                        "endColumn": 94,
+                        "endOffset": 47056
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 577,
+                    "startColumn": 4,
+                    "startOffset": 46797,
+                    "endColumn": 56,
+                    "endOffset": 46849
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 582,
+                        "startColumn": 0,
+                        "startOffset": 47058,
+                        "endColumn": 52,
+                        "endOffset": 47110
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 578,
+                    "startColumn": 4,
+                    "startOffset": 46854,
+                    "endColumn": 70,
+                    "endOffset": 46920
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 583,
+                        "startColumn": 0,
+                        "startOffset": 47112,
+                        "endColumn": 66,
+                        "endOffset": 47178
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 579,
+                    "startColumn": 4,
+                    "startOffset": 46925,
+                    "endColumn": 66,
+                    "endOffset": 46987
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 584,
+                        "startColumn": 0,
+                        "startOffset": 47180,
+                        "endColumn": 62,
+                        "endOffset": 47242
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 580,
+                    "startColumn": 4,
+                    "startOffset": 46992,
+                    "endColumn": 63,
+                    "endOffset": 47051
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 585,
+                        "startColumn": 0,
+                        "startOffset": 47244,
+                        "endColumn": 59,
+                        "endOffset": 47303
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 581,
+                    "startColumn": 4,
+                    "startOffset": 47056,
+                    "endColumn": 60,
+                    "endOffset": 47112
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 586,
+                        "startColumn": 0,
+                        "startOffset": 47305,
+                        "endColumn": 56,
+                        "endOffset": 47361
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 582,
+                    "startColumn": 4,
+                    "startOffset": 47117,
+                    "endColumn": 55,
+                    "endOffset": 47168
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 587,
+                        "startColumn": 0,
+                        "startOffset": 47363,
+                        "endColumn": 51,
+                        "endOffset": 47414
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 583,
+                    "startColumn": 4,
+                    "startOffset": 47173,
+                    "endColumn": 64,
+                    "endOffset": 47233
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 588,
+                        "startColumn": 0,
+                        "startOffset": 47416,
+                        "endColumn": 60,
+                        "endOffset": 47476
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 584,
+                    "startColumn": 4,
+                    "startOffset": 47238,
+                    "endColumn": 45,
+                    "endOffset": 47279
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 596,
+                        "startColumn": 0,
+                        "startOffset": 47966,
+                        "endColumn": 41,
+                        "endOffset": 48007
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 585,
+                    "startColumn": 4,
+                    "startOffset": 47284,
+                    "endColumn": 49,
+                    "endOffset": 47329
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 343,
+                        "startColumn": 0,
+                        "startOffset": 30920,
+                        "endColumn": 45,
+                        "endOffset": 30965
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 586,
+                    "startColumn": 4,
+                    "startOffset": 47334,
+                    "endColumn": 47,
+                    "endOffset": 47377
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 342,
+                        "startColumn": 0,
+                        "startOffset": 30875,
+                        "endColumn": 43,
+                        "endOffset": 30918
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 587,
+                    "startColumn": 4,
+                    "startOffset": 47382,
+                    "endColumn": 65,
+                    "endOffset": 47443
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 589,
+                        "startColumn": 0,
+                        "startOffset": 47478,
+                        "endColumn": 61,
+                        "endOffset": 47539
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 588,
+                    "startColumn": 4,
+                    "startOffset": 47448,
+                    "endColumn": 76,
+                    "endOffset": 47520
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 590,
+                        "startColumn": 0,
+                        "startOffset": 47541,
+                        "endColumn": 72,
+                        "endOffset": 47613
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 589,
+                    "startColumn": 4,
+                    "startOffset": 47525,
+                    "endColumn": 77,
+                    "endOffset": 47598
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 592,
+                        "startColumn": 0,
+                        "startOffset": 47684,
+                        "endColumn": 73,
+                        "endOffset": 47757
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 590,
+                    "startColumn": 4,
+                    "startOffset": 47603,
+                    "endColumn": 66,
+                    "endOffset": 47665
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 593,
+                        "startColumn": 0,
+                        "startOffset": 47759,
+                        "endColumn": 62,
+                        "endOffset": 47821
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 591,
+                    "startColumn": 4,
+                    "startOffset": 47670,
+                    "endColumn": 71,
+                    "endOffset": 47737
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 591,
+                        "startColumn": 0,
+                        "startOffset": 47615,
+                        "endColumn": 67,
+                        "endOffset": 47682
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 592,
+                    "startColumn": 4,
+                    "startOffset": 47742,
+                    "endColumn": 53,
+                    "endOffset": 47791
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 594,
+                        "startColumn": 0,
+                        "startOffset": 47823,
+                        "endColumn": 49,
+                        "endOffset": 47872
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 593,
+                    "startColumn": 4,
+                    "startOffset": 47796,
+                    "endColumn": 94,
+                    "endOffset": 47886
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 595,
+                        "startColumn": 0,
+                        "startOffset": 47874,
+                        "endColumn": 90,
+                        "endOffset": 47964
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 594,
+                    "startColumn": 4,
+                    "startOffset": 47891,
+                    "endColumn": 293,
+                    "endOffset": 48180
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\values-ru\\strings.xml",
+                    "position": {
+                        "startLine": 139,
+                        "startColumn": 0,
+                        "startOffset": 12009,
+                        "endColumn": 289,
+                        "endOffset": 12298
+                    }
+                }
+            }
+        ]
+    }
+]

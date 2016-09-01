@@ -139,7 +139,7 @@ public class GNURootService extends IntentService {
     public int launchTermInternal(Intent intent) {
         int status = GNURootCoreActivity.PASS;
         String scriptStr = intent.getStringExtra("scriptStr");
-        Intent termIntent = new Intent(this,jackpal.androidterm.RemoteInterface.class);
+        Intent termIntent = new Intent(this,jackpal.androidterm.RunScript.class);
         termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
         termIntent.addCategory(Intent.CATEGORY_DEFAULT);
         termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");

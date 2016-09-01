@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-ldpi-v4\\ic_keyboard.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\drawable-ldpi-v4\\ic_keyboard.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-ldpi-v4\\cursor.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\drawable-ldpi\\cursor.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-ldpi-v4\\ic_launcher.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\pubkeyGenerator\\unspecified\\res\\drawable-ldpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-ldpi-v4\\mouse_icon.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\drawable-ldpi\\mouse_icon.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-ldpi-v4\\ic_menu_moreoverflow_normal_holo_light.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\drawable-ldpi-v4\\ic_menu_moreoverflow_normal_holo_light.png"
+    }
+]

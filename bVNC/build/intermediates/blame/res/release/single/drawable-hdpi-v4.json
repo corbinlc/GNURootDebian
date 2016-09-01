@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\btn_zoom_up_disabled_focused.9.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\drawable-hdpi-v4\\btn_zoom_up_disabled_focused.9.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_keyboard.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\drawable-hdpi-v4\\ic_keyboard.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\btn_zoom_up_selected.9.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\drawable-hdpi-v4\\btn_zoom_up_selected.9.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\mouse_icon.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\drawable-hdpi\\mouse_icon.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\btn_zoom_up_disabled.9.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\drawable-hdpi-v4\\btn_zoom_up_disabled.9.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\btn_zoom_down_normal.9.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\drawable-hdpi-v4\\btn_zoom_down_normal.9.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_action_search.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\pubkeyGenerator\\unspecified\\res\\drawable-hdpi-v4\\ic_action_search.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\btn_zoom_down_pressed.9.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\drawable-hdpi-v4\\btn_zoom_down_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\btn_zoom_up_normal.9.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\drawable-hdpi-v4\\btn_zoom_up_normal.9.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\btn_zoom_down_disabled.9.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\drawable-hdpi-v4\\btn_zoom_down_disabled.9.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\btn_zoom_down_selected.9.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\drawable-hdpi-v4\\btn_zoom_down_selected.9.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\cursor.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\drawable-hdpi\\cursor.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\btn_zoom_down_disabled_focused.9.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\drawable-hdpi-v4\\btn_zoom_down_disabled_focused.9.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\pubkeyGenerator\\unspecified\\res\\drawable-hdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\btn_zoom_up_pressed.9.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\drawable-hdpi-v4\\btn_zoom_up_pressed.9.png"
+    }
+]

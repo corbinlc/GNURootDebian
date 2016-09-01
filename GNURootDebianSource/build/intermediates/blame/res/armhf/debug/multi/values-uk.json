@@ -1,0 +1,2277 @@
+[
+    {
+        "outputFile": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\res\\merged\\armhf\\debug\\values-uk\\values-uk.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 11,
+                    "endColumn": 19,
+                    "endOffset": 378
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 11,
+                        "endColumn": 19,
+                        "endOffset": 378
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 383,
+                    "endLine": 15,
+                    "endColumn": 19,
+                    "endOffset": 595
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 383,
+                        "endLine": 15,
+                        "endColumn": 19,
+                        "endOffset": 595
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 600,
+                    "endLine": 22,
+                    "endColumn": 19,
+                    "endOffset": 926
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 600,
+                        "endLine": 22,
+                        "endColumn": 19,
+                        "endOffset": 926
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 931,
+                    "endLine": 33,
+                    "endColumn": 19,
+                    "endOffset": 1339
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 931,
+                        "endLine": 33,
+                        "endColumn": 19,
+                        "endOffset": 1339
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 34,
+                    "startColumn": 4,
+                    "startOffset": 1344,
+                    "endLine": 43,
+                    "endColumn": 19,
+                    "endOffset": 1672
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 34,
+                        "startColumn": 4,
+                        "startOffset": 1344,
+                        "endLine": 43,
+                        "endColumn": 19,
+                        "endOffset": 1672
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 44,
+                    "startColumn": 4,
+                    "startOffset": 1677,
+                    "endLine": 47,
+                    "endColumn": 19,
+                    "endOffset": 1830
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 44,
+                        "startColumn": 4,
+                        "startOffset": 1677,
+                        "endLine": 47,
+                        "endColumn": 19,
+                        "endOffset": 1830
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 48,
+                    "startColumn": 4,
+                    "startOffset": 1835,
+                    "endLine": 52,
+                    "endColumn": 19,
+                    "endOffset": 2012
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 48,
+                        "startColumn": 4,
+                        "startOffset": 1835,
+                        "endLine": 52,
+                        "endColumn": 19,
+                        "endOffset": 2012
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 53,
+                    "startColumn": 4,
+                    "startOffset": 2017,
+                    "endLine": 62,
+                    "endColumn": 19,
+                    "endOffset": 2340
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 53,
+                        "startColumn": 4,
+                        "startOffset": 2017,
+                        "endLine": 62,
+                        "endColumn": 19,
+                        "endOffset": 2340
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 63,
+                    "startColumn": 4,
+                    "startOffset": 2345,
+                    "endLine": 85,
+                    "endColumn": 19,
+                    "endOffset": 3108
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 63,
+                        "startColumn": 4,
+                        "startOffset": 2345,
+                        "endLine": 85,
+                        "endColumn": 19,
+                        "endOffset": 3108
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 86,
+                    "startColumn": 4,
+                    "startOffset": 3113,
+                    "endLine": 89,
+                    "endColumn": 19,
+                    "endOffset": 3241
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 86,
+                        "startColumn": 4,
+                        "startOffset": 3113,
+                        "endLine": 89,
+                        "endColumn": 19,
+                        "endOffset": 3241
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 90,
+                    "startColumn": 4,
+                    "startOffset": 3246,
+                    "endLine": 93,
+                    "endColumn": 19,
+                    "endOffset": 3381
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 90,
+                        "startColumn": 4,
+                        "startOffset": 3246,
+                        "endLine": 93,
+                        "endColumn": 19,
+                        "endOffset": 3381
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 94,
+                    "startColumn": 4,
+                    "startOffset": 3386,
+                    "endLine": 103,
+                    "endColumn": 19,
+                    "endOffset": 3704
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 94,
+                        "startColumn": 4,
+                        "startOffset": 3386,
+                        "endLine": 103,
+                        "endColumn": 19,
+                        "endOffset": 3704
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 104,
+                    "startColumn": 4,
+                    "startOffset": 3709,
+                    "endColumn": 109,
+                    "endOffset": 3814
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 276,
+                        "endColumn": 109,
+                        "endOffset": 381
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 105,
+                    "startColumn": 4,
+                    "startOffset": 3819,
+                    "endColumn": 107,
+                    "endOffset": 3922
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 386,
+                        "endColumn": 107,
+                        "endOffset": 489
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 106,
+                    "startColumn": 4,
+                    "startOffset": 3927,
+                    "endColumn": 122,
+                    "endOffset": 4045
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 494,
+                        "endColumn": 122,
+                        "endOffset": 612
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 107,
+                    "startColumn": 4,
+                    "startOffset": 4050,
+                    "endColumn": 101,
+                    "endOffset": 4147
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 617,
+                        "endColumn": 101,
+                        "endOffset": 714
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 108,
+                    "startColumn": 4,
+                    "startOffset": 4152,
+                    "endColumn": 105,
+                    "endOffset": 4253
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 719,
+                        "endColumn": 105,
+                        "endOffset": 820
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 109,
+                    "startColumn": 4,
+                    "startOffset": 4258,
+                    "endColumn": 85,
+                    "endOffset": 4339
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 825,
+                        "endColumn": 85,
+                        "endOffset": 906
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 110,
+                    "startColumn": 4,
+                    "startOffset": 4344,
+                    "endColumn": 107,
+                    "endOffset": 4447
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 911,
+                        "endColumn": 107,
+                        "endOffset": 1014
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 111,
+                    "startColumn": 4,
+                    "startOffset": 4452,
+                    "endColumn": 117,
+                    "endOffset": 4565
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 1019,
+                        "endColumn": 117,
+                        "endOffset": 1132
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 112,
+                    "startColumn": 4,
+                    "startOffset": 4570,
+                    "endColumn": 105,
+                    "endOffset": 4671
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1137,
+                        "endColumn": 105,
+                        "endOffset": 1238
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 113,
+                    "startColumn": 4,
+                    "startOffset": 4676,
+                    "endColumn": 106,
+                    "endOffset": 4778
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1243,
+                        "endColumn": 106,
+                        "endOffset": 1345
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 114,
+                    "startColumn": 4,
+                    "startOffset": 4783,
+                    "endColumn": 97,
+                    "endOffset": 4876
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1350,
+                        "endColumn": 97,
+                        "endOffset": 1443
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 115,
+                    "startColumn": 4,
+                    "startOffset": 4881,
+                    "endColumn": 107,
+                    "endOffset": 4984
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1448,
+                        "endColumn": 107,
+                        "endOffset": 1551
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 116,
+                    "startColumn": 4,
+                    "startOffset": 4989,
+                    "endColumn": 105,
+                    "endOffset": 5090
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1556,
+                        "endColumn": 105,
+                        "endOffset": 1657
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 117,
+                    "startColumn": 4,
+                    "startOffset": 5095,
+                    "endColumn": 108,
+                    "endOffset": 5199
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1662,
+                        "endColumn": 108,
+                        "endOffset": 1766
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 118,
+                    "startColumn": 4,
+                    "startOffset": 5204,
+                    "endColumn": 123,
+                    "endOffset": 5323
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1771,
+                        "endColumn": 123,
+                        "endOffset": 1890
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 119,
+                    "startColumn": 4,
+                    "startOffset": 5328,
+                    "endColumn": 99,
+                    "endOffset": 5423
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.0.0\\res\\values-uk\\values.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1895,
+                        "endColumn": 99,
+                        "endOffset": 1990
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 120,
+                    "startColumn": 4,
+                    "startOffset": 5428,
+                    "endColumn": 65,
+                    "endOffset": 5489
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 104,
+                        "startColumn": 4,
+                        "startOffset": 3709,
+                        "endColumn": 65,
+                        "endOffset": 3770
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 121,
+                    "startColumn": 4,
+                    "startOffset": 5494,
+                    "endColumn": 81,
+                    "endOffset": 5571
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 105,
+                        "startColumn": 4,
+                        "startOffset": 3775,
+                        "endColumn": 81,
+                        "endOffset": 3852
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 122,
+                    "startColumn": 4,
+                    "startOffset": 5576,
+                    "endColumn": 77,
+                    "endOffset": 5649
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 106,
+                        "startColumn": 4,
+                        "startOffset": 3857,
+                        "endColumn": 77,
+                        "endOffset": 3930
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 123,
+                    "startColumn": 4,
+                    "startOffset": 5654,
+                    "endColumn": 67,
+                    "endOffset": 5717
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 107,
+                        "startColumn": 4,
+                        "startOffset": 3935,
+                        "endColumn": 67,
+                        "endOffset": 3998
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 124,
+                    "startColumn": 4,
+                    "startOffset": 5722,
+                    "endColumn": 54,
+                    "endOffset": 5772
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 108,
+                        "startColumn": 4,
+                        "startOffset": 4003,
+                        "endColumn": 54,
+                        "endOffset": 4053
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 125,
+                    "startColumn": 4,
+                    "startOffset": 5777,
+                    "endColumn": 74,
+                    "endOffset": 5847
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 109,
+                        "startColumn": 4,
+                        "startOffset": 4058,
+                        "endColumn": 74,
+                        "endOffset": 4128
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 126,
+                    "startColumn": 4,
+                    "startOffset": 5852,
+                    "endColumn": 100,
+                    "endOffset": 5948
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 110,
+                        "startColumn": 4,
+                        "startOffset": 4133,
+                        "endColumn": 100,
+                        "endOffset": 4229
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 127,
+                    "startColumn": 4,
+                    "startOffset": 5953,
+                    "endLine": 133,
+                    "endColumn": 24,
+                    "endOffset": 6166
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 111,
+                        "startColumn": 4,
+                        "startOffset": 4234,
+                        "endLine": 117,
+                        "endColumn": 24,
+                        "endOffset": 4447
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 134,
+                    "startColumn": 4,
+                    "startOffset": 6171,
+                    "endColumn": 101,
+                    "endOffset": 6268
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 118,
+                        "startColumn": 4,
+                        "startOffset": 4452,
+                        "endColumn": 101,
+                        "endOffset": 4549
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 135,
+                    "startColumn": 4,
+                    "startOffset": 6273,
+                    "endLine": 152,
+                    "endColumn": 9,
+                    "endOffset": 6620
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 119,
+                        "startColumn": 4,
+                        "startOffset": 4554,
+                        "endLine": 136,
+                        "endColumn": 9,
+                        "endOffset": 4901
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 153,
+                    "startColumn": 4,
+                    "startOffset": 6625,
+                    "endColumn": 85,
+                    "endOffset": 6706
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 137,
+                        "startColumn": 4,
+                        "startOffset": 4906,
+                        "endColumn": 85,
+                        "endOffset": 4987
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 154,
+                    "startColumn": 4,
+                    "startOffset": 6711,
+                    "endColumn": 50,
+                    "endOffset": 6757
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 138,
+                        "startColumn": 4,
+                        "startOffset": 4992,
+                        "endColumn": 50,
+                        "endOffset": 5038
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 155,
+                    "startColumn": 4,
+                    "startOffset": 6762,
+                    "endColumn": 80,
+                    "endOffset": 6838
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 139,
+                        "startColumn": 4,
+                        "startOffset": 5043,
+                        "endColumn": 80,
+                        "endOffset": 5119
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 156,
+                    "startColumn": 4,
+                    "startOffset": 6843,
+                    "endColumn": 85,
+                    "endOffset": 6924
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 140,
+                        "startColumn": 4,
+                        "startOffset": 5124,
+                        "endColumn": 85,
+                        "endOffset": 5205
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 157,
+                    "startColumn": 4,
+                    "startOffset": 6929,
+                    "endColumn": 70,
+                    "endOffset": 6995
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 141,
+                        "startColumn": 4,
+                        "startOffset": 5210,
+                        "endColumn": 70,
+                        "endOffset": 5276
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 158,
+                    "startColumn": 4,
+                    "startOffset": 7000,
+                    "endColumn": 78,
+                    "endOffset": 7074
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 142,
+                        "startColumn": 4,
+                        "startOffset": 5281,
+                        "endColumn": 78,
+                        "endOffset": 5355
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 159,
+                    "startColumn": 4,
+                    "startOffset": 7079,
+                    "endColumn": 68,
+                    "endOffset": 7143
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 143,
+                        "startColumn": 4,
+                        "startOffset": 5360,
+                        "endColumn": 68,
+                        "endOffset": 5424
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 160,
+                    "startColumn": 4,
+                    "startOffset": 7148,
+                    "endColumn": 74,
+                    "endOffset": 7218
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 144,
+                        "startColumn": 4,
+                        "startOffset": 5429,
+                        "endColumn": 74,
+                        "endOffset": 5499
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 161,
+                    "startColumn": 4,
+                    "startOffset": 7223,
+                    "endColumn": 71,
+                    "endOffset": 7290
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 145,
+                        "startColumn": 4,
+                        "startOffset": 5504,
+                        "endColumn": 71,
+                        "endOffset": 5571
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 162,
+                    "startColumn": 4,
+                    "startOffset": 7295,
+                    "endColumn": 82,
+                    "endOffset": 7373
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 146,
+                        "startColumn": 4,
+                        "startOffset": 5576,
+                        "endColumn": 82,
+                        "endOffset": 5654
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 163,
+                    "startColumn": 4,
+                    "startOffset": 7378,
+                    "endColumn": 66,
+                    "endOffset": 7440
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 147,
+                        "startColumn": 4,
+                        "startOffset": 5659,
+                        "endColumn": 66,
+                        "endOffset": 5721
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 164,
+                    "startColumn": 4,
+                    "startOffset": 7445,
+                    "endColumn": 72,
+                    "endOffset": 7513
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 148,
+                        "startColumn": 4,
+                        "startOffset": 5726,
+                        "endColumn": 72,
+                        "endOffset": 5794
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 165,
+                    "startColumn": 4,
+                    "startOffset": 7518,
+                    "endColumn": 74,
+                    "endOffset": 7588
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 149,
+                        "startColumn": 4,
+                        "startOffset": 5799,
+                        "endColumn": 74,
+                        "endOffset": 5869
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 166,
+                    "startColumn": 4,
+                    "startOffset": 7593,
+                    "endColumn": 62,
+                    "endOffset": 7651
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 150,
+                        "startColumn": 4,
+                        "startOffset": 5874,
+                        "endColumn": 62,
+                        "endOffset": 5932
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 167,
+                    "startColumn": 4,
+                    "startOffset": 7656,
+                    "endColumn": 62,
+                    "endOffset": 7714
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 151,
+                        "startColumn": 4,
+                        "startOffset": 5937,
+                        "endColumn": 62,
+                        "endOffset": 5995
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 168,
+                    "startColumn": 4,
+                    "startOffset": 7719,
+                    "endColumn": 45,
+                    "endOffset": 7760
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 152,
+                        "startColumn": 4,
+                        "startOffset": 6000,
+                        "endColumn": 45,
+                        "endOffset": 6041
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 169,
+                    "startColumn": 4,
+                    "startOffset": 7765,
+                    "endColumn": 94,
+                    "endOffset": 7855
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 153,
+                        "startColumn": 4,
+                        "startOffset": 6046,
+                        "endColumn": 94,
+                        "endOffset": 6136
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 170,
+                    "startColumn": 4,
+                    "startOffset": 7860,
+                    "endColumn": 132,
+                    "endOffset": 7988
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 154,
+                        "startColumn": 4,
+                        "startOffset": 6141,
+                        "endColumn": 132,
+                        "endOffset": 6269
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 171,
+                    "startColumn": 4,
+                    "startOffset": 7993,
+                    "endColumn": 98,
+                    "endOffset": 8087
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 155,
+                        "startColumn": 4,
+                        "startOffset": 6274,
+                        "endColumn": 98,
+                        "endOffset": 6368
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 172,
+                    "startColumn": 4,
+                    "startOffset": 8092,
+                    "endColumn": 62,
+                    "endOffset": 8150
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 156,
+                        "startColumn": 4,
+                        "startOffset": 6373,
+                        "endColumn": 62,
+                        "endOffset": 6431
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 173,
+                    "startColumn": 4,
+                    "startOffset": 8155,
+                    "endColumn": 62,
+                    "endOffset": 8213
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 157,
+                        "startColumn": 4,
+                        "startOffset": 6436,
+                        "endColumn": 62,
+                        "endOffset": 6494
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 174,
+                    "startColumn": 4,
+                    "startOffset": 8218,
+                    "endColumn": 59,
+                    "endOffset": 8273
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 158,
+                        "startColumn": 4,
+                        "startOffset": 6499,
+                        "endColumn": 59,
+                        "endOffset": 6554
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 175,
+                    "startColumn": 4,
+                    "startOffset": 8278,
+                    "endColumn": 49,
+                    "endOffset": 8323
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 159,
+                        "startColumn": 4,
+                        "startOffset": 6559,
+                        "endColumn": 49,
+                        "endOffset": 6604
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 176,
+                    "startColumn": 4,
+                    "startOffset": 8328,
+                    "endColumn": 54,
+                    "endOffset": 8378
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 160,
+                        "startColumn": 4,
+                        "startOffset": 6609,
+                        "endColumn": 54,
+                        "endOffset": 6659
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 177,
+                    "startColumn": 4,
+                    "startOffset": 8383,
+                    "endColumn": 42,
+                    "endOffset": 8421
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 161,
+                        "startColumn": 4,
+                        "startOffset": 6664,
+                        "endColumn": 42,
+                        "endOffset": 6702
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 178,
+                    "startColumn": 4,
+                    "startOffset": 8426,
+                    "endColumn": 85,
+                    "endOffset": 8507
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 162,
+                        "startColumn": 4,
+                        "startOffset": 6707,
+                        "endColumn": 85,
+                        "endOffset": 6788
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 179,
+                    "startColumn": 4,
+                    "startOffset": 8512,
+                    "endColumn": 92,
+                    "endOffset": 8600
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 163,
+                        "startColumn": 4,
+                        "startOffset": 6793,
+                        "endColumn": 92,
+                        "endOffset": 6881
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 180,
+                    "startColumn": 4,
+                    "startOffset": 8605,
+                    "endColumn": 92,
+                    "endOffset": 8693
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 164,
+                        "startColumn": 4,
+                        "startOffset": 6886,
+                        "endColumn": 92,
+                        "endOffset": 6974
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 181,
+                    "startColumn": 4,
+                    "startOffset": 8698,
+                    "endColumn": 154,
+                    "endOffset": 8848
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 165,
+                        "startColumn": 4,
+                        "startOffset": 6979,
+                        "endColumn": 154,
+                        "endOffset": 7129
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 182,
+                    "startColumn": 4,
+                    "startOffset": 8853,
+                    "endColumn": 185,
+                    "endOffset": 9034
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 166,
+                        "startColumn": 4,
+                        "startOffset": 7134,
+                        "endColumn": 185,
+                        "endOffset": 7315
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 183,
+                    "startColumn": 4,
+                    "startOffset": 9039,
+                    "endColumn": 240,
+                    "endOffset": 9275
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 167,
+                        "startColumn": 4,
+                        "startOffset": 7320,
+                        "endColumn": 240,
+                        "endOffset": 7556
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 184,
+                    "startColumn": 4,
+                    "startOffset": 9280,
+                    "endColumn": 52,
+                    "endOffset": 9328
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 168,
+                        "startColumn": 4,
+                        "startOffset": 7561,
+                        "endColumn": 52,
+                        "endOffset": 7609
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 185,
+                    "startColumn": 4,
+                    "startOffset": 9333,
+                    "endColumn": 55,
+                    "endOffset": 9384
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 169,
+                        "startColumn": 4,
+                        "startOffset": 7614,
+                        "endColumn": 55,
+                        "endOffset": 7665
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 186,
+                    "startColumn": 4,
+                    "startOffset": 9389,
+                    "endColumn": 78,
+                    "endOffset": 9463
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 170,
+                        "startColumn": 4,
+                        "startOffset": 7670,
+                        "endColumn": 78,
+                        "endOffset": 7744
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 187,
+                    "startColumn": 4,
+                    "startOffset": 9468,
+                    "endColumn": 50,
+                    "endOffset": 9514
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 171,
+                        "startColumn": 4,
+                        "startOffset": 7749,
+                        "endColumn": 50,
+                        "endOffset": 7795
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 188,
+                    "startColumn": 4,
+                    "startOffset": 9519,
+                    "endColumn": 98,
+                    "endOffset": 9613
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 172,
+                        "startColumn": 4,
+                        "startOffset": 7800,
+                        "endColumn": 98,
+                        "endOffset": 7894
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 189,
+                    "startColumn": 4,
+                    "startOffset": 9618,
+                    "endColumn": 52,
+                    "endOffset": 9666
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 173,
+                        "startColumn": 4,
+                        "startOffset": 7899,
+                        "endColumn": 52,
+                        "endOffset": 7947
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 190,
+                    "startColumn": 4,
+                    "startOffset": 9671,
+                    "endColumn": 53,
+                    "endOffset": 9720
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 174,
+                        "startColumn": 4,
+                        "startOffset": 7952,
+                        "endColumn": 53,
+                        "endOffset": 8001
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 191,
+                    "startColumn": 4,
+                    "startOffset": 9725,
+                    "endColumn": 70,
+                    "endOffset": 9791
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 175,
+                        "startColumn": 4,
+                        "startOffset": 8006,
+                        "endColumn": 70,
+                        "endOffset": 8072
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 192,
+                    "startColumn": 4,
+                    "startOffset": 9796,
+                    "endColumn": 54,
+                    "endOffset": 9846
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 176,
+                        "startColumn": 4,
+                        "startOffset": 8077,
+                        "endColumn": 54,
+                        "endOffset": 8127
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 193,
+                    "startColumn": 4,
+                    "startOffset": 9851,
+                    "endColumn": 60,
+                    "endOffset": 9907
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 177,
+                        "startColumn": 4,
+                        "startOffset": 8132,
+                        "endColumn": 60,
+                        "endOffset": 8188
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 194,
+                    "startColumn": 4,
+                    "startOffset": 9912,
+                    "endColumn": 76,
+                    "endOffset": 9984
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 178,
+                        "startColumn": 4,
+                        "startOffset": 8193,
+                        "endColumn": 76,
+                        "endOffset": 8265
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 195,
+                    "startColumn": 4,
+                    "startOffset": 9989,
+                    "endColumn": 63,
+                    "endOffset": 10048
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 179,
+                        "startColumn": 4,
+                        "startOffset": 8270,
+                        "endColumn": 63,
+                        "endOffset": 8329
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 196,
+                    "startColumn": 4,
+                    "startOffset": 10053,
+                    "endColumn": 59,
+                    "endOffset": 10108
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 180,
+                        "startColumn": 4,
+                        "startOffset": 8334,
+                        "endColumn": 59,
+                        "endOffset": 8389
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 197,
+                    "startColumn": 4,
+                    "startOffset": 10113,
+                    "endColumn": 106,
+                    "endOffset": 10215
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 181,
+                        "startColumn": 4,
+                        "startOffset": 8394,
+                        "endColumn": 106,
+                        "endOffset": 8496
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 198,
+                    "startColumn": 4,
+                    "startOffset": 10220,
+                    "endColumn": 147,
+                    "endOffset": 10363
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 182,
+                        "startColumn": 4,
+                        "startOffset": 8501,
+                        "endColumn": 147,
+                        "endOffset": 8644
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 199,
+                    "startColumn": 4,
+                    "startOffset": 10368,
+                    "endColumn": 96,
+                    "endOffset": 10460
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 183,
+                        "startColumn": 4,
+                        "startOffset": 8649,
+                        "endColumn": 96,
+                        "endOffset": 8741
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 200,
+                    "startColumn": 4,
+                    "startOffset": 10465,
+                    "endColumn": 115,
+                    "endOffset": 10576
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 184,
+                        "startColumn": 4,
+                        "startOffset": 8746,
+                        "endColumn": 115,
+                        "endOffset": 8857
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 201,
+                    "startColumn": 4,
+                    "startOffset": 10581,
+                    "endColumn": 75,
+                    "endOffset": 10652
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 185,
+                        "startColumn": 4,
+                        "startOffset": 8862,
+                        "endColumn": 75,
+                        "endOffset": 8933
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 202,
+                    "startColumn": 4,
+                    "startOffset": 10657,
+                    "endColumn": 92,
+                    "endOffset": 10745
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 186,
+                        "startColumn": 4,
+                        "startOffset": 8938,
+                        "endColumn": 92,
+                        "endOffset": 9026
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 203,
+                    "startColumn": 4,
+                    "startOffset": 10750,
+                    "endColumn": 145,
+                    "endOffset": 10891
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 187,
+                        "startColumn": 4,
+                        "startOffset": 9031,
+                        "endColumn": 145,
+                        "endOffset": 9172
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 204,
+                    "startColumn": 4,
+                    "startOffset": 10896,
+                    "endColumn": 82,
+                    "endOffset": 10974
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 188,
+                        "startColumn": 4,
+                        "startOffset": 9177,
+                        "endColumn": 82,
+                        "endOffset": 9255
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 205,
+                    "startColumn": 4,
+                    "startOffset": 10979,
+                    "endColumn": 79,
+                    "endOffset": 11054
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 189,
+                        "startColumn": 4,
+                        "startOffset": 9260,
+                        "endColumn": 79,
+                        "endOffset": 9335
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 206,
+                    "startColumn": 4,
+                    "startOffset": 11059,
+                    "endColumn": 100,
+                    "endOffset": 11155
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 190,
+                        "startColumn": 4,
+                        "startOffset": 9340,
+                        "endColumn": 100,
+                        "endOffset": 9436
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 207,
+                    "startColumn": 4,
+                    "startOffset": 11160,
+                    "endColumn": 104,
+                    "endOffset": 11260
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 191,
+                        "startColumn": 4,
+                        "startOffset": 9441,
+                        "endColumn": 104,
+                        "endOffset": 9541
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 208,
+                    "startColumn": 4,
+                    "startOffset": 11265,
+                    "endColumn": 99,
+                    "endOffset": 11360
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 192,
+                        "startColumn": 4,
+                        "startOffset": 9546,
+                        "endColumn": 99,
+                        "endOffset": 9641
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 209,
+                    "startColumn": 4,
+                    "startOffset": 11365,
+                    "endColumn": 87,
+                    "endOffset": 11448
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 193,
+                        "startColumn": 4,
+                        "startOffset": 9646,
+                        "endColumn": 87,
+                        "endOffset": 9729
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 210,
+                    "startColumn": 4,
+                    "startOffset": 11453,
+                    "endColumn": 106,
+                    "endOffset": 11555
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 194,
+                        "startColumn": 4,
+                        "startOffset": 9734,
+                        "endColumn": 106,
+                        "endOffset": 9836
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 211,
+                    "startColumn": 4,
+                    "startOffset": 11560,
+                    "endColumn": 104,
+                    "endOffset": 11660
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 195,
+                        "startColumn": 4,
+                        "startOffset": 9841,
+                        "endColumn": 104,
+                        "endOffset": 9941
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 212,
+                    "startColumn": 4,
+                    "startOffset": 11665,
+                    "endColumn": 98,
+                    "endOffset": 11759
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 196,
+                        "startColumn": 4,
+                        "startOffset": 9946,
+                        "endColumn": 98,
+                        "endOffset": 10040
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 213,
+                    "startColumn": 4,
+                    "startOffset": 11764,
+                    "endColumn": 50,
+                    "endOffset": 11810
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 197,
+                        "startColumn": 4,
+                        "startOffset": 10045,
+                        "endColumn": 50,
+                        "endOffset": 10091
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 214,
+                    "startColumn": 4,
+                    "startOffset": 11815,
+                    "endColumn": 62,
+                    "endOffset": 11873
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 198,
+                        "startColumn": 4,
+                        "startOffset": 10096,
+                        "endColumn": 62,
+                        "endOffset": 10154
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 215,
+                    "startColumn": 4,
+                    "startOffset": 11878,
+                    "endColumn": 88,
+                    "endOffset": 11962
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 199,
+                        "startColumn": 4,
+                        "startOffset": 10159,
+                        "endColumn": 88,
+                        "endOffset": 10243
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 216,
+                    "startColumn": 4,
+                    "startOffset": 11967,
+                    "endColumn": 78,
+                    "endOffset": 12041
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 200,
+                        "startColumn": 4,
+                        "startOffset": 10248,
+                        "endColumn": 78,
+                        "endOffset": 10322
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 217,
+                    "startColumn": 4,
+                    "startOffset": 12046,
+                    "endColumn": 99,
+                    "endOffset": 12141
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 201,
+                        "startColumn": 4,
+                        "startOffset": 10327,
+                        "endColumn": 99,
+                        "endOffset": 10422
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 218,
+                    "startColumn": 4,
+                    "startOffset": 12146,
+                    "endColumn": 58,
+                    "endOffset": 12200
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 202,
+                        "startColumn": 4,
+                        "startOffset": 10427,
+                        "endColumn": 58,
+                        "endOffset": 10481
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 219,
+                    "startColumn": 4,
+                    "startOffset": 12205,
+                    "endColumn": 71,
+                    "endOffset": 12272
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 203,
+                        "startColumn": 4,
+                        "startOffset": 10486,
+                        "endColumn": 71,
+                        "endOffset": 10553
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 220,
+                    "startColumn": 4,
+                    "startOffset": 12277,
+                    "endColumn": 87,
+                    "endOffset": 12360
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 204,
+                        "startColumn": 4,
+                        "startOffset": 10558,
+                        "endColumn": 87,
+                        "endOffset": 10641
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 221,
+                    "startColumn": 4,
+                    "startOffset": 12365,
+                    "endColumn": 61,
+                    "endOffset": 12422
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 205,
+                        "startColumn": 4,
+                        "startOffset": 10646,
+                        "endColumn": 61,
+                        "endOffset": 10703
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 222,
+                    "startColumn": 4,
+                    "startOffset": 12427,
+                    "endColumn": 67,
+                    "endOffset": 12490
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 206,
+                        "startColumn": 4,
+                        "startOffset": 10708,
+                        "endColumn": 67,
+                        "endOffset": 10771
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 223,
+                    "startColumn": 4,
+                    "startOffset": 12495,
+                    "endColumn": 64,
+                    "endOffset": 12555
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 207,
+                        "startColumn": 4,
+                        "startOffset": 10776,
+                        "endColumn": 64,
+                        "endOffset": 10836
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 224,
+                    "startColumn": 4,
+                    "startOffset": 12560,
+                    "endColumn": 75,
+                    "endOffset": 12631
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 208,
+                        "startColumn": 4,
+                        "startOffset": 10841,
+                        "endColumn": 75,
+                        "endOffset": 10912
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 225,
+                    "startColumn": 4,
+                    "startOffset": 12636,
+                    "endColumn": 66,
+                    "endOffset": 12698
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 209,
+                        "startColumn": 4,
+                        "startOffset": 10917,
+                        "endColumn": 66,
+                        "endOffset": 10979
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 226,
+                    "startColumn": 4,
+                    "startOffset": 12703,
+                    "endColumn": 65,
+                    "endOffset": 12764
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 210,
+                        "startColumn": 4,
+                        "startOffset": 10984,
+                        "endColumn": 65,
+                        "endOffset": 11045
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 227,
+                    "startColumn": 4,
+                    "startOffset": 12769,
+                    "endColumn": 67,
+                    "endOffset": 12832
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 211,
+                        "startColumn": 4,
+                        "startOffset": 11050,
+                        "endColumn": 67,
+                        "endOffset": 11113
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 228,
+                    "startColumn": 4,
+                    "startOffset": 12837,
+                    "endColumn": 83,
+                    "endOffset": 12916
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 212,
+                        "startColumn": 4,
+                        "startOffset": 11118,
+                        "endColumn": 83,
+                        "endOffset": 11197
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 229,
+                    "startColumn": 4,
+                    "startOffset": 12921,
+                    "endColumn": 78,
+                    "endOffset": 12995
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 213,
+                        "startColumn": 4,
+                        "startOffset": 11202,
+                        "endColumn": 78,
+                        "endOffset": 11276
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 230,
+                    "startColumn": 4,
+                    "startOffset": 13000,
+                    "endColumn": 67,
+                    "endOffset": 13063
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 214,
+                        "startColumn": 4,
+                        "startOffset": 11281,
+                        "endColumn": 67,
+                        "endOffset": 11344
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 231,
+                    "startColumn": 4,
+                    "startOffset": 13068,
+                    "endColumn": 45,
+                    "endOffset": 13109
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 215,
+                        "startColumn": 4,
+                        "startOffset": 11349,
+                        "endColumn": 45,
+                        "endOffset": 11390
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 232,
+                    "startColumn": 4,
+                    "startOffset": 13114,
+                    "endColumn": 51,
+                    "endOffset": 13161
+                },
+                "from": {
+                    "file": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\values-uk\\values-uk.xml",
+                    "position": {
+                        "startLine": 216,
+                        "startColumn": 4,
+                        "startOffset": 11395,
+                        "endColumn": 51,
+                        "endOffset": 11442
+                    }
+                }
+            }
+        ]
+    }
+]

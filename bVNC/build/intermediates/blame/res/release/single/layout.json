@@ -1,0 +1,78 @@
+[
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\auto_x_customize.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\auto_x_customize.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\main_spice.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\main_spice.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\key_list_entry.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\key_list_entry.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\main_rdp.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\main_rdp.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\get_text_twice.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\get_text_twice.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\connection_list_entry.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\connection_list_entry.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\act_generatepubkey.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\pubkeyGenerator\\unspecified\\res\\layout\\act_generatepubkey.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\connection_list.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\connection_list.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\intro_dialog.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\intro_dialog.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\canvas.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\canvas.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\dia_gatherentropy.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\pubkeyGenerator\\unspecified\\res\\layout\\dia_gatherentropy.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\entertext.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\entertext.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\main.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\main.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\get_text.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\get_text.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\metakey.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\metakey.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\zoom_controls.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\layout\\zoom_controls.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\repeater_dialog.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\repeater_dialog.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\import_tls_ca_dialog.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\import_tls_ca_dialog.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\layout\\importexport.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\layout\\importexport.xml"
+    }
+]

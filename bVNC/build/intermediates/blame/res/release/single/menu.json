@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\menu\\vnccanvasactivitymenu.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\menu\\vnccanvasactivitymenu.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\menu\\activity_pubkey_generator.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\pubkeyGenerator\\unspecified\\res\\menu\\activity_pubkey_generator.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\menu\\metakeymenu.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\menu\\metakeymenu.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\menu\\intro_dialog_menu.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\menu\\intro_dialog_menu.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\menu\\androidvncmenu.xml",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\src\\main\\res\\menu\\androidvncmenu.xml"
+    }
+]

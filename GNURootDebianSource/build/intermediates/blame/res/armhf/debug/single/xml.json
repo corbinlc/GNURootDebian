@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\res\\merged\\armhf\\debug\\xml\\preferences.xml",
+        "source": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\exploded-aar\\GNURootDebian.Android-Terminal-Emulator\\term\\unspecified\\res\\xml\\preferences.xml"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\build\\intermediates\\res\\merged\\armhf\\debug\\xml\\paths.xml",
+        "source": "C:\\Work\\GNURootDebian\\GNURootDebianSource\\src\\main\\res\\xml\\paths.xml"
+    }
+]

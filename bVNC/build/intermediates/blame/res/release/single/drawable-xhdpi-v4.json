@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ic_launcher.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\pubkeyGenerator\\unspecified\\res\\drawable-xhdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ic_menu_moreoverflow_normal_holo_light.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\drawable-xhdpi-v4\\ic_menu_moreoverflow_normal_holo_light.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ic_action_search.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\pubkeyGenerator\\unspecified\\res\\drawable-xhdpi-v4\\ic_action_search.png"
+    },
+    {
+        "merged": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4\\ic_keyboard.png",
+        "source": "C:\\Work\\GNURootDebian\\bVNC\\build\\intermediates\\exploded-aar\\GNURootDebian\\zoomerWithKeys\\unspecified\\res\\drawable-xhdpi-v4\\ic_keyboard.png"
+    }
+]

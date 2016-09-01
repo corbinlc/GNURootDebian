@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="C:\Work\GNURootDebian\GNURootDebianSource\src\main\shaders"/></dataSet><dataSet config="armhf"><source path="C:\Work\GNURootDebian\GNURootDebianSource\src\armhf\shaders"/></dataSet><dataSet config="debug"><source path="C:\Work\GNURootDebian\GNURootDebianSource\src\debug\shaders"/></dataSet><dataSet config="armhfDebug"><source path="C:\Work\GNURootDebian\GNURootDebianSource\src\armhfDebug\shaders"/></dataSet></merger>

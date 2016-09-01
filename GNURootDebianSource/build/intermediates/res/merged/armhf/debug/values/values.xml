@@ -1,0 +1,2449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="auto_x_geometry">
+    <item>@string/auto_x_geom_native</item>
+    <item>@string/auto_x_geom_custom</item>
+</string-array>
+    <string-array name="auto_x_session">
+    <item>@string/auto_x_session_auto</item>
+    <item>@string/auto_x_session_custom</item>
+    <item>@string/auto_x_session_kde</item>
+    <item>@string/auto_x_session_unity</item>
+    <item>@string/auto_x_session_unity_2d</item>
+    <item>@string/auto_x_session_xfce</item>
+    <item>@string/auto_x_session_gnome</item>
+    <item>@string/auto_x_session_gnome_cl</item>
+    <item>@string/auto_x_session_trinity</item>
+    <item>@string/auto_x_session_mate</item>
+</string-array>
+    <string-array name="auto_x_type">
+    <!-- If adding selections, they need to be in sync with values
+    declared in VncConstants for conversion bet. selection and commands
+    to work properly. -->
+    <item>@string/auto_x_disabled_selection</item>
+    <item>@string/auto_x_xvfb</item>
+    <item>@string/auto_x_xvnc</item>
+    <item>@string/auto_x_xdummy</item>
+    <item>@string/auto_x_find</item>
+    <item>@string/auto_x_find_login</item>
+</string-array>
+    <string-array name="connection_type">
+    <item>@string/connection_type_vnc</item>
+    <item>@string/connection_type_vnc_over_ssh</item>
+    <item>@string/connection_type_ultravnc</item>
+    <item>@string/connection_type_vnc_over_ssl</item>
+    <item>@string/connection_type_vnc_over_vencrypt</item>
+    <item>@string/connection_type_vnc_over_stunnel</item>
+</string-array>
+    <string-array name="control_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Action bar disabled</item> -->
+        <item>Always show action bar</item>
+        <item>Hide action bar (touch top of screen or Menu key to show)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>Closes all terminal windows</item>
+        <item>Closes this terminal window only</item>
+        <item>Closes activity, leaving sessions running</item>
+        <item>Sends ESC to terminal</item>
+        <item>Sends TAB to terminal</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>Black text on white</item>
+        <item>White text on black</item>
+        <item>White text on blue</item>
+        <item>Green text on black</item>
+        <item>Amber text on black</item>
+        <item>Red text on black</item>
+        <item>Holo blue text on black</item>
+        <item>Solarized Light</item>
+        <item>Solarized Dark</item>
+        <item>Linux Console</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Jog ball</item>
+        <item>\@ key</item>
+        <item>Left Alt key</item>
+        <item>Right Alt key</item>
+        <item>Vol Up key</item>
+        <item>Vol Down key</item>
+        <item>Camera key</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>Non-blinking cursor</item>
+        <item>Blinking cursor</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>Rectangle</item>
+        <item>Underline</item>
+        <item>Vertical bar</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>Jog ball</item>
+        <item>\@ key</item>
+        <item>Left Alt key</item>
+        <item>Right Alt key</item>
+        <item>Vol Up key</item>
+        <item>Vol Down key</item>
+        <item>Camera key</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 pixels</item>
+        <item>6 pt</item>
+        <item>7 pt</item>
+        <item>8 pt</item>
+        <item>9 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>20 pt</item>
+        <item>24 pt</item>
+        <item>28 pt</item>
+        <item>32 pt</item>
+        <item>36 pt</item>
+        <item>42 pt</item>
+        <item>48 pt</item>
+        <item>64 pt</item>
+        <item>72 pt</item>
+        <item>96 pt</item>
+        <item>144 pt</item>
+        <item>288 pt</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>Character-based</item>
+        <item>Word-based</item>
+    </string-array>
+    <string-array name="entries_orientation_preference">
+        <item>Automatic</item>
+        <item>Landscape</item>
+        <item>Portrait</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>Show status bar</item>
+        <item>Hide status bar</item>
+    </string-array>
+    <string-array name="entries_termtype_preference">
+        <item>vt100</item>
+        <item>screen</item>
+        <item>linux</item>
+        <item>screen-256color</item>
+        <item>xterm</item>
+    </string-array>
+    <string-array name="entryvalues_actionbar_preference">
+        <!-- <item>0</item> -->
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="entryvalues_backaction_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="entryvalues_color_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+    <string-array name="entryvalues_controlkey_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="entryvalues_cursorblink_preference">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="entryvalues_cursorstyle_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="entryvalues_fnkey_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="entryvalues_fontsize_preference">
+        <item>0</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+        <item>20</item>
+        <item>24</item>
+        <item>28</item>
+        <item>32</item>
+        <item>36</item>
+        <item>42</item>
+        <item>48</item>
+        <item>64</item>
+        <item>72</item>
+        <item>96</item>
+        <item>144</item>
+        <item>288</item>
+    </string-array>
+    <string-array name="entryvalues_ime_preference">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="entryvalues_orientation_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="entryvalues_statusbar_preference">
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="rdp_connection_type">
+    <item>@string/connection_type_rdp</item>
+    <item>@string/connection_type_rdp_over_ssh</item>
+</string-array>
+    <string-array name="rdp_geometry">
+    <item>@string/rdp_geom_native_landscape</item>
+    <item>@string/rdp_geom_native_portrait</item>
+    <item>@string/rdp_geom_custom</item>
+</string-array>
+    <string-array name="spice_connection_type">
+    <item>@string/connection_type_spice</item>
+    <item>@string/connection_type_spice_over_ssh</item>
+</string-array>
+    <attr format="reference" name="drawerArrowStyle"/>
+    <attr format="dimension" name="height"/>
+    <attr format="boolean" name="isLightTheme"/>
+    <attr format="string" name="title"/>
+    <bool name="abc_action_bar_embed_tabs">true</bool>
+    <bool name="abc_action_bar_embed_tabs_pre_jb">false</bool>
+    <bool name="abc_action_bar_expanded_action_views_exclusive">true</bool>
+    <bool name="abc_config_actionMenuItemAllCaps">true</bool>
+    <bool name="abc_config_allowActionMenuItemTextWithIcon">false</bool>
+    <bool name="abc_config_showMenuShortcutsWhenKeyboardPresent">false</bool>
+    <bool name="pref_allow_prepend_path_default">true</bool>
+    <bool name="pref_alt_sends_esc_default">false</bool>
+    <bool name="pref_close_window_on_process_exit_default">true</bool>
+    <bool name="pref_do_path_extensions_default">true</bool>
+    <bool name="pref_mouse_tracking_default">false</bool>
+    <bool name="pref_use_keyboard_shortcuts_default">true</bool>
+    <bool name="pref_utf8_by_default_default">false</bool>
+    <bool name="pref_verify_path_default">true</bool>
+    <color name="abc_input_method_navigation_guard">@android:color/black</color>
+    <color name="abc_search_url_text_normal">#7fa87f</color>
+    <color name="abc_search_url_text_pressed">@android:color/black</color>
+    <color name="abc_search_url_text_selected">@android:color/black</color>
+    <color name="accent_material_dark">@color/material_deep_teal_200</color>
+    <color name="accent_material_light">@color/material_deep_teal_500</color>
+    <color name="background_floating_material_dark">#ff424242</color>
+    <color name="background_floating_material_light">#ffeeeeee</color>
+    <color name="background_material_dark">#ff303030</color>
+    <color name="background_material_light">#ffeeeeee</color>
+    <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
+    <color name="bright_foreground_disabled_material_light">#80000000</color>
+    <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
+    <color name="bright_foreground_inverse_material_light">@color/bright_foreground_material_dark</color>
+    <color name="bright_foreground_material_dark">@android:color/white</color>
+    <color name="bright_foreground_material_light">@android:color/black</color>
+    <color name="button_material_dark">#ff5a595b</color>
+    <color name="button_material_light">#ffd6d7d7</color>
+    <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
+    <color name="dim_foreground_disabled_material_light">#80323232</color>
+    <color name="dim_foreground_material_dark">#ffbebebe</color>
+    <color name="dim_foreground_material_light">#ff323232</color>
+    <color name="highlighted_text_material_dark">#6680cbc4</color>
+    <color name="highlighted_text_material_light">#66009688</color>
+    <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
+    <color name="hint_foreground_material_light">@color/bright_foreground_disabled_material_light</color>
+    <color name="link_text_material_dark">@color/material_deep_teal_200</color>
+    <color name="link_text_material_light">@color/material_deep_teal_500</color>
+    <color name="material_blue_grey_800">#ff37474f</color>
+    <color name="material_blue_grey_900">#ff263238</color>
+    <color name="material_blue_grey_950">#ff21272b</color>
+    <color name="material_deep_teal_200">#ff80cbc4</color>
+    <color name="material_deep_teal_500">#ff009688</color>
+    <color name="primary_dark_material_dark">#ff000000</color>
+    <color name="primary_dark_material_light">#ff757575</color>
+    <color name="primary_material_dark">#ff212121</color>
+    <color name="primary_material_light">#ffbdbdbd</color>
+    <color name="primary_text_default_material_dark">#ffffffff</color>
+    <color name="primary_text_default_material_light">#de000000</color>
+    <color name="primary_text_disabled_material_dark">#4Dffffff</color>
+    <color name="primary_text_disabled_material_light">#39000000</color>
+    <color name="ripple_material_dark">#40ffffff</color>
+    <color name="ripple_material_light">#40000000</color>
+    <color name="secondary_text_default_material_dark">#b3ffffff</color>
+    <color name="secondary_text_default_material_light">#8a000000</color>
+    <color name="secondary_text_disabled_material_dark">#36ffffff</color>
+    <color name="secondary_text_disabled_material_light">#24000000</color>
+    <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
+    <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
+    <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="none" value="0"/><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr name="homeAsUpIndicator"/><attr format="dimension" name="itemPadding"/><attr format="boolean" name="hideOnContentScroll"/><attr format="dimension" name="contentInsetStart"/><attr format="dimension" name="contentInsetEnd"/><attr format="dimension" name="contentInsetLeft"/><attr format="dimension" name="contentInsetRight"/><attr format="dimension" name="elevation"/><attr format="reference" name="popupTheme"/></declare-styleable>
+    <declare-styleable name="ActionBarLayout"><attr name="android:layout_gravity"/></declare-styleable>
+    <declare-styleable name="ActionMenuItemView"><attr name="android:minWidth"/></declare-styleable>
+    <declare-styleable name="ActionMenuView"/>
+    <declare-styleable name="ActionMode"><attr name="titleTextStyle"/><attr name="subtitleTextStyle"/><attr name="background"/><attr name="backgroundSplit"/><attr name="height"/><attr format="reference" name="closeItemLayout"/></declare-styleable>
+    <declare-styleable name="ActivityChooserView"><attr format="string" name="initialActivityCount"/><attr format="reference" name="expandActivityOverflowButtonDrawable"/></declare-styleable>
+    <declare-styleable name="CompatTextView"><attr format="reference|boolean" name="textAllCaps"/></declare-styleable>
+    <declare-styleable name="DrawerArrowToggle"><attr format="color" name="color"/><attr format="boolean" name="spinBars"/><attr format="dimension" name="drawableSize"/><attr format="dimension" name="gapBetweenBars"/><attr format="dimension" name="topBottomBarArrowSize"/><attr format="dimension" name="middleBarArrowSize"/><attr format="dimension" name="barSize"/><attr format="dimension" name="thickness"/></declare-styleable>
+    <declare-styleable name="EmulatorView"/>
+    <declare-styleable name="LinearLayoutCompat"><attr name="android:orientation"/><attr name="android:gravity"/><attr name="android:baselineAligned"/><attr name="android:baselineAlignedChildIndex"/><attr name="android:weightSum"/><attr format="boolean" name="measureWithLargestChild"/><attr name="divider"/><attr name="showDividers"><flag name="none" value="0"/><flag name="beginning" value="1"/><flag name="middle" value="2"/><flag name="end" value="4"/></attr><attr format="dimension" name="dividerPadding"/></declare-styleable>
+    <declare-styleable name="LinearLayoutCompat_Layout"><attr name="android:layout_width"/><attr name="android:layout_height"/><attr name="android:layout_weight"/><attr name="android:layout_gravity"/></declare-styleable>
+    <declare-styleable name="ListPopupWindow"><attr name="android:dropDownVerticalOffset"/><attr name="android:dropDownHorizontalOffset"/></declare-styleable>
+    <declare-styleable name="MenuGroup"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:checkableBehavior"/><attr name="android:visible"/><attr name="android:enabled"/></declare-styleable>
+    <declare-styleable name="MenuItem"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:title"/><attr name="android:titleCondensed"/><attr name="android:icon"/><attr name="android:alphabeticShortcut"/><attr name="android:numericShortcut"/><attr name="android:checkable"/><attr name="android:checked"/><attr name="android:visible"/><attr name="android:enabled"/><attr name="android:onClick"/><attr name="showAsAction"><flag name="never" value="0"/><flag name="ifRoom" value="1"/><flag name="always" value="2"/><flag name="withText" value="4"/><flag name="collapseActionView" value="8"/></attr><attr format="reference" name="actionLayout"/><attr format="string" name="actionViewClass"/><attr format="string" name="actionProviderClass"/></declare-styleable>
+    <declare-styleable name="MenuView"><attr name="android:itemTextAppearance"/><attr name="android:horizontalDivider"/><attr name="android:verticalDivider"/><attr name="android:headerBackground"/><attr name="android:itemBackground"/><attr name="android:windowAnimationStyle"/><attr name="android:itemIconDisabledAlpha"/><attr format="boolean" name="preserveIconSpacing"/></declare-styleable>
+    <declare-styleable name="PopupWindow"><attr format="boolean" name="overlapAnchor"/><attr name="android:popupBackground"/></declare-styleable>
+    <declare-styleable name="PopupWindowBackgroundState"><attr format="boolean" name="state_above_anchor"/></declare-styleable>
+    <declare-styleable name="SearchView"><attr format="reference" name="layout"/><attr format="boolean" name="iconifiedByDefault"/><attr name="android:maxWidth"/><attr format="string" name="queryHint"/><attr name="android:imeOptions"/><attr name="android:inputType"/><attr format="reference" name="closeIcon"/><attr format="reference" name="goIcon"/><attr format="reference" name="searchIcon"/><attr format="reference" name="voiceIcon"/><attr format="reference" name="commitIcon"/><attr format="reference" name="suggestionRowLayout"/><attr format="reference" name="queryBackground"/><attr format="reference" name="submitBackground"/><attr name="android:focusable"/></declare-styleable>
+    <declare-styleable name="Spinner"><attr format="reference" name="prompt"/><attr format="enum" name="spinnerMode"><enum name="dialog" value="0"/><enum name="dropdown" value="1"/></attr><attr name="android:dropDownSelector"/><attr name="android:popupBackground"/><attr name="android:dropDownVerticalOffset"/><attr name="android:dropDownHorizontalOffset"/><attr name="android:dropDownWidth"/><attr format="reference" name="popupPromptView"/><attr name="android:gravity"/><attr format="boolean" name="disableChildrenWhenDisabled"/><attr name="android:background"/></declare-styleable>
+    <declare-styleable name="SwitchCompat"><attr name="android:thumb"/><attr format="reference" name="track"/><attr name="android:textOn"/><attr name="android:textOff"/><attr format="dimension" name="thumbTextPadding"/><attr format="reference" name="switchTextAppearance"/><attr format="dimension" name="switchMinWidth"/><attr format="dimension" name="switchPadding"/><attr format="boolean" name="splitTrack"/><attr format="boolean" name="showText"/></declare-styleable>
+    <declare-styleable name="SwitchCompatTextAppearance"><attr name="android:textSize"/><attr name="android:textColor"/><attr name="textAllCaps"/></declare-styleable>
+    <declare-styleable name="Theme"><attr format="boolean" name="windowActionBar"/><attr format="boolean" name="windowActionBarOverlay"/><attr format="boolean" name="windowActionModeOverlay"/><attr format="dimension|fraction" name="windowFixedWidthMajor"/><attr format="dimension|fraction" name="windowFixedHeightMinor"/><attr format="dimension|fraction" name="windowFixedWidthMinor"/><attr format="dimension|fraction" name="windowFixedHeightMajor"/><attr name="android:windowIsFloating"/><attr name="android:windowAnimationStyle"/><attr format="reference" name="actionBarTabStyle"/><attr format="reference" name="actionBarTabBarStyle"/><attr format="reference" name="actionBarTabTextStyle"/><attr format="reference" name="actionOverflowButtonStyle"/><attr format="reference" name="actionOverflowMenuStyle"/><attr format="reference" name="actionBarPopupTheme"/><attr format="reference" name="actionBarStyle"/><attr format="reference" name="actionBarSplitStyle"/><attr format="reference" name="actionBarTheme"/><attr format="reference" name="actionBarWidgetTheme"/><attr format="dimension" name="actionBarSize"><enum name="wrap_content" value="0"/></attr><attr format="reference" name="actionBarDivider"/><attr format="reference" name="actionBarItemBackground"/><attr format="reference" name="actionMenuTextAppearance"/><attr format="color|reference" name="actionMenuTextColor"/><attr format="reference" name="actionModeStyle"/><attr format="reference" name="actionModeCloseButtonStyle"/><attr format="reference" name="actionModeBackground"/><attr format="reference" name="actionModeSplitBackground"/><attr format="reference" name="actionModeCloseDrawable"/><attr format="reference" name="actionModeCutDrawable"/><attr format="reference" name="actionModeCopyDrawable"/><attr format="reference" name="actionModePasteDrawable"/><attr format="reference" name="actionModeSelectAllDrawable"/><attr format="reference" name="actionModeShareDrawable"/><attr format="reference" name="actionModeFindDrawable"/><attr format="reference" name="actionModeWebSearchDrawable"/><attr format="reference" name="actionModePopupWindowStyle"/><attr format="reference" name="textAppearanceLargePopupMenu"/><attr format="reference" name="textAppearanceSmallPopupMenu"/><attr format="reference" name="actionDropDownStyle"/><attr format="dimension" name="dropdownListPreferredItemHeight"/><attr format="reference" name="spinnerStyle"/><attr format="reference" name="spinnerDropDownItemStyle"/><attr format="reference" name="homeAsUpIndicator"/><attr format="reference" name="actionButtonStyle"/><attr format="reference" name="buttonBarStyle"/><attr format="reference" name="buttonBarButtonStyle"/><attr format="reference" name="selectableItemBackground"/><attr format="reference" name="selectableItemBackgroundBorderless"/><attr format="reference" name="dividerVertical"/><attr format="reference" name="dividerHorizontal"/><attr format="reference" name="activityChooserViewStyle"/><attr format="reference" name="toolbarStyle"/><attr format="reference" name="toolbarNavigationButtonStyle"/><attr format="reference" name="popupMenuStyle"/><attr format="reference" name="popupWindowStyle"/><attr format="reference|color" name="editTextColor"/><attr format="reference" name="editTextBackground"/><attr format="reference" name="switchStyle"/><attr format="reference" name="textAppearanceSearchResultTitle"/><attr format="reference" name="textAppearanceSearchResultSubtitle"/><attr format="reference|color" name="textColorSearchUrl"/><attr format="reference" name="searchViewStyle"/><attr format="dimension" name="listPreferredItemHeight"/><attr format="dimension" name="listPreferredItemHeightSmall"/><attr format="dimension" name="listPreferredItemHeightLarge"/><attr format="dimension" name="listPreferredItemPaddingLeft"/><attr format="dimension" name="listPreferredItemPaddingRight"/><attr format="reference" name="dropDownListViewStyle"/><attr format="reference" name="listPopupWindowStyle"/><attr format="reference" name="textAppearanceListItem"/><attr format="reference" name="textAppearanceListItemSmall"/><attr format="reference" name="panelBackground"/><attr format="dimension" name="panelMenuListWidth"/><attr format="reference" name="panelMenuListTheme"/><attr format="reference" name="listChoiceBackgroundIndicator"/><attr format="color" name="colorPrimary"/><attr format="color" name="colorPrimaryDark"/><attr format="color" name="colorAccent"/><attr format="color" name="colorControlNormal"/><attr format="color" name="colorControlActivated"/><attr format="color" name="colorControlHighlight"/><attr format="color" name="colorButtonNormal"/><attr format="color" name="colorSwitchThumbNormal"/></declare-styleable>
+    <declare-styleable name="Toolbar"><attr format="reference" name="titleTextAppearance"/><attr format="reference" name="subtitleTextAppearance"/><attr name="title"/><attr name="subtitle"/><attr name="android:gravity"/><attr format="dimension" name="titleMargins"/><attr format="dimension" name="titleMarginStart"/><attr format="dimension" name="titleMarginEnd"/><attr format="dimension" name="titleMarginTop"/><attr format="dimension" name="titleMarginBottom"/><attr name="contentInsetStart"/><attr name="contentInsetEnd"/><attr name="contentInsetLeft"/><attr name="contentInsetRight"/><attr format="dimension" name="maxButtonHeight"/><attr format="reference" name="theme"/><attr format="reference" name="collapseIcon"/><attr format="string" name="collapseContentDescription"/><attr name="popupTheme"/><attr format="reference" name="navigationIcon"/><attr format="string" name="navigationContentDescription"/><attr name="android:minHeight"/></declare-styleable>
+    <declare-styleable name="View"><attr format="dimension" name="paddingStart"/><attr format="dimension" name="paddingEnd"/><attr name="android:focusable"/></declare-styleable>
+    <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
+    <dimen name="abc_action_bar_default_height_material">56dp</dimen>
+    <dimen name="abc_action_bar_default_padding_material">4dp</dimen>
+    <dimen name="abc_action_bar_icon_vertical_padding_material">16dp</dimen>
+    <dimen name="abc_action_bar_progress_bar_size">40dp</dimen>
+    <dimen name="abc_action_bar_stacked_max_height">48dp</dimen>
+    <dimen name="abc_action_bar_stacked_tab_max_width">180dp</dimen>
+    <dimen name="abc_action_bar_subtitle_bottom_margin_material">5dp</dimen>
+    <dimen name="abc_action_bar_subtitle_top_margin_material">-3dp</dimen>
+    <dimen name="abc_action_button_min_height_material">48dp</dimen>
+    <dimen name="abc_action_button_min_width_material">48dp</dimen>
+    <dimen name="abc_action_button_min_width_overflow_material">36dp</dimen>
+    <dimen name="abc_button_inset_horizontal_material">@dimen/abc_control_inset_material</dimen>
+    <dimen name="abc_button_inset_vertical_material">6dp</dimen>
+    <dimen name="abc_button_padding_horizontal_material">8dp</dimen>
+    <dimen name="abc_button_padding_vertical_material">@dimen/abc_control_padding_material</dimen>
+    <dimen name="abc_config_prefDialogWidth">320dp</dimen>
+    <dimen name="abc_control_corner_material">2dp</dimen>
+    <dimen name="abc_control_inset_material">4dp</dimen>
+    <dimen name="abc_control_padding_material">4dp</dimen>
+    <dimen name="abc_dropdownitem_icon_width">32dip</dimen>
+    <dimen name="abc_dropdownitem_text_padding_left">8dip</dimen>
+    <dimen name="abc_dropdownitem_text_padding_right">8dip</dimen>
+    <dimen name="abc_panel_menu_list_width">296dp</dimen>
+    <dimen name="abc_search_view_preferred_width">320dip</dimen>
+    <dimen name="abc_search_view_text_min_width">160dip</dimen>
+    <dimen name="abc_text_size_body_1_material">16sp</dimen>
+    <dimen name="abc_text_size_body_2_material">16sp</dimen>
+    <dimen name="abc_text_size_button_material">14sp</dimen>
+    <dimen name="abc_text_size_caption_material">12sp</dimen>
+    <dimen name="abc_text_size_display_1_material">34sp</dimen>
+    <dimen name="abc_text_size_display_2_material">45sp</dimen>
+    <dimen name="abc_text_size_display_3_material">56sp</dimen>
+    <dimen name="abc_text_size_display_4_material">112sp</dimen>
+    <dimen name="abc_text_size_headline_material">24sp</dimen>
+    <dimen name="abc_text_size_large_material">22sp</dimen>
+    <dimen name="abc_text_size_medium_material">18sp</dimen>
+    <dimen name="abc_text_size_menu_material">16sp</dimen>
+    <dimen name="abc_text_size_small_material">14sp</dimen>
+    <dimen name="abc_text_size_subhead_material">16sp</dimen>
+    <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
+    <dimen name="abc_text_size_title_material">20sp</dimen>
+    <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
+    <dimen name="app_defaultsize_h">598.0dip</dimen>
+    <dimen name="app_defaultsize_w">632.0dip</dimen>
+    <dimen name="app_minimumsize_h">1.0dip</dimen>
+    <dimen name="app_minimumsize_w">1.0dip</dimen>
+    <item name="dialog_fixed_height_major" type="dimen">80%</item>
+    <item name="dialog_fixed_height_minor" type="dimen">100%</item>
+    <item name="dialog_fixed_width_major" type="dimen">320dp</item>
+    <item name="dialog_fixed_width_minor" type="dimen">320dp</item>
+    <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
+    <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
+    <item name="action_bar_activity_content" type="id"/>
+    <item name="action_bar_spinner" type="id"/>
+    <item name="action_menu_divider" type="id"/>
+    <item name="action_menu_presenter" type="id"/>
+    <item name="home" type="id"/>
+    <item name="imageview" type="id"/>
+    <item name="mainview" type="id"/>
+    <item name="progress_circular" type="id"/>
+    <item name="progress_horizontal" type="id"/>
+    <item name="scrollview" type="id"/>
+    <item name="split_action_bar" type="id"/>
+    <item name="textview" type="id"/>
+    <item name="up" type="id"/>
+    <integer name="abc_config_activityDefaultDur">220</integer>
+    <integer name="abc_config_activityShortDur">150</integer>
+    <integer name="abc_max_action_buttons">2</integer>
+    <integer name="pref_actionbar_default">1</integer>
+    <integer name="pref_orientation_default">0</integer>
+    <string name="abc_action_bar_home_description">Navigate home</string>
+    <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
+    <string name="abc_action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
+    <string name="abc_action_bar_up_description">Navigate up</string>
+    <string name="abc_action_menu_overflow_description">More options</string>
+    <string name="abc_action_mode_done">Done</string>
+    <string name="abc_activity_chooser_view_see_all">See all</string>
+    <string name="abc_activitychooserview_choose_application">Choose an app</string>
+    <string name="abc_searchview_description_clear">Clear query</string>
+    <string name="abc_searchview_description_query">Search query</string>
+    <string name="abc_searchview_description_search">Search</string>
+    <string name="abc_searchview_description_submit">Submit query</string>
+    <string name="abc_searchview_description_voice">Voice search</string>
+    <string name="abc_shareactionprovider_share_with">Share with</string>
+    <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
+    <string name="abc_toolbar_collapse_description">Collapse</string>
+    <string name="activity_shortcut_create">"Term shortcut"</string>
+    <string name="activity_term_here_title">Term here</string>
+    <string name="ad_donate_text0">The Pro version now has a much requested Master Password feature which prevents unauthorized use and also encrypts all connection settings including passwords and SSH keys to guard against theft. Enable it from the main Menu. If the Menu button is missing, please long-tap the running apps button for the Menu.</string>
+    <string name="ad_donate_text1">Tap here to support the project with a small donation by buying the Pro version.</string>
+    <string name="ad_donate_text2">The Pro version allows you to disable this dialog and gives you access to additional features.</string>
+    <string name="ad_donate_text3">If you would like to support the project further, follow the following links for links to client apps for: </string>
+    <string name="ad_donate_text_rdp">The Pro version of aRDP now supports sound redirection!</string>
+    <string name="ad_donate_text_spice">The Pro version of aSPICE now supports USB redirection! Just attach your OTG cable prior to connecting.</string>
+    <string name="address_caption">VNC Server</string>
+    <string name="address_caption_hint">VNC Server</string>
+    <string name="address_caption_hint_tunneled">VNC Server</string>
+    <string name="address_caption_ssh">SSH Server</string>
+    <string name="address_caption_ssh_hint">SSH Server</string>
+    <string name="addshortcut_arguments_label">Arguments\:</string>
+    <string name="addshortcut_button_find_command">Find command</string>
+    <string name="addshortcut_button_text_icon">Text icon</string>
+    <string name="addshortcut_command_hint">command</string>
+    <string name="addshortcut_command_window_instructions">Command window requires full path, no arguments. For other commands use Arguments window (ex: cd /sdcard).</string>
+    <string name="addshortcut_example_hint">--example=\""a\"</string>
+    <string name="addshortcut_make_text_icon">MAKE TEXT ICON</string>
+    <string name="addshortcut_navigator_title">SELECT SHORTCUT TARGET</string>
+    <string name="addshortcut_shortcut_label">Shortcut label\:</string>
+    <string name="addshortcut_text_icon_instructions"/>
+    <string name="addshortcut_title">Term shortcut</string>
+    <string name="alt_check">Alt</string>
+    <string name="alt_sends_esc">Alt key sends ESC</string>
+    <string name="alt_sends_esc_summary_off">Alt key does not send ESC.</string>
+    <string name="alt_sends_esc_summary_on">Alt key sends ESC.</string>
+    <string name="app_name">GNURoot Debian</string>
+    <string name="application_terminal">Terminal Emulator</string>
+    <string name="arrow_down">Down Arrow</string>
+    <string name="arrow_left">Left Arrow</string>
+    <string name="arrow_right">Right Arrow</string>
+    <string name="arrow_up">Up Arrow</string>
+    <string name="auto">Auto</string>
+    <string name="auto_x_cancel">Cancel</string>
+    <string name="auto_x_caption">EXPERIMENTAL: bVNC can automatically discover existing and create new X sessions on UNIX systems (like NX). You need x11vnc to find, and Xvfb, Xvnc, or Xdummy to create sessions.</string>
+    <string name="auto_x_confirm">Confirm</string>
+    <string name="auto_x_descript_geom">Remote Desktop Size (WxH)</string>
+    <string name="auto_x_descript_session">Remote Session Type</string>
+    <string name="auto_x_disabled">Disabled</string>
+    <string name="auto_x_disabled_selection">AutoX Disabled</string>
+    <string name="auto_x_enabled">Enabled</string>
+    <string name="auto_x_find">Only Find, Don\'t Create</string>
+    <string name="auto_x_find_login">Find X Login (needs sudo)</string>
+    <string name="auto_x_geom_custom">Custom</string>
+    <string name="auto_x_geom_native">Native</string>
+    <string name="auto_x_session_auto">Auto</string>
+    <string name="auto_x_session_custom">Custom</string>
+    <string name="auto_x_session_gnome">GNOME</string>
+    <string name="auto_x_session_gnome_cl">GNOME Classic</string>
+    <string name="auto_x_session_kde">KDE</string>
+    <string name="auto_x_session_mate">MATE</string>
+    <string name="auto_x_session_trinity">Trinity</string>
+    <string name="auto_x_session_unity">Unity</string>
+    <string name="auto_x_session_unity_2d">Unity2D</string>
+    <string name="auto_x_session_xfce">Xfce</string>
+    <string name="auto_x_title">Configure AutoX</string>
+    <string name="auto_x_unix_auth">Authenticate using supplied SSH Username/Password automatically (to the black login screen).</string>
+    <string name="auto_x_unixpw">Use UNIX credentials instead of the built in security mechanism. User must be able to run /bin/su.</string>
+    <string name="auto_x_xdummy">Find or Create with Xdummy</string>
+    <string name="auto_x_xvfb">Find or Create with Xvfb</string>
+    <string name="auto_x_xvnc">Find or Create with Xvnc</string>
+    <string name="button_send_text">Send Text</string>
+    <string name="button_send_without_saving">Send Text/Don\'t Save It</string>
+    <string name="center_mouse">Mouse @</string>
+    <string name="close">Close</string>
+    <string name="close_window">Close window</string>
+    <string name="color_format_caption">Color Mode</string>
+    <string name="color_mode">Color Mode</string>
+    <string name="colorvalue_icon_text_entry_hint">Enter icon text</string>
+    <string name="colorvalue_label_lock_button_column">LOCK</string>
+    <string name="colorvalue_letter_alpha">α</string>
+    <string name="colorvalue_letter_blue">B</string>
+    <string name="colorvalue_letter_green">G</string>
+    <string name="colorvalue_letter_red">R</string>
+    <string name="confirm_window_close_message">Close this window?</string>
+    <string name="connect_button">Connect</string>
+    <string name="connection_caption">Connection</string>
+    <string name="connection_type_caption">Conn. Type</string>
+    <string name="connection_type_rdp">RDP</string>
+    <string name="connection_type_rdp_over_ssh">RDP over SSH</string>
+    <string name="connection_type_spice">SPICE</string>
+    <string name="connection_type_spice_over_ssh">SPICE over SSH</string>
+    <string name="connection_type_ultravnc">UltraVNC</string>
+    <string name="connection_type_vnc">Basic VNC</string>
+    <string name="connection_type_vnc_over_ssh">Secure VNC over SSH</string>
+    <string name="connection_type_vnc_over_ssl">Secure VNC over AnonTLS</string>
+    <string name="connection_type_vnc_over_stunnel">Secure VNC over SSL Tunnel</string>
+    <string name="connection_type_vnc_over_vencrypt">Secure VNC over VeNCrypt</string>
+    <string name="control_check">Ctrl</string>
+    <string name="control_key_dialog_control_disabled_text">No control key set.</string>
+    <string name="control_key_dialog_control_text">CTRLKEY Space : Control-@ (NUL)\nCTRLKEY A..Z : Control-A..Z\nCTRLKEY 5 : Control-]\nCTRLKEY 6 : Control-^\nCTRLKEY 7 : Control-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">No function key set.</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Up\nFNKEY A : Left\nFNKEY S : Down\nFNKEY D : Right\nFNKEY P : PageUp\nFNKEY N : PageDown\nFNKEY T : Tab\nFNKEY L : | (pipe)\nFNKEY U : _ (underscore)\nFNKEY E : Control-[ (ESC)\nFNKEY X : Delete\nFNKEY I : Insert\nFNKEY H : Home\nFNKEY F : End\nFNKEY . : Control-\\\n</string>
+    <string name="control_key_dialog_title">Control and Function Keys</string>
+    <string name="copy_all">Copy all</string>
+    <string name="copy_list_button">Copy List</string>
+    <string name="ctrl_alt_del">Ctrl-Alt-Del</string>
+    <string name="delete_connection">Delete Connection</string>
+    <string name="delete_key">Delete Selected Key</string>
+    <string name="delete_key_list">Delete Key List</string>
+    <string name="dialog_title_actionbar_preference">Action bar behavior</string>
+    <string name="dialog_title_backaction_preference">Back button behavior</string>
+    <string name="dialog_title_color_preference">Text color</string>
+    <string name="dialog_title_controlkey_preference">Control key</string>
+    <string name="dialog_title_cursorblink_preference">Cursor blink</string>
+    <string name="dialog_title_cursorstyle_preference">Cursor style</string>
+    <string name="dialog_title_fnkey_preference">Fn key</string>
+    <string name="dialog_title_fontsize_preference">Font size</string>
+    <string name="dialog_title_ime_preference">Input method</string>
+    <string name="dialog_title_initialcommand_preference">Initial Command</string>
+    <string name="dialog_title_orientation_preference">Screen orientation behavior</string>
+    <string name="dialog_title_shell_preference">Shell</string>
+    <string name="dialog_title_statusbar_preference">Status bar</string>
+    <string name="dialog_title_termtype_preference">Terminal type</string>
+    <string name="disable_wakelock">Drop WakeLock</string>
+    <string name="disable_wifilock">Drop WifiLock</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="dpad_as_arrows">Use D-Pad for arrows and D-Pad click for Ctrl.</string>
+    <string name="edit_text">Edit text</string>
+    <string name="email_transcript_chooser_title">Mail transcript using:</string>
+    <string name="email_transcript_no_email_activity_found">Could not choose an email activity to send transcript.</string>
+    <string name="email_transcript_subject">Transcript from Terminal Emulator for Android</string>
+    <string name="enable_recording">Enable Recording</string>
+    <string name="enable_sound">Enable Sound</string>
+    <string name="enable_wakelock">Take WakeLock</string>
+    <string name="enable_wifilock">Take WifiLock</string>
+    <string name="enter_text">Send Text</string>
+    <string name="enter_text_title">Enter Text to Send</string>
+    <string name="error_connection_failed">Connection failed.</string>
+    <string name="error_connection_interrupted">Connection interrupted.</string>
+    <string name="error_no_user_hostname">Please enter at least a user and a hostname or IP address.</string>
+    <string name="error_out_of_memory">Unable to allocate sufficient memory to draw remote screen. Try restarting the application, then restart your device. You can also try reducing the size of the remote desktop through the app settings.</string>
+    <string name="error_ovirt_unable_to_connect">Unable to connect or authenticate, please check server address, user, password, and cert authority and subject.</string>
+    <string name="error_rdp_authentication_failed">RDP Authentication failed! Please check the RDP username and password and try again.</string>
+    <string name="error_rdp_connection_failed">RDP Connection failed! Either network connectivity was interrupted, the RDP server was turned off or disabled, or your session was taken over.</string>
+    <string name="error_rdp_unable_to_connect">Could not connect to RDP server or authentication failed! Please ensure RDP Server setting and credentials are correct, the server is turned on, RDP is enabled, and that the server is on the same network as this device.</string>
+    <string name="error_spice_unable_to_connect">Unable to connect or authenticate, please check server address, password, and cert authority and subject.</string>
+    <string name="error_ssh_could_not_exec_command">Could not execute remote command.</string>
+    <string name="error_ssh_could_not_send_sudo_pwd">Could not send sudo password.</string>
+    <string name="error_ssh_hostkey_changed">ERROR! The server host key has changed. If this is intentional, please delete and recreate the connection. Otherwise, this may be a man in the middle attack. Not continuing.</string>
+    <string name="error_ssh_kbd_auth_method_unavail">The SSH server supports neither \"password\" nor \"keyboard-interactive\" auth methods or requires \"publickey\" method first. Please configure it to allow at least one of the two methods, or reconfigure bVNC. Available auth methods: </string>
+    <string name="error_ssh_key_auth_fail">Failed to authenticate to SSH server with a key-pair. Please check your SSH username, and ensure your public key is in the authorized_keys file on the remote side.</string>
+    <string name="error_ssh_keypair_decryption_failure">Failed to decrypt key-pair. Please ensure you\'ve entered your passphrase correctly in the \'SSH Passphrase\' field on the main screen.</string>
+    <string name="error_ssh_keypair_missing">SSH key-pair not generated yet! Please generate one and put (its public part) in authorized_keys on the SSH server.</string>
+    <string name="error_ssh_passphrase_but_keypair_unencrypted">Passphrase provided but key-pair not encrypted. Please delete passphrase.</string>
+    <string name="error_ssh_port_forwarding_failure">Could not set up the port forwarding for tunneling VNC traffic over SSH. Please ensure your SSH server is configured to allow port forwarding and try again.</string>
+    <string name="error_ssh_pubkey_auth_method_unavail">The SSH server does not support the \"publickey\" auth method, and we are trying to use a key-pair to authenticate. Please configure it to allow the publickey authentication and try again. Available auth methods: </string>
+    <string name="error_ssh_pwd_auth_fail">Failed to authenticate to SSH server with a password. Please check your SSH username, and SSH password.</string>
+    <string name="error_ssh_unable_to_connect">Failed to connect to SSH Server. Please check network connectivity, and SSH Server address and port.</string>
+    <string name="error_ssh_x11vnc_no_port_failure">Could not obtain remote VNC port from x11vnc. Please ensure x11vnc is installed. To be sure, try running x11vnc by hand on the command-line.</string>
+    <string name="error_uri_noinfo_nosave">Insufficent information specified to connect.</string>
+    <string name="error_vnc_authentication">VNC authentication failed! Check VNC password (and user if applicable).</string>
+    <string name="error_vnc_unable_to_connect">"Connection to VNC server failed with reason: "</string>
+    <string name="error_x509_could_not_generate_encoding">Certificate encoding could not be generated.</string>
+    <string name="error_x509_could_not_generate_signature">Could not generate SHA1 or MD5 signature of certificate. No SHA1/MD5 algorithm found.</string>
+    <string name="export_settings">Export</string>
+    <string name="export_settings_path"/>
+    <string name="extra_keys_disable">Disable Extra Keys</string>
+    <string name="extra_keys_enable">Enable Extra Keys</string>
+    <string name="fit_to_screen">Fit to Screen</string>
+    <string name="force">Fullscreen Bitmap</string>
+    <string name="fsnavigator_change_theme">Change theme</string>
+    <string name="fsnavigator_no_external_storage">External storage not available</string>
+    <string name="fsnavigator_optional_enter_path">Or enter path here.</string>
+    <string name="fsnavigator_title">FILE SELECTOR</string>
+    <string name="hello">Hello World!</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="help">Help</string>
+    <string name="help_url" translatable="false">http://jackpal.github.com/Android-Terminal-Emulator/help/index.html</string>
+    <string name="import_export_settings">Import/Export Settings</string>
+    <string name="import_settings">Import</string>
+    <string name="import_settings_file_url"/>
+    <string name="info">Info</string>
+    <string name="info_cert_signatures">"The certificate information is: "</string>
+    <string name="info_cert_signatures_identical">\n\nYou can ensure the information matches the server certificate to prevent a man-in-the-middle attack.</string>
+    <string name="info_cert_tunnel">Do you want to connect to the host identified by the following certificate?\n\nFingerprint: %1$s\n\nIssued to:\n%2$s\n\nIssued by:\n%3$s\n\nValid from:\n%4$s\n\nValid until:\n%5$s\n\nNote: bVNC does not verify certificate authorities or check for certificate revocation.</string>
+    <string name="info_continue_connecting">"Continue connecting to: "</string>
+    <string name="info_encoding">" encoding, "</string>
+    <string name="info_progress_dialog_aborted">Connection aborted!</string>
+    <string name="info_progress_dialog_connecting">Connecting…</string>
+    <string name="info_progress_dialog_downloading">Downloading first frame.\nPlease wait…</string>
+    <string name="info_progress_dialog_establishing">Establishing handshake.\nPlease wait…</string>
+    <string name="info_ssh_initializing_hostkey">Attempting to initialize SSH HostKey.</string>
+    <string name="info_ssh_key_fingerprint">"The host key fingerprint is: "</string>
+    <string name="info_ssh_key_fingerprint_identical">\n\nYou can ensure it is identical to the known fingerprint of the server certificate to prevent a man-in-the-middle attack.</string>
+    <string name="info_update_color_model_to">"Updating Color Model to "</string>
+    <string name="input_mode">Input Mode</string>
+    <string name="input_mode_drag_pan_description">Direct, Hold Pan: Swipe to drag and drop. Tap with one finger wherever you want to left-click, two fingers to right-click, and three fingers to middle-click. Swipe with two fingers to scroll. Long tap to start panning.</string>
+    <string name="input_mode_drag_pan_zoom_mouse">Direct, Hold Pan</string>
+    <string name="input_mode_fit_to_screen">No Pan; Trackball Mouse</string>
+    <string name="input_mode_help">Input Mode Help</string>
+    <string name="input_mode_help_text">
+"In any Input Mode, tap the keyboard icon to get the on-screen keyboard. Also, your device may have its own gesture which bring up the keyboard.
+
+Use the Direct input modes for more intuitive touch-screen control. Use Simulated Touchpad Mode for finer control over the mouse.
+
+Direct, Swipe Pan Mode:
+ - Control the mouse directly through touch.
+ - Swipe to pan around.
+ - Tapping makes the mouse click where you tapped.
+ - Scroll events are sent between the two fingers where a two-finger swipe started.
+
+Direct, Hold Pan Mode:
+ - Control the mouse directly through touch.
+ - Long-tap to start pan mode.
+ - Tapping makes the mouse click where you tapped.
+ - Scroll events are sent between the two fingers where a two-finger swipe started.
+
+Simulated Touchpad Mode:
+ - Use your screen like a touchpad.
+ - Swipe to move the mouse pointer around.
+ - Move mouse beyond edge of screen to pan.
+ - Tapping makes the mouse click where the pointer is.
+ - Scroll events are sent where the mouse pointer is located.
+
+Single Handed Mode:
+ - Same as Direct, Swipe Pan Mode, except long-tap opens menu with choice of modes.
+ - After choosing mode, swiping finger on screen performs selected gesture.
+ - Lifting finger completes the gesture.
+
+All Input Modes:
+ - Left-click: Tap once.
+ - Double-click: Double-tap.
+ - Right-click: Tap-hold and tap with a second finger (anywhere else on screen).
+ - Alternate Right-click: Use the \"Back\" button or gesture for your device.
+ - Middle-click: Tap-hold and tap with two more fingers (anywhere else on screen).
+ - Mouse-drag: Tap-hold-long and swipe.
+ - Scroll-wheel: Two-finger drag up/down and left/right. Quick drag scrolls faster.
+ - Zoom in/out: In Zoomable scaling, pinch-zoom to control scaling.
+ - Ctrl/Alt key: Menu->Ctrl/Alt buttons. Don't forget to toggle off when done!
+ - Key combos: Menu->More->Send Keys.
+ - Send text: Either type on the on-screen keyboard, or use Menu->More->Send Text."
+</string>
+    <string name="input_mode_mouse">Mouse Pointer Control</string>
+    <string name="input_mode_panning">Desktop Panning Mode</string>
+    <string name="input_mode_single_handed">Single Handed</string>
+    <string name="input_mode_single_handed_description">Single Handed: Swipe to pan around. Tap with one finger wherever you want to left-click. Long tap to choose left/right/middle drag/scroll/zoom mode. Usual multi-touch controls also work.</string>
+    <string name="input_mode_touch_pan_description">Direct, Swipe Pan: Swipe to pan around. Tap with one finger wherever you want to left-click, two fingers to right-click, and three fingers to middle-click. Swipe with two fingers to scroll. Long tap to drag and drop.</string>
+    <string name="input_mode_touch_pan_zoom_mouse">Direct, Swipe Pan</string>
+    <string name="input_mode_touchpad">Simulated Touchpad</string>
+    <string name="input_mode_touchpad_description">Simulated Touchpad: Swipe to move pointer. Tap anywhere with one finger to left-click, two fingers to right-click, and three fingers to middle-click. Swipe with two fingers to scroll. Long tap to drag and drop.</string>
+    <string name="install_button_text">Install/Reinstall</string>
+    <string name="install_textview_text">Will install GNURoot Debian on your device.  This will take a little while and consume noticeable disk space.  This will overwrite any previous version installed.</string>
+    <string name="install_x_button_text">Install X Support</string>
+    <string name="install_x_textview_text">Will install the required packages needed for you to be able to run X applications.</string>
+    <string name="intro_close">Close</string>
+    <string name="intro_dont_show">Don\'t show again</string>
+    <string name="intro_header"/>
+    <string name="intro_text">
+"Current list of bVNC features:
+&lt;br>
+- Plain VNC, Secure VNC over SSH, AnonTLS, and VeNCrypt, and UltraVNC Windows Logon with optional Repeater.
+&lt;br>
+- AutoX mode: In VNC over SSH mode, automatically discover existing and/or create new X-sessions using x11vnc! Works like NX client.
+&lt;br>
+- Free rotation support. Use Operating System to limit rotation if needed.
+&lt;br>
+- SSH Public/Private key-pair generation and export.
+&lt;br>
+- All standard VNC encodings, including Tight, ZRLE, and CopyRect.
+&lt;br>
+- Automatic Session saving.
+&lt;br>
+- Zoomable, Fit to Screen, and One to One scaling modes.
+&lt;br>
+- Multi-touch control over remote mouse in Direct and Simulated Touchpad input modes.
+&lt;br>
+- Full single-handed control over remote mouse in Single-Handed input mode.
+&lt;br>
+- Multi-touch mouse clicks: tap to Left-click, two-finger tap to right-click, three-finger-tap to middle click.
+&lt;br>
+- Multi-touch scrolling: two finger drag Up/Down, and Left/Right to scroll.
+&lt;br>
+- On-screen meta and arrow keys which can be completely disabled from menu or stowed with on-screen button.
+&lt;br>
+- Sending Text and arbitrary Key combinations when connected.
+&lt;br>
+- Help with creating connections (\"Menu->Connection Help\") in connection screen.
+&lt;br>
+- Help with input modes (\"Menu->More->Input Mode Help\") when connected.
+&lt;br>
+- Using an available trackpad as Arrows instead of moving the mouse, and trackpad click as Ctrl.
+&lt;br>
+- Switching to portrait mode during connections, rotating D-pad/trackpad for BT keyboards.
+&lt;br>
+- Multi-language support, as long as the VNC server has the necessary language layout enabled.
+&lt;br>
+- Copy/Paste integration
+&lt;br>
+- Remote machine resolution changes
+&lt;br>
+- Full mouse support on Android 4.0+ devices, including right and middle click and scroll wheel.
+&lt;br>
+&lt;br>
+Known issues:
+&lt;br>"
+</string>
+    <string name="intro_title">bVNC: Intuitive, secure VNC client</string>
+    <string name="intro_version_text"/>
+    <string name="keep_password_button">Keep</string>
+    <string name="keyboard_preferences">Keyboard</string>
+    <string name="keys_caption">Keys</string>
+    <string name="kilobytes_per_second">%1$s KB/s</string>
+    <string name="launch_button_text">Launch</string>
+    <string name="launch_textview_text">Launch into a GNURoot Debian terminal by hitting the button below.</string>
+    <string name="launch_x_button_text">Launch X</string>
+    <string name="launch_x_textview_text">Launch into a GNURoot Debian X terminal by hitting the button below.</string>
+    <string name="list_caption">List</string>
+    <string name="list_name_caption">List Name</string>
+    <string name="local_mouse_check">Local mouse pointer (select if pointer is invisible)</string>
+    <string name="main_screen_help">Connection Help</string>
+    <string name="main_screen_help_text">
+"When you first start bVNC, you will see a connection configuration page. Here you can set up a new VNC connection, or choose a preexisting one. The page is divided into two sections. The top section contains a drop-down list of the connection configurations you've created previously. The first time your run bVNC, you will only be able to make a new connection. Next to the list is a Connect button. The Connect button will start the VNC client with the currently selected configuration. Below that is where you configure your connection.
+
+If you are looking for a quick performance boost, try setting the Color mode to a lower value. Also, try removing any desktop background image on the VNC server. Finally, ensure your device has good network connectivity and avoid covering its antenna and reducing the signal strength.
+
+ - Connection Type: Here you choose the VNC connection type. Available connection types are:
+   (a) Plain VNC, which is  supported by all VNC servers but lacks encryption and is vulnerable to brute-force attacks due to an 8-character password limitation.
+   (b) Secure VNC over SSH, which connects over an encrypted SSH tunnel. You need an SSHD service running as well as a VNC server. As long as the VNC server does not accept connections directly from the Internet, this connection type suffers no known vulnerabilities, as long as you verify the server certificate signature when first connecting.
+   (c) UltraVNC, which gives you Windows Logon and UltraVNC Repeater options. Using Windows Logon does not suffer from the 8-character password limitation, but this mode offers no encryption, so your session is vulnerable to sniffing.
+   (d) Secure VNC over AnonTLS, which is regular VNC over a stunnel-equivalent connection. You either need to run stunnel, or use a VNC server like Vino which supports AnonTLS out of the box. This mode gives you session encryption, but suffers from the 8-character password limitation and does not prevent man-in-the-middle attacks.
+   (e) Secure VNC over VeNCrypt, which uses x509 certificates as well as session encryption, and depending on the server configuration can use user/password credentials with no 8-character limitation. This mode prevents man-in-the-middle attacks. as well as providing session privacy. Servers like x11vnc and TigerVNC support this mode and are as secure as VNC over SSH. 
+
+ - Title: Each connection you create can have a nickname to easily identify it on the list.
+ 
+ - SSH Tunnel Settings: Available in VNC over SSH mode.
+   (a) SSH Server/Port: The address and port of the SSH server that the connection will be tunnelled through. By default SSH listens on port 22.
+   (b) Username/Password: The username and password of the account on the SSH server. The password will be filled in on this page if you haven't quit bVNC since you last entered it.
+   (c) Manage Key/Use Key: A button to manage public/private keys, and a checkbox indicating whether to use a key rather than password to authenticate. If you use the Copy to Clipboard button after generating a key-pair, you should be able to paste the public key once connected to the VNC server (the clipboard is synchronized to the server).
+
+ - Configure AutoX: Available only in VNC over SSH mode. bVNC can automatically discover existing and optionally create new X sessions on UNIX systems (like NX client). You need x11vnc to find, and Xvfb, Xvnc, or Xdummy installed on the remote system to create sessions. You may have to move away your .dmrc file and add a .xinit file in your home directory if your desktop doesn't look proper or you are getting just an xterm window.
+
+ - VNC Connection Settings:
+   (a) VNC Server/Port: This is where you enter the host name or IP address and port of the computer running the VNC server that you wish to contact. In VNC over SSH mode, this address is as seen from the SSH Server. If the SSH Server and VNC server are the same computer, you can use localhost. VNC servers typically listen starting at port 5900 (the first VNC screen, screen :0).
+   (b) VNC User: Available in UltraVNC with Windows Logon mode, or Secure VNC over VeNCrypt, this is where you enter your Windows/UNIX account username.
+   (c) VNC Password: If your VNC server configuration requires a password, enter that password here. In UltraVNC with Windows Logon/VeNCrypt modes, put your Windows/UNIX account password here. Secure storage is not used for passwords, and the password will be stored only if you check the "Keep" box. The password will be filled in on this page if you haven't quit bVNC since you last entered it.
+
+ - Color Mode: The client supports several color modes. Modes with more colors provide a better visual experience at the expense of greater bandwidth and more CPU computation on your device. Some VNC servers do not support all color depths (e.g. OS/X Remote Desktop requires 24-bit color). If you are having trouble connecting, try another color depth.
+
+ - Use D-Pad for arrows: If you prefer, you can use the D-Pad of your Bluetooth keyboard or arrows on your on-screen keyboard to send arrows to the VNC server.
+
+ - Rotate D-Pad: Phones paired with a Bluetooth keyboard may need the keyboard's D-pad to be rotated anti-clockwise to send correct directions to the server.
+ 
+ - Local mouse pointer: Some VNC servers (e.g. OS/X Remote Desktop) will not draw the mouse pointer on the client. Checking this option will cause bVNC to draw a small square at the mouse position. 
+
+ - Auto/Fullscreen Bitmap: The VNC client uses a bitmap to represent the remote display. For very large remote displays, especially in fit-to-screen mode, you may experience strange visual artifacts when in fit-to-screen mode, due to per-process memory limitations. If that happens, try checking this option. Keep in mind that checking the option may cause bVNC to quit on connection.
+
+ - Repeater: Available only in UltraVNC mode. IMPORTANT: If you have an UltraVNC repeater, enter its address and port outside the \'UltraVNC Repeater\' dialog and enter the address and port of the actual VNC server inside the \'UltraVNC Repeater\' Dialog. Separate VNC server\'s address and port with a colon, e.g. 192.168.0.100:5900."</string>
+    <string name="master_password_disable">Disable Master Password</string>
+    <string name="master_password_enable">Enable Master Password</string>
+    <string name="master_password_error_failed_to_disable">Could not disable master password. Check free space on your device and try again.</string>
+    <string name="master_password_error_failed_to_enable">Could not enable master password. Check free space on your device and try again.</string>
+    <string name="master_password_error_intents_not_supported">Connection intents are not yet supported when Master Password is enabled.</string>
+    <string name="master_password_error_password_necessary">Master Password is required in order to continue.</string>
+    <string name="master_password_error_password_not_set">Setting Master Password was cancelled.</string>
+    <string name="master_password_error_shortcuts_not_supported">Short-cuts are not yet supported when Master Password is enabled.</string>
+    <string name="master_password_error_wrong_password">Could not authenticate with provided Master Password.</string>
+    <string name="master_password_hint_once">Enter Password</string>
+    <string name="master_password_hint_twice">Repeat Password</string>
+    <string name="master_password_set">Set Master Password</string>
+    <string name="master_password_set_error">Passwords do not match, please be careful!</string>
+    <string name="master_password_set_message">Please enter and memorize a Master Password. The longer your password, the harder it is to crack. If you set your password wrong or forget it, you will lose all your settings! You may want to export your settings now to back them up (from the Menu). Store them safely as exported settings are not encrypted.</string>
+    <string name="master_password_verify">Verify Master Password</string>
+    <string name="master_password_verify_message">Please enter correct Master Password to continue.</string>
+    <string name="menu_settings">Settings</string>
+    <string name="meta_key_title">Send Special Keys</string>
+    <string name="mouse_follow_pan">Mouse follows pan</string>
+    <string name="new_connection">New Connection</string>
+    <string name="new_list_button">New List</string>
+    <string name="new_window">New window</string>
+    <string name="next_window">Next window</string>
+    <string name="nickname_caption">Nickname</string>
+    <string name="nickname_caption_hint">Title (optional)</string>
+    <string name="notification_download_complete">Download complete</string>
+    <string name="notification_download_failed">Download unsuccessful</string>
+    <string name="off">Off</string>
+    <string name="one_to_one">One to One</string>
+    <string name="open_doc">Manual/Wiki</string>
+    <string name="pan_follow_mouse">Pan follows mouse</string>
+    <string name="password_caption">VNC Auth.</string>
+    <string name="password_caption_hint">VNC Password</string>
+    <string name="password_caption_ssh">SSH Auth.</string>
+    <string name="password_hint_ssh">SSH Password</string>
+    <string name="paste">Paste</string>
+    <string name="patch_button_text">Patch Installation</string>
+    <string name="patch_textview_text">Will patch GNURoot Debian with the latest set of improvements that don\'t require hitting the Install/Reinstall button.</string>
+    <string name="perm_append_to_path">Add commands to Terminal Emulator</string>
+    <string name="perm_prepend_to_path">Override commands in Terminal Emulator</string>
+    <string name="perm_run_script">Run arbitrary commands in Terminal Emulator</string>
+    <string name="permdesc_append_to_path">Allows application to provide additional commands (add directories to the PATH) for Terminal Emulator for Android.</string>
+    <string name="permdesc_prepend_to_path">Allows application to override existing commands with its own versions (prepend directories to the PATH) in Terminal Emulator for Android.</string>
+    <string name="permdesc_run_script">Allows application to open new windows in Terminal Emulator for Android and run commands in those windows with all of Terminal Emulator for Android\'s permissions, including access to the Internet and your SD Card.</string>
+    <string name="port_caption">VNC Port</string>
+    <string name="port_caption_ssh">SSH Port</string>
+    <string name="port_hint">Port</string>
+    <string name="port_ssh_hint">Port</string>
+    <string name="portrait_mode">Switch to portrait mode when connected</string>
+    <string name="pref_backaction_default" translatable="false">2</string>
+    <string name="pref_color_default" translatable="false">1</string>
+    <string name="pref_controlkey_default" translatable="false">5</string>
+    <string name="pref_cursorblink_default" translatable="false">0</string>
+    <string name="pref_cursorstyle_default" translatable="false">0</string>
+    <string name="pref_fnkey_default" translatable="false">4</string>
+    <string name="pref_fontsize_default" translatable="false">10</string>
+    <string name="pref_ime_default" translatable="false">0</string>
+    <string name="pref_initialcommand_default" translatable="false"/>
+    <string name="pref_shell_default" translatable="false">/system/bin/sh -</string>
+    <string name="pref_statusbar_default" translatable="false">1</string>
+    <string name="pref_termtype_default" translatable="false">screen</string>
+    <string name="preferences">Preferences</string>
+    <string name="prev_window">Prev window</string>
+    <string name="process_exit_message">Terminal session finished</string>
+    <string name="prompt_again">"(again)"</string>
+    <string name="prompt_bits">"Bits"</string>
+    <string name="prompt_destination">"Destination:"</string>
+    <string name="prompt_file_name">"Filename in Download directory"</string>
+    <string name="prompt_file_will_be_saved">"File will be saved to or read from Download directory."</string>
+    <string name="prompt_nickname">"Nickname"</string>
+    <string name="prompt_nickname_hint_pubkey">"My work key"</string>
+    <string name="prompt_old_password">"Old password:"</string>
+    <string name="prompt_passphrase">"Passphrase"</string>
+    <string name="prompt_password_can_be_blank">"Passphrase can be blank but generates non-encrypted keys"</string>
+    <string name="prompt_pubkey_password">"Password for key '%1$s'"</string>
+    <string name="prompt_source_port">"Source port:"</string>
+    <string name="prompt_type">"Type"</string>
+    <string name="pubkey_change_password">"Change password"</string>
+    <string name="pubkey_confirm_use">"Confirm before use"</string>
+    <string name="pubkey_copy">"Copy to Clipboard"</string>
+    <string name="pubkey_copy_private">"Copy private key"</string>
+    <string name="pubkey_copy_public">"Copy public key"</string>
+    <string name="pubkey_decrypt">"Decrypt Current Key"</string>
+    <string name="pubkey_delete">"Delete key"</string>
+    <string name="pubkey_export_private">"Export private key"</string>
+    <string name="pubkey_export_public">"Export public key"</string>
+    <string name="pubkey_failed_add">"Bad password for key '%1$s'. Authentication failed."</string>
+    <string name="pubkey_gather_entropy">"Gathering Entropy"</string>
+    <string name="pubkey_generate">"Generate New Key"</string>
+    <string name="pubkey_generated">"Successfully Generated key pair."</string>
+    <string name="pubkey_generating">"Generating key pair…"</string>
+    <string name="pubkey_import">"Import"</string>
+    <string name="pubkey_import_parse_problem">"Problem parsing imported private key"</string>
+    <string name="pubkey_list_empty">"Swipe down from beyond top edge"\n"to create or import key pairs."</string>
+    <string name="pubkey_list_pick">"Pick from /sdcard"</string>
+    <string name="pubkey_load_on_start">"Load key on start"</string>
+    <string name="pubkey_memory_load">"Load into memory"</string>
+    <string name="pubkey_memory_unload">"Unload from memory"</string>
+    <string name="pubkey_private_export_problem">Error exporting private key</string>
+    <string name="pubkey_private_export_success">Private key saved as %1$s</string>
+    <string name="pubkey_private_save_as">Save private key</string>
+    <string name="pubkey_private_save_as_desc">File name (full path) to save the private key</string>
+    <string name="pubkey_public_export_problem">Error exporting public key</string>
+    <string name="pubkey_public_export_success">Public key saved as %1$s</string>
+    <string name="pubkey_public_save_as">Save public key</string>
+    <string name="pubkey_public_save_as_desc">File name (full path) to save the public key</string>
+    <string name="pubkey_save">"Save Public Key to File"</string>
+    <string name="pubkey_share">"Share Public Key"</string>
+    <string name="pubkey_touch_hint">"In order to assure randomness during the key generation, move your finger randomly over the box below."</string>
+    <string name="pubkey_touch_prompt">"Touch this box to gather randomness: %1$d%% done"</string>
+    <string name="pubkey_unknown_format">"Unknown format"</string>
+    <string name="rdp_address_caption_hint">RDP Server</string>
+    <string name="rdp_adv_console_mode">Console Mode</string>
+    <string name="rdp_adv_desktop_background">Show desktop background</string>
+    <string name="rdp_adv_desktop_composition">Enable Desktop Composition</string>
+    <string name="rdp_adv_font_smoothing">Perform font smoothing</string>
+    <string name="rdp_adv_menu_animation">Show Menu Animations</string>
+    <string name="rdp_adv_redirect_sdcard">Redirect SD Card</string>
+    <string name="rdp_adv_remotefx">Enable RemoteFX</string>
+    <string name="rdp_adv_visual_styles">Enable Visual Styles</string>
+    <string name="rdp_adv_window_contents">Show window contents while dragging</string>
+    <string name="rdp_descript_geom">Remote Desktop Size (WxH)</string>
+    <string name="rdp_domain_hint">RDP Domain</string>
+    <string name="rdp_geom_custom">Custom</string>
+    <string name="rdp_geom_native_landscape">Native Landscape</string>
+    <string name="rdp_geom_native_portrait">Native Portrait</string>
+    <string name="rdp_intro_text">
+"Thank you for supporting aRDP and open-source software in general! For help with using aRDP, see the Help items in the Menu, and the description of the app in the market.
+&lt;br>
+&lt;br>
+Current list of aRDP features includes:
+&lt;br>
+- Plain RDP, RDP tunneled over SSH.
+&lt;br>
+- Free rotation support. Use Operating System to limit rotation if needed.
+&lt;br>
+- Setting of remote resolution, native resolution in landscape and portrait modes.
+&lt;br>
+- SSH Public/Private key-pair generation and export.
+&lt;br>
+- Automatic Session saving.
+&lt;br>
+- Zoomable, Fit to Screen, and One to One scaling modes.
+&lt;br>
+- Multi-touch control over remote mouse in Direct and Simulated Touchpad input modes.
+&lt;br>
+- Full single-handed control over remote mouse in Single-Handed input mode.
+&lt;br>
+- Multi-touch mouse clicks: tap to Left-click, two-finger tap to right-click, three-finger-tap to middle click.
+&lt;br>
+- Multi-touch scrolling: two finger drag Up/Down, and Left/Right to scroll.
+&lt;br>
+- On-screen meta and arrow keys which can be completely disabled from menu or stowed with on-screen button.
+&lt;br>
+- Sending Text and arbitrary Key combinations when connected.
+&lt;br>
+- Help with creating connections (\"Menu->Connection Help\") in connection screen.
+&lt;br>
+- Help with input modes (\"Menu->More->Input Mode Help\") when connected.
+&lt;br>
+- Using an available trackpad as Arrows instead of moving the mouse, and trackpad click as Ctrl, rotating D-pad/trackpad for BT keyboards.
+&lt;br>
+- Multi-language support, as long as the VNC server has the necessary language layout enabled.
+&lt;br>
+- Seamless remote machine resolution changes
+&lt;br>
+- Full mouse support on Android 4.0+ devices, including right and middle click and scroll wheel.
+&lt;br>
+&lt;br>
+Planned features of aRDP include:
+&lt;br>
+- A choice of color modes
+&lt;br>
+- Copy/Paste integration
+&lt;br>
+- Exporting settings
+&lt;br>
+- Sound
+&lt;br>
+&lt;br>
+Known issues:
+</string>
+    <string name="rdp_intro_title">aRDP: Intuitive, secure RDP client</string>
+    <string name="rdp_main_screen_help_text">
+"When you first start aRDP, you will see a connection configuration page. Here you can set up a new RDP connection, or choose a preexisting one. The page is divided into two sections. The top section contains a drop-down list of the connection configurations you've created previously. The first time your run aRDP, you will only be able to make a new connection. Next to the list is a Connect button. The Connect button will start the RDP client with the currently selected configuration. Below that is where you configure your connection.
+
+ - Connection Type: Here you choose the RDP connection type. Available connection types are:
+   (a) RDP, which connects directly to a computer over the RDP protocol.
+   (b) RDP over SSH, which first tunnels your connection through a computer running an SSH server.
+
+ - Title: Each connection you create can have a nickname to easily identify it on the list.
+ 
+ - SSH Tunnel Settings: Available in RDP over SSH mode.
+   (a) SSH Server/Port: The address and port of the SSH server that the connection will be tunnelled through. By default SSH listens on port 22.
+   (b) Username/Password: The username and password of the account on the SSH server. The password will be filled in on this page if you haven't quit bVNC since you last entered it.
+   (c) Manage Key/Use Key: A button to manage public/private keys, and a checkbox indicating whether to use a key rather than password to authenticate. If you use the Copy to Clipboard button after generating a key-pair, you should be able to paste the public key once connected to the VNC server (the clipboard is synchronized to the server).
+
+ - RDP Connection Settings:
+   (a) RDP Server/Port: This is where you enter the host name or IP address and port of the computer running the RDP server that you wish to contact. In RDP over SSH mode, this address is as seen from the SSH Server. If the SSH Server and RDP server are the same physical computer, you can use localhost. RDP servers typically listen on port 3389.
+   (b) RDP User: This is where you enter your Windows/UNIX account user name.
+   (c) RDP Domain: Enter the domain your account belongs to.
+   (d) RDP Password: This si where you enter your Windows/UNIX account password. Secure storage is not used for passwords (they are in a database), and the password will be stored only if you check the "Keep" box. The password will be filled in on this page if you haven't quit aRDP since you last entered it.
+
+ - Advanced settings: In this section you'll find a ways to customize the resolution of the desktop, and various RDP performance tweaks
+ 
+ - Local Device Tweaks: These adjust the behavior of aRDP on your device.
+   (a) Use D-Pad for arrows: If you prefer, you can use the D-Pad of your Bluetooth keyboard or arrows on your on-screen keyboard to send arrows to the RDP server.
+   (b) Rotate D-Pad: Phones paired with a Bluetooth keyboard may need the keyboard's D-pad to be rotated anti-clockwise to send correct directions to the server.
+   (c) Local mouse pointer: If the pointer is invisible, select this to force it to be drawn by aRDP.</string>
+    <string name="rdp_password_hint">RDP Password</string>
+    <string name="rdp_server_empty">RDP Server or port empty. Cannot connect!</string>
+    <string name="rdp_username_hint">RDP Username</string>
+    <string name="reconnect_button_text">Reconnect to X</string>
+    <string name="reconnect_textview_text">Reopen your X terms, if you have previously hit "Launch X", by hitting the button below.</string>
+    <string name="remote_sound_disabled">Sound Disabled</string>
+    <string name="remote_sound_on_device">Sound On Device</string>
+    <string name="remote_sound_on_server">Sound On Server</string>
+    <string name="repeater_button">UltraVNC Repeater</string>
+    <string name="repeater_caption">IMPORTANT: If using a UltraVNC repeater, enter its address and port outside this dialog. Here, enter the address and port of the actual VNC server. Separate the VNC server\'s address and port with a colon, e.g. 192.168.0.100:5900.</string>
+    <string name="repeater_caption_hint">UltraVNC Repeater</string>
+    <string name="repeater_clear">Don\'t Use</string>
+    <string name="repeater_dialog_title">VNC Server Behind Repeater</string>
+    <string name="repeater_empty_text">No repeater</string>
+    <string name="repeater_save">Use</string>
+    <string name="reset">Reset term</string>
+    <string name="reset_toast_notification">This window\'s terminal state has been reset.</string>
+    <string name="rotate_dpad">Rotate Bluetooth or software D-Pad</string>
+    <string name="save_as_copy">Save as Copy</string>
+    <string name="scaling">Scaling</string>
+    <string name="scaling_zoomable">Zoomable</string>
+    <string name="screen_preferences">Screen</string>
+    <string name="select_text">Select text</string>
+    <string name="send_button">Send</string>
+    <string name="send_control_key">Send control key</string>
+    <string name="send_email">Email to</string>
+    <string name="send_fn_key">Send fn key</string>
+    <string name="send_key_again">Send Key Again</string>
+    <string name="service_notify_text">Terminal session is running</string>
+    <string name="shell_preferences">Shell</string>
+    <string name="shift_check">Shift</string>
+    <string name="shortcut_label">VNC Connection</string>
+    <string name="showkbd_label">Keyboard</string>
+    <string name="single_cancel">Single-handed mode cancelled</string>
+    <string name="single_choose">Choose single-handed mode or cancel</string>
+    <string name="single_left">Left-drag mode - swipe to drag/select, lift finger to stop</string>
+    <string name="single_middle">Middle-drag mode - swipe to drag/select, lift finger to stop</string>
+    <string name="single_reposition">Mouse pointer repositioned for single-handed mode</string>
+    <string name="single_right">Right-drag mode - swipe to drag/select, lift finger to stop</string>
+    <string name="single_scroll">Scroll mode - swipe up/down to scroll, lift finger to stop</string>
+    <string name="single_zoom">Zoom mode - swipe up/down to zoom in/out, lift finger to stop</string>
+    <string name="snap_one_to_one">Snapped to 1:1 zoom</string>
+    <string name="special_keys">Special keys</string>
+    <string name="spice_address_caption_hint">SPICE Server</string>
+    <string name="spice_button_import_ca">Import CA</string>
+    <string name="spice_ca_cert_path_hint">Path to cert authority file</string>
+    <string name="spice_ca_file_error_reading">Error reading CA file. Please ensure it is readable.</string>
+    <string name="spice_ca_file_not_found">File not found. Please enter a valid file name in the text field (e.g. /sdcard/ca-cert.pem).</string>
+    <string name="spice_cert_subject_hint">Certificate Subject</string>
+    <string name="spice_intro_text">
+"Thank you for supporting aSPICE and open-source software in general! For help with using aSPICE, see the Help items in the Menu, and the description of the app in the market.
+&lt;br>
+&lt;br>
+Current list of aSPICE features includes:
+&lt;br>
+- Plain SPICE, SPICE tunneled over SSH.
+&lt;br>
+- Free rotation support. Use Operating System to limit rotation if needed.
+&lt;br>
+- SSH Public/Private key-pair generation and export.
+&lt;br>
+- Automatic Session saving.
+&lt;br>
+- Zoomable, Fit to Screen, and One to One scaling modes.
+&lt;br>
+- Multi-touch control over remote mouse in Direct and Simulated Touchpad input modes.
+&lt;br>
+- Full single-handed control over remote mouse in Single-Handed input mode.
+&lt;br>
+- Multi-touch mouse clicks: tap to Left-click, two-finger tap to right-click, three-finger-tap to middle click.
+&lt;br>
+- Multi-touch scrolling: two finger drag Up/Down, and Left/Right to scroll.
+&lt;br>
+- On-screen meta and arrow keys which can be completely disabled from menu or stowed with on-screen button.
+&lt;br>
+- Sending Text and arbitrary Key combinations when connected.
+&lt;br>
+- Help with creating connections (\"Menu->Connection Help\") in connection screen.
+&lt;br>
+- Help with input modes (\"Menu->More->Input Mode Help\") when connected.
+&lt;br>
+- Using an available trackpad as Arrows instead of moving the mouse, and trackpad click as Ctrl, rotating D-pad/trackpad for BT keyboards.
+&lt;br>
+- Multi-language support, as long as the VNC server has the necessary language layout enabled.
+&lt;br>
+- Seamless remote machine resolution changes
+&lt;br>
+- Full mouse support on Android 4.0+ devices, including right and middle click and scroll wheel.
+&lt;br>
+&lt;br>
+Planned features:
+&lt;br>
+- Copy/Paste integration
+&lt;br>
+- Sound
+&lt;br>
+- Performance improvements
+&lt;br>
+Known issues:
+&lt;br>
+- Send text does not send some symbols.
+&lt;br>
+</string>
+    <string name="spice_intro_title">aSPICE: Intuitive, secure SPICE client</string>
+    <string name="spice_main_screen_help_text">
+"When you first start aSPICE, you will see a connection configuration page. Here you can set up a new SPICE connection, or choose a preexisting one. The page is divided into two sections. The top section contains a drop-down list of the connection configurations you've created previously. The first time your run aSPICE, you will only be able to make a new connection. Next to the list is a Connect button. The Connect button will start the SPICE client with the currently selected configuration. Below that is where you configure your connection.
+
+ - Connection Type: Here you choose the SPICE connection type. Available connection types are:
+   (a) SPICE, which connects directly to a computer over the SPICE protocol.
+   (b) SPICE over SSH, which first tunnels your connection through a computer running an SSH server.
+
+ - Title: Each connection you create can have a nickname to easily identify it on the list.
+ 
+ - SSH Tunnel Settings: Available in SPICE over SSH mode.
+   (a) SSH Server/Port: The address and port of the SSH server that the connection will be tunnelled through. By default SSH listens on port 22.
+   (b) Username/Password: The username and password of the account on the SSH server. The password will be filled in on this page if you haven't quit bVNC since you last entered it.
+   (c) Manage Key/Use Key: A button to manage public/private keys, and a checkbox indicating whether to use a key rather than password to authenticate. If you use the Copy to Clipboard button after generating a key-pair, you should be able to paste the public key once connected to the VNC server (the clipboard is synchronized to the server).
+
+ - SPICE Connection Settings:
+   (a) SPICE Server/Port: This is where you enter the host name or IP address and port of the computer running the SPICE server that you wish to contact. In SPICE over SSH mode, this address is as seen from the SSH Server. If the SSH Server and SPICE server are the same physical computer, you can use localhost. SPICE servers typically listen on port 5900 and up.
+   (d) SPICE Password: This is where you enter the password set to protect your SPICE session. Secure storage is not used for passwords (they are in a database), and the password will be stored only if you check the "Keep" box. The password will be filled in on this page if you haven't quit aSPICE since you last entered it.
+
+ - Advanced settings: In this section you'll find any local device or SPICE performance tweaks
+ - Local Device Tweaks: These adjust the behavior of aSPICE on your device.
+   (a) Use D-Pad for arrows: If you prefer, you can use the D-Pad of your Bluetooth keyboard or arrows on your on-screen keyboard to send arrows to the SPICE server.
+   (b) Rotate D-Pad: Phones paired with a Bluetooth keyboard may need the keyboard's D-pad to be rotated anti-clockwise to send correct directions to the server.
+   (c) Local mouse pointer: If the pointer is invisible, select this to force it to be drawn by aSPICE.</string>
+    <string name="spice_password_hint">SPICE Password</string>
+    <string name="spice_server_empty">SPICE Server or port empty. Cannot connect!</string>
+    <string name="spice_tls_port_hint">TLS Port</string>
+    <string name="spice_username_hint">SPICE Username</string>
+    <string name="ssh_passphrase_hint">SSH Passphrase</string>
+    <string name="ssh_pubkey_button">Manage Key</string>
+    <string name="ssh_use_pubkey">Use Key</string>
+    <string name="ssh_use_x11vnc">Auto Desktop</string>
+    <string name="ssh_x11vnc_customize">Configure AutoX</string>
+    <string name="state_completed">Download finished</string>
+    <string name="state_connecting">Connecting to the download server</string>
+    <string name="state_downloading">Downloading resources</string>
+    <string name="state_failed">Download failed</string>
+    <string name="state_failed_cancelled">Download cancelled</string>
+    <string name="state_failed_fetching_url">Download failed because the resources could not be found</string>
+    <string name="state_failed_sdcard_full">Download failed because the external storage is full</string>
+    <string name="state_failed_unlicensed">Download failed because you may not have purchased this app</string>
+    <string name="state_fetching_url">Looking for resources to download</string>
+    <string name="state_idle">Waiting for download to start</string>
+    <string name="state_paused_by_request">Download paused</string>
+    <string name="state_paused_network_setup_failure">Download paused. Test a website in browser</string>
+    <string name="state_paused_network_unavailable">Download paused because no network is available</string>
+    <string name="state_paused_roaming">Download paused because you are roaming</string>
+    <string name="state_paused_sdcard_unavailable">Download paused because the external storage is unavailable</string>
+    <string name="state_paused_wifi_disabled">Download paused because wifi is disabled</string>
+    <string name="state_paused_wifi_unavailable">Download paused because wifi is unavailable</string>
+    <string name="state_unknown">Starting..."</string>
+    <string name="summary_actionbar_preference">Choose the action bar\'s behavior (Android 3.0 and up).</string>
+    <string name="summary_allow_prepend_path_preference">Whether other apps should be allowed to override existing commands (add to the beginning of PATH).</string>
+    <string name="summary_backaction_preference">Choose what pressing the back button does.</string>
+    <string name="summary_close_window_on_process_exit_preference">Whether a window should close when its shell exits.</string>
+    <string name="summary_color_preference">Choose text color.</string>
+    <string name="summary_controlkey_preference">Choose control key.</string>
+    <string name="summary_cursorblink_preference">Choose cursor blink.</string>
+    <string name="summary_cursorstyle_preference">Choose cursor style.</string>
+    <string name="summary_do_path_extensions_preference">Whether other apps should be allowed to provide additional commands (add to PATH).</string>
+    <string name="summary_fnkey_preference">Choose Fn key.</string>
+    <string name="summary_fontsize_preference">Choose character height in points.</string>
+    <string name="summary_home_path_preference">Path to a writable folder to be used as HOME.</string>
+    <string name="summary_ime_preference">Choose input method for soft keyboard.</string>
+    <string name="summary_initialcommand_preference">Sent to the shell when it starts.</string>
+    <string name="summary_mouse_tracking_preference">Whether tap and scroll events should be sent as escape sequences to the terminal.</string>
+    <string name="summary_orientation_preference">Choose the screen orientation behavior.</string>
+    <string name="summary_shell_preference">Specify the shell command line.</string>
+    <string name="summary_statusbar_preference">Show/hide status bar.</string>
+    <string name="summary_termtype_preference">What terminal type to report to the shell.</string>
+    <string name="summary_utf8_by_default_preference">Whether UTF-8 mode is enabled by default.</string>
+    <string name="summary_verify_path_preference">Whether inaccessible directories should be removed from the PATH.</string>
+    <string name="super_check">Super</string>
+    <string name="tap_disable">Disable</string>
+    <string name="tap_enable">Enable</string>
+    <string name="text_button_cancel">Cancel</string>
+    <string name="text_button_pause">Pause Download</string>
+    <string name="text_button_resume">Resume Download</string>
+    <string name="text_button_resume_cellular">Resume download</string>
+    <string name="text_button_wifi_settings">Wi-Fi settings</string>
+    <string name="text_paused_cellular">Would you like to enable downloading over cellular connections? Depending on your data plan, this may cost you money.</string>
+    <string name="text_paused_cellular_2">If you choose not to enable downloading over cellular connections, the download will automatically resume when wi-fi is available.</string>
+    <string name="text_preferences">Text</string>
+    <string name="time_remaining">Time remaining: %1$s</string>
+    <string name="time_remaining_notification">%1$s left</string>
+    <string name="title_actionbar_preference">Action bar</string>
+    <string name="title_activity_pubkey_generator">PubkeyGeneratorActivity</string>
+    <string name="title_allow_prepend_path_preference">Allow PATH prepend</string>
+    <string name="title_backaction_preference">Back button behavior</string>
+    <string name="title_close_window_on_process_exit_preference">Close window on exit</string>
+    <string name="title_color_preference">Colors</string>
+    <string name="title_controlkey_preference">Control key</string>
+    <string name="title_cursorblink_preference">Cursor blink</string>
+    <string name="title_cursorstyle_preference">Cursor style</string>
+    <string name="title_do_path_extensions_preference">Allow PATH extensions</string>
+    <string name="title_fnkey_preference">Fn key</string>
+    <string name="title_fontsize_preference">Font size</string>
+    <string name="title_home_path_preference">HOME folder</string>
+    <string name="title_ime_preference">Input method</string>
+    <string name="title_initialcommand_preference">Initial command</string>
+    <string name="title_mouse_tracking_preference">Send mouse events</string>
+    <string name="title_orientation_preference">Screen orientation</string>
+    <string name="title_shell_preference">Command line</string>
+    <string name="title_statusbar_preference">Status bar</string>
+    <string name="title_termtype_preference">Terminal type</string>
+    <string name="title_use_keyboard_shortcuts">Use Keyboard Shortcuts</string>
+    <string name="title_utf8_by_default_preference">Default to UTF-8</string>
+    <string name="title_verify_path_preference">Verify PATH entries</string>
+    <string name="toggle_soft_keyboard">Toggle soft keyboard</string>
+    <string name="use_keyboard_shortcuts_summary_off">Keyboard shortcuts disabled.</string>
+    <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: cycle window, Ctrl-Shift-N: new window, Ctrl-Shift-V: paste.</string>
+    <string name="username_caption">VNC User</string>
+    <string name="username_hint">UltraVNC MS Logon Username</string>
+    <string name="username_hint_optional">VNC Username (optional)</string>
+    <string name="username_hint_ssh">SSH Username</string>
+    <string name="username_hint_vencrypt">VNC Username</string>
+    <string name="view_only">View-only mode</string>
+    <string name="vnc_server_empty">VNC Server or port empty. Cannot connect!</string>
+    <string name="warning_cert_does_not_match">WARNING: The saved x509 certificate or passed in signature does not match the current server certificate! This could be a man-in-the-middle attack. If you are aware of the key change you may proceed. </string>
+    <string name="window_list">Windows</string>
+    <string name="window_title">Window %1$d</string>
+    <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="Base.Animation.AppCompat.DropDownUp" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/abc_grow_fade_in_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/abc_shrink_fade_out_from_bottom</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance">
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textColorHint">?android:textColorHint</item>
+        <item name="android:textColorHighlight">?android:textColorHighlight</item>
+        <item name="android:textColorLink">?android:textColorLink</item>
+        <item name="android:textSize">@dimen/abc_text_size_body_1_material</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/abc_text_size_body_1_material</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Body2">
+        <item name="android:textSize">@dimen/abc_text_size_body_2_material</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Button">
+        <item name="android:textSize">@dimen/abc_text_size_button_material</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">@dimen/abc_text_size_caption_material</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Display1">
+        <item name="android:textSize">@dimen/abc_text_size_display_1_material</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Display2">
+        <item name="android:textSize">@dimen/abc_text_size_display_2_material</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Display3">
+        <item name="android:textSize">@dimen/abc_text_size_display_3_material</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Display4">
+        <item name="android:textSize">@dimen/abc_text_size_display_4_material</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Headline">
+        <item name="android:textSize">@dimen/abc_text_size_headline_material</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Inverse">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Large">
+        <item name="android:textSize">@dimen/abc_text_size_large_material</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Large.Inverse">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Large" parent="TextAppearance.AppCompat.Menu">
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Small" parent="TextAppearance.AppCompat.Menu">
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">@dimen/abc_text_size_medium_material</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Medium.Inverse">
+        <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Menu">
+        <item name="android:textSize">@dimen/abc_text_size_menu_material</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.SearchResult" parent="">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textColorHint">?android:textColorHint</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.SearchResult.Subtitle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.SearchResult.Title">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Small">
+        <item name="android:textSize">@dimen/abc_text_size_small_material</item>
+        <item name="android:textColor">?android:attr/textColorTertiary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Small.Inverse">
+        <item name="android:textColor">?android:attr/textColorTertiaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Subhead">
+        <item name="android:textSize">@dimen/abc_text_size_subhead_material</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Subhead.Inverse">
+        <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">@dimen/abc_text_size_title_material</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Title.Inverse">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Menu" parent="android:TextAppearance.Small">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/actionMenuTextColor</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Subtitle" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:textSize">@dimen/abc_text_size_subtitle_material_toolbar</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Inverse" parent="TextAppearance.AppCompat.Subhead.Inverse">
+        <item name="android:textSize">@dimen/abc_text_size_subtitle_material_toolbar</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">@dimen/abc_text_size_title_material_toolbar</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse" parent="TextAppearance.AppCompat.Title.Inverse">
+        <item name="android:textSize">@dimen/abc_text_size_title_material_toolbar</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Widget.ActionMode.Subtitle" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:textSize">@dimen/abc_text_size_subtitle_material_toolbar</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Widget.ActionMode.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">@dimen/abc_text_size_title_material_toolbar</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Widget.DropDownItem" parent="android:TextAppearance.Small">
+        <item name="android:textColor">?android:attr/textColorPrimaryDisableOnly</item>
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Widget.PopupMenu.Large" parent="TextAppearance.AppCompat.Menu">
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Widget.PopupMenu.Small" parent="TextAppearance.AppCompat.Menu">
+    </style>
+    <style name="Base.TextAppearance.AppCompat.Widget.Switch" parent="TextAppearance.AppCompat.Button"/>
+    <style name="Base.TextAppearance.AppCompat.Widget.TextView.SpinnerItem" parent="TextAppearance.AppCompat.Menu"/>
+    <style name="Base.TextAppearance.Widget.AppCompat.ExpandedMenu.Item" parent="android:TextAppearance.Medium">
+        <item name="android:textColor">?android:attr/textColorPrimaryDisableOnly</item>
+    </style>
+    <style name="Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Subtitle">
+    </style>
+    <style name="Base.TextAppearance.Widget.AppCompat.Toolbar.Title" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+    </style>
+    <style name="Base.Theme.AppCompat" parent="Base.V7.Theme.AppCompat">
+    </style>
+    <style name="Base.Theme.AppCompat.CompactMenu" parent="">
+        <item name="android:itemTextAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:listViewStyle">@style/Widget.AppCompat.ListView.Menu</item>
+        <item name="android:windowAnimationStyle">@style/Animation.AppCompat.DropDownUp</item>
+    </style>
+    <style name="Base.Theme.AppCompat.Dialog" parent="Base.V7.Theme.AppCompat.Dialog"/>
+    <style name="Base.Theme.AppCompat.Dialog.FixedSize">
+        <item name="windowFixedWidthMajor">@dimen/dialog_fixed_width_major</item>
+        <item name="windowFixedWidthMinor">@dimen/dialog_fixed_width_minor</item>
+        <item name="windowFixedHeightMajor">@dimen/dialog_fixed_height_major</item>
+        <item name="windowFixedHeightMinor">@dimen/dialog_fixed_height_minor</item>
+    </style>
+    <style name="Base.Theme.AppCompat.DialogWhenLarge" parent="Theme.AppCompat"/>
+    <style name="Base.Theme.AppCompat.Light" parent="Base.V7.Theme.AppCompat.Light">
+    </style>
+    <style name="Base.Theme.AppCompat.Light.DarkActionBar" parent="Base.Theme.AppCompat.Light">
+        <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="actionBarWidgetTheme">@null</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+
+        <!-- Panel attributes -->
+        <item name="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
+
+        <item name="colorPrimaryDark">@color/primary_dark_material_dark</item>
+        <item name="colorPrimary">@color/primary_material_dark</item>
+    </style>
+    <style name="Base.Theme.AppCompat.Light.Dialog" parent="Base.Theme.AppCompat.Dialog"/>
+    <style name="Base.Theme.AppCompat.Light.Dialog.FixedSize">
+        <item name="windowFixedWidthMajor">@dimen/dialog_fixed_width_major</item>
+        <item name="windowFixedWidthMinor">@dimen/dialog_fixed_width_minor</item>
+        <item name="windowFixedHeightMajor">@dimen/dialog_fixed_height_major</item>
+        <item name="windowFixedHeightMinor">@dimen/dialog_fixed_height_minor</item>
+    </style>
+    <style name="Base.Theme.AppCompat.Light.DialogWhenLarge" parent="Theme.AppCompat.Light"/>
+    <style name="Base.ThemeOverlay.AppCompat" parent=""/>
+    <style name="Base.ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="Base.ThemeOverlay.AppCompat.Dark">
+        <item name="android:windowBackground">@color/background_material_dark</item>
+        <item name="android:colorForeground">@color/bright_foreground_material_dark</item>
+        <item name="android:colorForegroundInverse">@color/bright_foreground_material_light</item>
+        <item name="android:colorBackground">@color/background_material_dark</item>
+        <item name="android:colorBackgroundCacheHint">@color/abc_background_cache_hint_selector_material_dark</item>
+
+        <item name="android:textColorPrimary">@color/abc_primary_text_material_dark</item>
+        <item name="android:textColorPrimaryInverse">@color/abc_primary_text_material_light</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/abc_primary_text_disable_only_material_dark</item>
+        <item name="android:textColorSecondary">@color/abc_secondary_text_material_dark</item>
+        <item name="android:textColorSecondaryInverse">@color/abc_secondary_text_material_light</item>
+        <item name="android:textColorTertiary">@color/abc_secondary_text_material_dark</item>
+        <item name="android:textColorTertiaryInverse">@color/abc_secondary_text_material_light</item>
+        <item name="android:textColorHint">@color/hint_foreground_material_dark</item>
+        <item name="android:textColorHintInverse">@color/hint_foreground_material_light</item>
+        <item name="android:textColorHighlight">@color/highlighted_text_material_dark</item>
+        <item name="android:textColorLink">@color/link_text_material_dark</item>
+
+        <!-- Action Bar styles -->
+        <item name="actionBarItemBackground">@drawable/abc_item_background_holo_dark</item>
+        <item name="actionDropDownStyle">@style/Widget.AppCompat.Spinner.DropDown.ActionBar</item>
+        <item name="selectableItemBackground">@drawable/abc_item_background_holo_dark</item>
+
+        <!-- SearchView styles -->
+        <item name="android:autoCompleteTextViewStyle">@style/Widget.AppCompat.AutoCompleteTextView</item>
+        <item name="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+
+        <item name="colorControlNormal">?android:attr/textColorSecondary</item>
+        <item name="colorControlHighlight">@color/ripple_material_dark</item>
+        <item name="colorSwitchThumbNormal">@color/switch_thumb_normal_material_dark</item>
+
+        <!-- Used by MediaRouter -->
+        <item name="isLightTheme">false</item>
+    </style>
+    <style name="Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlNormal">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="Base.ThemeOverlay.AppCompat.Light">
+        <item name="android:windowBackground">@color/background_material_light</item>
+        <item name="android:colorForeground">@color/bright_foreground_material_light</item>
+        <item name="android:colorForegroundInverse">@color/bright_foreground_material_dark</item>
+        <item name="android:colorBackground">@color/background_material_light</item>
+        <item name="android:colorBackgroundCacheHint">@color/abc_background_cache_hint_selector_material_light</item>
+
+        <item name="android:textColorPrimary">@color/abc_primary_text_material_light</item>
+        <item name="android:textColorPrimaryInverse">@color/abc_primary_text_material_dark</item>
+        <item name="android:textColorSecondary">@color/abc_secondary_text_material_light</item>
+        <item name="android:textColorSecondaryInverse">@color/abc_secondary_text_material_dark</item>
+        <item name="android:textColorTertiary">@color/abc_secondary_text_material_light</item>
+        <item name="android:textColorTertiaryInverse">@color/abc_secondary_text_material_dark</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/abc_primary_text_disable_only_material_light</item>
+        <item name="android:textColorPrimaryInverseDisableOnly">@color/abc_primary_text_disable_only_material_dark</item>
+        <item name="android:textColorHint">@color/hint_foreground_material_light</item>
+        <item name="android:textColorHintInverse">@color/hint_foreground_material_dark</item>
+        <item name="android:textColorHighlight">@color/highlighted_text_material_light</item>
+        <item name="android:textColorLink">@color/link_text_material_light</item>
+
+        <item name="actionBarItemBackground">@drawable/abc_item_background_holo_light</item>
+        <item name="actionDropDownStyle">@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar</item>
+        <item name="selectableItemBackground">@drawable/abc_item_background_holo_light</item>
+
+        <!-- SearchView attributes -->
+        <item name="android:autoCompleteTextViewStyle">@style/Widget.AppCompat.Light.AutoCompleteTextView</item>
+        <item name="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+
+        <item name="colorControlNormal">?android:attr/textColorSecondary</item>
+        <item name="colorControlHighlight">@color/ripple_material_light</item>
+        <item name="colorSwitchThumbNormal">@color/switch_thumb_normal_material_light</item>
+
+        <!-- Used by MediaRouter -->
+        <item name="isLightTheme">true</item>
+    </style>
+    <style name="Base.V7.Theme.AppCompat" parent="Platform.AppCompat">
+        <item name="windowActionBar">true</item>
+        <item name="windowActionBarOverlay">false</item>
+
+        <!-- Used by MediaRouter -->
+        <item name="isLightTheme">false</item>
+
+        <item name="selectableItemBackground">@drawable/abc_item_background_holo_dark</item>
+        <item name="selectableItemBackgroundBorderless">?attr/selectableItemBackground</item>
+        <item name="homeAsUpIndicator">@drawable/abc_ic_ab_back_mtrl_am_alpha</item>
+
+        <item name="dividerVertical">@drawable/abc_list_divider_mtrl_alpha</item>
+        <item name="dividerHorizontal">@drawable/abc_list_divider_mtrl_alpha</item>
+
+        <!-- Action Bar Styles -->
+        <item name="actionBarTabStyle">@style/Widget.AppCompat.ActionBar.TabView</item>
+        <item name="actionBarTabBarStyle">@style/Widget.AppCompat.ActionBar.TabBar</item>
+        <item name="actionBarTabTextStyle">@style/Widget.AppCompat.ActionBar.TabText</item>
+        <item name="actionButtonStyle">@style/Widget.AppCompat.ActionButton</item>
+        <item name="actionOverflowButtonStyle">@style/Widget.AppCompat.ActionButton.Overflow</item>
+        <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.PopupMenu.Overflow</item>
+        <item name="actionBarStyle">@style/Widget.AppCompat.ActionBar.Solid</item>
+        <item name="actionBarSplitStyle">?attr/actionBarStyle</item>
+        <item name="actionBarWidgetTheme">@null</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+        <item name="actionBarSize">@dimen/abc_action_bar_default_height_material</item>
+        <item name="actionBarDivider">?attr/dividerVertical</item>
+        <item name="actionBarItemBackground">?attr/selectableItemBackgroundBorderless</item>
+        <item name="actionMenuTextAppearance">@style/TextAppearance.AppCompat.Widget.ActionBar.Menu</item>
+        <item name="actionMenuTextColor">?android:attr/textColorPrimaryDisableOnly</item>
+
+        <!-- Dropdown Spinner Attributes -->
+        <item name="actionDropDownStyle">@style/Widget.AppCompat.Spinner.DropDown.ActionBar</item>
+
+        <!-- Action Mode -->
+        <item name="actionModeStyle">@style/Widget.AppCompat.ActionMode</item>
+        <item name="actionModeBackground">@drawable/abc_cab_background_top_material</item>
+        <item name="actionModeSplitBackground">?attr/colorPrimaryDark</item>
+        <item name="actionModeCloseDrawable">@drawable/abc_ic_ab_back_mtrl_am_alpha</item>
+        <item name="actionModeCloseButtonStyle">@style/Widget.AppCompat.ActionButton.CloseMode</item>
+
+        <item name="actionModeCutDrawable">@drawable/abc_ic_menu_cut_mtrl_alpha</item>
+        <item name="actionModeCopyDrawable">@drawable/abc_ic_menu_copy_mtrl_am_alpha</item>
+        <item name="actionModePasteDrawable">@drawable/abc_ic_menu_paste_mtrl_am_alpha</item>
+        <item name="actionModeSelectAllDrawable">@drawable/abc_ic_menu_selectall_mtrl_alpha</item>
+        <item name="actionModeShareDrawable">@drawable/abc_ic_menu_share_mtrl_alpha</item>
+
+        <!-- Panel attributes -->
+        <item name="panelMenuListWidth">@dimen/abc_panel_menu_list_width</item>
+        <item name="panelMenuListTheme">@style/Theme.AppCompat.CompactMenu</item>
+        <item name="panelBackground">@drawable/abc_menu_hardkey_panel_mtrl_mult</item>
+        <item name="android:panelBackground">@android:color/transparent</item>
+        <item name="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
+
+        <!-- List attributes -->
+        <item name="textAppearanceListItem">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="textAppearanceListItemSmall">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="listPreferredItemHeight">64dp</item>
+        <item name="listPreferredItemHeightSmall">48dp</item>
+        <item name="listPreferredItemHeightLarge">80dp</item>
+        <item name="listPreferredItemPaddingLeft">16dip</item>
+        <item name="listPreferredItemPaddingRight">16dip</item>
+
+        <!-- Required for use of support_simple_spinner_dropdown_item.xml -->
+        <item name="spinnerDropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item name="dropdownListPreferredItemHeight">?attr/listPreferredItemHeightSmall</item>
+
+        <!-- Popup Menu styles -->
+        <item name="popupMenuStyle">@style/Widget.AppCompat.PopupMenu</item>
+        <item name="textAppearanceLargePopupMenu">@style/TextAppearance.AppCompat.Widget.PopupMenu.Large</item>
+        <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.AppCompat.Widget.PopupMenu.Small</item>
+        <item name="listPopupWindowStyle">@style/Widget.AppCompat.ListPopupWindow</item>
+        <item name="dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
+
+        <!-- SearchView attributes -->
+        <item name="searchViewStyle">@style/Widget.AppCompat.SearchView</item>
+        <item name="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item name="textColorSearchUrl">@color/abc_search_url_text</item>
+        <item name="textAppearanceSearchResultTitle">@style/TextAppearance.AppCompat.SearchResult.Title</item>
+        <item name="textAppearanceSearchResultSubtitle">@style/TextAppearance.AppCompat.SearchResult.Subtitle</item>
+
+        <!-- ShareActionProvider attributes -->
+        <item name="activityChooserViewStyle">@style/Widget.AppCompat.ActivityChooserView</item>
+
+        <!-- Toolbar styles -->
+        <item name="toolbarStyle">@style/Widget.AppCompat.Toolbar</item>
+        <item name="toolbarNavigationButtonStyle">@style/Widget.AppCompat.Toolbar.Button.Navigation</item>
+
+        <item name="android:editTextStyle">@style/Widget.AppCompat.EditText</item>
+        <item name="editTextBackground">@drawable/abc_edit_text_material</item>
+        <item name="editTextColor">?android:attr/textColorPrimary</item>
+        <item name="android:autoCompleteTextViewStyle">@style/Widget.AppCompat.AutoCompleteTextView</item>
+
+        <!-- Color palette -->
+        <item name="colorPrimaryDark">@color/primary_dark_material_dark</item>
+        <item name="colorPrimary">@color/primary_material_dark</item>
+        <item name="colorAccent">@color/accent_material_dark</item>
+
+        <item name="colorControlNormal">?android:attr/textColorSecondary</item>
+        <item name="colorControlActivated">?attr/colorAccent</item>
+        <item name="colorControlHighlight">@color/ripple_material_dark</item>
+        <item name="colorButtonNormal">@color/button_material_dark</item>
+        <item name="colorSwitchThumbNormal">@color/switch_thumb_normal_material_dark</item>
+
+        <item name="drawerArrowStyle">@style/Widget.AppCompat.DrawerArrowToggle</item>
+
+        <item name="switchStyle">@style/Widget.AppCompat.CompoundButton.Switch</item>
+
+        <item name="android:ratingBarStyle">@style/Widget.AppCompat.RatingBar</item>
+
+        <!-- Button styles -->
+        <item name="android:buttonStyle">@style/Widget.AppCompat.Button</item>
+        <item name="android:buttonStyleSmall">@style/Widget.AppCompat.Button.Small</item>
+        <item name="android:textAppearanceButton">@style/TextAppearance.AppCompat.Button</item>
+    </style>
+    <style name="Base.V7.Theme.AppCompat.Dialog" parent="Platform.AppCompat.Dialog">
+        <item name="windowActionBar">true</item>
+        <item name="windowActionBarOverlay">false</item>
+        <item name="isLightTheme">false</item>
+
+        <item name="selectableItemBackground">@drawable/abc_item_background_holo_dark</item>
+        <item name="selectableItemBackgroundBorderless">?attr/selectableItemBackground</item>
+        <item name="homeAsUpIndicator">@drawable/abc_ic_ab_back_mtrl_am_alpha</item>
+
+        <item name="dividerVertical">@drawable/abc_list_divider_mtrl_alpha</item>
+        <item name="dividerHorizontal">@drawable/abc_list_divider_mtrl_alpha</item>
+
+        <!-- Action Bar Styles -->
+        <item name="actionBarTabStyle">@style/Widget.AppCompat.ActionBar.TabView</item>
+        <item name="actionBarTabBarStyle">@style/Widget.AppCompat.ActionBar.TabBar</item>
+        <item name="actionBarTabTextStyle">@style/Widget.AppCompat.ActionBar.TabText</item>
+        <item name="actionButtonStyle">@style/Widget.AppCompat.ActionButton</item>
+        <item name="actionOverflowButtonStyle">@style/Widget.AppCompat.ActionButton.Overflow</item>
+        <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.PopupMenu.Overflow</item>
+        <item name="actionBarStyle">@style/Widget.AppCompat.ActionBar.Solid</item>
+        <item name="actionBarSplitStyle">?attr/actionBarStyle</item>
+        <item name="actionBarWidgetTheme">@null</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+        <item name="actionBarSize">@dimen/abc_action_bar_default_height_material</item>
+        <item name="actionBarDivider">?attr/dividerVertical</item>
+        <item name="actionBarItemBackground">?attr/selectableItemBackground</item>
+        <item name="actionMenuTextAppearance">@style/TextAppearance.AppCompat.Widget.ActionBar.Menu</item>
+        <item name="actionMenuTextColor">?android:attr/textColorPrimaryDisableOnly</item>
+
+        <!-- Dropdown Spinner Attributes -->
+        <item name="actionDropDownStyle">@style/Widget.AppCompat.Spinner.DropDown.ActionBar</item>
+
+        <!-- Action Mode -->
+        <item name="actionModeStyle">@style/Widget.AppCompat.ActionMode</item>
+        <item name="actionModeBackground">@drawable/abc_cab_background_top_material</item>
+        <item name="actionModeSplitBackground">?attr/colorPrimaryDark</item>
+        <item name="actionModeCloseDrawable">@drawable/abc_ic_ab_back_mtrl_am_alpha</item>
+        <item name="actionModeCloseButtonStyle">@style/Widget.AppCompat.ActionButton.CloseMode</item>
+
+        <item name="actionModeCutDrawable">@drawable/abc_ic_menu_cut_mtrl_alpha</item>
+        <item name="actionModeCopyDrawable">@drawable/abc_ic_menu_copy_mtrl_am_alpha</item>
+        <item name="actionModePasteDrawable">@drawable/abc_ic_menu_paste_mtrl_am_alpha</item>
+        <item name="actionModeSelectAllDrawable">@drawable/abc_ic_menu_selectall_mtrl_alpha</item>
+        <item name="actionModeShareDrawable">@drawable/abc_ic_menu_share_mtrl_alpha</item>
+
+        <!-- Panel attributes -->
+        <item name="panelMenuListWidth">@dimen/abc_panel_menu_list_width</item>
+        <item name="panelMenuListTheme">@style/Theme.AppCompat.CompactMenu</item>
+        <item name="panelBackground">@drawable/abc_menu_hardkey_panel_mtrl_mult</item>
+        <item name="android:panelBackground">@android:color/transparent</item>
+        <item name="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
+
+        <!-- List attributes -->
+        <item name="textAppearanceListItem">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="textAppearanceListItemSmall">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="listPreferredItemHeight">64dp</item>
+        <item name="listPreferredItemHeightSmall">48dp</item>
+        <item name="listPreferredItemHeightLarge">80dp</item>
+        <item name="listPreferredItemPaddingLeft">16dip</item>
+        <item name="listPreferredItemPaddingRight">16dip</item>
+
+        <!-- Required for use of support_simple_spinner_dropdown_item.xml -->
+        <item name="spinnerDropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item name="dropdownListPreferredItemHeight">?attr/listPreferredItemHeightSmall</item>
+
+        <!-- Popup Menu styles -->
+        <item name="popupMenuStyle">@style/Widget.AppCompat.PopupMenu</item>
+        <item name="textAppearanceLargePopupMenu">@style/TextAppearance.AppCompat.Widget.PopupMenu.Large</item>
+        <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.AppCompat.Widget.PopupMenu.Small</item>
+        <item name="listPopupWindowStyle">@style/Widget.AppCompat.ListPopupWindow</item>
+        <item name="dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
+
+        <!-- SearchView attributes -->
+        <item name="searchViewStyle">@style/Widget.AppCompat.SearchView</item>
+        <item name="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item name="textColorSearchUrl">@color/abc_search_url_text</item>
+        <item name="textAppearanceSearchResultTitle">@style/TextAppearance.AppCompat.SearchResult.Title</item>
+        <item name="textAppearanceSearchResultSubtitle">@style/TextAppearance.AppCompat.SearchResult.Subtitle</item>
+
+        <!-- ShareActionProvider attributes -->
+        <item name="activityChooserViewStyle">@style/Widget.AppCompat.ActivityChooserView</item>
+
+        <!-- Toolbar styles -->
+        <item name="toolbarStyle">@style/Widget.AppCompat.Toolbar</item>
+        <item name="toolbarNavigationButtonStyle">@style/Widget.AppCompat.Toolbar.Button.Navigation</item>
+
+        <item name="android:editTextStyle">@style/Widget.AppCompat.EditText</item>
+        <item name="editTextBackground">@drawable/abc_edit_text_material</item>
+        <item name="editTextColor">?android:attr/textColorPrimary</item>
+        <item name="android:autoCompleteTextViewStyle">@style/Widget.AppCompat.AutoCompleteTextView</item>
+
+        <!-- Color palette -->
+        <item name="colorPrimaryDark">@color/primary_dark_material_dark</item>
+        <item name="colorPrimary">@color/primary_material_dark</item>
+        <item name="colorAccent">@color/accent_material_dark</item>
+
+        <item name="colorControlNormal">?android:attr/textColorSecondary</item>
+        <item name="colorControlActivated">?attr/colorAccent</item>
+        <item name="colorControlHighlight">@color/ripple_material_dark</item>
+        <item name="colorButtonNormal">@color/button_material_dark</item>
+        <item name="colorSwitchThumbNormal">@color/switch_thumb_normal_material_dark</item>
+
+        <item name="switchStyle">@style/Widget.AppCompat.CompoundButton.Switch</item>
+
+        <item name="android:ratingBarStyle">@style/Widget.AppCompat.RatingBar</item>
+
+        <!-- Button styles -->
+        <item name="android:buttonStyle">@style/Widget.AppCompat.Button</item>
+        <item name="android:buttonStyleSmall">@style/Widget.AppCompat.Button.Small</item>
+        <item name="android:textAppearanceButton">@style/TextAppearance.AppCompat.Button</item>
+    </style>
+    <style name="Base.V7.Theme.AppCompat.Light" parent="Platform.AppCompat.Light">
+        <item name="windowActionBar">true</item>
+        <item name="windowActionBarOverlay">false</item>
+
+        <!-- Used by MediaRouter -->
+        <item name="isLightTheme">true</item>
+
+        <item name="selectableItemBackground">@drawable/abc_item_background_holo_light</item>
+        <item name="selectableItemBackgroundBorderless">?attr/selectableItemBackground</item>
+        <item name="homeAsUpIndicator">@drawable/abc_ic_ab_back_mtrl_am_alpha</item>
+
+        <item name="dividerVertical">@drawable/abc_list_divider_mtrl_alpha</item>
+        <item name="dividerHorizontal">@drawable/abc_list_divider_mtrl_alpha</item>
+
+        <!-- Action Bar Styles -->
+        <item name="actionBarTabStyle">@style/Widget.AppCompat.Light.ActionBar.TabView</item>
+        <item name="actionBarTabBarStyle">@style/Widget.AppCompat.Light.ActionBar.TabBar</item>
+        <item name="actionBarTabTextStyle">@style/Widget.AppCompat.Light.ActionBar.TabText</item>
+        <item name="actionButtonStyle">@style/Widget.AppCompat.Light.ActionButton</item>
+        <item name="actionOverflowButtonStyle">@style/Widget.AppCompat.Light.ActionButton.Overflow</item>
+        <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.Light.PopupMenu.Overflow</item>
+        <item name="actionBarStyle">@style/Widget.AppCompat.Light.ActionBar.Solid</item>
+        <item name="actionBarSplitStyle">?attr/actionBarStyle</item>
+        <item name="actionBarWidgetTheme">@null</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+        <item name="actionBarSize">@dimen/abc_action_bar_default_height_material</item>
+        <item name="actionBarDivider">?attr/dividerVertical</item>
+        <item name="actionBarItemBackground">?attr/selectableItemBackgroundBorderless</item>
+        <item name="actionMenuTextAppearance">@style/TextAppearance.AppCompat.Widget.ActionBar.Menu</item>
+        <item name="actionMenuTextColor">?android:attr/textColorPrimaryDisableOnly</item>
+
+        <!-- Action Mode -->
+        <item name="actionModeStyle">@style/Widget.AppCompat.ActionMode</item>
+        <item name="actionModeBackground">@drawable/abc_cab_background_top_material</item>
+        <item name="actionModeSplitBackground">?attr/colorPrimaryDark</item>
+        <item name="actionModeCloseDrawable">@drawable/abc_ic_ab_back_mtrl_am_alpha</item>
+        <item name="actionModeCloseButtonStyle">@style/Widget.AppCompat.ActionButton.CloseMode</item>
+
+        <item name="actionModeCutDrawable">@drawable/abc_ic_menu_cut_mtrl_alpha</item>
+        <item name="actionModeCopyDrawable">@drawable/abc_ic_menu_copy_mtrl_am_alpha</item>
+        <item name="actionModePasteDrawable">@drawable/abc_ic_menu_paste_mtrl_am_alpha</item>
+        <item name="actionModeSelectAllDrawable">@drawable/abc_ic_menu_selectall_mtrl_alpha</item>
+        <item name="actionModeShareDrawable">@drawable/abc_ic_menu_share_mtrl_alpha</item>
+
+        <!-- Dropdown Spinner Attributes -->
+        <item name="actionDropDownStyle">@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar</item>
+
+        <!-- Panel attributes -->
+        <item name="panelMenuListWidth">@dimen/abc_panel_menu_list_width</item>
+        <item name="panelMenuListTheme">@style/Theme.AppCompat.CompactMenu</item>
+        <item name="panelBackground">@drawable/abc_menu_hardkey_panel_mtrl_mult</item>
+        <item name="android:panelBackground">@android:color/transparent</item>
+        <item name="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_light</item>
+
+        <!-- List attributes -->
+        <item name="textAppearanceListItem">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="textAppearanceListItemSmall">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="listPreferredItemHeight">64dp</item>
+        <item name="listPreferredItemHeightSmall">48dp</item>
+        <item name="listPreferredItemHeightLarge">80dp</item>
+        <item name="listPreferredItemPaddingLeft">16dip</item>
+        <item name="listPreferredItemPaddingRight">16dip</item>
+
+        <!-- Required for use of support_simple_spinner_dropdown_item.xml -->
+        <item name="spinnerDropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item name="dropdownListPreferredItemHeight">?attr/listPreferredItemHeightSmall</item>
+
+        <!-- Popup Menu styles -->
+        <item name="popupMenuStyle">@style/Widget.AppCompat.Light.PopupMenu</item>
+        <item name="textAppearanceLargePopupMenu">@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large</item>
+        <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small</item>
+        <item name="listPopupWindowStyle">@style/Widget.AppCompat.ListPopupWindow</item>
+        <item name="dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
+
+        <!-- SearchView attributes -->
+        <item name="searchViewStyle">@style/Widget.AppCompat.Light.SearchView</item>
+        <item name="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item name="textColorSearchUrl">@color/abc_search_url_text</item>
+        <item name="textAppearanceSearchResultTitle">@style/TextAppearance.AppCompat.SearchResult.Title</item>
+        <item name="textAppearanceSearchResultSubtitle">@style/TextAppearance.AppCompat.SearchResult.Subtitle</item>
+
+        <!-- ShareActionProvider attributes -->
+        <item name="activityChooserViewStyle">@style/Widget.AppCompat.ActivityChooserView</item>
+
+        <!-- Toolbar styles -->
+        <item name="toolbarStyle">@style/Widget.AppCompat.Toolbar</item>
+        <item name="toolbarNavigationButtonStyle">@style/Widget.AppCompat.Toolbar.Button.Navigation</item>
+
+        <item name="android:editTextStyle">@style/Widget.AppCompat.EditText</item>
+        <item name="editTextBackground">@drawable/abc_edit_text_material</item>
+        <item name="editTextColor">?android:attr/textColorPrimary</item>
+        <item name="android:autoCompleteTextViewStyle">@style/Widget.AppCompat.AutoCompleteTextView</item>
+
+        <!-- Color palette -->
+        <item name="colorPrimaryDark">@color/primary_dark_material_light</item>
+        <item name="colorPrimary">@color/primary_material_light</item>
+        <item name="colorAccent">@color/accent_material_light</item>
+
+        <item name="colorControlNormal">?android:attr/textColorSecondary</item>
+        <item name="colorControlActivated">?attr/colorAccent</item>
+        <item name="colorControlHighlight">@color/ripple_material_light</item>
+        <item name="colorButtonNormal">@color/button_material_light</item>
+        <item name="colorSwitchThumbNormal">@color/switch_thumb_normal_material_light</item>
+
+        <item name="drawerArrowStyle">@style/Widget.AppCompat.DrawerArrowToggle</item>
+
+        <item name="switchStyle">@style/Widget.AppCompat.CompoundButton.Switch</item>
+
+        <item name="android:ratingBarStyle">@style/Widget.AppCompat.RatingBar</item>
+
+        <!-- Button styles -->
+        <item name="android:buttonStyle">@style/Widget.AppCompat.Button</item>
+        <item name="android:buttonStyleSmall">@style/Widget.AppCompat.Button.Small</item>
+        <item name="android:textAppearanceButton">@style/TextAppearance.AppCompat.Button</item>
+    </style>
+    <style name="Base.Widget.AppCompat.ActionBar" parent="">
+        <item name="displayOptions">showTitle</item>
+        <item name="divider">?attr/dividerVertical</item>
+        <item name="height">?attr/actionBarSize</item>
+
+        <item name="titleTextStyle">@style/TextAppearance.AppCompat.Widget.ActionBar.Title</item>
+        <item name="subtitleTextStyle">@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle</item>
+
+        <item name="background">@null</item>
+        <item name="backgroundStacked">@null</item>
+        <item name="backgroundSplit">@null</item>
+
+        <item name="actionButtonStyle">@style/Widget.AppCompat.ActionButton</item>
+        <item name="actionOverflowButtonStyle">@style/Widget.AppCompat.ActionButton.Overflow</item>
+
+        <item name="android:gravity">center_vertical</item>
+        <item name="elevation">8dp</item>
+        <item name="popupTheme">?attr/actionBarPopupTheme</item>
+    </style>
+    <style name="Base.Widget.AppCompat.ActionBar.Solid">
+        <item name="background">?attr/colorPrimary</item>
+        <item name="backgroundStacked">?attr/colorPrimary</item>
+        <item name="backgroundSplit">?attr/colorPrimary</item>
+    </style>
+    <style name="Base.Widget.AppCompat.ActionBar.TabBar" parent="">
+        <item name="divider">?attr/actionBarDivider</item>
+        <item name="showDividers">middle</item>
+        <item name="dividerPadding">8dip</item>
+    </style>
+    <style name="Base.Widget.AppCompat.ActionBar.TabText" parent="">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:maxWidth">180dp</item>
+        <item name="textAllCaps">true</item>
+    </style>
+    <style name="Base.Widget.AppCompat.ActionBar.TabView" parent="">
+        <item name="android:background">@drawable/abc_tab_indicator_material</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingLeft">16dip</item>
+        <item name="android:paddingRight">16dip</item>
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:minWidth">80dip</item>
+    </style>
+    <style name="Base.Widget.AppCompat.ActionButton" parent="">
+        <item name="android:background">?attr/actionBarItemBackground</item>
+        <item name="android:paddingLeft">12dip</item>
+        <item name="android:paddingRight">12dip</item>
+        <item name="android:minWidth">@dimen/abc_action_button_min_width_material</item>
+        <item name="android:minHeight">@dimen/abc_action_button_min_height_material</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">2</item>
+        <item name="textAllCaps">@bool/abc_config_actionMenuItemAllCaps</item>
+    </style>
+    <style name="Base.Widget.AppCompat.ActionButton.CloseMode">
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+    <style name="Base.Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@drawable/abc_ic_menu_moreoverflow_mtrl_alpha</item>
+        <item name="android:background">?attr/actionBarItemBackground</item>
+        <item name="android:contentDescription">@string/abc_action_menu_overflow_description</item>
+        <item name="android:minWidth">@dimen/abc_action_button_min_width_overflow_material</item>
+        <item name="android:minHeight">@dimen/abc_action_button_min_height_material</item>
+    </style>
+    <style name="Base.Widget.AppCompat.ActionMode" parent="">
+        <item name="background">?attr/actionModeBackground</item>
+        <item name="backgroundSplit">?attr/actionModeSplitBackground</item>
+        <item name="height">?attr/actionBarSize</item>
+        <item name="titleTextStyle">@style/TextAppearance.AppCompat.Widget.ActionMode.Title</item>
+        <item name="subtitleTextStyle">@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle</item>
+        <item name="closeItemLayout">@layout/abc_action_mode_close_item_material</item>
+    </style>
+    <style name="Base.Widget.AppCompat.ActivityChooserView" parent="">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/abc_ab_share_pack_mtrl_alpha</item>
+        <item name="divider">?attr/dividerVertical</item>
+        <item name="showDividers">middle</item>
+        <item name="dividerPadding">6dip</item>
+    </style>
+    <style name="Base.Widget.AppCompat.AutoCompleteTextView" parent="android:Widget.AutoCompleteTextView">
+        <item name="android:dropDownSelector">?attr/listChoiceBackgroundIndicator</item>
+        <item name="android:popupBackground">@drawable/abc_popup_background_mtrl_mult</item>
+        <item name="android:background">?attr/editTextBackground</item>
+        <item name="android:textColor">?attr/editTextColor</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMediumInverse</item>
+    </style>
+    <style name="Base.Widget.AppCompat.Button" parent="android:Widget">
+        <item name="android:background">@drawable/abc_btn_default_mtrl_shape</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceButton</item>
+        <item name="android:minHeight">48dip</item>
+        <item name="android:minWidth">88dip</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+    <style name="Base.Widget.AppCompat.Button.Small">
+        <item name="android:minHeight">48dip</item>
+        <item name="android:minWidth">48dip</item>
+    </style>
+    <style name="Base.Widget.AppCompat.CompoundButton.Switch" parent="android:Widget.CompoundButton">
+        <item name="track">@drawable/abc_switch_track_mtrl_alpha</item>
+        <item name="android:thumb">@drawable/abc_switch_thumb_material</item>
+        <item name="switchTextAppearance">@style/TextAppearance.AppCompat.Widget.Switch</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="showText">false</item>
+    </style>
+    <style name="Base.Widget.AppCompat.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle.Common">
+        <item name="barSize">18dp</item>
+        <item name="gapBetweenBars">3dp</item>
+        <item name="drawableSize">24dp</item>
+    </style>
+    <style name="Base.Widget.AppCompat.DrawerArrowToggle.Common" parent="">
+        <item name="color">?android:attr/textColorSecondary</item>
+        <item name="middleBarArrowSize">16dp</item>
+        <item name="spinBars">true</item>
+        <item name="thickness">2dp</item>
+        <item name="topBottomBarArrowSize">11.31dp</item>
+    </style>
+    <style name="Base.Widget.AppCompat.DropDownItem.Spinner" parent="">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Widget.DropDownItem</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="Base.Widget.AppCompat.EditText" parent="android:Widget.EditText">
+        <item name="android:background">?attr/editTextBackground</item>
+        <item name="android:textColor">?attr/editTextColor</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMediumInverse</item>
+    </style>
+    <style name="Base.Widget.AppCompat.Light.ActionBar" parent="Base.Widget.AppCompat.ActionBar">
+        <item name="actionButtonStyle">@style/Widget.AppCompat.Light.ActionButton</item>
+        <item name="actionOverflowButtonStyle">@style/Widget.AppCompat.Light.ActionButton.Overflow</item>
+    </style>
+    <style name="Base.Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="background">?attr/colorPrimary</item>
+        <item name="backgroundStacked">?attr/colorPrimary</item>
+        <item name="backgroundSplit">?attr/colorPrimary</item>
+    </style>
+    <style name="Base.Widget.AppCompat.Light.ActionBar.TabBar" parent="Base.Widget.AppCompat.ActionBar.TabBar">
+    </style>
+    <style name="Base.Widget.AppCompat.Light.ActionBar.TabText" parent="Base.Widget.AppCompat.ActionBar.TabText">
+    </style>
+    <style name="Base.Widget.AppCompat.Light.ActionBar.TabText.Inverse" parent="Base.Widget.AppCompat.Light.ActionBar.TabText">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium.Inverse</item>
+    </style>
+    <style name="Base.Widget.AppCompat.Light.ActionBar.TabView" parent="Base.Widget.AppCompat.ActionBar.TabView">
+        <item name="android:background">@drawable/abc_tab_indicator_material</item>
+    </style>
+    <style name="Base.Widget.AppCompat.Light.PopupMenu" parent="@style/Widget.AppCompat.ListPopupWindow">
+    </style>
+    <style name="Base.Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">true</item>
+        <item name="android:dropDownHorizontalOffset">-4dip</item>
+    </style>
+    <style name="Base.Widget.AppCompat.ListPopupWindow" parent="">
+        <item name="android:dropDownSelector">?attr/listChoiceBackgroundIndicator</item>
+        <item name="android:popupBackground">@drawable/abc_popup_background_mtrl_mult</item>
+        <item name="android:dropDownVerticalOffset">0dip</item>
+        <item name="android:dropDownHorizontalOffset">0dip</item>
+        <item name="android:dropDownWidth">wrap_content</item>
+    </style>
+    <style name="Base.Widget.AppCompat.ListView.DropDown" parent="android:Widget.ListView">
+        <item name="android:listSelector">?attr/listChoiceBackgroundIndicator</item>
+        <item name="android:divider">@null</item>
+    </style>
+    <style name="Base.Widget.AppCompat.ListView.Menu" parent="android:Widget.ListView.Menu">
+        <item name="android:listSelector">?attr/listChoiceBackgroundIndicator</item>
+        <item name="android:divider">?attr/dividerHorizontal</item>
+    </style>
+    <style name="Base.Widget.AppCompat.PopupMenu" parent="@style/Widget.AppCompat.ListPopupWindow">
+    </style>
+    <style name="Base.Widget.AppCompat.PopupMenu.Overflow">
+        <item name="overlapAnchor">true</item>
+        <item name="android:dropDownHorizontalOffset">-4dip</item>
+    </style>
+    <style name="Base.Widget.AppCompat.PopupWindow" parent="android:Widget.PopupWindow">
+    </style>
+    <style name="Base.Widget.AppCompat.ProgressBar" parent="android:Widget.ProgressBar">
+        <item name="android:minWidth">@dimen/abc_action_bar_progress_bar_size</item>
+        <item name="android:maxWidth">@dimen/abc_action_bar_progress_bar_size</item>
+        <item name="android:minHeight">@dimen/abc_action_bar_progress_bar_size</item>
+        <item name="android:maxHeight">@dimen/abc_action_bar_progress_bar_size</item>
+    </style>
+    <style name="Base.Widget.AppCompat.ProgressBar.Horizontal" parent="android:Widget.ProgressBar.Horizontal">
+    </style>
+    <style name="Base.Widget.AppCompat.RatingBar" parent="android:Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/abc_ratingbar_full_material</item>
+        <item name="android:indeterminateDrawable">@drawable/abc_ratingbar_full_material</item>
+    </style>
+    <style name="Base.Widget.AppCompat.SearchView" parent="android:Widget">
+        <item name="layout">@layout/abc_search_view</item>
+        <item name="queryBackground">@drawable/abc_textfield_search_material</item>
+        <item name="submitBackground">@drawable/abc_textfield_search_material</item>
+        <item name="closeIcon">@drawable/abc_ic_clear_mtrl_alpha</item>
+        <item name="searchIcon">@drawable/abc_ic_search_api_mtrl_alpha</item>
+        <item name="goIcon">@drawable/abc_ic_go_search_api_mtrl_alpha</item>
+        <item name="voiceIcon">@drawable/abc_ic_voice_search_api_mtrl_alpha</item>
+        <item name="commitIcon">@drawable/abc_ic_commit_search_api_mtrl_alpha</item>
+        <item name="suggestionRowLayout">@layout/abc_search_dropdown_item_icons_2line</item>
+    </style>
+    <style name="Base.Widget.AppCompat.Spinner" parent="android:Widget.Spinner">
+        <item name="android:background">@drawable/abc_spinner_mtrl_am_alpha</item>
+        <item name="android:dropDownSelector">?attr/listChoiceBackgroundIndicator</item>
+        <item name="android:dropDownVerticalOffset">0dip</item>
+    </style>
+    <style name="Base.Widget.AppCompat.Spinner.DropDown.ActionBar" parent="android:Widget">
+        <item name="spinnerMode">dropdown</item>
+
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/abc_spinner_mtrl_am_alpha</item>
+        <item name="android:dropDownSelector">?attr/listChoiceBackgroundIndicator</item>
+        <item name="android:popupBackground">@drawable/abc_popup_background_mtrl_mult</item>
+        <item name="android:dropDownVerticalOffset">0dip</item>
+        <item name="android:dropDownHorizontalOffset">0dip</item>
+        <item name="overlapAnchor">true</item>
+        <item name="android:dropDownWidth">wrap_content</item>
+        <item name="popupPromptView">@layout/abc_simple_dropdown_hint</item>
+        <item name="android:gravity">left|start|center_vertical</item>
+        <item name="disableChildrenWhenDisabled">true</item>
+    </style>
+    <style name="Base.Widget.AppCompat.Spinner.Underlined">
+        <item name="android:background">@drawable/abc_spinner_textfield_background_material</item>
+    </style>
+    <style name="Base.Widget.AppCompat.TextView.SpinnerItem" parent="android:Widget.TextView.SpinnerItem">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Widget.TextView.SpinnerItem</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+    </style>
+    <style name="Base.Widget.AppCompat.Toolbar" parent="android:Widget">
+        <item name="titleTextAppearance">@style/TextAppearance.Widget.AppCompat.Toolbar.Title</item>
+        <item name="subtitleTextAppearance">@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="titleMargins">4dp</item>
+        <item name="maxButtonHeight">56dp</item>
+        <item name="collapseIcon">?attr/homeAsUpIndicator</item>
+        <item name="collapseContentDescription">@string/abc_toolbar_collapse_description</item>
+        <item name="contentInsetStart">16dp</item>
+    </style>
+    <style name="Base.Widget.AppCompat.Toolbar.Button.Navigation" parent="android:Widget">
+        <item name="android:minWidth">56dp</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+    <style name="ButtonBackground">
+        <item name="android:background">@android:color/background_dark</item>
+    </style>
+    <style name="NotificationText">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="NotificationTextShadow" parent="NotificationText">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:shadowColor">@android:color/background_dark</item>
+        <item name="android:shadowDx">1.0</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+    <style name="NotificationTitle">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Platform.AppCompat" parent="android:Theme">
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="buttonBarStyle">@android:style/ButtonBar</item>
+        <item name="buttonBarButtonStyle">@android:style/Widget.Button</item>
+
+        <!-- Window colors -->
+        <item name="android:colorForeground">@color/bright_foreground_material_dark</item>
+        <item name="android:colorForegroundInverse">@color/bright_foreground_material_light</item>
+        <item name="android:colorBackground">@color/background_material_dark</item>
+        <item name="android:colorBackgroundCacheHint">@color/abc_background_cache_hint_selector_material_dark</item>
+        <item name="android:disabledAlpha">0.5</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+        <item name="android:windowBackground">@color/background_material_dark</item>
+
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/abc_primary_text_material_dark</item>
+        <item name="android:textColorPrimaryInverse">@color/abc_primary_text_material_light</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/abc_primary_text_disable_only_material_dark</item>
+        <item name="android:textColorSecondary">@color/abc_secondary_text_material_dark</item>
+        <item name="android:textColorSecondaryInverse">@color/abc_secondary_text_material_light</item>
+        <item name="android:textColorTertiary">@color/abc_secondary_text_material_dark</item>
+        <item name="android:textColorTertiaryInverse">@color/abc_secondary_text_material_light</item>
+        <item name="android:textColorHint">@color/hint_foreground_material_dark</item>
+        <item name="android:textColorHintInverse">@color/hint_foreground_material_light</item>
+        <item name="android:textColorHighlight">@color/highlighted_text_material_dark</item>
+        <item name="android:textColorLink">@color/link_text_material_dark</item>
+
+        <!-- Text styles -->
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
+        <item name="android:textAppearanceInverse">@style/TextAppearance.AppCompat.Inverse</item>
+        <item name="android:textAppearanceLarge">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:textAppearanceLargeInverse">@style/TextAppearance.AppCompat.Large.Inverse</item>
+        <item name="android:textAppearanceMedium">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textAppearanceMediumInverse">@style/TextAppearance.AppCompat.Medium.Inverse</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.AppCompat.Small</item>
+        <item name="android:textAppearanceSmallInverse">@style/TextAppearance.AppCompat.Small.Inverse</item>
+
+        <item name="android:spinnerStyle">@style/Widget.AppCompat.Spinner</item>
+        <item name="android:spinnerItemStyle">@style/Widget.AppCompat.TextView.SpinnerItem</item>
+        <item name="android:dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
+
+        <item name="android:listChoiceIndicatorSingle">@drawable/abc_btn_radio_material</item>
+        <item name="android:listChoiceIndicatorMultiple">@drawable/abc_btn_check_material</item>
+    </style>
+    <style name="Platform.AppCompat.Dialog" parent="android:Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="buttonBarStyle">@android:style/ButtonBar</item>
+        <item name="buttonBarButtonStyle">@android:style/Widget.Button</item>
+
+        <!-- Window colors -->
+        <item name="android:colorForeground">@color/bright_foreground_material_dark</item>
+        <item name="android:colorForegroundInverse">@color/bright_foreground_material_light</item>
+        <item name="android:colorBackground">@color/background_material_dark</item>
+        <item name="android:colorBackgroundCacheHint">@color/abc_background_cache_hint_selector_material_dark</item>
+        <item name="android:disabledAlpha">0.5</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+        <item name="android:windowBackground">@color/background_material_dark</item>
+
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/abc_primary_text_material_dark</item>
+        <item name="android:textColorPrimaryInverse">@color/abc_primary_text_material_light</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/abc_primary_text_disable_only_material_dark</item>
+        <item name="android:textColorSecondary">@color/abc_secondary_text_material_dark</item>
+        <item name="android:textColorSecondaryInverse">@color/abc_secondary_text_material_light</item>
+        <item name="android:textColorTertiary">@color/abc_secondary_text_material_dark</item>
+        <item name="android:textColorTertiaryInverse">@color/abc_secondary_text_material_light</item>
+        <item name="android:textColorHint">@color/hint_foreground_material_dark</item>
+        <item name="android:textColorHintInverse">@color/hint_foreground_material_light</item>
+        <item name="android:textColorHighlight">@color/highlighted_text_material_dark</item>
+        <item name="android:textColorLink">@color/link_text_material_dark</item>
+
+        <!-- Text styles -->
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
+        <item name="android:textAppearanceInverse">@style/TextAppearance.AppCompat.Inverse</item>
+        <item name="android:textAppearanceLarge">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:textAppearanceLargeInverse">@style/TextAppearance.AppCompat.Large.Inverse</item>
+        <item name="android:textAppearanceMedium">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textAppearanceMediumInverse">@style/TextAppearance.AppCompat.Medium.Inverse</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.AppCompat.Small</item>
+        <item name="android:textAppearanceSmallInverse">@style/TextAppearance.AppCompat.Small.Inverse</item>
+
+        <item name="android:spinnerStyle">@style/Widget.AppCompat.Spinner</item>
+        <item name="android:spinnerItemStyle">@style/Widget.AppCompat.TextView.SpinnerItem</item>
+        <item name="android:dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
+
+        <item name="android:listChoiceIndicatorSingle">@drawable/abc_btn_radio_material</item>
+        <item name="android:listChoiceIndicatorMultiple">@drawable/abc_btn_check_material</item>
+    </style>
+    <style name="Platform.AppCompat.Light" parent="android:Theme.Light">
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="buttonBarStyle">@android:style/ButtonBar</item>
+        <item name="buttonBarButtonStyle">@android:style/Widget.Button</item>
+
+        <!-- Window colors -->
+        <item name="android:colorForeground">@color/bright_foreground_material_light</item>
+        <item name="android:colorForegroundInverse">@color/bright_foreground_material_dark</item>
+        <item name="android:colorBackground">@color/background_material_light</item>
+        <item name="android:colorBackgroundCacheHint">@color/abc_background_cache_hint_selector_material_light</item>
+        <item name="android:disabledAlpha">0.5</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+        <item name="android:windowBackground">@color/background_material_light</item>
+
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/abc_primary_text_material_light</item>
+        <item name="android:textColorPrimaryInverse">@color/abc_primary_text_material_dark</item>
+        <item name="android:textColorSecondary">@color/abc_secondary_text_material_light</item>
+        <item name="android:textColorSecondaryInverse">@color/abc_secondary_text_material_dark</item>
+        <item name="android:textColorTertiary">@color/abc_secondary_text_material_light</item>
+        <item name="android:textColorTertiaryInverse">@color/abc_secondary_text_material_dark</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/abc_primary_text_disable_only_material_light</item>
+        <item name="android:textColorPrimaryInverseDisableOnly">@color/abc_primary_text_disable_only_material_dark</item>
+        <item name="android:textColorHint">@color/hint_foreground_material_light</item>
+        <item name="android:textColorHintInverse">@color/hint_foreground_material_dark</item>
+        <item name="android:textColorHighlight">@color/highlighted_text_material_light</item>
+        <item name="android:textColorLink">@color/link_text_material_light</item>
+
+        <!-- Text styles -->
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
+        <item name="android:textAppearanceInverse">@style/TextAppearance.AppCompat.Inverse</item>
+        <item name="android:textAppearanceLarge">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:textAppearanceLargeInverse">@style/TextAppearance.AppCompat.Large.Inverse</item>
+        <item name="android:textAppearanceMedium">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textAppearanceMediumInverse">@style/TextAppearance.AppCompat.Medium.Inverse</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.AppCompat.Small</item>
+        <item name="android:textAppearanceSmallInverse">@style/TextAppearance.AppCompat.Small.Inverse</item>
+
+        <item name="android:spinnerStyle">@style/Widget.AppCompat.Spinner</item>
+        <item name="android:spinnerItemStyle">@style/Widget.AppCompat.TextView.SpinnerItem</item>
+        <item name="android:dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
+
+        <item name="android:listChoiceIndicatorSingle">@drawable/abc_btn_radio_material</item>
+        <item name="android:listChoiceIndicatorMultiple">@drawable/abc_btn_check_material</item>
+    </style>
+    <style name="Platform.AppCompat.Light.Dialog" parent="Platform.AppCompat.Dialog"/>
+    <style name="RtlOverlay.Widget.AppCompat.ActionBar.TitleItem" parent="android:Widget">
+        <item name="android:layout_gravity">center_vertical|left</item>
+        <item name="android:paddingRight">8dp</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.ActionButton.CloseMode" parent="Base.Widget.AppCompat.ActionButton.CloseMode">
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.ActionButton.Overflow" parent="Base.Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">12dp</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.PopupMenuItem" parent="android:Widget">
+        <item name="android:paddingRight">16dp</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.PopupMenuItem.InternalGroup" parent="android:Widget">
+        <item name="android:layout_marginLeft">16dp</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.PopupMenuItem.Text" parent="android:Widget">
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.Search.DropDown" parent="android:Widget">
+        <item name="android:paddingLeft">@dimen/abc_dropdownitem_text_padding_left</item>
+        <item name="android:paddingRight">4dp</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.Search.DropDown.Icon1" parent="android:Widget">
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.Search.DropDown.Icon2" parent="android:Widget">
+        <item name="android:layout_toLeftOf">@id/edit_query</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.Search.DropDown.Query" parent="android:Widget">
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.Search.DropDown.Text" parent="Base.Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:layout_toLeftOf">@android:id/icon2</item>
+        <item name="android:layout_toRightOf">@android:id/icon1</item>
+    </style>
+    <style name="RtlOverlay.Widget.AppCompat.SearchView.MagIcon" parent="android:Widget">
+        <item name="android:layout_marginLeft">@dimen/abc_dropdownitem_text_padding_left</item>
+    </style>
+    <style name="TextAppearance.AppCompat" parent="Base.TextAppearance.AppCompat"/>
+    <style name="TextAppearance.AppCompat.Body1" parent="Base.TextAppearance.AppCompat.Body1"/>
+    <style name="TextAppearance.AppCompat.Body2" parent="Base.TextAppearance.AppCompat.Body2"/>
+    <style name="TextAppearance.AppCompat.Button" parent="Base.TextAppearance.AppCompat.Button"/>
+    <style name="TextAppearance.AppCompat.Caption" parent="Base.TextAppearance.AppCompat.Caption"/>
+    <style name="TextAppearance.AppCompat.Display1" parent="Base.TextAppearance.AppCompat.Display1"/>
+    <style name="TextAppearance.AppCompat.Display2" parent="Base.TextAppearance.AppCompat.Display2"/>
+    <style name="TextAppearance.AppCompat.Display3" parent="Base.TextAppearance.AppCompat.Display3"/>
+    <style name="TextAppearance.AppCompat.Display4" parent="Base.TextAppearance.AppCompat.Display4"/>
+    <style name="TextAppearance.AppCompat.Headline" parent="Base.TextAppearance.AppCompat.Headline"/>
+    <style name="TextAppearance.AppCompat.Inverse" parent="Base.TextAppearance.AppCompat.Inverse"/>
+    <style name="TextAppearance.AppCompat.Large" parent="Base.TextAppearance.AppCompat.Large"/>
+    <style name="TextAppearance.AppCompat.Large.Inverse" parent="Base.TextAppearance.AppCompat.Large.Inverse"/>
+    <style name="TextAppearance.AppCompat.Light.SearchResult.Subtitle" parent="TextAppearance.AppCompat.SearchResult.Subtitle"/>
+    <style name="TextAppearance.AppCompat.Light.SearchResult.Title" parent="TextAppearance.AppCompat.SearchResult.Title"/>
+    <style name="TextAppearance.AppCompat.Light.Widget.PopupMenu.Large" parent="Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Large">
+    </style>
+    <style name="TextAppearance.AppCompat.Light.Widget.PopupMenu.Small" parent="Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Small">
+    </style>
+    <style name="TextAppearance.AppCompat.Medium" parent="Base.TextAppearance.AppCompat.Medium"/>
+    <style name="TextAppearance.AppCompat.Medium.Inverse" parent="Base.TextAppearance.AppCompat.Medium.Inverse"/>
+    <style name="TextAppearance.AppCompat.Menu" parent="Base.TextAppearance.AppCompat.Menu"/>
+    <style name="TextAppearance.AppCompat.SearchResult.Subtitle" parent="Base.TextAppearance.AppCompat.SearchResult.Subtitle">
+    </style>
+    <style name="TextAppearance.AppCompat.SearchResult.Title" parent="Base.TextAppearance.AppCompat.SearchResult.Title">
+    </style>
+    <style name="TextAppearance.AppCompat.Small" parent="Base.TextAppearance.AppCompat.Small"/>
+    <style name="TextAppearance.AppCompat.Small.Inverse" parent="Base.TextAppearance.AppCompat.Small.Inverse"/>
+    <style name="TextAppearance.AppCompat.Subhead" parent="Base.TextAppearance.AppCompat.Subhead"/>
+    <style name="TextAppearance.AppCompat.Subhead.Inverse" parent="Base.TextAppearance.AppCompat.Subhead.Inverse"/>
+    <style name="TextAppearance.AppCompat.Title" parent="Base.TextAppearance.AppCompat.Title"/>
+    <style name="TextAppearance.AppCompat.Title.Inverse" parent="Base.TextAppearance.AppCompat.Title.Inverse"/>
+    <style name="TextAppearance.AppCompat.Widget.ActionBar.Menu" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Menu">
+    </style>
+    <style name="TextAppearance.AppCompat.Widget.ActionBar.Subtitle" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Subtitle">
+    </style>
+    <style name="TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Inverse" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Inverse">
+    </style>
+    <style name="TextAppearance.AppCompat.Widget.ActionBar.Title" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Title">
+    </style>
+    <style name="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+    </style>
+    <style name="TextAppearance.AppCompat.Widget.ActionMode.Subtitle" parent="Base.TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
+    </style>
+    <style name="TextAppearance.AppCompat.Widget.ActionMode.Subtitle.Inverse" parent="TextAppearance.AppCompat.Widget.ActionMode.Subtitle"/>
+    <style name="TextAppearance.AppCompat.Widget.ActionMode.Title" parent="Base.TextAppearance.AppCompat.Widget.ActionMode.Title">
+    </style>
+    <style name="TextAppearance.AppCompat.Widget.ActionMode.Title.Inverse" parent="TextAppearance.AppCompat.Widget.ActionMode.Title"/>
+    <style name="TextAppearance.AppCompat.Widget.DropDownItem" parent="Base.TextAppearance.AppCompat.Widget.DropDownItem">
+    </style>
+    <style name="TextAppearance.AppCompat.Widget.PopupMenu.Large" parent="Base.TextAppearance.AppCompat.Widget.PopupMenu.Large">
+    </style>
+    <style name="TextAppearance.AppCompat.Widget.PopupMenu.Small" parent="Base.TextAppearance.AppCompat.Widget.PopupMenu.Small">
+    </style>
+    <style name="TextAppearance.AppCompat.Widget.Switch" parent="Base.TextAppearance.AppCompat.Widget.Switch"/>
+    <style name="TextAppearance.AppCompat.Widget.TextView.SpinnerItem" parent="Base.TextAppearance.AppCompat.Widget.TextView.SpinnerItem"/>
+    <style name="TextAppearance.Widget.AppCompat.ExpandedMenu.Item" parent="Base.TextAppearance.Widget.AppCompat.ExpandedMenu.Item">
+    </style>
+    <style name="TextAppearance.Widget.AppCompat.Toolbar.Subtitle" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+    </style>
+    <style name="TextAppearance.Widget.AppCompat.Toolbar.Title" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Title">
+    </style>
+    <style name="Theme" parent="@android:style/Theme.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="Theme.AppCompat" parent="Base.Theme.AppCompat"/>
+    <style name="Theme.AppCompat.CompactMenu" parent="Base.Theme.AppCompat.CompactMenu"/>
+    <style name="Theme.AppCompat.Dialog" parent="Base.Theme.AppCompat.Dialog"/>
+    <style name="Theme.AppCompat.DialogWhenLarge" parent="Base.Theme.AppCompat.DialogWhenLarge">
+    </style>
+    <style name="Theme.AppCompat.Light" parent="Base.Theme.AppCompat.Light"/>
+    <style name="Theme.AppCompat.Light.DarkActionBar" parent="Base.Theme.AppCompat.Light.DarkActionBar"/>
+    <style name="Theme.AppCompat.Light.Dialog" parent="Base.Theme.AppCompat.Light.Dialog"/>
+    <style name="Theme.AppCompat.Light.DialogWhenLarge" parent="Base.Theme.AppCompat.Light.DialogWhenLarge">
+    </style>
+    <style name="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="Theme.AppCompat.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat"/>
+    <style name="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar"/>
+    <style name="ThemeOverlay.AppCompat.Dark" parent="Base.ThemeOverlay.AppCompat.Dark"/>
+    <style name="ThemeOverlay.AppCompat.Dark.ActionBar" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="ThemeOverlay.AppCompat.Light" parent="Base.ThemeOverlay.AppCompat.Light"/>
+    <style name="Widget.AppCompat.ActionBar" parent="Base.Widget.AppCompat.ActionBar">
+    </style>
+    <style name="Widget.AppCompat.ActionBar.Solid" parent="Base.Widget.AppCompat.ActionBar.Solid">
+    </style>
+    <style name="Widget.AppCompat.ActionBar.TabBar" parent="Base.Widget.AppCompat.ActionBar.TabBar">
+    </style>
+    <style name="Widget.AppCompat.ActionBar.TabText" parent="Base.Widget.AppCompat.ActionBar.TabText">
+    </style>
+    <style name="Widget.AppCompat.ActionBar.TabView" parent="Base.Widget.AppCompat.ActionBar.TabView">
+    </style>
+    <style name="Widget.AppCompat.ActionButton" parent="Base.Widget.AppCompat.ActionButton"/>
+    <style name="Widget.AppCompat.ActionButton.CloseMode" parent="RtlOverlay.Widget.AppCompat.ActionButton.CloseMode"/>
+    <style name="Widget.AppCompat.ActionButton.Overflow" parent="RtlOverlay.Widget.AppCompat.ActionButton.Overflow"/>
+    <style name="Widget.AppCompat.ActionMode" parent="Base.Widget.AppCompat.ActionMode">
+    </style>
+    <style name="Widget.AppCompat.ActivityChooserView" parent="Base.Widget.AppCompat.ActivityChooserView">
+    </style>
+    <style name="Widget.AppCompat.AutoCompleteTextView" parent="Base.Widget.AppCompat.AutoCompleteTextView">
+    </style>
+    <style name="Widget.AppCompat.Button" parent="Base.Widget.AppCompat.Button"/>
+    <style name="Widget.AppCompat.Button.Small" parent="Base.Widget.AppCompat.Button.Small"/>
+    <style name="Widget.AppCompat.CompoundButton.Switch" parent="Base.Widget.AppCompat.CompoundButton.Switch"/>
+    <style name="Widget.AppCompat.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">?attr/colorControlNormal</item>
+    </style>
+    <style name="Widget.AppCompat.DropDownItem.Spinner" parent="RtlOverlay.Widget.AppCompat.Search.DropDown.Text"/>
+    <style name="Widget.AppCompat.EditText" parent="Base.Widget.AppCompat.EditText">
+    </style>
+    <style name="Widget.AppCompat.Light.ActionBar" parent="Base.Widget.AppCompat.Light.ActionBar">
+    </style>
+    <style name="Widget.AppCompat.Light.ActionBar.Solid" parent="Base.Widget.AppCompat.Light.ActionBar.Solid">
+    </style>
+    <style name="Widget.AppCompat.Light.ActionBar.Solid.Inverse"/>
+    <style name="Widget.AppCompat.Light.ActionBar.TabBar" parent="Base.Widget.AppCompat.Light.ActionBar.TabBar">
+    </style>
+    <style name="Widget.AppCompat.Light.ActionBar.TabBar.Inverse"/>
+    <style name="Widget.AppCompat.Light.ActionBar.TabText" parent="Base.Widget.AppCompat.Light.ActionBar.TabText">
+    </style>
+    <style name="Widget.AppCompat.Light.ActionBar.TabText.Inverse" parent="Base.Widget.AppCompat.Light.ActionBar.TabText.Inverse">
+    </style>
+    <style name="Widget.AppCompat.Light.ActionBar.TabView" parent="Base.Widget.AppCompat.Light.ActionBar.TabView">
+    </style>
+    <style name="Widget.AppCompat.Light.ActionBar.TabView.Inverse"/>
+    <style name="Widget.AppCompat.Light.ActionButton" parent="Widget.AppCompat.ActionButton"/>
+    <style name="Widget.AppCompat.Light.ActionButton.CloseMode" parent="Widget.AppCompat.ActionButton.CloseMode"/>
+    <style name="Widget.AppCompat.Light.ActionButton.Overflow" parent="Widget.AppCompat.ActionButton.Overflow"/>
+    <style name="Widget.AppCompat.Light.ActionMode.Inverse" parent="Widget.AppCompat.ActionMode"/>
+    <style name="Widget.AppCompat.Light.ActivityChooserView" parent="Widget.AppCompat.ActivityChooserView"/>
+    <style name="Widget.AppCompat.Light.AutoCompleteTextView" parent="Widget.AppCompat.AutoCompleteTextView"/>
+    <style name="Widget.AppCompat.Light.DropDownItem.Spinner" parent="Widget.AppCompat.DropDownItem.Spinner"/>
+    <style name="Widget.AppCompat.Light.ListPopupWindow" parent="Widget.AppCompat.ListPopupWindow"/>
+    <style name="Widget.AppCompat.Light.ListView.DropDown" parent="Widget.AppCompat.ListView.DropDown"/>
+    <style name="Widget.AppCompat.Light.PopupMenu" parent="Base.Widget.AppCompat.Light.PopupMenu">
+    </style>
+    <style name="Widget.AppCompat.Light.PopupMenu.Overflow" parent="Base.Widget.AppCompat.Light.PopupMenu.Overflow">
+    </style>
+    <style name="Widget.AppCompat.Light.SearchView" parent="Widget.AppCompat.SearchView"/>
+    <style name="Widget.AppCompat.Light.Spinner.DropDown.ActionBar" parent="Widget.AppCompat.Spinner.DropDown.ActionBar"/>
+    <style name="Widget.AppCompat.ListPopupWindow" parent="Base.Widget.AppCompat.ListPopupWindow">
+    </style>
+    <style name="Widget.AppCompat.ListView.DropDown" parent="Base.Widget.AppCompat.ListView.DropDown">
+    </style>
+    <style name="Widget.AppCompat.ListView.Menu" parent="Base.Widget.AppCompat.ListView.Menu">
+    </style>
+    <style name="Widget.AppCompat.PopupMenu" parent="Base.Widget.AppCompat.PopupMenu">
+    </style>
+    <style name="Widget.AppCompat.PopupMenu.Overflow" parent="Base.Widget.AppCompat.PopupMenu.Overflow">
+    </style>
+    <style name="Widget.AppCompat.PopupWindow" parent="Base.Widget.AppCompat.PopupWindow">
+    </style>
+    <style name="Widget.AppCompat.ProgressBar" parent="Base.Widget.AppCompat.ProgressBar">
+    </style>
+    <style name="Widget.AppCompat.ProgressBar.Horizontal" parent="Base.Widget.AppCompat.ProgressBar.Horizontal">
+    </style>
+    <style name="Widget.AppCompat.RatingBar" parent="Base.Widget.AppCompat.RatingBar"/>
+    <style name="Widget.AppCompat.SearchView" parent="Base.Widget.AppCompat.SearchView"/>
+    <style name="Widget.AppCompat.Spinner" parent="Base.Widget.AppCompat.Spinner"/>
+    <style name="Widget.AppCompat.Spinner.DropDown"/>
+    <style name="Widget.AppCompat.Spinner.DropDown.ActionBar" parent="Base.Widget.AppCompat.Spinner.DropDown.ActionBar"/>
+    <style name="Widget.AppCompat.Spinner.Underlined" parent="Base.Widget.AppCompat.Spinner.Underlined"/>
+    <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
+    <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
+    <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation"/>
+</resources>
