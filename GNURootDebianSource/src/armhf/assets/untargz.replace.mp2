@@ -1,0 +1,14 @@
+#!/support/busybox sh
+
+if [ ! -f /host-rootfs/$2 ]; then
+    /support/busybox tar -xzvf $2
+else
+    /support/busybox tar -xzvf /host-rootfs/$2
+fi
+
+if [[ $? == 0 ]]; then 
+  touch /support/.$1_passed; 
+else 
+  read -rsp $'An error occurred untarring a file, please try again and if it persists provide this log to the developer.\nPress any key to close...\n' -n1 key; 
+  touch /support/.$1_failed; 
+fi

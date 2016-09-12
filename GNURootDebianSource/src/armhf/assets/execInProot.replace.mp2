@@ -1,0 +1,17 @@
+#!ROOT_PATH/support/busybox sh
+
+ROOT_PATH/support/busybox clear
+
+blue='\033[0;34m'; NC='\033[0m';
+echo "" 
+echo -e "${blue}Sponsored by: "
+echo "                                          "
+echo " _____                   _                "
+echo "|_   _| ___  ___  ___  _| | _ _  ___  ___ "
+echo "  | |  | -_||  _|| . || . || | ||   || -_|"
+echo "  |_|  |___||_|  |__,||___||_  ||_|_||___|"
+echo "                           |___|          "
+echo -e "${NC}"
+
+#launch PRoot
+PROOT_TMP_DIR=ROOT_PATH/support/ ROOT_PATH/support/proot -r ROOT_PATH/debian -v -1 -p -H -0 -l -b /sys -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b SDCARD_ROOT_PATH/intents:/intents -b SDCARD_PATH:/sdcard -b ROOT_PATH/support/:/support -b ROOT_PATH/support/ld.so.preload:/etc/ld.so.preload EXTRA_BINDINGS $@

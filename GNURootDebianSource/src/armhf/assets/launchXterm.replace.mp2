@@ -1,0 +1,21 @@
+#!ROOT_PATH/support/busybox sh
+
+ROOT_PATH/support/busybox clear
+
+if [ ! -f ROOT_PATH/support/.gnuroot_x_support_passed ]; then
+	echo "Installing xterm support..."
+	ROOT_PATH/support/execInProot /support/untargz gnuroot_x_support /support/xsupport.tar.gz
+	if [ ! -f ROOT_PATH/support/.gnuroot_x_support_passed ]; then
+		exit
+	fi
+fi
+
+if [ ! -f ROOT_PATH/support/.gnuroot_x_package_passed ]; then
+	echo "Installing xterm packages..."
+	ROOT_PATH/support/execInProot /support/installXPackages
+	if [ ! -f ROOT_PATH/support/.gnuroot_x_package_passed ]; then
+		exit
+	fi
+fi
+
+ROOT_PATH/support/execInProot /support/startX /bin/bash

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+for i in 1 2 3; do apt-get update && break || sleep 1; done
+for i in 1 2 3; do DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install ${@:2} && break || sleep 1; done
+
+if [[ $? == 0 ]]; then
+  touch /support/.$1_passed; 
+else 
+  read -rsp $'An error occurred installing packages, please try again and if it persists provide this log to the developer.\nPress any key to close...\n' -n1 key; 
+  touch /support/.$1_failed; 
+fi
+
+trap "trap - SIGTERM && service dropbear stop && kill -- $$" SIGINT SIGTERM EXIT

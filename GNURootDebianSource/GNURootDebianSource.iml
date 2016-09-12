@@ -43,6 +43,12 @@
       <sourceFolder url="file://$MODULE_DIR$/src/null/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/armhfDebug/renderscript" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/armhfDebug/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/armhf/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/armhf/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/armhf/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/armhf/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/armhf/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/armhf/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testArmhfDebug/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testArmhfDebug/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testArmhfDebug/assets" type="java-test-resource" />
@@ -51,12 +57,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/testArmhfDebug/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testArmhfDebug/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testArmhfDebug/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/armhf/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/armhf/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/armhf/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/armhf/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/armhf/debug" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/armhf/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/armhf/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/armhf/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/armhf/assets" type="java-resource" />

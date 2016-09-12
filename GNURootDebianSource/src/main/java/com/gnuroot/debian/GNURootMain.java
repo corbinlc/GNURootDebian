@@ -25,20 +25,28 @@ THE SOFTWARE.
 package com.gnuroot.debian;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import com.gnuroot.library.GNURootCoreActivity;
 
+import android.app.NotificationManager;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBar.Tab;
 import android.app.ProgressDialog;
@@ -58,17 +66,14 @@ import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.gnuroot.debian.R;
+import com.iiordanov.bVNC.Constants;
 
 public class GNURootMain extends GNURootCoreActivity {
 
-	private ViewPager viewPager;
-	private GNURootTabsPagerAdapter mAdapter; 
 	private ActionBar actionBar;
-	// Tab titles
-	private String[] tabs = { "Install/Update", "Launch" };
 	String rootfsName = "Debian";
 	Boolean errOcc;
-	Boolean expectingResult;
+	Boolean expectingResult = false;
     Boolean installingXStep1 = false;
 	ProgressDialog pdRing;
 	Integer downloadResultCode;
@@ -77,126 +82,66 @@ public class GNURootMain extends GNURootCoreActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		//setContentView(R.layout.activity_main);
 
-		// Initilization
-		viewPager = (ViewPager) findViewById(R.id.pager);
-		actionBar = getSupportActionBar();
-		mAdapter = new GNURootTabsPagerAdapter(getSupportFragmentManager());
+		//actionBar = getSupportActionBar();
+		//actionBar.setHomeButtonEnabled(false);
+		//actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-		viewPager.setAdapter(mAdapter);
-		actionBar.setHomeButtonEnabled(false);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);		
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		SharedPreferences.Editor editor = prefs.edit();
+		editor.putBoolean("firstXTime", false);
+		editor.commit();
+        if(!prefs.getBoolean("firstTime", false)) {
+            try {
+                setupSupportFiles(true);
+            }
+            catch (NameNotFoundException e) {
+                Toast.makeText(getApplicationContext(), "Installing GNURoot " + rootfsName + " failed.  Something went wrong.", Toast.LENGTH_LONG).show();
+            }
+            setupFirstHalf();
+            editor.putBoolean("firstTime", true);
+            editor.commit();
+        }
 
-		// Adding Tabs
-		for (String tab_name : tabs) {
-			actionBar.addTab(actionBar.newTab().setText(tab_name)
-					.setTabListener(this));
+        else if(getIntent().getAction() == "com.gnuroot.debian.NEW_XTERM") {
+			if(!prefs.getBoolean("firstXTime", false)) {
+				installXTerm();
+				editor.putBoolean("firstXTime", true);
+				editor.commit();
+				final ScheduledExecutorService scheduler =
+						Executors.newSingleThreadScheduledExecutor();
+
+				scheduler.scheduleAtFixedRate
+						(new Runnable() {
+							public void run() {
+								File supportStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_support_passed");
+								File packageStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_package_passed");
+								if(supportStatus.exists() && packageStatus.exists()) {
+									launchXTerm();
+									scheduler.shutdown();
+								}
+							}
+						}, 0, 2, TimeUnit.SECONDS);
+			}
+			else
+				launchXTerm();
 		}
 
-		/**
-		 * on swiping the viewpager make respective tab selected
-		 * */
-		viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-			@Override
-			public void onPageSelected(int position) {
-				// on changing the page
-				// make respected tab selected
-				actionBar.setSelectedNavigationItem(position);
-			}
-
-			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) {
-			}
-
-			@Override
-			public void onPageScrollStateChanged(int arg0) {
-			}
-		});
-
-        onNewIntent(getIntent());
-
-		//TODO: set initial tab based on whether this has been installed previously
-	}
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        String action = intent.getAction();
-        if (action.equals("com.gnuroot.debian.NEW_WINDOW"))
-            launchTerm();
-        else if (action.equals("com.gnuroot.debian.NEW_XWINDOW"))
-            launchXTerm();
-    }
-
-	@Override
-	public void onTabReselected(Tab tab, FragmentTransaction ft) {
+		else
+			launchTerm();
 	}
 
 	@Override
-	public void onTabSelected(Tab tab, FragmentTransaction ft) {
-		// on tab selected
-		// show respected fragment view
-		viewPager.setCurrentItem(tab.getPosition());
+	protected void onNewIntent(Intent intent) {
+		String action = intent.getAction();
+		if (action.equals("com.gnuroot.debian.NEW_WINDOW"))
+			launchTerm();
+		else if (action.equals("com.gnuroot.debian.NEW_XWINDOW"))
+			launchXTerm();
 	}
 
-	@Override
-	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-	}
-
-	public void installRootfs() {
-
-		//when told to install, will do the following
-		//delete old stuff
-		//create needed directories
-		//unpack proot and busybox and put them in the correct place
-		//need to make sure .obb has been downloaded, if not call activity and wait for it to complete
-		//launch proot and unpack .obb - really a zip file
-		//done
-
-		//inform the user we are unpacking and this will take a while
-		pdRing = ProgressDialog.show(GNURootMain.this, "Setting up GNURoot " + rootfsName, "This may take some time.",true);
-		pdRing.setCancelable(false);
-		Thread t = new Thread() { 
-			public void run() {
-				try {
-					setupSupportFiles(true);
-					setupFirstHalf();
-				} catch (Exception e) {
-					pdRing.dismiss();
-                    GNURootMain.this.runOnUiThread(new Runnable() {
-                        public void run() {
-                            Toast.makeText(getApplicationContext(), "Installing GNURoot " + rootfsName + " failed.  Something went wrong.", Toast.LENGTH_LONG).show();
-                        }
-                    });
-				}
-			}
-		};
-		t.start();
-	}
-
-	public void installPatches() {
-		pdRing = ProgressDialog.show(GNURootMain.this, "Patching GNURoot " + rootfsName, "This may take some time.",true);
-		pdRing.setCancelable(false);
-		Thread t = new Thread() { 
-			public void run() {
-				try {
-					setupSupportFiles(false);
-
-					//in the future, install some patch scripts probably
-					pdRing.dismiss();
-				} catch (Exception e) {
-					pdRing.dismiss();
-                    GNURootMain.this.runOnUiThread(new Runnable() {
-                        public void run() {
-                            Toast.makeText(getApplicationContext(), "Patching GNURoot " + rootfsName + " failed.  Something went wrong.", Toast.LENGTH_LONG).show();
-                        }
-                    });
-				}
-			}
-		};
-		t.start();
-	}
-
+	/*
     //first install packages
     //then apply custom tar file that provides a simple xstartup adn passwd file
 	public void installX() {
@@ -211,6 +156,7 @@ public class GNURootMain extends GNURootCoreActivity {
 		prerequisitesArrayList.add("gnuroot_rootfs");
 		installPackages(packageNameArrayList, "gnuroot_x_support_step1", prerequisitesArrayList);
 	}
+	*/
 
 	public void setupSupportFiles(boolean deleteFirst) throws NameNotFoundException {
 		File installDir = getInstallDir();
@@ -229,58 +175,12 @@ public class GNURootMain extends GNURootCoreActivity {
 		copyAssets("com.gnuroot.debian");
 
 		String shadowOption = " ";
-		//String linkOption = " ";
 
 		//create a script for running a command in proot
 		tempFile = new File(installDir.getAbsolutePath() + "/support/launchProot");
 		if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.KITKAT) {
 			shadowOption = ((CheckBox) findViewById(R.id.sdcard_checkbox)).isChecked() ? " -n " : " ";
 		}
-		//linkOption = " -l ";
-		writeToFile("#!" + installDir.getAbsolutePath()+"/support/busybox sh\n" +
-				installDir.getAbsolutePath()+"/support/busybox clear\n" +
-				"\nblue='\\033[0;34m'; NC='\\033[0m'; echo -e \"${blue}Sponsored by: \"\n" +
-				"echo \"                                          \"\n" +
-				"echo \" _____                   _                \"\n" +
-				"echo \"|_   _| ___  ___  ___  _| | _ _  ___  ___ \"\n" +
-				"echo \"  | |  | -_||  _|| . || . || | ||   || -_|\"\n" +
-				"echo \"  |_|  |___||_|  |__,||___||_  ||_|_||___|\"\n" +
-				"echo \"                           |___|          \"\n" +
-				"echo -e \"${NC}\"\n" +
-                "if [[ $? == 0 ]]; then linkOption=\" \"; else linkOption=\"-l\"; fi\n" +
-				"PROOT_TMP_DIR=" + installDir.getAbsolutePath() + "/support/ " + installDir.getAbsolutePath() + "/support/proot -r " + installDir.getAbsolutePath() + "/debian -v -1 -H -0 -l -p " + shadowOption + " -b /sys -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/.proot.noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard -b " + installDir.getAbsolutePath() + "/support/:/support -b " + installDir.getAbsolutePath() + "/support/ld.so.preload:/etc/ld.so.preload $@", tempFile);
-		//"LD_PRELOAD= PROOT_FORCE_FOREIGN_BINARY=1 PROOT_TMP_DIR=" + installDir.getAbsolutePath() + "/support/ " + installDir.getAbsolutePath() + "/support/proot -r " + installDir.getAbsolutePath() + "/debian -q " + installDir.getAbsolutePath() + "/support/qemu -v 5 -H -l" + shadowOption + "-0 -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/.proot.noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard -b " + installDir.getAbsolutePath() + "/support/:/support $@", tempFile);
-		//"LD_PRELOAD= PROOT_TMP_DIR=" + installDir.getAbsolutePath() + "/support/ PROOT_LOADER=" + installDir.getAbsolutePath() + "/support/loader " + installDir.getAbsolutePath() + "/support/proot -r " + installDir.getAbsolutePath() + "/debian -v -1 -H -l" + shadowOption + "-0 -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b " + sdcardInstallDir.getAbsolutePath() + "/intents:/intents -b " + sdcardInstallDir.getAbsolutePath() + "/home:/home -b " + sdcardInstallDir.getAbsolutePath() + "/debian:/.proot.noexec -b " + Environment.getExternalStorageDirectory() + ":/sdcard -b " + installDir.getAbsolutePath() + "/support/:/support $@", tempFile);
-		exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
-
-        //create a script for running a command in proot and waiting for completion
-        tempFile = new File(installDir.getAbsolutePath() + "/support/installScript");
-        writeToFile("#!/support/busybox sh\n" +
-                "${@:2}\n" +
-                "if [[ $? == 0 ]]; then touch " + installDir.getAbsolutePath() + "/support/.$1_passed; else read -rsp $'An error occurred, please try again and if it persists provide this log to the deveolper.\\nPress any key to close...\\n' -n1 key; touch /support/.$1_failed; fi", tempFile);
-        exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
-
-		//create a script for untaring a file
-		tempFile = new File(installDir.getAbsolutePath() + "/support/untargz");
-		writeToFile("#!/support/busybox sh\n" +
-				"/support/busybox tar -xzvf /host-rootfs/$2\n" +
-				"if [[ $? == 0 ]]; then touch " + installDir.getAbsolutePath() + "/support/.$1_passed; else read -rsp $'An error occurred, please try again and if it persists provide this log to the deveolper.\\nPress any key to close...\\n' -n1 key; touch /support/.$1_failed; fi", tempFile);
-		exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
-
-		//create a script for installing packages
-		tempFile = new File(installDir.getAbsolutePath() + "/support/installPackages");
-		writeToFile("#!/bin/bash\n" +
-                "for i in 1 2 3; do apt-get update && break || sleep 1; done \n" +
-				"for i in 1 2 3; do DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install ${@:2} && break || sleep 1; done\n" +
-				"if [[ $? == 0 ]]; then touch /support/.$1_passed; apt-get clean; else read -rsp $'An error occurred, please try again and if it persists provide this log to the deveolper.\\nPress any key to close...\\n' -n1 key; touch /support/.$1_failed; fi", tempFile); 
-		exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
-
-        //create a script for running a command and making a status file on completion
-        tempFile = new File(installDir.getAbsolutePath() + "/support/blockingScript");
-        writeToFile("#!/bin/bash\n" +
-                "${@:2}\n" +
-                "if [[ $? == 0 ]]; then touch /support/.$1_passed; else read -rsp $'An error occurred, please try again and if it persists provide this log to the deveolper.\\nPress any key to close...\\n' -n1 key; touch /support/.$1_failed; fi", tempFile);
-        exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
 
         //create a script for starting a xterm
         //start vncserver if not already running
@@ -304,7 +204,6 @@ public class GNURootMain extends GNURootCoreActivity {
                 "echo -e \"${NC}\"\n" +
                 "fi",tempFile);
         exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
-
         SharedPreferences.Editor editor = getSharedPreferences("MAIN", MODE_PRIVATE).edit();
         PackageInfo pi = getPackageManager().getPackageInfo("com.gnuroot.debian", 0);
         editor.putString("patchVersion", pi.versionName);
@@ -321,10 +220,18 @@ public class GNURootMain extends GNURootCoreActivity {
 		startActivityForResult(downloadIntent, 0);
 	}
 
+	// Since the Downloader Activity was no longer returning to an interactive
+	// UI, the notification would persist even after the download completed.
+	public static void cancelNotifications(Context ctx) {
+		NotificationManager notifManager= (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+		notifManager.cancelAll();
+	}
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode,
 			Intent data) {
 		if (expectingResult) {
+			cancelNotifications(this);
 			expectingResult = false;
 			if (requestCode == 0) {
 				if (resultCode > 0) {
@@ -358,6 +265,8 @@ public class GNURootMain extends GNURootCoreActivity {
 				}
 			}
 		}
+	//	if(requestCode == 1)
+	//		launchXTerm();
 	}
 
 	private void setupSecondHalf(int obbVersion) {
@@ -459,17 +368,23 @@ public class GNURootMain extends GNURootCoreActivity {
 			tempFile.mkdir();
 		}
 
+        //exec(getInstallDir().getAbsolutePath() + "/support/launchProot", true);
+
 		//unpack the .obb file
+		/*
 		GNURootMain.this.runOnUiThread(new Runnable() {
 			public void run() {
 				installTar(Uri.fromFile(mainFile),"gnuroot_rootfs", null);
 			}
 		});
+		*/
 
-		pdRing.dismiss();
+		launchTerm();
 
+		//finish();
+
+		//pdRing.dismiss();
 	}
-
     /*
 	void deleteRecursive(File fileOrDirectory) {
 		if (fileOrDirectory.isDirectory())
@@ -484,49 +399,6 @@ public class GNURootMain extends GNURootCoreActivity {
         exec(getInstallDir().getAbsolutePath() + "/support/busybox rm -rf " + fileOrDirectory.getAbsolutePath(), true);
     }
 
-
-	private void copyAssets(String packageName) {
-		Context friendContext = null;
-		try {
-			friendContext = this.createPackageContext(packageName,Context.CONTEXT_IGNORE_SECURITY);
-		} catch (NameNotFoundException e1) {
-			return;
-		}
-		AssetManager assetManager = friendContext.getAssets();
-		File tempFile = new File(getInstallDir().getAbsolutePath() + "/support");	
-		if (!tempFile.exists()) {
-			tempFile.mkdir();
-		}
-		String[] files = null;
-		try {
-			files = assetManager.list("");
-		} catch (IOException e) {
-			Log.e("tag", "Failed to get asset file list.", e);
-		}
-		for(String filename : files) {
-			InputStream in = null;
-			OutputStream out = null;
-			try {
-				in = assetManager.open(filename);
-				filename = filename.replace(".mp2", "");
-                filename = filename.replace(".mp3", ".tar.gz");
-                File outFile = new File(tempFile, filename);
-                out = new FileOutputStream(outFile);
-                if (filename.contains(".tar.gz"))
-                    out = openFileOutput(filename,MODE_PRIVATE);
-				copyFile(in, out);
-				in.close();
-				in = null;
-				out.flush();
-				out.close();
-				out = null;
-				exec("chmod 0777 " + outFile.getAbsolutePath(), true);
-			} catch(IOException e) {
-				Log.e("tag", "Failed to copy asset file: " + filename, e);
-			}       
-		}
-	}
-
 	private void copyFile(InputStream in, OutputStream out) throws IOException {
 		byte[] buffer = new byte[1024];
 		int read;
@@ -534,6 +406,107 @@ public class GNURootMain extends GNURootCoreActivity {
 			out.write(buffer, 0, read);
 		}
 	}
+
+    private void copyAssets(String packageName) {
+        Context friendContext = null;
+        try {
+            friendContext = this.createPackageContext(packageName,Context.CONTEXT_IGNORE_SECURITY);
+        } catch (NameNotFoundException e1) {
+            return;
+        }
+        AssetManager assetManager = friendContext.getAssets();
+        File tempFile = new File(getInstallDir().getAbsolutePath() + "/support");
+        if (!tempFile.exists()) {
+            tempFile.mkdir();
+        }
+        String[] files = null;
+        try {
+            files = assetManager.list("");
+        } catch (IOException e) {
+            Log.e("tag", "Failed to get asset file list.", e);
+        }
+        for(String filename : files) {
+            InputStream in = null;
+            OutputStream out = null;
+            boolean replaceStrings = false;
+			Log.e("debug", filename);
+            try {
+                in = assetManager.open(filename);
+                if (filename.contains(".replace.mp2")) {
+                    replaceStrings = true;
+                }
+                filename = filename.replace(".replace.mp2", "");
+                filename = filename.replace(".mp2", "");
+                filename = filename.replace(".mp3", ".tar.gz");
+                File outFile = new File(tempFile, filename);
+                out = new FileOutputStream(outFile);
+                //if (filename.contains(".tar.gz"))
+                //    out = openFileOutput(filename,MODE_PRIVATE);
+                copyFile(in, out);
+                in.close();
+                in = null;
+                out.flush();
+                out.close();
+                out = null;
+                if (replaceStrings) {
+                    replaceScriptStrings(outFile);
+                }
+                exec("chmod 0777 " + outFile.getAbsolutePath(), true);
+            } catch(IOException e) {
+                Log.e("tag", "Failed to copy asset file: " + filename, e);
+            }
+        }
+    }
+
+    private void replaceScriptStrings(File myFile) {
+        File installDir = getInstallDir();
+        File sdcardInstallDir = getSdcardInstallDir();
+        String sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        String mainFilePath = Environment.getExternalStorageDirectory() + "/Android/obb/com.gnuroot.debian/main." + BuildConfig.OBBVERSION + ".com.gnuroot.debian.obb";
+
+        String oldFileName = myFile.getAbsolutePath();
+        String tmpFileName = oldFileName + ".tmp";
+
+        BufferedReader br = null;
+        BufferedWriter bw = null;
+        try {
+            br = new BufferedReader(new FileReader(oldFileName));
+            bw = new BufferedWriter(new FileWriter(tmpFileName));
+            String line;
+            while ((line = br.readLine()) != null) {
+                line = line.replace("ROOT_PATH", installDir.getAbsolutePath());
+                line = line.replace("SDCARD_ROOT_PATH", sdcardInstallDir.getAbsolutePath());
+                line = line.replace("SDCARD_PATH", sdcardPath);
+                line = line.replace("EXTRA_BINDINGS", "");
+                line = line.replace("MAIN_FILE_PATH", mainFilePath);
+                bw.write(line+"\n");
+            }
+        } catch (Exception e) {
+            //todo, don't just return
+            return;
+        } finally {
+            try {
+                if(br != null)
+                    br.close();
+            } catch (IOException e) {
+                //
+            }
+            try {
+                if(bw != null)
+                    bw.close();
+            } catch (IOException e) {
+                //
+            }
+        }
+        // Once everything is complete, delete old file..
+        File oldFile = new File(oldFileName);
+        oldFile.delete();
+
+        // And rename tmp file's name to old file name
+        File newFile = new File(tmpFileName);
+        newFile.renameTo(oldFile);
+
+    }
 
 	private void exec(String command, boolean setError) {
 		Runtime runtime = Runtime.getRuntime(); 
@@ -627,21 +600,49 @@ public class GNURootMain extends GNURootCoreActivity {
 				thread.start();
 			}
 		}
-
+		//finish();
 	}
 
     public void launchTerm() {
+		/*
         ArrayList<String> prerequisitesArrayList = new ArrayList<String>();
         prerequisitesArrayList.add("gnuroot_rootfs");
         runCommand("/bin/bash", prerequisitesArrayList);
         //((GNURootCoreActivity)getActivity()).runCommand("/data/data/com.gnuroot.debian/support/busybox sh", prerequisitesArrayList);
+        */
+		Intent termIntent = new Intent(this,jackpal.androidterm.RunScript.class);
+		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
+		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+		termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/launchProot");
+		startActivity(termIntent);
+		finish();
     }
 
+	public void installXTerm() {
+		Intent termIntent = new Intent(this,jackpal.androidterm.RunScript.class);
+		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
+		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+		termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/launchXterm");
+		startActivity(termIntent);
+		finish();
+	}
+
     public void launchXTerm() {
+		/*
         ArrayList<String> prerequisitesArrayList = new ArrayList<String>();
         prerequisitesArrayList.add("gnuroot_rootfs");
         prerequisitesArrayList.add("gnuroot_x_support");
         runXCommand("/bin/bash", prerequisitesArrayList);
+        */
+
+		Intent bvncIntent = new Intent(this, com.iiordanov.bVNC.RemoteCanvasActivity.class);
+		bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?"+ Constants.PARAM_VNC_PWD+"=gnuroot"));
+		bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		startActivity(bvncIntent);
+
+		finish();
     }
 
 	public void reconnectX() {
