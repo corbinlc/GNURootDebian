@@ -1,0 +1,27 @@
+#!/bin/bash
+rm -f /support/.gnuroot_x_running
+ps -a | grep xterm
+if [[ $? == 0 ]]; then
+    touch /support/.gnuroot_x_running
+    rm -f /support/.gnuroot_x_started
+    exit
+fi
+
+ps -a | grep Xtightvnc
+if [[ $? == 0 ]]; then
+    cp /root/.Xauthority /home/.Xauthority
+    DISPLAY=localhost:51 xterm -geometry 80x24+0+0 -e $@ &
+    blue='\033[0;34m'; NC='\033[0m'; echo -e "${blue}Killing this terminal will kill your xterm"
+    echo -e "${NC}"
+    touch /support/.gnuroot_x_started
+else
+    rm /tmp/.X51-lock
+    rm /tmp/.X11-unix/X51
+    HOME=/root tightvncserver -kill :51
+    HOME=/root tightvncserver -geometry 1024x768 :51
+    cp /root/.Xauthority /home/.Xauthority
+    DISPLAY=localhost:51 xterm -geometry 80x24+0+0 -e $@ &
+    blue='\033[0;34m'; NC='\033[0m'; echo -e "${blue}Killing this terminal will kill your vnc server and xterm"
+    echo -e "${NC}"
+    touch /support/.gnuroot_x_started
+fi

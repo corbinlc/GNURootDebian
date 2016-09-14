@@ -18,6 +18,11 @@ model {
             proguardFiles.add(file('proguard-rules.pro'))
         }
     }
+    /*
+    android.ndk {
+        abiFilters.addAll("armeabi", "armeabi-v7a", "x86")
+    }
+    */
 }
 
 dependencies {
@@ -28,5 +33,4 @@ dependencies {
     compile files('libs/com.antlersoft.android.db.jar')
     compile files('libs/sqlcipher-javadoc.jar')
     compile files('libs/sqlcipher.jar')
-    compile fileTree(dir: 'libs', include: ['*.jar', '*.so'])
 }

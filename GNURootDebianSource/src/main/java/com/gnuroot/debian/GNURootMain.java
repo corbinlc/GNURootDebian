@@ -82,16 +82,9 @@ public class GNURootMain extends GNURootCoreActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.activity_main);
-
-		//actionBar = getSupportActionBar();
-		//actionBar.setHomeButtonEnabled(false);
-		//actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		SharedPreferences.Editor editor = prefs.edit();
-		editor.putBoolean("firstXTime", false);
-		editor.commit();
         if(!prefs.getBoolean("firstTime", false)) {
             try {
                 setupSupportFiles(true);
@@ -103,35 +96,14 @@ public class GNURootMain extends GNURootCoreActivity {
             editor.putBoolean("firstTime", true);
             editor.commit();
         }
-
-        else if(getIntent().getAction() == "com.gnuroot.debian.NEW_XTERM") {
-			if(!prefs.getBoolean("firstXTime", false)) {
-				installXTerm();
-				editor.putBoolean("firstXTime", true);
-				editor.commit();
-				final ScheduledExecutorService scheduler =
-						Executors.newSingleThreadScheduledExecutor();
-
-				scheduler.scheduleAtFixedRate
-						(new Runnable() {
-							public void run() {
-								File supportStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_support_passed");
-								File packageStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_package_passed");
-								if(supportStatus.exists() && packageStatus.exists()) {
-									launchXTerm();
-									scheduler.shutdown();
-								}
-							}
-						}, 0, 2, TimeUnit.SECONDS);
-			}
-			else
-				launchXTerm();
-		}
-
+        else if(getIntent().getAction() == "com.gnuroot.debian.NEW_XTERM")
+			launchXTerm(false);
+		else if(getIntent().getAction() == "com.gnuroot.debian.NEW_XWINDOW")
+            launchXTerm(true);
 		else
 			launchTerm();
 	}
-
+    /*
 	@Override
 	protected void onNewIntent(Intent intent) {
 		String action = intent.getAction();
@@ -140,7 +112,7 @@ public class GNURootMain extends GNURootCoreActivity {
 		else if (action.equals("com.gnuroot.debian.NEW_XWINDOW"))
 			launchXTerm();
 	}
-
+    */
 	/*
     //first install packages
     //then apply custom tar file that provides a simple xstartup adn passwd file
@@ -185,6 +157,7 @@ public class GNURootMain extends GNURootCoreActivity {
         //create a script for starting a xterm
         //start vncserver if not already running
         //start new xterm
+		/*
         tempFile = new File(installDir.getAbsolutePath() + "/support/startX");
         writeToFile("#!/bin/bash\n" +
 				"cp /root/.Xauthority /home/.Xauthority\n" +
@@ -194,6 +167,7 @@ public class GNURootMain extends GNURootCoreActivity {
                 "DISPLAY=localhost:51 xterm -geometry 80x24+0+0 -e $@ &\n" +
                 "\nblue='\\033[0;34m'; NC='\\033[0m'; echo -e \"${blue}Killing this terminal will kill your xterm\"\n" +
                 "echo -e \"${NC}\"\n" +
+				"touch /support/.gnuroot_x_started\n" +
                 "else\n" +
                 "rm /tmp/.X51-lock\n" +
                 "rm /tmp/.X11-unix/X51\n" +
@@ -202,8 +176,10 @@ public class GNURootMain extends GNURootCoreActivity {
                 "DISPLAY=localhost:51 xterm -geometry 80x24+0+0 -e $@ &\n" +
                 "\nblue='\\033[0;34m'; NC='\\033[0m'; echo -e \"${blue}Killing this terminal will kill your vnc server and xterm\"\n" +
                 "echo -e \"${NC}\"\n" +
+				"touch /support/.gnuroot_x_started\n" +
                 "fi",tempFile);
         exec("chmod 0777 " + tempFile.getAbsolutePath(), true);
+		*/
         SharedPreferences.Editor editor = getSharedPreferences("MAIN", MODE_PRIVATE).edit();
         PackageInfo pi = getPackageManager().getPackageInfo("com.gnuroot.debian", 0);
         editor.putString("patchVersion", pi.versionName);
@@ -429,7 +405,6 @@ public class GNURootMain extends GNURootCoreActivity {
             InputStream in = null;
             OutputStream out = null;
             boolean replaceStrings = false;
-			Log.e("debug", filename);
             try {
                 in = assetManager.open(filename);
                 if (filename.contains(".replace.mp2")) {
@@ -620,16 +595,10 @@ public class GNURootMain extends GNURootCoreActivity {
     }
 
 	public void installXTerm() {
-		Intent termIntent = new Intent(this,jackpal.androidterm.RunScript.class);
-		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
-		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
-		termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/launchXterm");
-		startActivity(termIntent);
-		finish();
+
 	}
 
-    public void launchXTerm() {
+    public void launchXTerm(Boolean createNewXTerm) {
 		/*
         ArrayList<String> prerequisitesArrayList = new ArrayList<String>();
         prerequisitesArrayList.add("gnuroot_rootfs");
@@ -637,10 +606,39 @@ public class GNURootMain extends GNURootCoreActivity {
         runXCommand("/bin/bash", prerequisitesArrayList);
         */
 
-		Intent bvncIntent = new Intent(this, com.iiordanov.bVNC.RemoteCanvasActivity.class);
-		bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?"+ Constants.PARAM_VNC_PWD+"=gnuroot"));
-		bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		startActivity(bvncIntent);
+		File deleteStarted = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
+		if(deleteStarted.exists())
+			deleteStarted.delete();
+
+        Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
+        termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+        termIntent.addCategory(Intent.CATEGORY_DEFAULT);
+        termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+        if(createNewXTerm)
+            termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/execInProot /support/newXterm");
+        else
+            termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/launchXterm");
+        startActivity(termIntent);
+
+
+		final ScheduledExecutorService scheduler =
+				Executors.newSingleThreadScheduledExecutor();
+
+		scheduler.scheduleAtFixedRate
+				(new Runnable() {
+					public void run() {
+						File checkStarted = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
+						File checkRunning = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_running");
+						if(checkStarted.exists() || checkRunning.exists()) {
+							Intent bvncIntent = new Intent(getBaseContext(), com.iiordanov.bVNC.RemoteCanvasActivity.class);
+							bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?"+ Constants.PARAM_VNC_PWD+"=gnuroot"));
+							bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+							startActivity(bvncIntent);
+							scheduler.shutdown();
+						}
+					}
+				}, 3, 2, TimeUnit.SECONDS); //Avoid race case in which tightvnc needs to be restarted
+
 
 		finish();
     }
