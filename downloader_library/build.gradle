@@ -3,7 +3,7 @@ apply plugin: 'com.android.model.library'
 model {
     android {
         //Note: some features of downloader_library become deprecated at API level 22.
-        compileSdkVersion 21
+        compileSdkVersion 15
         buildToolsVersion "23.0.1"
 
         defaultConfig.with {

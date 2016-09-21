@@ -1,0 +1,3 @@
+#!/support/busybox sh
+
+/support/installPackages gnuroot_x_package libgl1-mesa-swx11 tightvncserver xterm xfonts-base twm

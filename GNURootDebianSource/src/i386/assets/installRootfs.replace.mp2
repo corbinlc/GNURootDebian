@@ -1,0 +1,3 @@
+#!/support/busybox sh
+
+/support/untargz gnuroot_rootfs MAIN_FILE_PATH

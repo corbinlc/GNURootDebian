@@ -1,6 +1,0 @@
-#!/bin/bash
-cp /root/.Xauthority /home/.Xauthority
-DISPLAY=localhost:51 xterm -geometry 80x24+0+0 -e /bin/bash &
-blue='\033[0;34m'; NC='\033[0m'; echo -e "${blue}Killing this terminal will kill your xterm"
-echo -e "${NC}"
-touch /support/.gnuroot_x_started

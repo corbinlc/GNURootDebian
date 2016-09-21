@@ -1,0 +1,10 @@
+#!/support/busybox sh
+
+${@:2}
+
+if [[ $? == 0 ]]; then 
+  touch /support/.$1_passed; 
+else 
+  read -rsp $'An error occurred running a script, please try again and if it persists provide this log to the developer.\nPress any key to close...\n' -n1 key; 
+  touch /support/.$1_failed; 
+fi

@@ -1,10 +1,14 @@
 #!/bin/bash
-rm -f /support/.gnuroot_x_running
-ps -a | grep xterm
-if [[ $? == 0 ]]; then
-    touch /support/.gnuroot_x_running
-    rm -f /support/.gnuroot_x_started
-    exit
+
+if [[ "$1" == "button_pressed" ]]; then
+    shift
+    rm -f /support/.gnuroot_x_running
+    ps -a | grep xterm
+    if [[ $? == 0 ]]; then
+        touch /support/.gnuroot_x_running
+        rm -f /support/.gnuroot_x_started
+        exit
+    fi
 fi
 
 ps -a | grep Xtightvnc

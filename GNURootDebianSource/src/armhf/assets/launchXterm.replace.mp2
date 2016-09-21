@@ -18,4 +18,4 @@ if [ ! -f ROOT_PATH/support/.gnuroot_x_package_passed ]; then
 	fi
 fi
 
-ROOT_PATH/support/execInProot /support/startX /bin/bash
+ROOT_PATH/support/execInProot /support/startX $@

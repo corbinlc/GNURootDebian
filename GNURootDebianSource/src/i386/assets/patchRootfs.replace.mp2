@@ -1,0 +1,3 @@
+#!/support/busybox sh
+
+/support/installPackages gnuroot_patch sudo dropbear
