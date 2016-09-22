@@ -1,0 +1,3 @@
+#!/support/busybox sh
+
+/support/untargz gnuroot_x_support /support/xsupport

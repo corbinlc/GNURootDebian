@@ -1,3 +1,6 @@
 [submodule "GNURootLibrary"]
 	path = GNURootLibrary
-	url = git@github.com:corbinlc/GNURootLibrary.git
+	url = git://github.com/corbinlc/GNURootLibrary
+[submodule "Android-Terminal-Emulator"]
+	path = Android-Terminal-Emulator
+	url = https://github.com/MatthewTighe/Android-Terminal-Emulator.git

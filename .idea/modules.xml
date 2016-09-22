@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android-Terminal-Emulator/Android-Terminal-Emulator.iml" filepath="$PROJECT_DIR$/Android-Terminal-Emulator/Android-Terminal-Emulator.iml" />
       <module fileurl="file://$PROJECT_DIR$/GNURootDebian.iml" filepath="$PROJECT_DIR$/GNURootDebian.iml" />
       <module fileurl="file://$PROJECT_DIR$/GNURootDebianSource/GNURootDebianSource.iml" filepath="$PROJECT_DIR$/GNURootDebianSource/GNURootDebianSource.iml" />
       <module fileurl="file://$PROJECT_DIR$/GNURootLibrary/GNURootLibrary.iml" filepath="$PROJECT_DIR$/GNURootLibrary/GNURootLibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Term/Term.iml" filepath="$PROJECT_DIR$/Term/Term.iml" />
       <module fileurl="file://$PROJECT_DIR$/bVNC/bVNC.iml" filepath="$PROJECT_DIR$/bVNC/bVNC.iml" />
       <module fileurl="file://$PROJECT_DIR$/downloader_library/downloader_library.iml" filepath="$PROJECT_DIR$/downloader_library/downloader_library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/emulatorview/emulatorview.iml" filepath="$PROJECT_DIR$/emulatorview/emulatorview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android-Terminal-Emulator/emulatorview/emulatorview.iml" filepath="$PROJECT_DIR$/Android-Terminal-Emulator/emulatorview/emulatorview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android-Terminal-Emulator/libtermexec/libtermexec.iml" filepath="$PROJECT_DIR$/Android-Terminal-Emulator/libtermexec/libtermexec.iml" />
       <module fileurl="file://$PROJECT_DIR$/play_licensing/play_licensing.iml" filepath="$PROJECT_DIR$/play_licensing/play_licensing.iml" />
       <module fileurl="file://$PROJECT_DIR$/pubkeyGenerator/pubkeyGenerator.iml" filepath="$PROJECT_DIR$/pubkeyGenerator/pubkeyGenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android-Terminal-Emulator/term/term.iml" filepath="$PROJECT_DIR$/Android-Terminal-Emulator/term/term.iml" />
       <module fileurl="file://$PROJECT_DIR$/zoomerWithKeys/zoomerWithKeys.iml" filepath="$PROJECT_DIR$/zoomerWithKeys/zoomerWithKeys.iml" />
     </modules>
   </component>

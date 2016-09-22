@@ -49,6 +49,18 @@
                 <action android:name="com.gnuroot.debian.NEW_XWINDOW" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="com.gnuroot.debian.NEW_XTERM" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.gnuroot.debian.GNUROOT_REINSTALL" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.gnuroot.debian.TOAST_ALARM" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         
         <service

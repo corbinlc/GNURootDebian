@@ -9,12 +9,30 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Android-Terminal-Emulator" />
+            <option value="$PROJECT_DIR$/Android-Terminal-Emulator/emulatorview" />
+            <option value="$PROJECT_DIR$/Android-Terminal-Emulator/libtermexec" />
+            <option value="$PROJECT_DIR$/Android-Terminal-Emulator/term" />
             <option value="$PROJECT_DIR$/GNURootDebianSource" />
             <option value="$PROJECT_DIR$/GNURootLibrary" />
-            <option value="$PROJECT_DIR$/Term" />
             <option value="$PROJECT_DIR$/bVNC" />
             <option value="$PROJECT_DIR$/downloader_library" />
-            <option value="$PROJECT_DIR$/emulatorview" />
+            <option value="$PROJECT_DIR$/play_licensing" />
+            <option value="$PROJECT_DIR$/pubkeyGenerator" />
+            <option value="$PROJECT_DIR$/zoomerWithKeys" />
+          </set>
+        </option>
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Android-Terminal-Emulator" />
+            <option value="$PROJECT_DIR$/Android-Terminal-Emulator/emulatorview" />
+            <option value="$PROJECT_DIR$/Android-Terminal-Emulator/libtermexec" />
+            <option value="$PROJECT_DIR$/Android-Terminal-Emulator/term" />
+            <option value="$PROJECT_DIR$/GNURootDebianSource" />
+            <option value="$PROJECT_DIR$/GNURootLibrary" />
+            <option value="$PROJECT_DIR$/bVNC" />
+            <option value="$PROJECT_DIR$/downloader_library" />
             <option value="$PROJECT_DIR$/play_licensing" />
             <option value="$PROJECT_DIR$/pubkeyGenerator" />
             <option value="$PROJECT_DIR$/zoomerWithKeys" />
