@@ -41,6 +41,10 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="com.gnuroot.debian.LAUNCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
             <intent-filter android:label="Create New Term">
                 <action android:name="com.gnuroot.debian.NEW_WINDOW" />
                 <category android:name="android.intent.category.DEFAULT" />

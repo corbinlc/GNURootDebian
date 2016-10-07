@@ -71,6 +71,10 @@ import com.iiordanov.bVNC.Constants;
 
 public class GNURootMain extends GNURootCoreActivity {
 
+	//Launch types
+	public static final String GNUROOT_TERM = "launchTerm";
+	public static final String GNUROOT_XTERM = "launchXTerm";
+
 	String rootfsName = "Debian";
 	Boolean errOcc;
 	Boolean expectingResult = false;
@@ -113,18 +117,112 @@ public class GNURootMain extends GNURootCoreActivity {
 			setupSupportFiles(true);
 			setupFirstHalf();
 		} else if (intentAction == "com.gnuroot.debian.NEW_XTERM")
-			launchXTerm(false);
+			launchXTerm(false, null);
 		else if (intentAction == "com.gnuroot.debian.NEW_XWINDOW")
-			launchXTerm(true);
+			launchXTerm(true, null);
+		else if (intentAction == "com.gnuroot.debian.LAUNCH") {
+			handleLaunchIntent(getIntent());
+		}
         /*
         else if(intentAction == "com.gnuroot.debian.TOAST_ALARM")
             makeAlarmToast(getIntent());
         */
 		else
-			launchTerm();
+			launchTerm(null);
 	}
 
-    /*
+	public void handleLaunchIntent(Intent intent) {
+		Uri sharedFile = intent.getData();
+		String launchType = intent.getStringExtra("launchType");
+		String command = intent.getStringExtra("command");
+
+		switch (launchType) {
+			case GNUROOT_TERM:
+				if(sharedFile != null) {
+					untarSharedFile(sharedFile, intent.getStringExtra("statusFile"), command);
+					return;
+				}
+				else
+					launchTerm(command);
+				return;
+
+			case GNUROOT_XTERM:
+				if(sharedFile != null) {
+					untarSharedFile(sharedFile, intent.getStringExtra("statusFile"), command);
+					return;
+				}
+				else
+					/** If the terminal button has been pressed, we want to pass false to @createNewXTerm
+					 * This extra does not need to be present for any launch intent that does not come from
+					 * that button. */
+					launchXTerm(!intent.getBooleanExtra("terminal_button", false), command);
+				return;
+			default:
+				Toast.makeText(this,
+						"GNURoot has received a launch intent from an application that did not specify"
+								+ " a correct launch type. Please report this error to a developer.",
+						Toast.LENGTH_LONG).show();
+				finish();
+		}
+	}
+
+	private void untarSharedFile(Uri sharedFile, final String statusFile, final String command) {
+		InputStream srcStream;
+		String untarCommand;
+		boolean status = true;
+		File srcFile = new File(sharedFile.getPath());
+		File destFolder = getFilesDir();
+		File destFile = new File(destFolder.getAbsolutePath() + "/" + srcFile.getName());
+
+		try {
+			srcStream = getContentResolver().openInputStream(sharedFile);
+			try { copyFile(srcStream, new FileOutputStream(destFile)); }
+			catch (IOException e) { status = false; }
+		} catch (FileNotFoundException e) {
+			status = false;
+		}
+
+		if (!status) {
+			Toast.makeText(this, "GNURoot has been told to untar a file that cannot be found. " +
+					"Please report this error to a developer.", Toast.LENGTH_LONG).show();
+			return;
+		}
+
+		if(srcFile.exists()) {
+			untarCommand = "/support/untargz " + statusFile + " /" + srcFile.getName();
+			launchTerm(untarCommand);
+		}
+		else {
+			Toast.makeText(this, "GNURoot has been told to untar a file that does not exist. " +
+				"Try reinstalling the app that caused this error. Note: This should be the main GNURoot app. " +
+				"Please report this error to a developer.", Toast.LENGTH_LONG).show();
+			return;
+		}
+
+		final File checkPassed = new File(getInstallDir().getAbsolutePath() + statusFile + "_passed");
+		final File checkFailed = new File(getInstallDir().getAbsolutePath() + statusFile + "_failed");
+		checkPassed.delete();
+		checkFailed.delete();
+		final ScheduledExecutorService scheduler =
+				Executors.newSingleThreadScheduledExecutor();
+
+		scheduler.scheduleAtFixedRate
+				(new Runnable() {
+					public void run() {
+						if (checkPassed.exists()) {
+							launchTerm(command);
+							scheduler.shutdown();
+						}
+						if (checkFailed.exists()) {
+							scheduler.shutdown();
+						}
+					}
+				}, 3, 2, TimeUnit.SECONDS); //Avoid race cases
+
+		return;
+	}
+
+    /**
     private void makeAlarmToast(Intent intent) {
         String alarmName = intent.getStringExtra("alarmName");
         Toast.makeText(this, alarmName + "... Please wait for completion.", Toast.LENGTH_LONG).show();
@@ -330,7 +428,7 @@ public class GNURootMain extends GNURootCoreActivity {
 			tempFile.mkdir();
 		}
 
-		launchTerm();
+		launchTerm(null);
 
 	}
 
@@ -517,23 +615,27 @@ public class GNURootMain extends GNURootCoreActivity {
             File patchStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_patch_passed");
             deleteRecursive(patchStatus);
             Toast.makeText(this, "GNURoot needs to patch. This could take a bit. Please wait.", Toast.LENGTH_LONG).show();
-            if (!patchVersion.equals("notARealPatchVersion")) {
-                editor.putString("patchVersion", patchVersion);
-                editor.commit();
-            }
         }
+
+		if (!patchVersion.equals("notARealPatchVersion")) {
+			editor.putString("patchVersion", patchVersion);
+			editor.commit();
+		}
     }
 
 	/**
 	 * Sends an intent to Android Terminal Emulator to launch PRoot, which
 	 * installs any missing components.
 	 */
-	public void launchTerm() {
+	public void launchTerm(String command) {
 		Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
 		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
 		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
 		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
-		termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/launchProot");
+		if(command == null)
+			termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/launchProot");
+		else
+			termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/launchProot " + command);
         checkPatches();
 		startActivity(termIntent);
 		finish();
@@ -547,7 +649,7 @@ public class GNURootMain extends GNURootCoreActivity {
 	 * of whether an xterm is already active.
 	 * @param createNewXTerm
      */
-	public void launchXTerm(Boolean createNewXTerm) {
+	public void launchXTerm(Boolean createNewXTerm, String command) {
 		File deleteStarted = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
 		if (deleteStarted.exists())
 			deleteStarted.delete();
@@ -562,7 +664,6 @@ public class GNURootMain extends GNURootCoreActivity {
 			// Button presses will not open a new xterm is one is alrady running.
 			termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/launchXterm  button_pressed /bin/bash");
 		startActivity(termIntent);
-
 
 		final ScheduledExecutorService scheduler =
 				Executors.newSingleThreadScheduledExecutor();
