@@ -139,7 +139,7 @@ public class GNURootMain extends GNURootCoreActivity {
 		switch (launchType) {
 			case GNUROOT_TERM:
 				if(sharedFile != null) {
-					untarSharedFile(sharedFile, intent.getStringExtra("statusFile"), command);
+					untarSharedFile(sharedFile, intent.getStringExtra("statusFile"), command, false);
 					return;
 				}
 				else
@@ -148,7 +148,7 @@ public class GNURootMain extends GNURootCoreActivity {
 
 			case GNUROOT_XTERM:
 				if(sharedFile != null) {
-					untarSharedFile(sharedFile, intent.getStringExtra("statusFile"), command);
+					untarSharedFile(sharedFile, intent.getStringExtra("statusFile"), command, true);
 					return;
 				}
 				else
@@ -166,13 +166,13 @@ public class GNURootMain extends GNURootCoreActivity {
 		}
 	}
 
-	private void untarSharedFile(Uri sharedFile, final String statusFile, final String command) {
+	private void untarSharedFile(Uri sharedFile, final String statusFile, final String command, final boolean xCommand) {
 		InputStream srcStream;
 		String untarCommand;
 		boolean status = true;
 		File srcFile = new File(sharedFile.getPath());
-		File destFolder = getFilesDir();
-		File destFile = new File(destFolder.getAbsolutePath() + "/" + srcFile.getName());
+		File destFolder = getInstallDir();
+		File destFile = new File(destFolder.getAbsolutePath() + "/debian/" + srcFile.getName());
 
 		try {
 			srcStream = getContentResolver().openInputStream(sharedFile);
@@ -188,19 +188,19 @@ public class GNURootMain extends GNURootCoreActivity {
 			return;
 		}
 
-		if(srcFile.exists()) {
+		if(destFile.exists()) {
 			untarCommand = "/support/untargz " + statusFile + " /" + srcFile.getName();
 			launchTerm(untarCommand);
 		}
 		else {
-			Toast.makeText(this, "GNURoot has been told to untar a file that does not exist. " +
+			Toast.makeText(this, "GNURoot has been told to untar a file that could not be copied to its storage space. " +
 				"Try reinstalling the app that caused this error. Note: This should be the main GNURoot app. " +
 				"Please report this error to a developer.", Toast.LENGTH_LONG).show();
 			return;
 		}
 
-		final File checkPassed = new File(getInstallDir().getAbsolutePath() + statusFile + "_passed");
-		final File checkFailed = new File(getInstallDir().getAbsolutePath() + statusFile + "_failed");
+		final File checkPassed = new File(getInstallDir().getAbsolutePath() + "/support/." + statusFile + "_passed");
+		final File checkFailed = new File(getInstallDir().getAbsolutePath() + "/support/." + statusFile + "_failed");
 		checkPassed.delete();
 		checkFailed.delete();
 		final ScheduledExecutorService scheduler =
@@ -210,7 +210,10 @@ public class GNURootMain extends GNURootCoreActivity {
 				(new Runnable() {
 					public void run() {
 						if (checkPassed.exists()) {
-							launchTerm(command);
+							if(xCommand)
+								launchXTerm(true, command);
+							else
+								launchTerm(command);
 							scheduler.shutdown();
 						}
 						if (checkFailed.exists()) {
@@ -658,11 +661,13 @@ public class GNURootMain extends GNURootCoreActivity {
 		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
 		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
 		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+		if(command == null)
+			command = "/bin/bash";
 		if (createNewXTerm)
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/launchXterm /bin/bash");
+			termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/launchXterm " + command);
 		else
 			// Button presses will not open a new xterm is one is alrady running.
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/launchXterm  button_pressed /bin/bash");
+			termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/launchXterm  button_pressed " + command);
 		startActivity(termIntent);
 
 		final ScheduledExecutorService scheduler =

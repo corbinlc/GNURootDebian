@@ -7,8 +7,8 @@ else
 fi
 
 if [[ $? == 0 ]]; then 
-  touch /support/.$1_passed; 
+  touch /support/.$1_passed
 else 
-  read -rsp $'An error occurred untarring a file, please try again and if it persists provide this log to the developer.\nPress any key to close...\n' -n1 key; 
+  read -rsp $'An error occurred untarring a file, please try again and if it persists provide this log to the developer.\nPress any key to close...\n' -n1 key && sleep 10;
   touch /support/.$1_failed; 
 fi

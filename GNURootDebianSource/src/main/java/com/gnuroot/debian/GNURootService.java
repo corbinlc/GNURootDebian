@@ -312,5 +312,4 @@ public class GNURootService extends IntentService {
 			out.write(buffer, 0, read);
 		}
 	}
-
 }
