@@ -112,28 +112,6 @@ public class GNURootMain extends Activity {
 	}
 
 	/**
-	 * Displays an alert dialog if another app isn't updated to at least the version that included the
-	 * new ecosystem changes. Sends the user to the market page for it if not.
-	 */
-	private void showUpdateErrorButton(final String packageName) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(GNURootMain.this);
-		builder.setMessage(R.string.update_error_message);
-		builder.setPositiveButton(R.string.button_affirmative, new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
-				if(packageName != null){
-					Intent intent = new Intent(Intent.ACTION_VIEW);
-					intent.setData(Uri.parse("market://details?id=" + packageName));
-					startActivity(intent);
-				}
-				finish();
-			}
-		});
-		builder.create().show();
-	}
-
-	/**
 	 * Launches a prooted term or xterm depending on the intent. Will also untar a shared file if it exists.
 	 * @param intent
      */
@@ -297,6 +275,28 @@ public class GNURootMain extends Activity {
 				}, 3, 2, TimeUnit.SECONDS); //Avoid race cases
 
 		return;
+	}
+
+	/**
+	 * Displays an alert dialog if another app isn't updated to at least the version that included the
+	 * new ecosystem changes. Sends the user to the market page for it if not.
+	 */
+	private void showUpdateErrorButton(final String packageName) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(GNURootMain.this);
+		builder.setMessage(R.string.update_error_message);
+		builder.setPositiveButton(R.string.button_affirmative, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+				if(packageName != null){
+					Intent intent = new Intent(Intent.ACTION_VIEW);
+					intent.setData(Uri.parse("market://details?id=" + packageName));
+					startActivity(intent);
+				}
+				finish();
+			}
+		});
+		builder.create().show();
 	}
 
 	/*
