@@ -80,10 +80,9 @@ for examples.
 
 ### Build GNURootDebian
 **1.)** Download a version of Android Studio that supports both the NDK and
-experimental gradle plugin 0.2.0.
+experimental gradle plugin 0.7.3.
 
-**2.)** Clone or download the zip file of GNURootDebian. In either case, make
-sure that the GNURootDebian/GNURootDebianLibrary file is populated correctly. See git-submodule for the method to update this through git correctly.
+**2.)** Clone or download the zip file of GNURootDebian.
 
 **3.)** If you built your own version of PRoot, rename the proot executable to
 proot.mp2 and copy it to
@@ -102,16 +101,50 @@ GNURootDebian/GNURootDebianSource/src/DESIRED\_ARCHITECTURE/obb\_DESIRED\_ARCHIT
 **5.)** Start Android Studio and import GNURootDebian as a project. If prompted
 to update your gradle plugin, ignore it.
 
-**6.)** Navigate to Tools -> Android -> SDK Manager -> SDK Platforms and make sure that
-
-Android 4.4 (KitKat) with API level 19
-
-Android 4.0.3 (IceCreamSandwich) with API level  15
-
-are both installed. Then navigate to SDK Tools and make sure that the Android
+**6.)** Navigate to Tools -> Android -> SDK Manager -> SDK Platforms and make sure that API levels
+15, 21, 22, 23 are all installed. Then navigate to SDK Tools and make sure that the Android
 NDK is also installed.
 
 You should now be able to build and run GNURootDebian!
+
+##Extending GNURoot Debian with your own launcher app
+GNURoot Debian can be extended fairly easily to create new launchers for other user space programs.
+Two examples are currently available as open-source applications:
+[GNURoot Octave](https://github.com/corbinlc/GNURootOctave)
+[GNURoot Runescape Launcher](https://github.com/corbinlc/GNURootRSInstaller)
+
+Of the two, the Runescape Launcher is probably more simple.
+
+There are a few key ingredients to extending GNURoot Debian:
+
+**1.)** Create a tar.gz file with whatever contents you need. This will typically be at least an
+installation script, but could also include files necessary for your program to run.
+
+**2.)** GNURoot Debian accepts intents with the action "com.gnuroot.debian.LAUNCH" which can be
+packaged with several extras. Installation will be handled automatically depending on the presence
+of certain extras.
+
+###Installation
+**a.)** Include the string extra "launchType" with either "launchTerm" or "launchXTerm". This
+this value will determine whether your program is launched in a regular terminal or in a
+VNC session once installation is completed.
+
+**b.)** Include the string extra "statusFile" with a name unique to your launcher. _passed or
+_failed will be appended to that name as a hidden file in the /support directory. This file
+is used to determine if the app can continue.
+
+**c.)** Include the string extra "command" as the command to be run once installation is completed.
+This will typically be the location of your program.
+
+**d.)** A data element that is your custom tar file. This must be treated as a URI. In the examples
+the tar files are placed in the projects assets directory as .mp2 files, renaming to .tar.gz
+once they have been installed, and then converted to a URI so that they can be shared with
+GNURoot Debian.
+
+###Launch
+**a.)** Include the string extra "launchType" as above.
+
+**b.)** Include the string extra "command" as above.
 
 ## Credits:
 

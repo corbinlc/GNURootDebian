@@ -1040,8 +1040,9 @@ public class RemoteCanvasActivity extends Activity implements OnKeyListener {
             showDialog(R.id.itemHelpInputMode);
             return true;
         } else if (itemId == R.id.itemOpenNewWindow) {
-            Intent newWindowIntent = new Intent("com.gnuroot.debian.NEW_XWINDOW");
+            Intent newWindowIntent = new Intent("com.gnuroot.debian.LAUNCH");
             newWindowIntent.addCategory(Intent.CATEGORY_DEFAULT);
+            newWindowIntent.putExtra("launchType", "launchXTerm");
             startActivity(newWindowIntent);
 		} else {
 			AbstractInputHandler input = getInputHandlerById(item.getItemId());

@@ -35,21 +35,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import java.util.jar.Attributes;
 
-import com.gnuroot.library.GNURootCoreActivity;
-
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.NotificationManager;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
-import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBar.Tab;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -58,20 +53,17 @@ import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Message;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.FileProvider;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.widget.CheckBox;
 import android.widget.Toast;
 
-import com.gnuroot.debian.R;
 import com.iiordanov.bVNC.Constants;
 
-public class GNURootMain extends GNURootCoreActivity {
+public class GNURootMain extends Activity {
 
-	String rootfsName = "Debian";
+	//Launch types. GNURoot Debian expects this to be stored in the "launchType" extra in LAUNCH intents.
+	public static final String GNUROOT_TERM = "launchTerm";
+	public static final String GNUROOT_XTERM = "launchXTerm";
+
 	Boolean errOcc;
 	Boolean expectingResult = false;
 	ProgressDialog pdRing;
@@ -79,17 +71,12 @@ public class GNURootMain extends GNURootCoreActivity {
 	File mainFile;
 
 	/**
-	 * Everytime this activity is launched it does one of five things.
-	 * 1.) If GNURoot has not been installed, let the user know installation is
-     *      starting and might take a while.
-     * 2.) If GNURoot is being reinstalled, recursively delete the existing
-     *      rootfs and then reinstall it.
-	 * 3.) If the xterm button has been pressed from the terminal:
-	 * 		Call launchXterm such that a new xterm is not created if one exists.
-	 * 4.) If an xterm has been launched from another activity:
-	 * 		Call launchXterm such that a new xterm is created.
-	 * 5.) Otherwise
-	 * 		Call launchTerm
+	 * GNURoot Debian behaves based on the intent it receives (if it exists), or installs the rootfs if it does not
+	 * yet exist, or launches into a prooted terminal.
+	 * Possible intent actions:
+	 * 1. LAUNCH. See handleLaunchIntent.
+	 * 2. GNUROOT_REINSTALL. Reinstalls the rootfs, not the app.
+	 * 3. UPDATE_ERROR. An internal intent sent from GNURoot service to handle intents sent from the old ecosystem.
 	 * @param savedInstanceState
      */
 	@Override
@@ -102,7 +89,7 @@ public class GNURootMain extends GNURootCoreActivity {
 
         File installStatus = new File(getInstallDir().getAbsolutePath() +"/support/.gnuroot_rootfs_passed");
         if(!installStatus.exists())
-            Toast.makeText(this, "GNURoot not yet installed. This could take a bit. Please wait.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.toast_not_installed, Toast.LENGTH_LONG).show();
 
 		if (!prefs.getBoolean("firstTime", false)) {
 			setupSupportFiles(false);
@@ -112,24 +99,218 @@ public class GNURootMain extends GNURootCoreActivity {
 		} else if (intentAction == "com.gnuroot.debian.GNUROOT_REINSTALL") {
 			setupSupportFiles(true);
 			setupFirstHalf();
-		} else if (intentAction == "com.gnuroot.debian.NEW_XTERM")
-			launchXTerm(false);
-		else if (intentAction == "com.gnuroot.debian.NEW_XWINDOW")
-			launchXTerm(true);
+		} else if (intentAction == "com.gnuroot.debian.LAUNCH") {
+			handleLaunchIntent(getIntent());
+		}  else if (intentAction == "com.gnuroot.debian.UPDATE_ERROR")
+			showUpdateErrorButton(getIntent().getStringExtra("packageName"));
         /*
         else if(intentAction == "com.gnuroot.debian.TOAST_ALARM")
             makeAlarmToast(getIntent());
         */
 		else
-			launchTerm();
+			launchTerm(null);
 	}
 
-    /*
-    private void makeAlarmToast(Intent intent) {
-        String alarmName = intent.getStringExtra("alarmName");
-        Toast.makeText(this, alarmName + "... Please wait for completion.", Toast.LENGTH_LONG).show();
-    }
-    */
+	/**
+	 * Launches a prooted term or xterm depending on the intent. Will also untar a shared file if it exists.
+	 * @param intent
+     */
+	public void handleLaunchIntent(Intent intent) {
+		Uri sharedFile = intent.getData();
+		String launchType = intent.getStringExtra("launchType");
+		String command = intent.getStringExtra("command");
+
+		switch (launchType) {
+			case GNUROOT_TERM:
+				if(sharedFile != null) {
+					untarSharedFile(sharedFile, intent.getStringExtra("statusFile"), command, false);
+					return;
+				}
+				else
+					launchTerm(command);
+				return;
+
+			case GNUROOT_XTERM:
+				if(sharedFile != null) {
+					untarSharedFile(sharedFile, intent.getStringExtra("statusFile"), command, true);
+					return;
+				}
+				else
+					/** If the terminal button has been pressed, we want to pass false to @createNewXTerm
+					 * This extra does not need to be present for any launch intent that does not come from
+					 * that button. */
+					launchXTerm(!intent.getBooleanExtra("terminal_button", false), command);
+				return;
+			default:
+				Toast.makeText(this, R.string.toast_bad_launch_type, Toast.LENGTH_LONG).show();
+				finish();
+		}
+	}
+
+	/**
+	 * Sends an intent to Android Terminal Emulator to launch PRoot, which installs any missing components.
+	 * @param command is the command that will be executed when PRoot launches.
+	 */
+	public void launchTerm(String command) {
+		Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
+		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
+		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+		if(command == null)
+			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
+					getInstallDir().getAbsolutePath() + "/support/launchProot");
+		else
+			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
+					getInstallDir().getAbsolutePath() + "/support/launchProot " + command);
+		checkPatches();
+		startActivity(termIntent);
+		finish();
+	}
+
+	/**
+	 * Launches a VNC session by sending an intent to create a new xterm to Android Terminal Emulator, waiting for
+	 * status files to be created, and then sending an intent to bVNC.
+	 * @param createNewXTerm determines if a new xterm should be launched regardless of whether one is already active.
+	 */
+	public void launchXTerm(Boolean createNewXTerm, String command) {
+		File deleteStarted = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
+		if (deleteStarted.exists())
+			deleteStarted.delete();
+
+		Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
+		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
+		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+		if(command == null)
+			command = "/bin/bash";
+		if (createNewXTerm)
+			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
+					getInstallDir().getAbsolutePath() + "/support/launchXterm " + command);
+		else
+			// Button presses will not open a new xterm is one is alrady running.
+			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
+					getInstallDir().getAbsolutePath() + "/support/launchXterm  button_pressed " + command);
+		startActivity(termIntent);
+
+		final ScheduledExecutorService scheduler =
+				Executors.newSingleThreadScheduledExecutor();
+
+		scheduler.scheduleAtFixedRate
+				(new Runnable() {
+					public void run() {
+						File checkStarted = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
+						File checkRunning = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_running");
+						if (checkStarted.exists() || checkRunning.exists()) {
+							Intent bvncIntent = new Intent(getBaseContext(), com.iiordanov.bVNC.RemoteCanvasActivity.class);
+							bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?" + Constants.PARAM_VNC_PWD + "=gnuroot"));
+							bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+							startActivity(bvncIntent);
+							scheduler.shutdown();
+						}
+					}
+				}, 3, 2, TimeUnit.SECONDS); //Avoid race case in which tightvnc needs to be restarted
+
+		finish();
+	}
+
+	/**
+	 * Untar a file from another app. This can be used to untar scripts and other
+	 * necessary installation files.
+	 * @param sharedFile must be a tar.gz file. The intent must include flag FLAG_GRANT_READ_URI_PERMISSION
+	 * @param statusFile an empty file placed in /support. _passed or _failed is prepended to it to indicate whether the untar was successful.
+	 * @param command is a command to run after the untarring.
+	 * @param xCommand is a command to run after the untarring. Indicates that it should be run in an xterm.
+     */
+	private void untarSharedFile(Uri sharedFile, final String statusFile, final String command, final boolean xCommand) {
+		InputStream srcStream;
+		String untarCommand;
+		boolean status = true;
+		File srcFile = new File(sharedFile.getPath());
+		File destFolder = getInstallDir();
+		File destFile = new File(destFolder.getAbsolutePath() + "/debian/" + srcFile.getName());
+
+		try {
+			srcStream = getContentResolver().openInputStream(sharedFile);
+			try { copyFile(srcStream, new FileOutputStream(destFile)); }
+			catch (IOException e) { status = false; }
+		} catch (FileNotFoundException e) {
+			status = false;
+		}
+
+		if (!status) {
+			Toast.makeText(this, R.string.toast_tar_not_found, Toast.LENGTH_LONG).show();
+			return;
+		}
+
+		if(destFile.exists()) {
+			untarCommand = "/support/untargz " + statusFile + " /" + srcFile.getName();
+			launchTerm(untarCommand);
+		}
+		else {
+			Toast.makeText(this, R.string.toast_bad_tar_permissions, Toast.LENGTH_LONG).show();
+			return;
+		}
+
+		final File checkPassed = new File(getInstallDir().getAbsolutePath() + "/support/." + statusFile + "_passed");
+		final File checkFailed = new File(getInstallDir().getAbsolutePath() + "/support/." + statusFile + "_failed");
+		checkPassed.delete();
+		checkFailed.delete();
+		final ScheduledExecutorService scheduler =
+				Executors.newSingleThreadScheduledExecutor();
+
+		scheduler.scheduleAtFixedRate
+				(new Runnable() {
+					public void run() {
+						if (checkPassed.exists()) {
+							if(xCommand)
+								launchXTerm(true, command);
+							else
+								launchTerm(command);
+							scheduler.shutdown();
+						}
+						if (checkFailed.exists()) {
+							scheduler.shutdown();
+						}
+					}
+				}, 3, 2, TimeUnit.SECONDS); //Avoid race cases
+
+		return;
+	}
+
+	/**
+	 * Displays an alert dialog if another app isn't updated to at least the version that included the
+	 * new ecosystem changes. Sends the user to the market page for it if not.
+	 */
+	private void showUpdateErrorButton(final String packageName) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(GNURootMain.this);
+		builder.setMessage(R.string.update_error_message);
+		builder.setPositiveButton(R.string.button_affirmative, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+				if(packageName != null){
+					Intent intent = new Intent(Intent.ACTION_VIEW);
+					intent.setData(Uri.parse("market://details?id=" + packageName));
+					startActivity(intent);
+				}
+				finish();
+			}
+		});
+		builder.create().show();
+	}
+
+	/*
+	TODO This was going to be used to check status files.
+	private void makeAlarmToast(Intent intent) {
+	  	String alarmName = intent.getStringExtra("alarmName");
+	 	Toast.makeText(this, alarmName + "... Please wait for completion.", Toast.LENGTH_LONG).show();
+	}
+	 */
+
+	/**
+	 * Creates /support and copies from project assets directory to proper rootfs locations.
+	 * @param deleteFirst indicates to blow /support away first.
+     */
 	public void setupSupportFiles(boolean deleteFirst) {
 		File installDir = getInstallDir();
 
@@ -180,8 +361,7 @@ public class GNURootMain extends GNURootCoreActivity {
 	}
 
 	/**
-	 * If GNURootDownloaderActivity is successful, kills the downloader notification
-	 * and launches setupSecondHalf.
+	 * If GNURootDownloaderActivity is successful, kills the downloader notification and launches setupSecondHalf.
 	 * @param requestCode
 	 * @param resultCode
 	 * @param data
@@ -203,7 +383,7 @@ public class GNURootMain extends GNURootCoreActivity {
 								pdRing.dismiss();
 								GNURootMain.this.runOnUiThread(new Runnable() {
 									public void run() {
-										Toast.makeText(getApplicationContext(), "Installing GNURoot Debian failed.  Something went wrong.", Toast.LENGTH_LONG).show();
+										Toast.makeText(getApplicationContext(), R.string.toast_bad_install, Toast.LENGTH_LONG).show();
 									}
 								});
 							}
@@ -216,7 +396,7 @@ public class GNURootMain extends GNURootCoreActivity {
 						public void run() {
 							GNURootMain.this.runOnUiThread(new Runnable() {
 								public void run() {
-									Toast.makeText(getApplicationContext(), "Installing GNURoot Debian failed.  Couldn't get necessary .obb files.", Toast.LENGTH_LONG).show();
+									Toast.makeText(getApplicationContext(), R.string.toast_bad_install, Toast.LENGTH_LONG).show();
 								}
 							});
 						}
@@ -330,8 +510,20 @@ public class GNURootMain extends GNURootCoreActivity {
 			tempFile.mkdir();
 		}
 
-		launchTerm();
+		launchTerm(null);
 
+	}
+
+	public File getInstallDir() {
+		try {
+			return new File(getPackageManager().getApplicationInfo("com.gnuroot.debian", 0).dataDir);
+		} catch (NameNotFoundException e) {
+			return null;
+		}
+	}
+
+	public File getSdcardInstallDir() {
+		return new File(Environment.getExternalStorageDirectory() + "/GNURoot");
 	}
 
 	/**
@@ -437,7 +629,7 @@ public class GNURootMain extends GNURootCoreActivity {
 				bw.write(line + "\n");
 			}
 		} catch (Exception e) {
-			//todo, don't just return
+			Toast.makeText(this, R.string.toast_bad_install, Toast.LENGTH_LONG).show();
 			return;
 		} finally {
 			try {
@@ -495,9 +687,8 @@ public class GNURootMain extends GNURootCoreActivity {
 	}
 
     /**
-     * Checks whether the package.versionName is the same as the the versionName
-     * stored in shared preferences. If it is not, it deletes the patch passed
-     * status file so that the launchProot script will apply the new patches.
+     * Checks whether the package.versionName is the same as the the versionName stored in shared preferences. If it
+	 * is not, it deletes the patch passed status file so that the launchProot script will apply the new patches.
      */
     private void checkPatches() {
         SharedPreferences prefs = getSharedPreferences("MAIN", MODE_PRIVATE);
@@ -510,79 +701,18 @@ public class GNURootMain extends GNURootCoreActivity {
             pi = getPackageManager().getPackageInfo(getPackageName(), 0);
             patchVersion = pi.versionName;
         } catch (NameNotFoundException e) {
-            Toast.makeText(getApplicationContext(), "Couldn't get package information. Please reinstall.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), R.string.toast_bad_package, Toast.LENGTH_LONG).show();
         }
 
         if (sharedVersion != null && !sharedVersion.equals(patchVersion)) {
             File patchStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_patch_passed");
             deleteRecursive(patchStatus);
-            Toast.makeText(this, "GNURoot needs to patch. This could take a bit. Please wait.", Toast.LENGTH_LONG).show();
-            if (!patchVersion.equals("notARealPatchVersion")) {
-                editor.putString("patchVersion", patchVersion);
-                editor.commit();
-            }
+            Toast.makeText(this, R.string.toast_bad_patch, Toast.LENGTH_LONG).show();
         }
+
+		if (!patchVersion.equals("notARealPatchVersion")) {
+			editor.putString("patchVersion", patchVersion);
+			editor.commit();
+		}
     }
-
-	/**
-	 * Sends an intent to Android Terminal Emulator to launch PRoot, which
-	 * installs any missing components.
-	 */
-	public void launchTerm() {
-		Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
-		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
-		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
-		termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/launchProot");
-        checkPatches();
-		startActivity(termIntent);
-		finish();
-	}
-
-	/**
-	 * Launches a VNC session by sending an intent to create a new xterm to
-	 * Android Terminal Emulator, waiting for status files to be created, and
-	 * then sending an intent to bVNC.
-	 * @createNewXTerm determines if a new xterm should be launched regardless
-	 * of whether an xterm is already active.
-	 * @param createNewXTerm
-     */
-	public void launchXTerm(Boolean createNewXTerm) {
-		File deleteStarted = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
-		if (deleteStarted.exists())
-			deleteStarted.delete();
-
-		Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
-		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
-		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
-		if (createNewXTerm)
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/launchXterm /bin/bash");
-		else
-			// Button presses will not open a new xterm is one is alrady running.
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand", getInstallDir().getAbsolutePath() + "/support/launchXterm  button_pressed /bin/bash");
-		startActivity(termIntent);
-
-
-		final ScheduledExecutorService scheduler =
-				Executors.newSingleThreadScheduledExecutor();
-
-		scheduler.scheduleAtFixedRate
-				(new Runnable() {
-					public void run() {
-						File checkStarted = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
-						File checkRunning = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_running");
-						if (checkStarted.exists() || checkRunning.exists()) {
-							Intent bvncIntent = new Intent(getBaseContext(), com.iiordanov.bVNC.RemoteCanvasActivity.class);
-							bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?" + Constants.PARAM_VNC_PWD + "=gnuroot"));
-							bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-							startActivity(bvncIntent);
-							scheduler.shutdown();
-						}
-					}
-				}, 3, 2, TimeUnit.SECONDS); //Avoid race case in which tightvnc needs to be restarted
-
-		finish();
-	}
 }
-
