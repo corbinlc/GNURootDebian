@@ -20,16 +20,14 @@
 <!-- THE SOFTWARE. -->
 <resources>
     <string name="app_name">GNURoot Debian</string>
-    <string name="install_button_text">Install/Reinstall</string>
-    <string name="install_textview_text">Will install GNURoot Debian on your device.  This will take a little while and consume noticeable disk space.  This will overwrite any previous version installed.</string>
-    <string name="patch_button_text">Patch Installation</string>
-    <string name="patch_textview_text">Will patch GNURoot Debian with the latest set of improvements that don\'t require hitting the Install/Reinstall button.</string>
-    <string name="install_x_button_text">Install X Support</string>
-    <string name="install_x_textview_text">Will install the required packages needed for you to be able to run X applications.</string>
-    <string name="launch_button_text">Launch</string>
-    <string name="launch_textview_text">Launch into a GNURoot Debian terminal by hitting the button below.</string>
-    <string name="launch_x_button_text">Launch X</string>
-    <string name="launch_x_textview_text">Launch into a GNURoot Debian X terminal by hitting the button below.</string>
-    <string name="reconnect_button_text">Reconnect to X</string>
-    <string name="reconnect_textview_text">Reopen your X terms, if you have previously hit &quot;Launch X&quot;, by hitting the button below.</string>
+    <string name="update_error_message">An outdated application has attempted to launch GNURoot Debian. Please update it and try again.</string>
+    <string name="button_affirmative">Got it!</string>
+
+    <string name="toast_not_installed">GNURoot not yet installed. This could take a bit. Please wait.</string>
+    <string name="toast_bad_launch_type">GNURoot has received a launch intent from an application that did not specify a correct launch type. Please report this error to a developer.</string>
+    <string name="toast_tar_not_found">GNURoot has been told to untar a file that cannot be found. Please report this error to a developer.</string>
+    <string name="toast_bad_tar_permissions">GNURoot has been told to untar a file that could not be copied to its storage space. Try reinstalling the app that caused this error. Note: This should be the main GNURoot app. Please report this error to a developer.</string>
+    <string name="toast_bad_install">Something went wrong. Please try reinstalling.</string>
+    <string name="toast_bad_package">Could not get package information. Please reinstall.</string>
+    <string name="toast_bad_patch">GNURoot needs to patch. This could take a bit. Please wait.</string>
 </resources>
