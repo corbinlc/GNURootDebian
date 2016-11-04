@@ -116,6 +116,7 @@ Two examples are currently available as open-source applications:
 Of the two, the Runescape Launcher is probably more simple.
 
 There are a few key ingredients to extending GNURoot Debian:
+
 **1.)** Create a tar.gz file with whatever contents you need. This will typically be at least an
 installation script, but could also include files necessary for your program to run.
 
