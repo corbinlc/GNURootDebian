@@ -128,11 +128,14 @@ of certain extras.
 **a.)** Include the string extra "launchType" with either "launchTerm" or "launchXTerm". This
 this value will determine whether your program is launched in a regular terminal or in a
 VNC session once installation is completed.
+
 **b.)** Include the string extra "statusFile" with a name unique to your launcher. _passed or
 _failed will be appended to that name as a hidden file in the /support directory. This file
 is used to determine if the app can continue.
+
 **c.)** Include the string extra "command" as the command to be run once installation is completed.
 This will typically be the location of your program.
+
 **d.)** A data element that is your custom tar file. This must be treated as a URI. In the examples
 the tar files are placed in the projects assets directory as .mp2 files, renaming to .tar.gz
 once they have been installed, and then converted to a URI so that they can be shared with
@@ -140,6 +143,7 @@ GNURoot Debian.
 
 ###Launch
 **a.)** Include the string extra "launchType" as above.
+
 **b.)** Include the string extra "command" as above.
 
 ## Credits:
