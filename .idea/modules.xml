@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/Android-Terminal-Emulator/Android-Terminal-Emulator.iml" filepath="$PROJECT_DIR$/Android-Terminal-Emulator/Android-Terminal-Emulator.iml" />
       <module fileurl="file://$PROJECT_DIR$/GNURootDebian.iml" filepath="$PROJECT_DIR$/GNURootDebian.iml" />
       <module fileurl="file://$PROJECT_DIR$/GNURootDebianSource/GNURootDebianSource.iml" filepath="$PROJECT_DIR$/GNURootDebianSource/GNURootDebianSource.iml" />
-      <module fileurl="file://$PROJECT_DIR$/GNURootLibrary/GNURootLibrary.iml" filepath="$PROJECT_DIR$/GNURootLibrary/GNURootLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/bVNC/bVNC.iml" filepath="$PROJECT_DIR$/bVNC/bVNC.iml" />
       <module fileurl="file://$PROJECT_DIR$/downloader_library/downloader_library.iml" filepath="$PROJECT_DIR$/downloader_library/downloader_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/Android-Terminal-Emulator/emulatorview/emulatorview.iml" filepath="$PROJECT_DIR$/Android-Terminal-Emulator/emulatorview/emulatorview.iml" />

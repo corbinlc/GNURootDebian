@@ -66,13 +66,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/armhf/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/armhf/renderscript" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/armhf/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestArmhf/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestArmhf/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestArmhf/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestArmhf/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestArmhf/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestArmhf/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestArmhf/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testArmhf/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testArmhf/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testArmhf/assets" type="java-test-resource" />
@@ -80,6 +73,13 @@
       <sourceFolder url="file://$MODULE_DIR$/src/testArmhf/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testArmhf/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testArmhf/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestArmhf/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestArmhf/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestArmhf/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestArmhf/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestArmhf/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestArmhf/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestArmhf/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/assets" type="java-resource" />
@@ -146,14 +146,11 @@
     <orderEntry type="module" module-name="zoomerWithKeys" exported="" />
     <orderEntry type="module" module-name="play_licensing" exported="" />
     <orderEntry type="module" module-name="pubkeyGenerator" exported="" />
-    <orderEntry type="module" module-name="GNURootLibrary" exported="" />
     <orderEntry type="module" module-name="term" exported="" />
     <orderEntry type="module" module-name="bVNC" exported="" />
     <orderEntry type="module" module-name="libtermexec" exported="" />
     <orderEntry type="module" module-name="downloader_library" exported="" />
     <orderEntry type="library" exported="" name="android-android-22" level="project" />
-    <orderEntry type="library" exported="" name="support-v4-19.1.0" level="project" />
-    <orderEntry type="library" exported="" name="appcompat-v7-19.1.0" level="project" />
     <orderEntry type="library" exported="" name="com.antlersoft.android.db" level="project" />
     <orderEntry type="library" exported="" name="sqlcipher" level="project" />
     <orderEntry type="library" exported="" name="com.antlersoft.android.contentxml" level="project" />
