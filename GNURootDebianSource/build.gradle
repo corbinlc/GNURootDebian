@@ -27,6 +27,9 @@ model {
             applicationId "com.gnuroot.debian"
             versionName "0.6.0_armel"
             versionCode 40
+            ndk.with {
+                abiFilters.add("armeabi")
+            }
             buildConfigFields.with {
                 create() {
                     type "int"
@@ -39,6 +42,9 @@ model {
             applicationId "com.gnuroot.debian"
             versionName "0.6.0_armhf"
             versionCode 41
+            ndk.with {
+                abiFilters.add("armeabi-v7a")
+            }
             buildConfigFields.with {
                 create() {
                     type "int"
@@ -51,6 +57,9 @@ model {
             applicationId "com.gnuroot.debian"
             versionName "0.6.0_i386"
             versionCode 42
+            ndk.with {
+                abiFilters.add("x86")
+            }
             buildConfigFields.with {
                 create() {
                     type "int"
