@@ -35,6 +35,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -69,6 +70,8 @@ public class GNURootMain extends Activity {
 	ProgressDialog pdRing;
 	Integer downloadResultCode;
 	File mainFile;
+    Intent savedIntent = null;
+    boolean noInstallAgain = false;
 
 	/**
 	 * GNURoot Debian behaves based on the intent it receives (if it exists), or installs the rootfs if it does not
@@ -83,33 +86,37 @@ public class GNURootMain extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		SharedPreferences prefs = getSharedPreferences("MAIN", MODE_PRIVATE);
-		SharedPreferences.Editor editor = prefs.edit();
-		String intentAction = getIntent().getAction();
+        handleIntent(getIntent());
+	}
+
+    private void handleIntent(Intent intent) {
+        String intentAction = intent.getAction();
 
         File installStatus = new File(getInstallDir().getAbsolutePath() +"/support/.gnuroot_rootfs_passed");
-        if(!installStatus.exists())
-            Toast.makeText(this, R.string.toast_not_installed, Toast.LENGTH_LONG).show();
-
-		if (!prefs.getBoolean("firstTime", false)) {
-			setupSupportFiles(false);
-			setupFirstHalf();
-			editor.putBoolean("firstTime", true);
-			editor.commit();
-		} else if (intentAction == "com.gnuroot.debian.GNUROOT_REINSTALL") {
-			setupSupportFiles(true);
-			setupFirstHalf();
-		} else if (intentAction == "com.gnuroot.debian.LAUNCH") {
-			handleLaunchIntent(getIntent());
-		}  else if (intentAction == "com.gnuroot.debian.UPDATE_ERROR")
-			showUpdateErrorButton(getIntent().getStringExtra("packageName"));
+        if ((!installStatus.exists()) && (noInstallAgain == false)) {
+            GNURootMain.this.runOnUiThread(new Runnable() {
+                public void run() {
+                    Toast.makeText(getApplicationContext(), R.string.toast_not_installed, Toast.LENGTH_LONG).show();
+                }
+            });
+            savedIntent = intent;
+            setupSupportFiles(false);
+            setupFirstHalf();
+        } else if (intentAction == "com.gnuroot.debian.GNUROOT_REINSTALL") {
+            setupSupportFiles(true);
+            setupFirstHalf();
+        } else if (intentAction == "com.gnuroot.debian.LAUNCH") {
+            noInstallAgain = false;
+            handleLaunchIntent(intent);
+        }  else if (intentAction == "com.gnuroot.debian.UPDATE_ERROR")
+            showUpdateErrorButton(intent.getStringExtra("packageName"));
         /*
         else if(intentAction == "com.gnuroot.debian.TOAST_ALARM")
-            makeAlarmToast(getIntent());
+            makeAlarmToast(intent);
         */
-		else
-			launchTerm(null);
-	}
+        else
+            launchTerm(null);
+    }
 
 	/**
 	 * Launches a prooted term or xterm depending on the intent. Will also untar a shared file if it exists.
@@ -120,26 +127,31 @@ public class GNURootMain extends Activity {
 		String launchType = intent.getStringExtra("launchType");
 		String command = intent.getStringExtra("command");
 
+        if (command != null) {
+            File file = new File(getInstallDir().getAbsolutePath() + "/support/newCommand");
+            try {
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file));
+                outputStreamWriter.write(command);
+                outputStreamWriter.close();
+            } catch (IOException e) {
+                Log.e("Exception", "File write failed: " + e.toString());
+            }
+            exec("chmod 0777 " + file.getAbsolutePath(), true);
+            command = "/support/newCommand";
+        }
+
+        if(sharedFile != null) {
+			copySharedFile(sharedFile);
+		}
+
+        checkPatches();
+
 		switch (launchType) {
 			case GNUROOT_TERM:
-				if(sharedFile != null) {
-					untarSharedFile(sharedFile, intent.getStringExtra("statusFile"), command, false);
-					return;
-				}
-				else
-					launchTerm(command);
+				launchTerm(command);
 				return;
-
 			case GNUROOT_XTERM:
-				if(sharedFile != null) {
-					untarSharedFile(sharedFile, intent.getStringExtra("statusFile"), command, true);
-					return;
-				}
-				else
-					/** If the terminal button has been pressed, we want to pass false to @createNewXTerm
-					 * This extra does not need to be present for any launch intent that does not come from
-					 * that button. */
-					launchXTerm(!intent.getBooleanExtra("terminal_button", false), command);
+				launchXTerm(!intent.getBooleanExtra("terminal_button", false), command);
 				return;
 			default:
 				Toast.makeText(this, R.string.toast_bad_launch_type, Toast.LENGTH_LONG).show();
@@ -156,13 +168,16 @@ public class GNURootMain extends Activity {
 		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
 		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
 		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+		//if (true)
+		//	termIntent.putExtra("jackpal.androidterm.iInitialCommand",
+		//			getInstallDir().getAbsolutePath() + "/support/busybox sh");
+		//else
 		if(command == null)
 			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
 					getInstallDir().getAbsolutePath() + "/support/launchProot");
 		else
 			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
 					getInstallDir().getAbsolutePath() + "/support/launchProot " + command);
-		checkPatches();
 		startActivity(termIntent);
 		finish();
 	}
@@ -214,20 +229,16 @@ public class GNURootMain extends Activity {
 	}
 
 	/**
-	 * Untar a file from another app. This can be used to untar scripts and other
-	 * necessary installation files.
+	 * Copy a file from another app. This can be a tar file or a singular script.
 	 * @param sharedFile must be a tar.gz file. The intent must include flag FLAG_GRANT_READ_URI_PERMISSION
-	 * @param statusFile an empty file placed in /support. _passed or _failed is prepended to it to indicate whether the untar was successful.
-	 * @param command is a command to run after the untarring.
-	 * @param xCommand is a command to run after the untarring. Indicates that it should be run in an xterm.
      */
-	private void untarSharedFile(Uri sharedFile, final String statusFile, final String command, final boolean xCommand) {
+	private void copySharedFile(Uri sharedFile) {
 		InputStream srcStream;
 		String untarCommand;
 		boolean status = true;
 		File srcFile = new File(sharedFile.getPath());
 		File destFolder = getInstallDir();
-		File destFile = new File(destFolder.getAbsolutePath() + "/debian/" + srcFile.getName());
+		File destFile = new File(destFolder.getAbsolutePath() + "/support/" + srcFile.getName());
 
 		try {
 			srcStream = getContentResolver().openInputStream(sharedFile);
@@ -238,43 +249,11 @@ public class GNURootMain extends Activity {
 		}
 
 		if (!status) {
-			Toast.makeText(this, R.string.toast_tar_not_found, Toast.LENGTH_LONG).show();
-			return;
+			Toast.makeText(this, R.string.toast_file_not_found, Toast.LENGTH_LONG).show();
 		}
-
-		if(destFile.exists()) {
-			untarCommand = "/support/untargz " + statusFile + " /" + srcFile.getName();
-			launchTerm(untarCommand);
-		}
-		else {
-			Toast.makeText(this, R.string.toast_bad_tar_permissions, Toast.LENGTH_LONG).show();
-			return;
-		}
-
-		final File checkPassed = new File(getInstallDir().getAbsolutePath() + "/support/." + statusFile + "_passed");
-		final File checkFailed = new File(getInstallDir().getAbsolutePath() + "/support/." + statusFile + "_failed");
-		checkPassed.delete();
-		checkFailed.delete();
-		final ScheduledExecutorService scheduler =
-				Executors.newSingleThreadScheduledExecutor();
-
-		scheduler.scheduleAtFixedRate
-				(new Runnable() {
-					public void run() {
-						if (checkPassed.exists()) {
-							if(xCommand)
-								launchXTerm(true, command);
-							else
-								launchTerm(command);
-							scheduler.shutdown();
-						}
-						if (checkFailed.exists()) {
-							scheduler.shutdown();
-						}
-					}
-				}, 3, 2, TimeUnit.SECONDS); //Avoid race cases
 
 		return;
+
 	}
 
 	/**
@@ -510,7 +489,12 @@ public class GNURootMain extends Activity {
 			tempFile.mkdir();
 		}
 
-		launchTerm(null);
+        if ((savedIntent == null) || (savedIntent.getAction() != "com.gnuroot.debian.LAUNCH"))
+		    launchTerm(null);
+        else {
+            noInstallAgain = true;
+            handleIntent(savedIntent);
+        }
 
 	}
 

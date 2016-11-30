@@ -49,6 +49,7 @@ public class GNURootService extends IntentService {
 			Intent errorIntent = new Intent("com.gnuroot.debian.UPDATE_ERROR");
 			errorIntent.addCategory(Intent.CATEGORY_DEFAULT);
 			errorIntent.putExtra("packageName", intent.getStringExtra("packageName"));
+			errorIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			startActivity(errorIntent);
 		}
     }

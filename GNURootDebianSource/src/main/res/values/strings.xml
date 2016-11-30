@@ -25,7 +25,7 @@
 
     <string name="toast_not_installed">GNURoot not yet installed. This could take a bit. Please wait.</string>
     <string name="toast_bad_launch_type">GNURoot has received a launch intent from an application that did not specify a correct launch type. Please report this error to a developer.</string>
-    <string name="toast_tar_not_found">GNURoot has been told to untar a file that cannot be found. Please report this error to a developer.</string>
+    <string name="toast_file_not_found">GNURoot has been told to copy a file that cannot be found. Please report this error to a developer.</string>
     <string name="toast_bad_tar_permissions">GNURoot has been told to untar a file that could not be copied to its storage space. Try reinstalling the app that caused this error. Note: This should be the main GNURoot app. Please report this error to a developer.</string>
     <string name="toast_bad_install">Something went wrong. Please try reinstalling.</string>
     <string name="toast_bad_package">Could not get package information. Please reinstall.</string>

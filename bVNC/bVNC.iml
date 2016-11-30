@@ -111,6 +111,5 @@
     <orderEntry type="library" exported="" name="support-annotations-21.0.3" level="project" />
     <orderEntry type="module" module-name="zoomerWithKeys" exported="" />
     <orderEntry type="module" module-name="pubkeyGenerator" exported="" />
-    <orderEntry type="library" exported="" name="android-android-21" level="project" />
   </component>
 </module>
