@@ -2,7 +2,7 @@
 
 ROOT_PATH/support/busybox clear
 
-if [ ! -f ROOT_PATH/support/.gnuroot_rootfs_passed ]; then
+if [ ! -h ROOT_PATH/support/.gnuroot_rootfs_passed ] && [ ! -e ROOT_PATH/support/.gnuroot_rootfs_passed ]; then
     echo "Installing new rootfs..."
     ROOT_PATH/support/execInProot /support/installRootfs
     if [ ! -f ROOT_PATH/support/.gnuroot_rootfs_passed ]; then
@@ -10,7 +10,7 @@ if [ ! -f ROOT_PATH/support/.gnuroot_rootfs_passed ]; then
     fi
 fi
 
-if [ ! -f ROOT_PATH/support/.gnuroot_patch_passed ]; then
+if [ ! -h ROOT_PATH/support/.gnuroot_patch_passed ] && [ ! -e ROOT_PATH/support/.gnuroot_patch_passed ]; then
     echo "Patching rootfs..."
     ROOT_PATH/support/execInProot /support/patchRootfs
     if [ ! -f ROOT_PATH/support/.gnuroot_patch_passed ]; then

@@ -93,7 +93,7 @@ public class GNURootMain extends Activity {
         String intentAction = intent.getAction();
 
         File installStatus = new File(getInstallDir().getAbsolutePath() +"/support/.gnuroot_rootfs_passed");
-        if ((!installStatus.exists()) && (noInstallAgain == false)) {
+		if ((!isSymlink(installStatus) && !installStatus.exists()) && (noInstallAgain == false)) {
             GNURootMain.this.runOnUiThread(new Runnable() {
                 public void run() {
                     Toast.makeText(getApplicationContext(), R.string.toast_not_installed, Toast.LENGTH_LONG).show();
@@ -699,4 +699,24 @@ public class GNURootMain extends Activity {
 			editor.commit();
 		}
     }
+
+	public static boolean isSymlink(File file) {
+		try {
+			if (file == null)
+				throw new NullPointerException("File must not be null");
+			File canon;
+			if (file.getParent() == null) {
+				canon = file;
+			} else {
+				File canonDir;
+
+				canonDir = file.getParentFile().getCanonicalFile();
+
+				canon = new File(canonDir, file.getName());
+			}
+			return !canon.getCanonicalFile().equals(canon.getAbsoluteFile());
+		} catch (IOException e) {
+			return false;
+		}
+	}
 }
