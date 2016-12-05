@@ -174,7 +174,7 @@ public class GNURootMain extends Activity {
 		//else
 		if(command == null)
 			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-					getInstallDir().getAbsolutePath() + "/support/launchProot");
+					getInstallDir().getAbsolutePath() + "/support/launchProot /bin/bash");
 		else
 			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
 					getInstallDir().getAbsolutePath() + "/support/launchProot " + command);
