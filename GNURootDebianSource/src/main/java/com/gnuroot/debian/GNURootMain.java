@@ -27,6 +27,7 @@ package com.gnuroot.debian;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -100,15 +101,17 @@ public class GNURootMain extends Activity {
                 }
             });
             savedIntent = intent;
-            setupSupportFiles(false);
-            setupFirstHalf();
-        } else if (intentAction == "com.gnuroot.debian.GNUROOT_REINSTALL") {
             setupSupportFiles(true);
+            updateVersion();
             setupFirstHalf();
-        } else if (intentAction == "com.gnuroot.debian.LAUNCH") {
+        } else if (intentAction.equals("com.gnuroot.debian.GNUROOT_REINSTALL")) {
+            setupSupportFiles(true);
+            updateVersion();
+            setupFirstHalf();
+        } else if (intentAction.equals("com.gnuroot.debian.LAUNCH")) {
             noInstallAgain = false;
             handleLaunchIntent(intent);
-        }  else if (intentAction == "com.gnuroot.debian.UPDATE_ERROR")
+        }  else if (intentAction.equals("com.gnuroot.debian.UPDATE_ERROR"))
             showUpdateErrorButton(intent.getStringExtra("packageName"));
         /*
         else if(intentAction == "com.gnuroot.debian.TOAST_ALARM")
@@ -144,8 +147,6 @@ public class GNURootMain extends Activity {
 			copySharedFile(sharedFile);
 		}
 
-        checkPatches();
-
 		switch (launchType) {
 			case GNUROOT_TERM:
 				launchTerm(command);
@@ -178,6 +179,9 @@ public class GNURootMain extends Activity {
 		else
 			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
 					getInstallDir().getAbsolutePath() + "/support/launchProot " + command);
+
+        checkPatches();
+
 		startActivity(termIntent);
 		finish();
 	}
@@ -205,6 +209,10 @@ public class GNURootMain extends Activity {
 			// Button presses will not open a new xterm is one is alrady running.
 			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
 					getInstallDir().getAbsolutePath() + "/support/launchXterm  button_pressed " + command);
+
+
+        checkPatches();
+
 		startActivity(termIntent);
 
 		final ScheduledExecutorService scheduler =
@@ -532,6 +540,35 @@ public class GNURootMain extends Activity {
 		}
 	}
 
+	public void copyDirectory(File sourceLocation , File targetLocation)
+			throws IOException {
+
+		if (sourceLocation.isDirectory()) {
+			if (!targetLocation.exists()) {
+				targetLocation.mkdir();
+			}
+
+			String[] children = sourceLocation.list();
+			for (int i=0; i<children.length; i++) {
+				copyDirectory(new File(sourceLocation, children[i]),
+						new File(targetLocation, children[i]));
+			}
+		} else {
+
+			InputStream in = new FileInputStream(sourceLocation);
+			OutputStream out = new FileOutputStream(targetLocation);
+
+			// Copy the bits from instream to outstream
+			byte[] buf = new byte[1024];
+			int len;
+			while ((len = in.read(buf)) > 0) {
+				out.write(buf, 0, len);
+			}
+			in.close();
+			out.close();
+		}
+	}
+
 	/**
 	 * Copies assets from the armhf|armhf|i386 /assets directory to /data/user/0/support.
 	 * This is bound to ROOTDIR/support when execInProot is ran.
@@ -694,10 +731,38 @@ public class GNURootMain extends Activity {
             Toast.makeText(this, R.string.toast_bad_patch, Toast.LENGTH_LONG).show();
         }
 
+		if ((sharedVersion == null) || (!sharedVersion.equals(patchVersion))) {
+			    setupSupportFiles(false);
+			try {
+				copyDirectory(new File(getInstallDir().getAbsolutePath() + "/debian/home"), new File(getSdcardInstallDir().getAbsolutePath() + "/home"));
+			} catch (IOException e) {
+				//e.printStackTrace();
+			}
+		}
+
 		if (!patchVersion.equals("notARealPatchVersion")) {
 			editor.putString("patchVersion", patchVersion);
 			editor.commit();
 		}
+    }
+
+    private void updateVersion() {
+        SharedPreferences prefs = getSharedPreferences("MAIN", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        PackageInfo pi;
+        String patchVersion = "notARealPatchVersion";
+        try {
+            pi = getPackageManager().getPackageInfo(getPackageName(), 0);
+            patchVersion = pi.versionName;
+        } catch (NameNotFoundException e) {
+            Toast.makeText(getApplicationContext(), R.string.toast_bad_package, Toast.LENGTH_LONG).show();
+        }
+
+        if (!patchVersion.equals("notARealPatchVersion")) {
+            editor.putString("patchVersion", patchVersion);
+            editor.commit();
+        }
     }
 
 	public static boolean isSymlink(File file) {
