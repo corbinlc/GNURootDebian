@@ -61,6 +61,7 @@ OBJECTS += \
         extension/link2symlink/link2symlink.o \
         extension/noexec_shadow/fuser.o \
         extension/noexec_shadow/noexec_shadow.o \
+        extension/fix_symlink_size/fix_symlink_size.o \
 	loader/loader-wrapped.o
 
 define define_from_arch.h
