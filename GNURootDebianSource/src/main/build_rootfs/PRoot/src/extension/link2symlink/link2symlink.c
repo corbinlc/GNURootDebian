@@ -361,12 +361,10 @@ static int handle_sysexit_end(Tracee *tracee)
 
         if (sysnum == PR_fstat64 || sysnum == PR_fstat) {
             status = readlink_proc_pid_fd(tracee->pid, peek_reg(tracee, MODIFIED, SYSARG_1), original);
+            if (status < 0)
+                return 0;
             if (strcmp(original + strlen(original) - strlen(DELETED_SUFFIX), DELETED_SUFFIX) == 0)
                 original[strlen(original) - strlen(DELETED_SUFFIX)] = '\0'; 
-            if(strncmp(original, "pipe", 4) == 0) 
-                return 0;
-            if (status < 0)
-                return status;
         } else {
             if (sysnum == PR_fstatat64 || sysnum == PR_newfstatat)
                 sysarg_path = SYSARG_2;
@@ -387,6 +385,8 @@ static int handle_sysexit_end(Tracee *tracee)
 
         /* Check if it is a link */
         status = lstat(original, &statl);
+        if (status < 0)
+           return 0;
 
         if (strncmp(name, PREFIX, strlen(PREFIX)) == 0) {
             if (S_ISLNK(statl.st_mode)) {
