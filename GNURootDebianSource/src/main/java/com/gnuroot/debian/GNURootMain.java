@@ -196,6 +196,7 @@ public class GNURootMain extends Activity {
 		if (deleteStarted.exists())
 			deleteStarted.delete();
 
+		/*
 		Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
 		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
 		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
@@ -209,11 +210,18 @@ public class GNURootMain extends Activity {
 			// Button presses will not open a new xterm is one is alrady running.
 			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
 					getInstallDir().getAbsolutePath() + "/support/launchXterm  button_pressed " + command);
+		*/
 
+		Intent serviceIntent = new Intent(this, GNURootNotificationService.class);
+		serviceIntent.addCategory(Intent.CATEGORY_DEFAULT);
+		serviceIntent.putExtra("type", "VNC");
+		serviceIntent.putExtra("command", command);
+		serviceIntent.putExtra("newXterm", createNewXTerm);
 
         checkPatches();
 
-		startActivity(termIntent);
+		//startActivity(termIntent);
+		startService(serviceIntent);
 
 		final ScheduledExecutorService scheduler =
 				Executors.newSingleThreadScheduledExecutor();
@@ -725,6 +733,7 @@ public class GNURootMain extends Activity {
             Toast.makeText(getApplicationContext(), R.string.toast_bad_package, Toast.LENGTH_LONG).show();
         }
 
+		patchVersion="a";
         if (sharedVersion != null && !sharedVersion.equals(patchVersion)) {
             File patchStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_patch_passed");
             deleteRecursive(patchStatus);
