@@ -59,7 +59,13 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".GNURootNotificationService" />
+        <service
+            android:name=".GNURootNotificationService">
+            <intent-filter>
+                <action android:name="com.gnuroot.debian.bVNC_DISCONNECT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
         <service
             android:name="com.gnuroot.debian.GNURootService"
             android:exported="true">

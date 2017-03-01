@@ -81,7 +81,6 @@ import com.iiordanov.bVNC.input.SingleHandedInputHandler;
 import com.iiordanov.bVNC.input.TouchMouseDragPanInputHandler;
 import com.iiordanov.bVNC.input.TouchMouseSwipePanInputHandler;
 
-
 public class RemoteCanvasActivity extends Activity implements OnKeyListener {
     
     private final static String TAG = "VncCanvasActivity";
@@ -136,7 +135,6 @@ public class RemoteCanvasActivity extends Activity implements OnKeyListener {
     
     @Override
     public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
         try {
         	Utils.showMenu(this);
         	initialize();
@@ -146,6 +144,15 @@ public class RemoteCanvasActivity extends Activity implements OnKeyListener {
         catch (Exception e) {
         	Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
+        super.onCreate(icicle);
+        //CCX
+        /*
+        Log.i("bVNC", "onCreate");
+        if(getIntent().getBooleanExtra("disconnect", false)) {
+            MenuItem i = Menu.findItem(R.id.itemDisconnect);
+            finish();
+        }
+        */
     }
     
     void initialize () {
@@ -1009,6 +1016,8 @@ public class RemoteCanvasActivity extends Activity implements OnKeyListener {
                                              canvas.absoluteYPosition + canvas.getVisibleHeight() / 2);
 			return true;
 		} else if (itemId == R.id.itemDisconnect) {
+            Intent exitIntent = new Intent("com.gnuroot.debian.bVNC_DISCONNECT");
+            startService(exitIntent);
 			canvas.closeConnection();
 			finish();
 			return true;

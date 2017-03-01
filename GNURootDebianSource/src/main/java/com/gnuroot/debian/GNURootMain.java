@@ -196,22 +196,6 @@ public class GNURootMain extends Activity {
 		if (deleteStarted.exists())
 			deleteStarted.delete();
 
-		/*
-		Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
-		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
-		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
-		if(command == null)
-			command = "/bin/bash";
-		if (createNewXTerm)
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-					getInstallDir().getAbsolutePath() + "/support/launchXterm " + command);
-		else
-			// Button presses will not open a new xterm is one is alrady running.
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-					getInstallDir().getAbsolutePath() + "/support/launchXterm  button_pressed " + command);
-		*/
-
 		Intent serviceIntent = new Intent(this, GNURootNotificationService.class);
 		serviceIntent.addCategory(Intent.CATEGORY_DEFAULT);
 		serviceIntent.putExtra("type", "VNC");
@@ -219,27 +203,7 @@ public class GNURootMain extends Activity {
 		serviceIntent.putExtra("newXterm", createNewXTerm);
 
         checkPatches();
-
-		//startActivity(termIntent);
 		startService(serviceIntent);
-
-		final ScheduledExecutorService scheduler =
-				Executors.newSingleThreadScheduledExecutor();
-
-		scheduler.scheduleAtFixedRate
-				(new Runnable() {
-					public void run() {
-						File checkStarted = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
-						File checkRunning = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_running");
-						if (checkStarted.exists() || checkRunning.exists()) {
-							Intent bvncIntent = new Intent(getBaseContext(), com.iiordanov.bVNC.RemoteCanvasActivity.class);
-							bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?" + Constants.PARAM_VNC_PWD + "=gnuroot"));
-							bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-							startActivity(bvncIntent);
-							scheduler.shutdown();
-						}
-					}
-				}, 3, 2, TimeUnit.SECONDS); //Avoid race case in which tightvnc needs to be restarted
 
 		finish();
 	}
