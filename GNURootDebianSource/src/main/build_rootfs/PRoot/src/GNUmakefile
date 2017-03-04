@@ -143,7 +143,7 @@ BUILD_ID_NONE := $(shell if ld --build-id=none --version >/dev/null 2>&1; then e
 # Build rules
 
 COMPILE = $($(quiet)CC) $(CPPFLAGS) $(CFLAGS) -MD -c $(SRC)$< -o $@
-LINK    = $($(quiet)LD) -o $@ $^ $(LDFLAGS)
+LINK    = $($(quiet)LD) -static -o $@ $^ $(LDFLAGS)
 
 OBJIFY = $($(quiet)GEN)									\
 	$(OBJCOPY)									\
