@@ -3,6 +3,7 @@
  * This file is part of PRoot.
  *
  * Copyright (C) 2015 STMicroelectronics
+ * Copyright (C) 2017 Google
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -150,7 +151,9 @@ static FilteredSysnum filtered_sysnums[] = {
     { PR_stat,          FILTER_SYSEXIT },
     { PR_stat64,        FILTER_SYSEXIT },
     { PR_statfs,        FILTER_SYSEXIT },
-    { PR_statfs64,      FILTER_SYSEXIT }, 
+    { PR_statfs64,      FILTER_SYSEXIT },
+    { PR_symlink,       FILTER_SYSEXIT },
+    { PR_symlinkat,     FILTER_SYSEXIT },
     { PR_unlink,        FILTER_SYSEXIT },
     { PR_unlinkat,      FILTER_SYSEXIT },
     { PR_utimensat,     FILTER_SYSEXIT },
