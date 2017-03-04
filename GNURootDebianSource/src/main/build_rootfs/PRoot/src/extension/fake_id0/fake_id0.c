@@ -1066,8 +1066,6 @@ static int handle_symlink(Tracee *tracee, Reg oldpath_sysarg,
     status = read_sysarg_path(tracee, oldpath, oldpath_sysarg, CURRENT);
     if(status < 0) 
         return status;
-    if(status == 1) 
-        return 0;
 
     status = read_sysarg_path(tracee, newpath, newpath_sysarg, CURRENT);
     if(status < 0) 
