@@ -1,3 +1,26 @@
+/* -*- c-set-style: "K&R"; c-basic-offset: 8 -*-
+ *
+ * This file is part of PRoot.
+ *
+ * Copyright (c) 2015-2017 Proot contributors
+ * Copyright (c) 2017 Google
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ * 02110-1301 USA.
+ */
+
 #include <dirent.h>    /* DIR, struct dirent, opendir, closedir, readdir) */
 #include <stdio.h>     /* rename(2), */
 #include <stdlib.h>    /* atoi */
@@ -626,6 +649,8 @@ int link2symlink_callback(Extension *extension, ExtensionEvent event,
         case PR_open:
         case PR_openat:
         case PR_lstat:
+        case PR_newfstatat:
+        case PR_fstatat64:
         case PR_lstat64:
         case PR_lchown:
             translated_path((char *) data1);
