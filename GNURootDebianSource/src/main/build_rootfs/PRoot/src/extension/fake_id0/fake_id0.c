@@ -765,7 +765,15 @@ static int handle_chmod(Tracee *tracee, Reg path_sysarg, Reg mode_sysarg,
 
     call_mode = peek_reg(tracee, ORIGINAL, mode_sysarg);
     set_sysnum(tracee, PR_void);
-    return write_meta_file(meta_path, call_mode, owner, group, 0, config);
+    status = write_meta_file(meta_path, call_mode, owner, group, 0, config);
+    if(status < 0)
+        return status;
+    /* Mirror mode for real underlying file. We want at
+       least the bits for current user and other
+       users work. For group we use 'other' bits.  */
+    chmod(path, (call_mode & 0707) | ((call_mode & 007) << 3));
+    /* Ignore chmod failure.  */
+    return 0;
 }
 
 /** Handles chown, lchown, fchown, and fchownat syscalls. Changes the meta file
