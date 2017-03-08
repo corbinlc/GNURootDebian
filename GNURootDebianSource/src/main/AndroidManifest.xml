@@ -59,6 +59,8 @@
             </intent-filter>
         </activity>
 
+        <service android:name=".GNURootService" />
+
         <service
             android:name=".GNURootNotificationService">
             <intent-filter>
@@ -67,7 +69,7 @@
             </intent-filter>
         </service>
         <service
-            android:name="com.gnuroot.debian.GNURootService"
+            android:name="com.gnuroot.debian.GNURootOldService"
             android:exported="true">
 			<intent-filter>
 				<action android:name="com.gnuroot.debian.INSTALL_TAR" />

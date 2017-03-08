@@ -21,36 +21,103 @@ THE SOFTWARE.
  */
 
 /* Author(s): Corbin Leigh Champion */
-
 package com.gnuroot.debian;
 
-import android.app.IntentService;
-import android.content.Intent;
 
-public class GNURootService extends IntentService {
+import android.app.Service;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.IBinder;
+import android.util.Log;
+
+import com.iiordanov.bVNC.Constants;
+
+import java.io.File;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
+public class GNURootService extends Service {
 	boolean shown = false;
-	public GNURootService() {
-		super("GNURootService");
+
+	@Override
+	public void onCreate() { Log.i("Service", "OnCreate() called"); }
+
+	@Override
+	public IBinder onBind(Intent intent) {
+		// We don't provide binding, so return null
+		return null;
 	}
 
 	@Override
-	protected void onHandleIntent(Intent intent) {
+	public int onStartCommand(Intent intent, int flags, int startID) {
+		String intentType = intent.getStringExtra("type");
 
-		if(intent.getAction() == "com.gnuroot.debian.CHECK_STATUS") {
-			Intent resultIntent = new Intent("com.gnuroot.debian.GNURootService.status");
-			resultIntent.putExtra("packageName", intent.getStringExtra("packageName"));
-			resultIntent.putExtra("requestCode", 5);    //Indicate that a CHECK_STATUS has PASSed
-			resultIntent.putExtra("resultCode", 1);
-			sendBroadcast(resultIntent);
+		if("VNC".equals(intentType)) {
+			startVNCServer(intent.getBooleanExtra("newXterm", false), intent.getStringExtra("command"));
 		}
 
-		if(!shown) {
-			shown = true;
-			Intent errorIntent = new Intent("com.gnuroot.debian.UPDATE_ERROR");
-			errorIntent.addCategory(Intent.CATEGORY_DEFAULT);
-			errorIntent.putExtra("packageName", intent.getStringExtra("packageName"));
-			errorIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			startActivity(errorIntent);
+		if("VNCReconnect".equals(intentType)) {
+			reconnectVNC();
 		}
-    }
+
+		return Service.START_STICKY;
+	}
+
+	private void startVNCServer(boolean createNewXTerm, String command) {
+		Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
+		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
+		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+		if(command == null)
+			command = "/bin/bash";
+		if (createNewXTerm)
+			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
+					getInstallDir().getAbsolutePath() + "/support/launchXterm " + command);
+		else
+			// Button presses will not open a new xterm is one is alrady running.
+			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
+					getInstallDir().getAbsolutePath() + "/support/launchXterm  button_pressed " + command);
+
+		startActivity(termIntent);
+
+		final Intent notifServiceIntent = new Intent(this, com.gnuroot.debian.GNURootNotificationService.class);
+		notifServiceIntent.putExtra("type", "VNC");
+
+		final ScheduledExecutorService scheduler =
+				Executors.newSingleThreadScheduledExecutor();
+
+		scheduler.scheduleAtFixedRate
+				(new Runnable() {
+					public void run() {
+						File checkStarted = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
+						File checkRunning = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_running");
+						if (checkStarted.exists() || checkRunning.exists()) {
+							Intent bvncIntent = new Intent(getBaseContext(), com.iiordanov.bVNC.RemoteCanvasActivity.class);
+							bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?" + Constants.PARAM_VNC_PWD + "=gnuroot"));
+							bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+							startActivity(bvncIntent);
+
+							startService(notifServiceIntent);
+							scheduler.shutdown();
+						}
+					}
+				}, 3, 2, TimeUnit.SECONDS); //Avoid race case in which tightvnc needs to be restarted
+	}
+
+	private void reconnectVNC() {
+		Intent bvncIntent = new Intent(getBaseContext(), com.iiordanov.bVNC.RemoteCanvasActivity.class);
+		bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?" + Constants.PARAM_VNC_PWD + "=gnuroot"));
+		bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		startActivity(bvncIntent);
+	}
+
+	public File getInstallDir() {
+		try {
+			return new File(getPackageManager().getApplicationInfo("com.gnuroot.debian", 0).dataDir);
+		} catch (PackageManager.NameNotFoundException e) {
+			return null;
+		}
+	}
 }

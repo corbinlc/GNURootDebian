@@ -1017,6 +1017,7 @@ public class RemoteCanvasActivity extends Activity implements OnKeyListener {
 			return true;
 		} else if (itemId == R.id.itemDisconnect) {
             Intent exitIntent = new Intent("com.gnuroot.debian.bVNC_DISCONNECT");
+            exitIntent.putExtra("type", "cancelVNCNotif");
             startService(exitIntent);
 			canvas.closeConnection();
 			finish();
