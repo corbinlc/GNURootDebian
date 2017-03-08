@@ -58,9 +58,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
+
+        <service android:name=".GNURootService" />
+
         <service
-            android:name="com.gnuroot.debian.GNURootService"
+            android:name=".GNURootNotificationService">
+            <intent-filter>
+                <action android:name="com.gnuroot.debian.bVNC_DISCONNECT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.gnuroot.debian.GNURootOldService"
             android:exported="true">
 			<intent-filter>
 				<action android:name="com.gnuroot.debian.INSTALL_TAR" />

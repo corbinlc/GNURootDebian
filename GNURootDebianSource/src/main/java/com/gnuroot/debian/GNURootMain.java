@@ -71,8 +71,8 @@ public class GNURootMain extends Activity {
 	ProgressDialog pdRing;
 	Integer downloadResultCode;
 	File mainFile;
-    Intent savedIntent = null;
-    boolean noInstallAgain = false;
+	Intent savedIntent = null;
+	boolean noInstallAgain = false;
 
 	/**
 	 * GNURoot Debian behaves based on the intent it receives (if it exists), or installs the rootfs if it does not
@@ -82,68 +82,68 @@ public class GNURootMain extends Activity {
 	 * 2. GNUROOT_REINSTALL. Reinstalls the rootfs, not the app.
 	 * 3. UPDATE_ERROR. An internal intent sent from GNURoot service to handle intents sent from the old ecosystem.
 	 * @param savedInstanceState
-     */
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-        handleIntent(getIntent());
+		handleIntent(getIntent());
 	}
 
-    private void handleIntent(Intent intent) {
-        String intentAction = intent.getAction();
+	private void handleIntent(Intent intent) {
+		String intentAction = intent.getAction();
 
-        File installStatus = new File(getInstallDir().getAbsolutePath() +"/support/.gnuroot_rootfs_passed");
+		File installStatus = new File(getInstallDir().getAbsolutePath() +"/support/.gnuroot_rootfs_passed");
 		if ((!isSymlink(installStatus) && !installStatus.exists()) && (noInstallAgain == false)) {
-            GNURootMain.this.runOnUiThread(new Runnable() {
-                public void run() {
-                    Toast.makeText(getApplicationContext(), R.string.toast_not_installed, Toast.LENGTH_LONG).show();
-                }
-            });
-            savedIntent = intent;
-            setupSupportFiles(true);
-            updateVersion();
-            setupFirstHalf();
-        } else if (intentAction.equals("com.gnuroot.debian.GNUROOT_REINSTALL")) {
-            setupSupportFiles(true);
-            updateVersion();
-            setupFirstHalf();
-        } else if (intentAction.equals("com.gnuroot.debian.LAUNCH")) {
-            noInstallAgain = false;
-            handleLaunchIntent(intent);
-        }  else if (intentAction.equals("com.gnuroot.debian.UPDATE_ERROR"))
-            showUpdateErrorButton(intent.getStringExtra("packageName"));
+			GNURootMain.this.runOnUiThread(new Runnable() {
+				public void run() {
+					Toast.makeText(getApplicationContext(), R.string.toast_not_installed, Toast.LENGTH_LONG).show();
+				}
+			});
+			savedIntent = intent;
+			setupSupportFiles(true);
+			updateVersion();
+			setupFirstHalf();
+		} else if ("com.gnuroot.debian.GNUROOT_REINSTALL".equals(intentAction)) {
+			setupSupportFiles(true);
+			updateVersion();
+			setupFirstHalf();
+		} else if ("com.gnuroot.debian.LAUNCH".equals(intentAction)) {
+			noInstallAgain = false;
+			handleLaunchIntent(intent);
+		}  else if ("com.gnuroot.debian.UPDATE_ERROR".equals(intentAction))
+			showUpdateErrorButton(intent.getStringExtra("packageName"));
         /*
         else if(intentAction == "com.gnuroot.debian.TOAST_ALARM")
             makeAlarmToast(intent);
         */
-        else
-            launchTerm(null);
-    }
+		else
+			launchTerm(null);
+	}
 
 	/**
 	 * Launches a prooted term or xterm depending on the intent. Will also untar a shared file if it exists.
 	 * @param intent
-     */
+	 */
 	public void handleLaunchIntent(Intent intent) {
 		Uri sharedFile = intent.getData();
 		String launchType = intent.getStringExtra("launchType");
 		String command = intent.getStringExtra("command");
 
-        if (command != null) {
-            File file = new File(getInstallDir().getAbsolutePath() + "/support/newCommand");
-            try {
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file));
-                outputStreamWriter.write(command);
-                outputStreamWriter.close();
-            } catch (IOException e) {
-                Log.e("Exception", "File write failed: " + e.toString());
-            }
-            exec("chmod 0777 " + file.getAbsolutePath(), true);
-            command = "/support/newCommand";
-        }
+		if (command != null) {
+			File file = new File(getInstallDir().getAbsolutePath() + "/support/newCommand");
+			try {
+				OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file));
+				outputStreamWriter.write(command);
+				outputStreamWriter.close();
+			} catch (IOException e) {
+				Log.e("Exception", "File write failed: " + e.toString());
+			}
+			exec("chmod 0777 " + file.getAbsolutePath(), true);
+			command = "/support/newCommand";
+		}
 
-        if(sharedFile != null) {
+		if(sharedFile != null) {
 			copySharedFile(sharedFile);
 		}
 
@@ -169,10 +169,6 @@ public class GNURootMain extends Activity {
 		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
 		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
 		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
-		//if (true)
-		//	termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-		//			getInstallDir().getAbsolutePath() + "/support/busybox sh");
-		//else
 		if(command == null)
 			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
 					getInstallDir().getAbsolutePath() + "/support/launchProot /bin/bash");
@@ -180,7 +176,7 @@ public class GNURootMain extends Activity {
 			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
 					getInstallDir().getAbsolutePath() + "/support/launchProot " + command);
 
-        checkPatches();
+		checkPatches();
 
 		startActivity(termIntent);
 		finish();
@@ -196,42 +192,14 @@ public class GNURootMain extends Activity {
 		if (deleteStarted.exists())
 			deleteStarted.delete();
 
-		Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
-		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
-		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
-		if(command == null)
-			command = "/bin/bash";
-		if (createNewXTerm)
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-					getInstallDir().getAbsolutePath() + "/support/launchXterm " + command);
-		else
-			// Button presses will not open a new xterm is one is alrady running.
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-					getInstallDir().getAbsolutePath() + "/support/launchXterm  button_pressed " + command);
+		Intent serviceIntent = new Intent(this, GNURootService.class);
+		serviceIntent.addCategory(Intent.CATEGORY_DEFAULT);
+		serviceIntent.putExtra("type", "VNC");
+		serviceIntent.putExtra("command", command);
+		serviceIntent.putExtra("newXterm", createNewXTerm);
 
-
-        checkPatches();
-
-		startActivity(termIntent);
-
-		final ScheduledExecutorService scheduler =
-				Executors.newSingleThreadScheduledExecutor();
-
-		scheduler.scheduleAtFixedRate
-				(new Runnable() {
-					public void run() {
-						File checkStarted = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
-						File checkRunning = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_running");
-						if (checkStarted.exists() || checkRunning.exists()) {
-							Intent bvncIntent = new Intent(getBaseContext(), com.iiordanov.bVNC.RemoteCanvasActivity.class);
-							bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?" + Constants.PARAM_VNC_PWD + "=gnuroot"));
-							bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-							startActivity(bvncIntent);
-							scheduler.shutdown();
-						}
-					}
-				}, 3, 2, TimeUnit.SECONDS); //Avoid race case in which tightvnc needs to be restarted
+		checkPatches();
+		startService(serviceIntent);
 
 		finish();
 	}
@@ -239,7 +207,7 @@ public class GNURootMain extends Activity {
 	/**
 	 * Copy a file from another app. This can be a tar file or a singular script.
 	 * @param sharedFile must be a tar.gz file. The intent must include flag FLAG_GRANT_READ_URI_PERMISSION
-     */
+	 */
 	private void copySharedFile(Uri sharedFile) {
 		InputStream srcStream;
 		String untarCommand;
@@ -286,18 +254,18 @@ public class GNURootMain extends Activity {
 		builder.create().show();
 	}
 
-	/*
-	TODO This was going to be used to check status files.
-	private void makeAlarmToast(Intent intent) {
-	  	String alarmName = intent.getStringExtra("alarmName");
-	 	Toast.makeText(this, alarmName + "... Please wait for completion.", Toast.LENGTH_LONG).show();
-	}
+	/**
+	 *  TODO This was going to be used to check status files.
+	 *  private void makeAlarmToast(Intent intent) {
+	 *	    String alarmName = intent.getStringExtra("alarmName");
+	 *	    Toast.makeText(this, alarmName + "... Please wait for completion.", Toast.LENGTH_LONG).show();
+	 *  }
 	 */
 
 	/**
 	 * Creates /support and copies from project assets directory to proper rootfs locations.
 	 * @param deleteFirst indicates to blow /support away first.
-     */
+	 */
 	public void setupSupportFiles(boolean deleteFirst) {
 		File installDir = getInstallDir();
 
@@ -315,7 +283,6 @@ public class GNURootMain extends Activity {
 
 		/* TODO This isn't used currently, but will need to be handled somehow eventually.
 		String shadowOption = " ";
-
 		//create a script for running a command in proot
 		tempFile = new File(installDir.getAbsolutePath() + "/support/launchProot");
 		if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.KITKAT) {
@@ -341,7 +308,7 @@ public class GNURootMain extends Activity {
 	/**
 	 * Cancels the downloader notification caused by GNURootDownloaderActivity.
 	 * @param ctx
-     */
+	 */
 	public static void cancelNotifications(Context ctx) {
 		NotificationManager notifManager = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
 		notifManager.cancelAll();
@@ -352,7 +319,7 @@ public class GNURootMain extends Activity {
 	 * @param requestCode
 	 * @param resultCode
 	 * @param data
-     */
+	 */
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode,
 									Intent data) {
@@ -397,7 +364,7 @@ public class GNURootMain extends Activity {
 	 * Saves the location of the architecture specific obb in @mainFile, then creates
 	 * basic directories for the file system and finally launches a term.
 	 * @param obbVersion
-     */
+	 */
 	private void setupSecondHalf(int obbVersion) {
 
 		String path = Environment.getExternalStorageDirectory() + "/Android/obb/com.gnuroot.debian/";
@@ -497,12 +464,12 @@ public class GNURootMain extends Activity {
 			tempFile.mkdir();
 		}
 
-        if ((savedIntent == null) || (savedIntent.getAction() != "com.gnuroot.debian.LAUNCH"))
-		    launchTerm(null);
-        else {
-            noInstallAgain = true;
-            handleIntent(savedIntent);
-        }
+		if ((savedIntent == null) || (savedIntent.getAction() != "com.gnuroot.debian.LAUNCH"))
+			launchTerm(null);
+		else {
+			noInstallAgain = true;
+			handleIntent(savedIntent);
+		}
 
 	}
 
@@ -521,7 +488,7 @@ public class GNURootMain extends Activity {
 	/**
 	 * Recursively deletes everything at @fileOrDirectory and below.
 	 * @param fileOrDirectory
-     */
+	 */
 	void deleteRecursive(File fileOrDirectory) {
 		exec(getInstallDir().getAbsolutePath() + "/support/busybox rm -rf " + fileOrDirectory.getAbsolutePath(), true);
 	}
@@ -531,7 +498,7 @@ public class GNURootMain extends Activity {
 	 * @param in
 	 * @param out
 	 * @throws IOException
-     */
+	 */
 	private void copyFile(InputStream in, OutputStream out) throws IOException {
 		byte[] buffer = new byte[1024];
 		int read;
@@ -573,7 +540,7 @@ public class GNURootMain extends Activity {
 	 * Copies assets from the armhf|armhf|i386 /assets directory to /data/user/0/support.
 	 * This is bound to ROOTDIR/support when execInProot is ran.
 	 * @param packageName
-     */
+	 */
 	private void copyAssets(String packageName) {
 		Context friendContext = null;
 		try {
@@ -625,7 +592,7 @@ public class GNURootMain extends Activity {
 	/**
 	 * Replaces key phrases in scripts copied with the asset manager.
 	 * @param myFile
-     */
+	 */
 	private void replaceScriptStrings(File myFile) {
 		File installDir = getInstallDir();
 		File sdcardInstallDir = getSdcardInstallDir();
@@ -680,7 +647,7 @@ public class GNURootMain extends Activity {
 	 * Executes @command and sets @setError if an error occurs.
 	 * @param command
 	 * @param setError
-     */
+	 */
 	private void exec(String command, boolean setError) {
 		Runtime runtime = Runtime.getRuntime();
 		Process process;
@@ -707,32 +674,32 @@ public class GNURootMain extends Activity {
 		}
 	}
 
-    /**
-     * Checks whether the package.versionName is the same as the the versionName stored in shared preferences. If it
+	/**
+	 * Checks whether the package.versionName is the same as the the versionName stored in shared preferences. If it
 	 * is not, it deletes the patch passed status file so that the launchProot script will apply the new patches.
-     */
-    private void checkPatches() {
-        SharedPreferences prefs = getSharedPreferences("MAIN", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
+	 */
+	private void checkPatches() {
+		SharedPreferences prefs = getSharedPreferences("MAIN", MODE_PRIVATE);
+		SharedPreferences.Editor editor = prefs.edit();
 
-        PackageInfo pi;
-        String patchVersion = "notARealPatchVersion";
-        String sharedVersion = prefs.getString("patchVersion", null);
-        try {
-            pi = getPackageManager().getPackageInfo(getPackageName(), 0);
-            patchVersion = pi.versionName;
-        } catch (NameNotFoundException e) {
-            Toast.makeText(getApplicationContext(), R.string.toast_bad_package, Toast.LENGTH_LONG).show();
-        }
+		PackageInfo pi;
+		String patchVersion = "notARealPatchVersion";
+		String sharedVersion = prefs.getString("patchVersion", null);
+		try {
+			pi = getPackageManager().getPackageInfo(getPackageName(), 0);
+			patchVersion = pi.versionName;
+		} catch (NameNotFoundException e) {
+			Toast.makeText(getApplicationContext(), R.string.toast_bad_package, Toast.LENGTH_LONG).show();
+		}
 
-        if (sharedVersion != null && !sharedVersion.equals(patchVersion)) {
-            File patchStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_patch_passed");
-            deleteRecursive(patchStatus);
-            Toast.makeText(this, R.string.toast_bad_patch, Toast.LENGTH_LONG).show();
-        }
+		if (sharedVersion != null && !sharedVersion.equals(patchVersion)) {
+			File patchStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_patch_passed");
+			deleteRecursive(patchStatus);
+			Toast.makeText(this, R.string.toast_bad_patch, Toast.LENGTH_LONG).show();
+		}
 
 		if ((sharedVersion == null) || (!sharedVersion.equals(patchVersion))) {
-			    setupSupportFiles(false);
+			setupSupportFiles(false);
 			try {
 				copyDirectory(new File(getInstallDir().getAbsolutePath() + "/debian/home"), new File(getSdcardInstallDir().getAbsolutePath() + "/home"));
 			} catch (IOException e) {
@@ -744,26 +711,26 @@ public class GNURootMain extends Activity {
 			editor.putString("patchVersion", patchVersion);
 			editor.commit();
 		}
-    }
+	}
 
-    private void updateVersion() {
-        SharedPreferences prefs = getSharedPreferences("MAIN", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
+	private void updateVersion() {
+		SharedPreferences prefs = getSharedPreferences("MAIN", MODE_PRIVATE);
+		SharedPreferences.Editor editor = prefs.edit();
 
-        PackageInfo pi;
-        String patchVersion = "notARealPatchVersion";
-        try {
-            pi = getPackageManager().getPackageInfo(getPackageName(), 0);
-            patchVersion = pi.versionName;
-        } catch (NameNotFoundException e) {
-            Toast.makeText(getApplicationContext(), R.string.toast_bad_package, Toast.LENGTH_LONG).show();
-        }
+		PackageInfo pi;
+		String patchVersion = "notARealPatchVersion";
+		try {
+			pi = getPackageManager().getPackageInfo(getPackageName(), 0);
+			patchVersion = pi.versionName;
+		} catch (NameNotFoundException e) {
+			Toast.makeText(getApplicationContext(), R.string.toast_bad_package, Toast.LENGTH_LONG).show();
+		}
 
-        if (!patchVersion.equals("notARealPatchVersion")) {
-            editor.putString("patchVersion", patchVersion);
-            editor.commit();
-        }
-    }
+		if (!patchVersion.equals("notARealPatchVersion")) {
+			editor.putString("patchVersion", patchVersion);
+			editor.commit();
+		}
+	}
 
 	public static boolean isSymlink(File file) {
 		try {
