@@ -3,6 +3,7 @@
  * This file is part of PRoot.
  *
  * Copyright (C) 2015 STMicroelectronics
+ * Copyright (C) 2017 Google
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -150,7 +151,9 @@ static FilteredSysnum filtered_sysnums[] = {
     { PR_stat,          FILTER_SYSEXIT },
     { PR_stat64,        FILTER_SYSEXIT },
     { PR_statfs,        FILTER_SYSEXIT },
-    { PR_statfs64,      FILTER_SYSEXIT }, 
+    { PR_statfs64,      FILTER_SYSEXIT },
+    { PR_symlink,       FILTER_SYSEXIT },
+    { PR_symlinkat,     FILTER_SYSEXIT },
     { PR_unlink,        FILTER_SYSEXIT },
     { PR_unlinkat,      FILTER_SYSEXIT },
     { PR_utimensat,     FILTER_SYSEXIT },
@@ -762,7 +765,15 @@ static int handle_chmod(Tracee *tracee, Reg path_sysarg, Reg mode_sysarg,
 
     call_mode = peek_reg(tracee, ORIGINAL, mode_sysarg);
     set_sysnum(tracee, PR_void);
-    return write_meta_file(meta_path, call_mode, owner, group, 0, config);
+    status = write_meta_file(meta_path, call_mode, owner, group, 0, config);
+    if(status < 0)
+        return status;
+    /* Mirror mode for real underlying file. We want at
+       least the bits for current user and other
+       users work. For group we use 'other' bits.  */
+    chmod(path, (call_mode & 0707) | ((call_mode & 007) << 3));
+    /* Ignore chmod failure.  */
+    return 0;
 }
 
 /** Handles chown, lchown, fchown, and fchownat syscalls. Changes the meta file
@@ -1055,8 +1066,6 @@ static int handle_symlink(Tracee *tracee, Reg oldpath_sysarg,
     status = read_sysarg_path(tracee, oldpath, oldpath_sysarg, CURRENT);
     if(status < 0) 
         return status;
-    if(status == 1) 
-        return 0;
 
     status = read_sysarg_path(tracee, newpath, newpath_sysarg, CURRENT);
     if(status < 0) 

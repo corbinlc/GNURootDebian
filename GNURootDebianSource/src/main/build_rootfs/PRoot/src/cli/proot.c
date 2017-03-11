@@ -3,6 +3,7 @@
  * This file is part of PRoot.
  *
  * Copyright (C) 2015 STMicroelectronics
+ * Copyright (C) 2017 Google
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -200,6 +201,12 @@ static int handle_option_n(Tracee *tracee, const Cli *cli UNUSED, const char *va
 static int handle_option_l(Tracee *tracee, const Cli *cli UNUSED, const char *value UNUSED)
 {
         (void) initialize_extension(tracee, link2symlink_callback, NULL);
+        return 0;
+}
+
+static int handle_option_L(Tracee *tracee, const Cli *cli UNUSED, const char *value UNUSED)
+{
+        (void) initialize_extension(tracee, fix_symlink_size_callback, NULL);
         return 0;
 }
 
