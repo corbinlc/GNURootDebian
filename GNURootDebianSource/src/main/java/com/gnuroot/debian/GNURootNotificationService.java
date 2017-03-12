@@ -57,7 +57,7 @@ public class GNURootNotificationService extends Service {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
         builder.setContentIntent(pendingIntent);
         builder.setAutoCancel(false);
-        builder.setContentTitle("VNC Service Running");
+        builder.setContentTitle("VNC Client Running");
         builder.setOngoing(true);
         builder.setSmallIcon(R.drawable.xterm_transparent);
         builder.setPriority(Notification.PRIORITY_HIGH);
