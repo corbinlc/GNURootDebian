@@ -8,6 +8,15 @@ if [ ! -h ROOT_PATH/support/.gnuroot_rootfs_passed ] && [ ! -e ROOT_PATH/support
     if [ ! -f ROOT_PATH/support/.gnuroot_rootfs_passed ]; then
         exit
     fi
+    if [ -f ROOT_PATH/shadow ]; then
+        mv ROOT_PATH/shadow ROOT_PATH/debian/etc/shadow
+    fi
+    if [ -f ROOT_PATH/passwd ]; then
+            mv ROOT_PATH/passwd ROOT_PATH/debian/etc/passwd
+    fi
+    if [ -f ROOT_PATH/passwd- ]; then
+            mv ROOT_PATH/passwd- ROOT_PATH/debian/etc/passwd-
+    fi
 fi
 
 if [ ! -h ROOT_PATH/support/.gnuroot_patch_passed ] && [ ! -e ROOT_PATH/support/.gnuroot_patch_passed ]; then
@@ -28,6 +37,5 @@ if [ ! -h ROOT_PATH/support/.home_has_been_moved ]; then
         exit
     fi
 fi
-
 
 ROOT_PATH/support/execInProot $@
