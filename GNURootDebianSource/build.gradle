@@ -26,7 +26,7 @@ model {
         create("armel") {
             applicationId "com.gnuroot.debian"
             versionName "0.6.10_armel"
-            versionCode 70
+            versionCode 73
             ndk.with {
                 abiFilters.add("armeabi")
             }
@@ -41,7 +41,7 @@ model {
         create("armhf") {
             applicationId "com.gnuroot.debian"
             versionName "0.6.10_armhf"
-            versionCode 71
+            versionCode 74
             ndk.with {
                 abiFilters.add("armeabi-v7a")
             }
@@ -56,7 +56,7 @@ model {
         create("i386") {
             applicationId "com.gnuroot.debian"
             versionName "0.6.10_i386"
-            versionCode 72
+            versionCode 75
             ndk.with {
                 abiFilters.add("x86")
             }

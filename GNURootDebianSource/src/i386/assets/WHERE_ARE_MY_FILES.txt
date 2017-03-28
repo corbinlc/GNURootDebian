@@ -1,0 +1,13 @@
+In an effort to make GNURoot Debian more compatible with all
+Linux applications, we have moved your home directory from
+external to internal storage. External storage spaces often
+don't allow executables, and because of the way Android handles
+file permissions GNURoot can't perform a lot of it's nifty
+behind-the-scenes work in external storage either.
+
+That being said, you can reach the old home directory if you
+need to for any by navigating to
+
+/sdcard/GNURoot/home
+
+Thanks for your patience as we continue to perfect our app!

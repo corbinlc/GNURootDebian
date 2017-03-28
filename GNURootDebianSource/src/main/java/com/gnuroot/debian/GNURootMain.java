@@ -172,6 +172,7 @@ public class GNURootMain extends Activity {
 		if(command == null)
 			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
 					getInstallDir().getAbsolutePath() + "/support/launchProot /bin/bash");
+                    //getInstallDir().getAbsolutePath() + "/support/busybox sh");
 		else
 			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
 					getInstallDir().getAbsolutePath() + "/support/launchProot " + command);
@@ -671,6 +672,29 @@ public class GNURootMain extends Activity {
 			}
 		} catch (IOException e1) {
 			errOcc = true;
+		}
+	}
+
+	/**
+	 * Checks whether the home directory has been moved off of the sdcard.
+	 */
+
+	private void checkHome() {
+		File check = new File(getInstallDir().getAbsolutePath() + "/support/.home_has_been_moved");
+		if(!check.exists()) {
+			try {
+				String[] command = { getInstallDir().getAbsolutePath() + "/support/execInProot", "/support/move_home" };
+				Runtime.getRuntime().exec(command);
+			}
+			catch (IOException e) {
+				//TODO make this a good string
+				/*
+				Toast.makeText(getApplicationContext(),
+						"Error moving home directory. Please report this to a developer.",
+						Toast.LENGTH_SHORT).show();
+				*/
+				Log.i("GNUROOT_HOME", "Couldn't move home: " + e);
+			}
 		}
 	}
 
