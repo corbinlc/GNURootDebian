@@ -37,9 +37,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -101,11 +98,11 @@ public class GNURootMain extends Activity {
 				}
 			});
 			savedIntent = intent;
-			setupSupportFiles(true);
+			setupSupportFiles(true, true);
 			updateVersion();
 			setupFirstHalf();
 		} else if ("com.gnuroot.debian.GNUROOT_REINSTALL".equals(intentAction)) {
-			setupSupportFiles(true);
+			setupSupportFiles(true, true);
 			updateVersion();
 			setupFirstHalf();
 		} else if ("com.gnuroot.debian.LAUNCH".equals(intentAction)) {
@@ -267,7 +264,7 @@ public class GNURootMain extends Activity {
 	 * Creates /support and copies from project assets directory to proper rootfs locations.
 	 * @param deleteFirst indicates to blow /support away first.
 	 */
-	public void setupSupportFiles(boolean deleteFirst) {
+	public void setupSupportFiles(boolean deleteFirst, boolean homeStatus) {
 		File installDir = getInstallDir();
 
 		if (deleteFirst)
@@ -281,6 +278,17 @@ public class GNURootMain extends Activity {
 
 		//copy bare necessities to the now created support directory
 		copyAssets("com.gnuroot.debian");
+
+        if(homeStatus) {
+            tempFile = new File(getInstallDir() + "/support/.home_has_been_moved");
+            if(!tempFile.exists()) {
+                try {
+                    tempFile.createNewFile();
+                } catch (IOException e) {
+                    Log.e("GNURoot", "Failed to create home directory status file.");
+                }
+            }
+        }
 
 		/* TODO This isn't used currently, but will need to be handled somehow eventually.
 		String shadowOption = " ";
@@ -375,6 +383,35 @@ public class GNURootMain extends Activity {
 
 		//setup some basic directories
 
+		//if the home directory already exists, move it so it can be restored
+        boolean saveHome = false;
+		String rootfsDir = getInstallDir().getAbsolutePath() + "/debian/home";
+		File from = new File(rootfsDir);
+		String dataDir = null;
+		File to;
+		if(from.exists()) {
+			dataDir = getInstallDir().getAbsolutePath() + "/home";
+			to = new File(dataDir);
+			from.renameTo(to);
+
+            // Preserve the shadow file so users are saved. Moved back by launchProot
+            // after reinstallation.
+
+            from = new File(getInstallDir().getAbsolutePath() + "/debian/etc/shadow");
+            to = new File(getInstallDir().getAbsolutePath() + "/shadow");
+            from.renameTo(to);
+
+            from = new File(getInstallDir().getAbsolutePath() + "/debian/etc/passwd");
+            to = new File(getInstallDir().getAbsolutePath() + "/passwd");
+            from.renameTo(to);
+
+            from = new File(getInstallDir().getAbsolutePath() + "/debian/etc/passwd-");
+            to = new File(getInstallDir().getAbsolutePath() + "/passwd-");
+            from.renameTo(to);
+
+            saveHome = true;
+		}
+
 		//create internal install directory
 		File tempFile = new File(installDir.getAbsolutePath() + "/debian");
 		//blow away if it already existed
@@ -445,6 +482,11 @@ public class GNURootMain extends Activity {
 		tempFile = new File(installDir.getAbsolutePath() + "/debian/home");
 		if (!tempFile.exists()) {
 			tempFile.mkdir();
+		}
+		if(saveHome) {
+			from = new File(dataDir);
+			to = new File(rootfsDir);
+			from.renameTo(to);
 		}
 
 		//create a home directory on sdcard
@@ -723,7 +765,7 @@ public class GNURootMain extends Activity {
 		}
 
 		if ((sharedVersion == null) || (!sharedVersion.equals(patchVersion))) {
-			setupSupportFiles(false);
+			setupSupportFiles(false, false);
 			try {
 				copyDirectory(new File(getInstallDir().getAbsolutePath() + "/debian/home"), new File(getSdcardInstallDir().getAbsolutePath() + "/home"));
 			} catch (IOException e) {
