@@ -25,8 +25,8 @@ model {
     android.productFlavors {
         create("armel") {
             applicationId "com.gnuroot.debian"
-            versionName "0.6.7_armel"
-            versionCode 61
+            versionName "0.6.10_armel"
+            versionCode 73
             ndk.with {
                 abiFilters.add("armeabi")
             }
@@ -40,8 +40,8 @@ model {
         }
         create("armhf") {
             applicationId "com.gnuroot.debian"
-            versionName "0.6.7_armhf"
-            versionCode 62
+            versionName "0.6.10_armhf"
+            versionCode 74
             ndk.with {
                 abiFilters.add("armeabi-v7a")
             }
@@ -55,8 +55,8 @@ model {
         }
         create("i386") {
             applicationId "com.gnuroot.debian"
-            versionName "0.6.7_i386"
-            versionCode 63
+            versionName "0.6.10_i386"
+            versionCode 75
             ndk.with {
                 abiFilters.add("x86")
             }
