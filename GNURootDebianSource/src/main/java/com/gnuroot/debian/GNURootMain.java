@@ -492,20 +492,6 @@ public class GNURootMain extends Activity {
 			to = new File(rootfsHome);
             from = new File(dataHome);
 			from.renameTo(to);
-
-            /*
-            to = new File(rootfsShadow);
-            from = new File(dataShadow);
-            from.renameTo(to);
-
-            to = new File(rootfsPasswd);
-            from = new File(dataPasswd);
-            from.renameTo(to);
-
-            to = new File(rootfsPasswd2);
-            from = new File(dataPasswd2);
-            from.renameTo(to);
-            */
 		}
 
 		//create a directory for firing intents from
