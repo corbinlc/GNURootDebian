@@ -8,32 +8,12 @@ if [ ! -h ROOT_PATH/support/.gnuroot_rootfs_passed ] && [ ! -e ROOT_PATH/support
     if [ ! -f ROOT_PATH/support/.gnuroot_rootfs_passed ]; then
         exit
     fi
-    if [ -f ROOT_PATH/shadow ]; then
-        mv ROOT_PATH/shadow ROOT_PATH/debian/etc/shadow
-    fi
-    if [ -f ROOT_PATH/passwd ]; then
-            mv ROOT_PATH/passwd ROOT_PATH/debian/etc/passwd
-    fi
-    if [ -f ROOT_PATH/passwd- ]; then
-            mv ROOT_PATH/passwd- ROOT_PATH/debian/etc/passwd-
-    fi
 fi
 
 if [ ! -h ROOT_PATH/support/.gnuroot_patch_passed ] && [ ! -e ROOT_PATH/support/.gnuroot_patch_passed ]; then
     echo "Patching rootfs..."
     ROOT_PATH/support/execInProot /support/patchRootfs
     if [ ! -f ROOT_PATH/support/.gnuroot_patch_passed ]; then
-        exit
-    fi
-fi
-
-if [ ! -h ROOT_PATH/support/.home_has_been_moved ]; then
-    echo "Moving home directory."
-    ROOT_PATH/support/execInProot /support/move_home
-    if [ ! -f ROOT_PATH/support/.home_has_been_moved ]; then
-        echo "Issue moving home directory! Please report this to a developer."
-        echo "This terminal will close automatically in 10 seconds."
-        sleep 10
         exit
     fi
 fi

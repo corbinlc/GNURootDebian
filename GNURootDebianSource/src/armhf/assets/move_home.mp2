@@ -1,9 +1,0 @@
-#! /bin/bash
-if [ ! -f "/sdcard/GNURoot/home/WHERE_ARE_MY_FILES.txt" ]; then
-  if [ ! -d "/home" ]; then
-    mkdir /home
-  fi
-  mv /sdcard/GNURoot/home/{,.[^.]}* /home
-  mv /support/WHERE_ARE_MY_FILES.txt /sdcard/GNURoot/home
-  touch /support/.home_has_been_moved
-fi
