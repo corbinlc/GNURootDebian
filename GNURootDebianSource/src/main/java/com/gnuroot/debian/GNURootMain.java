@@ -781,16 +781,9 @@ public class GNURootMain extends Activity {
 		if ((sharedVersion == null) || (!sharedVersion.equals(patchVersion))) {
 			setupSupportFiles(false, false);
             checkHome();
-            /* TODO
-			try {
-				copyDirectory(new File(getInstallDir().getAbsolutePath() + "/debian/home"), new File(getSdcardInstallDir().getAbsolutePath() + "/home"));
-			} catch (IOException e) {
-				//e.printStackTrace();
-			}
-			*/
 		}
 
-		if (!patchVersion.equals("notARealPatchVersion")) {
+		if (!"notARealPatchVersion".equals(patchVersion)) {
 			editor.putString("patchVersion", patchVersion);
 			editor.commit();
 		}
@@ -809,7 +802,7 @@ public class GNURootMain extends Activity {
 			Toast.makeText(getApplicationContext(), R.string.toast_bad_package, Toast.LENGTH_LONG).show();
 		}
 
-		if (!patchVersion.equals("notARealPatchVersion")) {
+		if (!"notARealPatchVersion".equals(patchVersion)) {
 			editor.putString("patchVersion", patchVersion);
 			editor.commit();
 		}
