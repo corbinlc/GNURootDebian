@@ -78,6 +78,12 @@ static int move_and_symlink_path(Tracee *tracee, Reg sysarg, Reg sysarg2)
     if (size >= PATH_MAX)
         return -ENAMETOOLONG;
 
+    if(!belongs_to_guestfs(tracee, original))
+        return 1;
+
+    if(!belongs_to_guestfs(tracee, original_newpath))
+        return 1;
+
     /* Sanity check: directories can't be linked.  */
     status = lstat(original, &statl);
     if (status < 0)
@@ -254,6 +260,9 @@ static int decrement_link_count(Tracee *tracee, Reg sysarg)
         return size;
     if (size >= PATH_MAX)
         return -ENAMETOOLONG;
+
+    if(!belongs_to_guestfs(tracee, original))
+        return 0;
 
     /* Check if it is a converted link already.  */
     status = lstat(original, &statl);
@@ -506,6 +515,7 @@ int link2symlink_callback(Extension *extension, ExtensionEvent event,
             { PR_renameat,      FILTER_SYSEXIT },
             { PR_open,      FILTER_SYSEXIT },
             { PR_openat,        FILTER_SYSEXIT },
+            { PR_lchown,        FILTER_SYSEXIT },
             FILTERED_SYSNUM_END,
         };
         extension->filtered_sysnums = filtered_sysnums;
@@ -575,6 +585,8 @@ int link2symlink_callback(Extension *extension, ExtensionEvent event,
              */
 
             status = move_and_symlink_path(tracee, SYSARG_1, SYSARG_2);
+            if (status == 1)
+                return 0;
             if (status < 0)
                 return status;
 
@@ -599,6 +611,8 @@ int link2symlink_callback(Extension *extension, ExtensionEvent event,
              */
 
             status = move_and_symlink_path(tracee, SYSARG_2, SYSARG_4);
+            if (status == 1)
+                return 0;
             if (status < 0)
                 return status;
 
@@ -628,6 +642,8 @@ int link2symlink_callback(Extension *extension, ExtensionEvent event,
         case PR_lstat:
         case PR_lstat64:
         case PR_lchown:
+        case PR_fstatat64:
+        case PR_newfstatat:
             translated_path((char *) data1);
             break;
         default:

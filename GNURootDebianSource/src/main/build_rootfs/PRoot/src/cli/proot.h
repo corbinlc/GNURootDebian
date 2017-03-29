@@ -59,6 +59,7 @@ static int handle_option_k(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_0(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_n(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_l(Tracee *tracee, const Cli *cli, const char *value);
+static int handle_option_L(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_H(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_p(Tracee *tracee, const Cli *cli, const char *value);
 static int handle_option_i(Tracee *tracee, const Cli *cli, const char *value);
@@ -188,6 +189,14 @@ Copyright (C) 2015 STMicroelectronics, licensed under GPL v2 or later.",
                 { .name = NULL, .separator = '\0', .value = NULL } },
           .handler = handle_option_l,
           .description = "Convert hard links to be symbolic links.",
+          .detail = "",
+        },
+        { .class = "Regular options",
+          .arguments = {
+                { .name = "-L", .separator = '\0', .value = NULL },
+                { .name = NULL, .separator = '\0', .value = NULL } },
+          .handler = handle_option_L,
+          .description = "Correct the size returned from lstat for symbolic links.",
           .detail = "",
         },
 	{ .class = "Regular options",
