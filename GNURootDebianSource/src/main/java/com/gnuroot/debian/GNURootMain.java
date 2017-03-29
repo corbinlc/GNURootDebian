@@ -169,7 +169,6 @@ public class GNURootMain extends Activity {
 		if(command == null)
 			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
 					getInstallDir().getAbsolutePath() + "/support/launchProot /bin/bash");
-                    //getInstallDir().getAbsolutePath() + "/support/busybox sh");
 		else
 			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
 					getInstallDir().getAbsolutePath() + "/support/launchProot " + command);
