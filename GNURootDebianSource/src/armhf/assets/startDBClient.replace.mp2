@@ -1,0 +1,17 @@
+#!ROOT_PATH/support/busybox sh
+
+touch ROOT_PATH/support/.tStartDBC
+
+ROOT_PATH/support/busybox clear
+
+export DROPBEAR_PASSWORD="gnuroot"
+#If we're starting X, it should be in the background, which means using the -t option will cause failure.
+if [ $1 == '/support/startX' ]; then
+    touch /support/.tGotIt!
+    ROOT_PATH/support/dbclient -y user@127.0.0.1/2022 "$@" 2> ROOT_PATH/support/.tDBCErrX.txt
+else
+    ROOT_PATH/support/dbclient -yt user@127.0.0.1/2022 "$@" 2> ROOT_PATH/support/.tDBCErr.txt
+fi
+if [ $? == 1 ]; then
+  touch ROOT_PATH/support/.tDBCFailed
+fi

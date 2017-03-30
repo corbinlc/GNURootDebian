@@ -1,0 +1,10 @@
+#!ROOT_PATH/support/busybox sh
+
+ROOT_PATH/support/busybox clear
+
+ps -ef | grep dropbear | grep -v "grep"
+if [[ $? == 1 ]]; then
+    ROOT_PATH/support/execInProot /support/startDBServer
+else
+    touch ROOT_PATH/support/.dropbear_running
+fi

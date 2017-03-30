@@ -1,0 +1,34 @@
+#! /bin/bash
+
+if id "user" >/dev/null 2>&1; then
+    :
+else
+    useradd -m -U user
+    echo user:gnuroot | chpasswd
+fi
+
+#PKG_OK=$(dpkg-query -W --showformat='${Status}\n' dropbear|grep "install ok installed")
+#if [ "" == "$PKG_OK" ]; then
+#    dpkg --unpack /support/dropbear.deb
+#    dpkg --configure dropbear
+#    dropbear &
+#    touch /support/.dropbear_running
+#else
+#    dropbear &
+#    touch /support/.dropbear_running
+#fi
+
+if [ ! -d /etc/dropbear ]; then
+    mkdir /etc/dropbear
+fi
+
+if [ ! -f /etc/dropbear/dropbear_dss_host_key ]; then
+    /support/dropbearkey -t dss -f /etc/dropbear/dropbear_dss_host_key
+fi
+
+if [ ! -f /etc/dropbear/dropbear_rsa_host_key ]; then
+    /support/dropbearkey -t rsa -f /etc/dropbear/dropbear_rsa_host_key
+fi
+
+/support/dropbear &
+touch /support/.dropbear_running
