@@ -2,8 +2,10 @@
 
 ROOT_PATH/support/busybox clear
 
+touch ROOT_PATH/support/.tDBServerScript
 ps -ef | grep dropbear | grep -v "grep"
 if [[ $? == 1 ]]; then
+    touch ROOT_PATH/support/.tDBServerScriptRight
     ROOT_PATH/support/execInProot /support/startDBServer
 else
     touch ROOT_PATH/support/.dropbear_running

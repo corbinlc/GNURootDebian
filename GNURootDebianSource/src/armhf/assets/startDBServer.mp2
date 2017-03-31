@@ -1,12 +1,13 @@
 #! /bin/bash
 
+touch /support/.tStartDBServer
 if id "user" >/dev/null 2>&1; then
     :
 else
     useradd -m -U user
     echo user:gnuroot | chpasswd
 fi
-
+touch /support/.tStartDBServerAfterUser
 #PKG_OK=$(dpkg-query -W --showformat='${Status}\n' dropbear|grep "install ok installed")
 #if [ "" == "$PKG_OK" ]; then
 #    dpkg --unpack /support/dropbear.deb

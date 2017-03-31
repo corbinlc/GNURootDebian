@@ -30,10 +30,12 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.iiordanov.bVNC.Constants;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -54,6 +56,8 @@ public class GNURootService extends Service {
 	public int onStartCommand(Intent intent, int flags, int startID) {
 		String intentType = intent.getStringExtra("type");
 
+		startDropbearServer();
+
 		if("VNC".equals(intentType)) {
 			startVNCServer(intent.getBooleanExtra("newXterm", false), intent.getStringExtra("command"));
 		}
@@ -65,23 +69,71 @@ public class GNURootService extends Service {
 		return Service.START_STICKY;
 	}
 
-	private void startVNCServer(boolean createNewXTerm, String command) {
-		Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
-		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
-		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+	private void startDropbearServer() {
+		try {
+			String command = getInstallDir().getAbsolutePath() + "/support/dbserverscript";
+			Runtime.getRuntime().exec(command);
+			Intent notifServiceIntent = new Intent(this, GNURootNotificationService.class);
+			notifServiceIntent.putExtra("type", "dropbear");
+			startService(notifServiceIntent);
+		} catch (IOException e) {
+			Toast.makeText(getApplicationContext(),
+					"Error starting dropbear server. Please report this to a developer.",
+					Toast.LENGTH_LONG);
+			Log.e("GNURootService", "Failed to start DB server: " + e);
+		}
+	}
+
+	private void startVNCServer(final boolean createNewXTerm, String command) {
+		// Delete status files that signify whether x is started, in case they're left over from a
+		// previous run.
+		final File checkStarted = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
+		final File checkRunning = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_running");
+		if(checkStarted.exists())
+			checkStarted.delete();
+		if(checkRunning.exists())
+			checkRunning.delete();
+
+		// Once the dropbear server is running, start a dbclient in the background to start the VNC
+		// server.
+		final String cmd;
 		if(command == null)
-			command = "/bin/bash";
-		if (createNewXTerm)
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-					getInstallDir().getAbsolutePath() + "/support/launchXterm " + command);
+			cmd = "/bin/bash";
 		else
-			// Button presses will not open a new xterm is one is alrady running.
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-					getInstallDir().getAbsolutePath() + "/support/launchXterm  button_pressed " + command);
+			cmd = command;
+		final String[] commandArray;
+		if(createNewXTerm) {
+			commandArray = new String[3];
+			commandArray[0] = getInstallDir().getAbsolutePath() + "/support/launchXterm";
+			commandArray[1] = "button_pressed";
+			commandArray[2] = cmd;
+		}
+		else {
+			commandArray = new String[2];
+			commandArray[0] = getInstallDir().getAbsolutePath() + "/support/launchXterm";
+			commandArray[1] = cmd;
+		}
 
-		startActivity(termIntent);
+		final ScheduledExecutorService dbScheduler =
+				Executors.newSingleThreadScheduledExecutor();
 
+		final File dropbearStatus = new File(getInstallDir().getAbsolutePath() + "/support/.dropbear_running");
+		dbScheduler.scheduleAtFixedRate
+				(new Runnable() {
+					public void run() {
+						if(dropbearStatus.exists()) {
+							try {
+								Runtime.getRuntime().exec(commandArray);
+							}
+							catch (IOException e) {
+								Log.e("GNURootService", "Couldn't execute x commands: " + e);
+							}
+							dbScheduler.shutdown();
+						}
+					}
+				}, 100, 100, TimeUnit.MILLISECONDS);
+
+		// Once the VNC server is running, connect to it and start the notification.
 		final Intent notifServiceIntent = new Intent(this, com.gnuroot.debian.GNURootNotificationService.class);
 		notifServiceIntent.putExtra("type", "VNC");
 
@@ -91,14 +143,12 @@ public class GNURootService extends Service {
 		scheduler.scheduleAtFixedRate
 				(new Runnable() {
 					public void run() {
-						File checkStarted = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
-						File checkRunning = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_running");
 						if (checkStarted.exists() || checkRunning.exists()) {
 							Intent bvncIntent = new Intent(getBaseContext(), com.iiordanov.bVNC.RemoteCanvasActivity.class);
 							bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?" + Constants.PARAM_VNC_PWD + "=gnuroot"));
 							bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-							startActivity(bvncIntent);
 
+							startActivity(bvncIntent);
 							startService(notifServiceIntent);
 							scheduler.shutdown();
 						}

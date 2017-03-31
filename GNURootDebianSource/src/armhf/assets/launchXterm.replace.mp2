@@ -34,4 +34,4 @@ if [ ! -h ROOT_PATH/support/.gnuroot_x_package_passed ] && [ ! -e ROOT_PATH/supp
 	fi
 fi
 
-ROOT_PATH/support/execInProot /support/startX $@
+ROOT_PATH/support/startDBClient /support/startX $@

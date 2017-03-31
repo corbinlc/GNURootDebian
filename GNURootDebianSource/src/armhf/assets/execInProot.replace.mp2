@@ -1,7 +1,7 @@
 #!ROOT_PATH/support/busybox sh
 
 ROOT_PATH/support/busybox clear
-
+echo $1 > ROOT_PATH/support/.tExecInProot
 blue='\033[0;34m'; NC='\033[0m';
 echo "" 
 echo -e "${blue}Sponsored by: "

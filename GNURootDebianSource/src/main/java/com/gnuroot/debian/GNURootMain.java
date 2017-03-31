@@ -37,6 +37,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -115,7 +118,7 @@ public class GNURootMain extends Activity {
             makeAlarmToast(intent);
         */
 		else
-			launchTerm(null);
+			launchTerm(null, false);
 	}
 
 	/**
@@ -146,7 +149,7 @@ public class GNURootMain extends Activity {
 
 		switch (launchType) {
 			case GNUROOT_TERM:
-				launchTerm(command);
+				launchTerm(command, false);
 				return;
 			case GNUROOT_XTERM:
 				launchXTerm(!intent.getBooleanExtra("terminal_button", false), command);
@@ -161,22 +164,67 @@ public class GNURootMain extends Activity {
 	 * Sends an intent to Android Terminal Emulator to launch PRoot, which installs any missing components.
 	 * @param command is the command that will be executed when PRoot launches.
 	 */
-	public void launchTerm(String command) {
-		Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
+	public void launchTerm(final String command, boolean installationStep) {
+		final Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
 		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
 		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
 		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
-		if(command == null)
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-					getInstallDir().getAbsolutePath() + "/support/launchProot /bin/bash");
-		else
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-					getInstallDir().getAbsolutePath() + "/support/launchProot " + command);
 
-		checkPatches();
+        // During installation, dropbear won't yet be installed.
+        if(installationStep) {
+            if (command == null)
+                termIntent.putExtra("jackpal.androidterm.iInitialCommand",
+                        getInstallDir().getAbsolutePath() + "/support/launchProot /bin/bash");
+            else
+                termIntent.putExtra("jackpal.androidterm.iInitialCommand",
+                        getInstallDir().getAbsolutePath() + "/support/launchProot " + command);
 
-		startActivity(termIntent);
-		finish();
+            startActivity(termIntent);
+            finish();
+        }
+        // Otherwise, connect through a dbclient.
+        else {
+
+            final File dropbearStatus = new File(getInstallDir().getAbsolutePath() + "/support/.dropbear_running");
+            if (dropbearStatus.exists()) {
+                dropbearStatus.delete();
+            }
+
+            // GNURoot service will start a dropbear server if one isn't running. Doesn't require a
+            // "type" extra because the service always starts it.
+            Intent GNUServiceIntent = new Intent(this, GNURootService.class);
+            startService(GNUServiceIntent);
+
+
+
+
+            //TODO remove this testing feature
+            termIntent.putExtra("jackpal.androidterm.iInitialCommand",
+                    getInstallDir().getAbsolutePath() + "/support/busybox sh");
+            startActivity(termIntent);
+
+            checkPatches();
+            final ScheduledExecutorService scheduler =
+                    Executors.newSingleThreadScheduledExecutor();
+            scheduler.scheduleAtFixedRate
+                    (new Runnable() {
+                        public void run() {
+                            if (dropbearStatus.exists()) {
+                                if (command == null)
+                                    termIntent.putExtra("jackpal.androidterm.iInitialCommand",
+                                            getInstallDir().getAbsolutePath() + "/support/startDBClient /bin/bash");
+                                    //getInstallDir().getAbsolutePath() + "/support/busybox sh");
+                                else
+                                    termIntent.putExtra("jackpal.androidterm.iInitialCommand",
+                                            getInstallDir().getAbsolutePath() + "/support/startDBClient " + command);
+
+                                startActivity(termIntent);
+                                finish();
+                                scheduler.shutdown();
+                            }
+                        }
+                    }, 100, 100, TimeUnit.MILLISECONDS);
+        }
 	}
 
 	/**
@@ -507,7 +555,7 @@ public class GNURootMain extends Activity {
 		}
 
 		if ((savedIntent == null) || (!"com.gnuroot.debian.LAUNCH".equals(savedIntent.getAction())))
-			launchTerm(null);
+			launchTerm(null, true);
 		else {
 			noInstallAgain = true;
 			handleIntent(savedIntent);
