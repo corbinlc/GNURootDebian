@@ -195,14 +195,6 @@ public class GNURootMain extends Activity {
             Intent GNUServiceIntent = new Intent(this, GNURootService.class);
             startService(GNUServiceIntent);
 
-
-
-
-            //TODO remove this testing feature
-            termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-                    getInstallDir().getAbsolutePath() + "/support/busybox sh");
-            startActivity(termIntent);
-
             checkPatches();
             final ScheduledExecutorService scheduler =
                     Executors.newSingleThreadScheduledExecutor();

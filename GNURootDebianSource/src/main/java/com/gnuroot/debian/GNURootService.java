@@ -36,6 +36,7 @@ import com.iiordanov.bVNC.Constants;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
