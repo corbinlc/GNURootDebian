@@ -3,7 +3,7 @@
 ROOT_PATH/support/busybox clear
 
 export DROPBEAR_PASSWORD="gnuroot"
-#If we're starting X, it should be in the background, which means using the -t option will cause failure.
+# If we're starting X, it should be in the background, which means using the -t option will cause failure.
 if [ $1 == '/support/startX' ]; then
     ROOT_PATH/support/dbclient -y user@127.0.0.1/2022 "$@" 2> ROOT_PATH/support/.tDBCErrX.txt
 else

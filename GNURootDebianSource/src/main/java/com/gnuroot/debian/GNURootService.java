@@ -103,7 +103,7 @@ public class GNURootService extends Service {
 		else
 			cmd = command;
 		final String[] commandArray;
-		if(createNewXTerm) {
+		if(!createNewXTerm) {
 			commandArray = new String[3];
 			commandArray[0] = getInstallDir().getAbsolutePath() + "/support/launchXterm";
 			commandArray[1] = "button_pressed";
