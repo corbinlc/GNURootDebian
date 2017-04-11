@@ -197,6 +197,7 @@ public class GNURootMain extends Activity {
             // GNURoot service will start a dropbear server if one isn't running. Doesn't require a
             // "type" extra because the service always starts it.
             Intent GNUServiceIntent = new Intent(this, GNURootService.class);
+			GNUServiceIntent.putExtra("type", "SSH");
             startService(GNUServiceIntent);
 
             checkPatches();

@@ -26,6 +26,7 @@ package com.gnuroot.debian;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.IBinder;
@@ -34,15 +35,20 @@ import android.widget.Toast;
 
 import com.iiordanov.bVNC.Constants;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class GNURootService extends Service {
-	boolean shown = false;
+	boolean sshLaunch;
+	boolean termLaunch;
+	boolean vncLaunch;
+	boolean graphicalLaunch;
 
 	@Override
 	public void onCreate() { Log.i("Service", "OnCreate() called"); }
@@ -57,32 +63,90 @@ public class GNURootService extends Service {
 	public int onStartCommand(Intent intent, int flags, int startID) {
 		String intentType = intent.getStringExtra("type");
 
-		startDropbearServer();
-
-		if("VNC".equals(intentType)) {
-			startVNCServer(intent.getBooleanExtra("newXterm", false), intent.getStringExtra("command"));
+		// In the case of kill, don't try to start servers as this can cause
+		// the app to continue trying to do things.
+		if("kill".equals(intentType)) {
+			killServers();
 		}
+		else {
+			startServers();
+			//startDropbearServer();
+			if ("SSH".equals(intentType)) {
+				startDropbearServer();
+			}
 
-		if("VNCReconnect".equals(intentType)) {
-			reconnectVNC();
+			if ("VNC".equals(intentType)) {
+				startVNCServer(intent.getBooleanExtra("newXterm", false), intent.getStringExtra("command"));
+			}
+
+			if ("VNCReconnect".equals(intentType)) {
+				reconnectVNC();
+			}
+
+			if ("kill".equals(intentType)) {
+				killServers();
+			}
 		}
 
 		return Service.START_STICKY;
 	}
 
+	private void startServers() {
+		SharedPreferences prefs = getSharedPreferences("MAIN", MODE_PRIVATE);
+		sshLaunch = prefs.getBoolean("sshLaunch", true);
+		termLaunch = prefs.getBoolean("termLaunch", true);
+		vncLaunch = prefs.getBoolean("vncLaunch", false);
+		graphicalLaunch = prefs.getBoolean("graphicalLaunch", false);
+
+		if(sshLaunch)
+			startDropbearServer();
+		if(vncLaunch);
+		//TODO startVNCServer should just start a server
+		if(termLaunch);
+		//TODO move launchTerm in here? handle installation here?
+		if(graphicalLaunch);
+		//TODO connect to bVNC
+	}
+
 	private void startDropbearServer() {
-		try {
-			String command = getInstallDir().getAbsolutePath() + "/support/dbserverscript";
-			Runtime.getRuntime().exec(command);
-			Intent notifServiceIntent = new Intent(this, GNURootNotificationService.class);
-			notifServiceIntent.putExtra("type", "dropbear");
-			startService(notifServiceIntent);
-		} catch (IOException e) {
-			Toast.makeText(getApplicationContext(),
-					"Error starting dropbear server. Please report this to a developer.",
-					Toast.LENGTH_LONG);
-			Log.e("GNURootService", "Failed to start DB server: " + e);
+		if(!dropbearServerRunning()) {
+			try {
+				String command = getInstallDir().getAbsolutePath() + "/support/dbserverscript";
+				Runtime.getRuntime().exec(command);
+				Intent notifServiceIntent = new Intent(this, GNURootNotificationService.class);
+				notifServiceIntent.putExtra("type", "dropbear");
+				startService(notifServiceIntent);
+			} catch (IOException e) {
+				Toast.makeText(getApplicationContext(),
+						"Error starting dropbear server. Please report this to a developer.",
+						Toast.LENGTH_LONG);
+				Log.e("GNURootService", "Failed to start DB server: " + e);
+			}
 		}
+	}
+
+	private boolean dropbearServerRunning() {
+		try {
+			String commands[] = new String[5];
+			commands[0] = "ps";
+			commands[1] = "ef";
+			commands[2] = "|";
+			commands[3] = "grep";
+			commands[4] = "dropbear";
+			Process process = Runtime.getRuntime().exec(commands);
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+			String line;
+			while((line = bufferedReader.readLine()) != null) {
+				if(line.contains("dropbear") && !line.contains("grep"))
+					return true;
+			}
+		}
+		catch (IOException e) {
+			//TODO make this a good string
+			Log.e("GNURootService", "Failed to check dropbear server: " + e);
+		}
+		return false;
 	}
 
 	private void startVNCServer(final boolean createNewXTerm, String command) {
@@ -162,6 +226,10 @@ public class GNURootService extends Service {
 		bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?" + Constants.PARAM_VNC_PWD + "=gnuroot"));
 		bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(bvncIntent);
+	}
+
+	private void killServers() {
+		android.os.Process.killProcess(android.os.Process.myPid());
 	}
 
 	public File getInstallDir() {
