@@ -33,6 +33,9 @@ public class GNURootNotificationService extends Service {
         //Either of these may be null depending on source
         String type = intent.getStringExtra("type");
 
+        if("GNURoot".equals(type)) {
+            startGNURootServerNotification();
+        }
         if("VNC".equals(type)) {
             startVNCServerNotification();
         }
@@ -40,6 +43,36 @@ public class GNURootNotificationService extends Service {
             cancelVNCServerNotification();
         }
         return Service.START_STICKY;
+    }
+
+    private void startGNURootServerNotification() {
+        int id = Integer.parseInt(new SimpleDateFormat("ddHHmmss", Locale.US).format(new Date()));
+
+        //TODO Define strings
+
+        // These intents actions are set that way to separate their relative pending intents.
+        Intent killIntent = new Intent(this, GNURootService.class);
+        killIntent.setAction(Long.toString(System.currentTimeMillis()));
+        killIntent.putExtra("type", "kill");
+        PendingIntent killPending = PendingIntent.getService(this, 0, killIntent, PendingIntent.FLAG_ONE_SHOT);
+
+        Intent settingsIntent = new Intent(this, GNURootServerSettings.class);
+        settingsIntent.setAction((Long.toString(System.currentTimeMillis())));
+        PendingIntent settingsPending = PendingIntent.getActivity(this, 0, settingsIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
+        builder.setSmallIcon(R.drawable.ic_launcher);
+        builder.setContentTitle("GNURoot");
+        builder.setContentText("Server Control");
+        builder.addAction(R.drawable.ic_exit, "Exit", killPending);
+        builder.addAction(R.drawable.ic_launcher, "Settings", settingsPending);
+        builder.setAutoCancel(false);
+        builder.setPriority(Notification.PRIORITY_MAX);
+
+        // TODO check these flags
+        Notification notification = builder.build();
+        notification.flags |= Notification.FLAG_ONGOING_EVENT | Notification.FLAG_NO_CLEAR;
+        startForeground(id, notification);
     }
 
     private void startVNCServerNotification() {

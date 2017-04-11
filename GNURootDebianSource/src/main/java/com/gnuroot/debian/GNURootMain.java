@@ -87,6 +87,10 @@ public class GNURootMain extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		Intent serverNotif = new Intent(this, GNURootNotificationService.class);
+		serverNotif.putExtra("type", "GNURoot");
+		startService(serverNotif);
+
 		handleIntent(getIntent());
 	}
 
