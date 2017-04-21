@@ -42,6 +42,9 @@ public class GNURootNotificationService extends Service {
         if("cancelVNCNotif".equals(type)) {
             cancelVNCServerNotification();
         }
+        if("kill".equals(type)) {
+            cancelAll();
+        }
         return Service.START_STICKY;
     }
 
@@ -51,7 +54,7 @@ public class GNURootNotificationService extends Service {
         //TODO Define strings
 
         // These intents actions are set that way to separate their relative pending intents.
-        Intent killIntent = new Intent(this, GNURootService.class);
+        Intent killIntent = new Intent(this, GNURootNotificationService.class);
         killIntent.setAction(Long.toString(System.currentTimeMillis()));
         killIntent.putExtra("type", "kill");
         PendingIntent killPending = PendingIntent.getService(this, 0, killIntent, PendingIntent.FLAG_ONE_SHOT);
@@ -78,7 +81,7 @@ public class GNURootNotificationService extends Service {
     private void startVNCServerNotification() {
         int id = Integer.parseInt(new SimpleDateFormat("ddHHmmss", Locale.US).format(new Date()));
         Intent VNCIntent = new Intent(this, GNURootService.class);
-        VNCIntent.putExtra("type", "VNCReconnect");
+        VNCIntent.putExtra("type", "VNC");
         PendingIntent pendingIntent = PendingIntent.getService(this, 0, VNCIntent, 0);
 
         /* This was to be used for cancelling the notification and disconnect bVNC.
@@ -109,6 +112,14 @@ public class GNURootNotificationService extends Service {
         */
 
         stopForeground(true);
+        stopSelf();
+    }
+
+    private void cancelAll() {
+        stopForeground(true);
+        Intent serviceIntent = new Intent(this, GNURootService.class);
+        serviceIntent.putExtra("type", "kill");
+        startService(serviceIntent);
         stopSelf();
     }
 }

@@ -64,6 +64,7 @@
         </activity>
 
         <service android:name=".GNURootService" />
+        <service android:name=".GNURootLauncherService" />
 
         <service
             android:name=".GNURootNotificationService">

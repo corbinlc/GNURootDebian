@@ -1,0 +1,30 @@
+#!ROOT_PATH/support/busybox sh
+
+ROOT_PATH/support/busybox clear
+
+# Start a dropbear server if one isn't running
+if [[ "$1" == "dropbear" ]]; then
+    ps -ef | grep dropbear | grep -v "grep" | grep -v "startServer"
+    if [[ $? == 1 ]]; then
+        ROOT_PATH/support/execInProot /support/startDBServer
+    else
+        touch ROOT_PATH/support/.dropbear_running
+    fi
+  
+  #start a VNC through dropbear if both servers are to be started
+    if [[ "$2" == "vnc" ]]; then
+        ROOT_PATH/support/startDBClient /support/startVNCServer
+    fi
+    # Exit once both have been started
+    exit
+fi
+
+# Start a vnc server if one isn't running, and dropbear isn't required
+if [[ "$1" == "vnc" ]]; then
+    ps -ef | grep tightvnc | grep -v "grep" | grep -v "startServer"
+    if [[ $? == 1 ]]; then
+        ROOT_PATH/support/execInProot /support/startVNCServer
+    else
+        touch ROOT_PATH/support/.vnc_running
+    fi
+fi

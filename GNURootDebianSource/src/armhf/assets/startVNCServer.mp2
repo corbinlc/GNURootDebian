@@ -1,0 +1,8 @@
+#! /bin/bash
+
+rm /tmp/.X51-lock
+rm /tmp/.X11-unix/X51
+HOME=/home/user tightvncserver -kill :51
+HOME=/home/user tightvncserver -geometry 1024x768 :51
+cp /root/.Xauthority /home/user/.Xauthority
+touch /support/.vnc_running

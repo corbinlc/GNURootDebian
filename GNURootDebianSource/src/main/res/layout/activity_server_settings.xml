@@ -7,6 +7,8 @@
         android:text="Start SSH Server On Launch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:checked="true"
+        android:enabled="false"
         android:id="@+id/launch_ssh_checkbox" />
 
     <CheckBox

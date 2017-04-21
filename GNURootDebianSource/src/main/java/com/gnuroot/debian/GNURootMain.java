@@ -37,9 +37,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -57,8 +54,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
-
-import com.iiordanov.bVNC.Constants;
 
 public class GNURootMain extends Activity {
 
@@ -87,9 +82,8 @@ public class GNURootMain extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		Intent serverNotif = new Intent(this, GNURootNotificationService.class);
-		serverNotif.putExtra("type", "GNURoot");
-		startService(serverNotif);
+		Intent serverIntent = new Intent(this, GNURootService.class);
+		startService(serverIntent);
 
 		handleIntent(getIntent());
 	}
@@ -169,59 +163,22 @@ public class GNURootMain extends Activity {
 	 * @param command is the command that will be executed when PRoot launches.
 	 */
 	public void launchTerm(final String command, boolean installationStep) {
-		final Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
-		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
-		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+		checkPatches();
 
-        // During installation, dropbear won't yet be installed.
-        if(installationStep) {
-            if (command == null)
-                termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-                        getInstallDir().getAbsolutePath() + "/support/launchProot /bin/bash");
-            else
-                termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-                        getInstallDir().getAbsolutePath() + "/support/launchProot " + command);
+		File dropbearStatus = new File(getInstallDir().getAbsolutePath() + "/support/.dropbear_running");
+		if (dropbearStatus.exists())
+			dropbearStatus.delete();
 
-            startActivity(termIntent);
-            finish();
-        }
-        // Otherwise, connect through a dbclient.
-        else {
+		Intent serverIntent = new Intent(this, GNURootService.class);
+		startService(serverIntent);
 
-            final File dropbearStatus = new File(getInstallDir().getAbsolutePath() + "/support/.dropbear_running");
-            if (dropbearStatus.exists()) {
-                dropbearStatus.delete();
-            }
+		Intent launcherIntent = new Intent(this, GNURootLauncherService.class);
+		launcherIntent.putExtra("type", GNUROOT_TERM);
+		launcherIntent.putExtra("installStep", installationStep);
+		launcherIntent.putExtra("command", command);
+		startService(launcherIntent);
 
-            // GNURoot service will start a dropbear server if one isn't running. Doesn't require a
-            // "type" extra because the service always starts it.
-            Intent GNUServiceIntent = new Intent(this, GNURootService.class);
-			GNUServiceIntent.putExtra("type", "SSH");
-            startService(GNUServiceIntent);
-
-            checkPatches();
-            final ScheduledExecutorService scheduler =
-                    Executors.newSingleThreadScheduledExecutor();
-            scheduler.scheduleAtFixedRate
-                    (new Runnable() {
-                        public void run() {
-                            if (dropbearStatus.exists()) {
-                                if (command == null)
-                                    termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-                                            getInstallDir().getAbsolutePath() + "/support/startDBClient /bin/bash");
-                                    //getInstallDir().getAbsolutePath() + "/support/busybox sh");
-                                else
-                                    termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-                                            getInstallDir().getAbsolutePath() + "/support/startDBClient " + command);
-
-                                startActivity(termIntent);
-                                finish();
-                                scheduler.shutdown();
-                            }
-                        }
-                    }, 100, 100, TimeUnit.MILLISECONDS);
-        }
+		finish();
 	}
 
 	/**
@@ -230,18 +187,29 @@ public class GNURootMain extends Activity {
 	 * @param createNewXTerm determines if a new xterm should be launched regardless of whether one is already active.
 	 */
 	public void launchXTerm(Boolean createNewXTerm, String command) {
-		File deleteStarted = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
-		if (deleteStarted.exists())
-			deleteStarted.delete();
-
-		Intent serviceIntent = new Intent(this, GNURootService.class);
-		serviceIntent.addCategory(Intent.CATEGORY_DEFAULT);
-		serviceIntent.putExtra("type", "VNC");
-		serviceIntent.putExtra("command", command);
-		serviceIntent.putExtra("newXterm", createNewXTerm);
-
 		checkPatches();
-		startService(serviceIntent);
+
+		File xStartedStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
+		if (xStartedStatus.exists())
+			xStartedStatus.delete();
+
+		File xRunningStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_running");
+		if (xRunningStatus.exists())
+			xRunningStatus.delete();
+
+		File vncServerStatus = new File(getInstallDir().getAbsolutePath() + "/support/.vnc_running");
+		if(vncServerStatus.exists())
+			vncServerStatus.delete();
+
+		Intent serverIntent = new Intent(this, GNURootService.class);
+		serverIntent.putExtra("type", "VNC");
+		startService(serverIntent);
+
+		Intent launcherIntent = new Intent(this, GNURootLauncherService.class);
+		launcherIntent.putExtra("type", GNUROOT_XTERM);
+		launcherIntent.putExtra("command", command);
+		launcherIntent.putExtra("newXTerm", createNewXTerm);
+		startService(launcherIntent);
 
 		finish();
 	}
@@ -252,7 +220,6 @@ public class GNURootMain extends Activity {
 	 */
 	private void copySharedFile(Uri sharedFile) {
 		InputStream srcStream;
-		String untarCommand;
 		boolean status = true;
 		File srcFile = new File(sharedFile.getPath());
 		File destFolder = getInstallDir();
