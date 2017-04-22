@@ -154,6 +154,13 @@ public class RemoteCanvasActivity extends Activity implements OnKeyListener {
         }
         */
     }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+        if(intent.getBooleanExtra("disconnect", false)) {
+            finish();
+        }
+    }
     
     void initialize () {
         if (android.os.Build.VERSION.SDK_INT >= 9) {

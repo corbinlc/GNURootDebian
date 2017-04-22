@@ -48,11 +48,10 @@ public class GNURootNotificationService extends Service {
         VNCIntent.putExtra("type", "VNCReconnect");
         PendingIntent pendingIntent = PendingIntent.getService(this, 0, VNCIntent, 0);
 
-        /* This was to be used for cancelling the notification and disconnect bVNC.
+        //This was to be used for cancelling the notification and disconnect bVNC.
         Intent cancelIntent = new Intent(this, GNURootNotificationService.class);
         cancelIntent.putExtra("type", "cancelVNCNotif");
         PendingIntent pendingCancel = PendingIntent.getService(this, 1, cancelIntent, 0);
-        */
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
         builder.setContentIntent(pendingIntent);
@@ -61,7 +60,7 @@ public class GNURootNotificationService extends Service {
         builder.setOngoing(true);
         builder.setSmallIcon(R.drawable.xterm_transparent);
         builder.setPriority(Notification.PRIORITY_HIGH);
-        //builder.addAction(R.drawable.ic_exit, "Clear", pendingCancel);
+        builder.addAction(R.drawable.ic_exit, "Clear", pendingCancel);
 
         Notification notification = builder.build();
         notification.flags |= Notification.FLAG_ONGOING_EVENT | Notification.FLAG_NO_CLEAR;
@@ -69,11 +68,10 @@ public class GNURootNotificationService extends Service {
     }
 
     private void cancelVNCServerNotification() {
-        /* TODO Find a way to kill bVNC from outside
+        //TODO Find a way to kill bVNC from outside
         Intent exitIntent = new Intent(this, com.iiordanov.bVNC.RemoteCanvasActivity.class);
         exitIntent.putExtra("disconnect", true);
         startActivity(exitIntent);
-        */
 
         stopForeground(true);
         stopSelf();

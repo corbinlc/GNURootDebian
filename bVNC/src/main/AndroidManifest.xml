@@ -28,6 +28,7 @@
                           android:theme="@android:style/Theme.DeviceDefault">
                 </activity>
                 <activity android:screenOrientation="unspecified"
+                          android:launchMode="singleInstance"
                           android:configChanges="orientation|keyboardHidden|keyboard"
 		                  android:name="RemoteCanvasActivity"
 		                  android:windowSoftInputMode="stateHidden|adjustResize"
