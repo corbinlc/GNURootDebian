@@ -1,0 +1,12 @@
+#! ROOT_PATH/support/busybox sh
+
+ROOT_PATH/support/busybox clear
+
+while [ ! -f ROOT_PATH/support/.gnuroot_patch_passed ]; do
+    touch ROOT_PATH/support/.waiting
+    echo "Waiting for installation to complete..."
+    sleep 10
+done
+
+rm ROOT_PATH/support/.waiting
+ROOT_PATH/support/startDBClient /bin/bash

@@ -11,7 +11,10 @@ if [[ "$1" == "dropbear" ]]; then
         touch ROOT_PATH/support/.dropbear_running
     fi
   
-  #start a VNC through dropbear if both servers are to be started
+    #start a VNC through dropbear if both servers are to be started
+    while [ ! -f ROOT_PATH/support/.dropbear_running ]; do
+        sleep 1
+    done
     if [[ "$2" == "vnc" ]]; then
         ROOT_PATH/support/startDBClient /support/startVNCServer
     fi

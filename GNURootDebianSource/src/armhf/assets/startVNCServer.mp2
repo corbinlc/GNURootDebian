@@ -1,5 +1,5 @@
 #! /bin/bash
-
+touch /support/.tstartVNCServer
 rm /tmp/.X51-lock
 rm /tmp/.X11-unix/X51
 HOME=/home/user tightvncserver -kill :51

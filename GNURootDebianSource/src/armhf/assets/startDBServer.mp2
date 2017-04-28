@@ -3,7 +3,8 @@
 if id "user" >/dev/null 2>&1; then
     :
 else
-    useradd -m -U user
+    groupadd -g 1500 user
+    useradd -m -u 1500 -g 1500 user
     echo user:gnuroot | chpasswd
 fi
 

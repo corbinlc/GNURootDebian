@@ -110,14 +110,13 @@ public class GNURootService extends Service {
 		// This needs to be done in a way that's visible to the user, so it
 		// must be done in an ATE terminal.
 		final File checkXSupport = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_support_passed");
-		final File checkXPackages = new File(getInstallDir().getAbsolutePath() + "support/.gnuroot_x_package_passed");
+		final File checkXPackages = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_package_passed");
 		if(!checkXSupport.exists() || !checkXPackages.exists()) {
-			Intent xInstallIntent = new Intent(this, GNURootMain.class);
-			xInstallIntent.setAction("com.gnuroot.debian.LAUNCH");
-			xInstallIntent.putExtra("launchType", "launchTerm");
-			xInstallIntent.putExtra("command",
-					getInstallDir().getAbsolutePath() + "/support/installXSupport");
-			startActivity(xInstallIntent);
+			Intent xInstallIntent = new Intent(this, GNURootLauncherService.class);
+			xInstallIntent.putExtra("type", "installXSupport");
+			//xInstallIntent.putExtra("command",
+			//		getInstallDir().getAbsolutePath() + "/support/installXSupport");
+			startService(xInstallIntent);
 		}
 
 		// This executor will wait for the installation to finish before moving on.

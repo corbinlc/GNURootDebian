@@ -18,6 +18,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class GNURootLauncherService extends Service {
+
     @Override
     public IBinder onBind(Intent intent) {
         // We don't provide binding, so return null
@@ -39,6 +40,9 @@ public class GNURootLauncherService extends Service {
         else if("launchVNC".equals(type)) {
             launchVNC();
         }
+        else if("installXSupport".equals(type)) {
+            installXSupport();
+        }
         else {
             // TODO make this a string resource
             Toast.makeText(getApplicationContext(),
@@ -54,18 +58,60 @@ public class GNURootLauncherService extends Service {
         termIntent.addCategory(Intent.CATEGORY_DEFAULT);
         termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
 
-        // Some aspects want to be run as "root", or in the case of dropbear,
-        // we won't have necessities set up yet.
-        if(installStep) {
-            if (command == null)
-                termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-                        getInstallDir().getAbsolutePath() + "/support/launchProot /bin/bash");
-            else
-                termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-                        getInstallDir().getAbsolutePath() + "/support/launchProot " + command);
 
-            startActivity(termIntent);
-            stopSelf();
+        // The rootfs needs to be installed before dropbear can set up a new user, which would prevent
+        // connecting to that user.
+        if(installStep) {
+            // Do installation in a visible terminal, but exit once complete.
+            // Command is either null, or to installXSupport.
+            Intent pollIntent = new Intent(this, jackpal.androidterm.RunScript.class);
+            pollIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+            pollIntent.addCategory(Intent.CATEGORY_DEFAULT);
+            pollIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+            pollIntent.putExtra("jackpal.androidterm.iInitialCommand",
+                    getInstallDir().getAbsolutePath() + "/support/waitForInstall");
+            startActivity(pollIntent);
+
+            final ScheduledExecutorService waitScheduler =
+                    Executors.newSingleThreadScheduledExecutor();
+            final File waitingStatus = new File(getInstallDir().getAbsolutePath() + "/support/.waiting");
+            waitScheduler.scheduleAtFixedRate
+                    (new Runnable() {
+                        public void run() {
+                            if(waitingStatus.exists()) {
+                                termIntent.putExtra("jackpal.androidterm.iInitialCommand",
+                                        getInstallDir().getAbsolutePath() + "/support/launchProot " + command + "exit");
+                                startActivity(termIntent);
+
+                                waitScheduler.shutdown();
+                            }
+                        }
+                    }, 1, 1, TimeUnit.MILLISECONDS);
+
+
+            /*
+            Toast.makeText(getApplicationContext(),
+                    "GNURoot will briefly close after installation while it creates an ssh sessioin.",
+                    Toast.LENGTH_LONG).show();
+                    */
+
+            // After installation completes, call recursively so that an ssh client is the visible
+            // terminal.
+            final ScheduledExecutorService scheduler =
+                    Executors.newSingleThreadScheduledExecutor();
+            final File installationStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_patch_passed");
+            scheduler.scheduleAtFixedRate
+                    (new Runnable() {
+                        public void run() {
+                            if(installationStatus.exists()) {
+                                // Start the server before trying to connect to it.
+                                Intent serverIntent = new Intent(getApplicationContext(), GNURootService.class);
+                                startService(serverIntent);
+
+                                scheduler.shutdown();
+                            }
+                        }
+                    }, 500, 5, TimeUnit.MILLISECONDS);
         }
 
         // Otherwise, connect through a dbclient.
@@ -107,7 +153,7 @@ public class GNURootLauncherService extends Service {
 
         // Build the command to be run in the xterm
         ArrayList<String> cmdBuilder = new ArrayList<>();
-        cmdBuilder.add(getInstallDir().getAbsolutePath() + "support/launchXterm");
+        cmdBuilder.add(getInstallDir().getAbsolutePath() + "/support/launchXterm");
         if (!newXTerm)
             cmdBuilder.add("button_pressed");
         if (command == null)
@@ -120,10 +166,12 @@ public class GNURootLauncherService extends Service {
                 Executors.newSingleThreadScheduledExecutor();
 
         final File dropbearStatus = new File(getInstallDir().getAbsolutePath() + "/support/.dropbear_running");
+        final File checkXSupport = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_support_passed");
+        final File checkXPackages = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_package_passed");
         scheduler.scheduleAtFixedRate
                 (new Runnable() {
                     public void run() {
-                        if (dropbearStatus.exists() && (checkStarted.exists() || checkRunning.exists())) {
+                        if (dropbearStatus.exists() && checkXSupport.exists() && checkXPackages.exists()) {
                             try {
                                 Runtime.getRuntime().exec(cmd);
                             } catch (IOException e) {
@@ -160,6 +208,20 @@ public class GNURootLauncherService extends Service {
                         }
                     }
                 }, 3, 2, TimeUnit.SECONDS); //Avoid race case in which tightvnc needs to be restarted
+    }
+
+    /**
+     * Untar the xsupport directory and install necessary packages in a terminal visible to the
+     * user.
+     */
+    public void installXSupport() {
+        Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
+        termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+        termIntent.addCategory(Intent.CATEGORY_DEFAULT);
+        termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+        termIntent.putExtra("jackpal.androidterm.iInitialCommand",
+                getInstallDir().getAbsolutePath() + "/support/launchProot " + "/support/installXSupport");
+        startActivity(termIntent);
     }
 
     public File getInstallDir() {

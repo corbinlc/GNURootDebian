@@ -2,6 +2,7 @@ package com.gnuroot.debian;
 
 
 import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
@@ -15,6 +16,8 @@ import java.util.Locale;
 
 
 public class GNURootNotificationService extends Service {
+    int gnurootNotifId = 0;
+    int vncNotifId = 0;
 
     @Override
     //TODO find out if anything needs to be done here
@@ -49,7 +52,8 @@ public class GNURootNotificationService extends Service {
     }
 
     private void startGNURootServerNotification() {
-        int id = Integer.parseInt(new SimpleDateFormat("ddHHmmss", Locale.US).format(new Date()));
+        if(gnurootNotifId == 0)
+            gnurootNotifId = Integer.parseInt(new SimpleDateFormat("ddHHmmss", Locale.US).format(new Date()));
 
         //TODO Define strings
 
@@ -57,7 +61,7 @@ public class GNURootNotificationService extends Service {
         Intent killIntent = new Intent(this, GNURootNotificationService.class);
         killIntent.setAction(Long.toString(System.currentTimeMillis()));
         killIntent.putExtra("type", "kill");
-        PendingIntent killPending = PendingIntent.getService(this, 0, killIntent, PendingIntent.FLAG_ONE_SHOT);
+        PendingIntent killPending = PendingIntent.getService(this, 0, killIntent, 0 /*PendingIntent.FLAG_ONE_SHOT*/);
 
         Intent settingsIntent = new Intent(this, GNURootServerSettings.class);
         settingsIntent.setAction((Long.toString(System.currentTimeMillis())));
@@ -69,19 +73,23 @@ public class GNURootNotificationService extends Service {
         builder.setContentText("Server Control");
         builder.addAction(R.drawable.ic_exit, "Exit", killPending);
         builder.addAction(R.drawable.ic_launcher, "Settings", settingsPending);
+        builder.setOngoing(true);
         builder.setAutoCancel(false);
         builder.setPriority(Notification.PRIORITY_MAX);
 
         // TODO check these flags
         Notification notification = builder.build();
         notification.flags |= Notification.FLAG_ONGOING_EVENT | Notification.FLAG_NO_CLEAR;
-        startForeground(id, notification);
+        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        nm.notify(gnurootNotifId, notification);
+        //startForeground(id, notification);
     }
 
     private void startVNCServerNotification() {
-        int id = Integer.parseInt(new SimpleDateFormat("ddHHmmss", Locale.US).format(new Date()));
-        Intent VNCIntent = new Intent(this, GNURootService.class);
-        VNCIntent.putExtra("type", "VNC");
+        if(vncNotifId == 0)
+            vncNotifId = Integer.parseInt(new SimpleDateFormat("ddHHmmss", Locale.US).format(new Date()));
+        Intent VNCIntent = new Intent(this, GNURootLauncherService.class);
+        VNCIntent.putExtra("type", "launchVNC");
         PendingIntent pendingIntent = PendingIntent.getService(this, 0, VNCIntent, 0);
 
         /* This was to be used for cancelling the notification and disconnect bVNC.
@@ -92,16 +100,18 @@ public class GNURootNotificationService extends Service {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
         builder.setContentIntent(pendingIntent);
-        builder.setAutoCancel(false);
         builder.setContentTitle("VNC Service Running");
         builder.setOngoing(true);
+        builder.setAutoCancel(false);
         builder.setSmallIcon(R.drawable.xterm_transparent);
         builder.setPriority(Notification.PRIORITY_HIGH);
         //builder.addAction(R.drawable.ic_exit, "Clear", pendingCancel);
 
         Notification notification = builder.build();
         notification.flags |= Notification.FLAG_ONGOING_EVENT | Notification.FLAG_NO_CLEAR;
-        startForeground(id, notification);
+        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        nm.notify(vncNotifId, notification);
+        //startForeground(vncNotifId, notification);
     }
 
     private void cancelVNCServerNotification() {
@@ -117,6 +127,10 @@ public class GNURootNotificationService extends Service {
 
     private void cancelAll() {
         stopForeground(true);
+        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        nm.cancel(gnurootNotifId);
+        if(vncNotifId != 0)
+            nm.cancel(vncNotifId);
         Intent serviceIntent = new Intent(this, GNURootService.class);
         serviceIntent.putExtra("type", "kill");
         startService(serviceIntent);
