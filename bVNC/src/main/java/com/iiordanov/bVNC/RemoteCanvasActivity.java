@@ -37,6 +37,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.graphics.Rect;
@@ -1050,9 +1052,21 @@ public class RemoteCanvasActivity extends Activity implements OnKeyListener {
             showDialog(R.id.itemHelpInputMode);
             return true;
         } else if (itemId == R.id.itemOpenNewWindow) {
+            // GNURoot now expects a version extra for launch intents, to make sure ecosystem apps
+            // are up to date.
+            String packageNumber = null;
+            PackageInfo pi;
+            try {
+                pi = getPackageManager().getPackageInfo(getPackageName(), 0);
+                packageNumber = String.valueOf(pi.versionCode);
+            } catch (PackageManager.NameNotFoundException e) {
+                Log.e("ATE", "Could not get package number for onOptionsItemSelected().");
+            }
+
             Intent newWindowIntent = new Intent("com.gnuroot.debian.LAUNCH");
             newWindowIntent.addCategory(Intent.CATEGORY_DEFAULT);
             newWindowIntent.putExtra("launchType", "launchXTerm");
+            newWindowIntent.putExtra("GNURootVersion", packageNumber);
             startActivity(newWindowIntent);
 		} else {
 			AbstractInputHandler input = getInputHandlerById(item.getItemId());

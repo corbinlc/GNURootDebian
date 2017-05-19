@@ -47,6 +47,7 @@ import android.content.pm.PackageInfo;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
 import android.net.Uri;
@@ -54,8 +55,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
-
-import com.iiordanov.bVNC.Constants;
 
 public class GNURootMain extends Activity {
 
@@ -83,6 +82,9 @@ public class GNURootMain extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		Intent serverIntent = new Intent(this, GNURootService.class);
+		startService(serverIntent);
 
 		handleIntent(getIntent());
 	}
@@ -115,7 +117,7 @@ public class GNURootMain extends Activity {
             makeAlarmToast(intent);
         */
 		else
-			launchTerm(null);
+			launchTerm(null, false);
 	}
 
 	/**
@@ -126,6 +128,27 @@ public class GNURootMain extends Activity {
 		Uri sharedFile = intent.getData();
 		String launchType = intent.getStringExtra("launchType");
 		String command = intent.getStringExtra("command");
+		String versionNumber = intent.getStringExtra("GNURootVersion");
+		if(versionNumber == null) {
+			showUpdateErrorButton(intent.getStringExtra("packageName"));
+			return;
+		}
+
+		int packageNumber = 0;
+		PackageInfo pi;
+		String packageName = null;
+		try {
+			packageName = getPackageName();
+			pi = getPackageManager().getPackageInfo(packageName, 0);
+			packageNumber = pi.versionCode;
+		} catch (PackageManager.NameNotFoundException e) {
+			Log.e("ATE", "Could not get package number.");
+		}
+		if(packageNumber < Integer.parseInt(versionNumber)) {
+			showUpdateErrorButton(packageName);
+			return;
+		}
+
 
 		if (command != null) {
 			File file = new File(getInstallDir().getAbsolutePath() + "/support/newCommand");
@@ -146,7 +169,7 @@ public class GNURootMain extends Activity {
 
 		switch (launchType) {
 			case GNUROOT_TERM:
-				launchTerm(command);
+				launchTerm(command, false);
 				return;
 			case GNUROOT_XTERM:
 				launchXTerm(!intent.getBooleanExtra("terminal_button", false), command);
@@ -161,21 +184,25 @@ public class GNURootMain extends Activity {
 	 * Sends an intent to Android Terminal Emulator to launch PRoot, which installs any missing components.
 	 * @param command is the command that will be executed when PRoot launches.
 	 */
-	public void launchTerm(String command) {
-		Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
-		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
-		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
-		if(command == null)
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-					getInstallDir().getAbsolutePath() + "/support/launchProot /bin/bash");
-		else
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-					getInstallDir().getAbsolutePath() + "/support/launchProot " + command);
-
+	public void launchTerm(final String command, boolean installationStep) {
+		File installStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_rootfs_passed");
+		if(!installStatus.exists())
+			installationStep = true;
 		checkPatches();
 
-		startActivity(termIntent);
+		File dropbearStatus = new File(getInstallDir().getAbsolutePath() + "/support/.dropbear_running");
+		if (dropbearStatus.exists())
+			dropbearStatus.delete();
+
+		Intent serverIntent = new Intent(this, GNURootService.class);
+		startService(serverIntent);
+
+		Intent launcherIntent = new Intent(this, GNURootLauncherService.class);
+		launcherIntent.putExtra("type", GNUROOT_TERM);
+		launcherIntent.putExtra("installStep", installationStep);
+		launcherIntent.putExtra("command", command);
+		startService(launcherIntent);
+
 		finish();
 	}
 
@@ -185,18 +212,29 @@ public class GNURootMain extends Activity {
 	 * @param createNewXTerm determines if a new xterm should be launched regardless of whether one is already active.
 	 */
 	public void launchXTerm(Boolean createNewXTerm, String command) {
-		File deleteStarted = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
-		if (deleteStarted.exists())
-			deleteStarted.delete();
-
-		Intent serviceIntent = new Intent(this, GNURootService.class);
-		serviceIntent.addCategory(Intent.CATEGORY_DEFAULT);
-		serviceIntent.putExtra("type", "VNC");
-		serviceIntent.putExtra("command", command);
-		serviceIntent.putExtra("newXterm", createNewXTerm);
-
 		checkPatches();
-		startService(serviceIntent);
+
+		File xStartedStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
+		if (xStartedStatus.exists())
+			xStartedStatus.delete();
+
+		File xRunningStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_running");
+		if (xRunningStatus.exists())
+			xRunningStatus.delete();
+
+		File vncServerStatus = new File(getInstallDir().getAbsolutePath() + "/support/.vnc_running");
+		if(vncServerStatus.exists())
+			vncServerStatus.delete();
+
+		Intent serverIntent = new Intent(this, GNURootService.class);
+		serverIntent.putExtra("type", "VNC");
+		startService(serverIntent);
+
+		Intent launcherIntent = new Intent(this, GNURootLauncherService.class);
+		launcherIntent.putExtra("type", GNUROOT_XTERM);
+		launcherIntent.putExtra("command", command);
+		launcherIntent.putExtra("newXTerm", createNewXTerm);
+		startService(launcherIntent);
 
 		finish();
 	}
@@ -207,7 +245,6 @@ public class GNURootMain extends Activity {
 	 */
 	private void copySharedFile(Uri sharedFile) {
 		InputStream srcStream;
-		String untarCommand;
 		boolean status = true;
 		File srcFile = new File(sharedFile.getPath());
 		File destFolder = getInstallDir();
@@ -507,7 +544,7 @@ public class GNURootMain extends Activity {
 		}
 
 		if ((savedIntent == null) || (!"com.gnuroot.debian.LAUNCH".equals(savedIntent.getAction())))
-			launchTerm(null);
+			launchTerm(null, true);
 		else {
 			noInstallAgain = true;
 			handleIntent(savedIntent);
@@ -763,6 +800,14 @@ public class GNURootMain extends Activity {
 			File patchStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_patch_passed");
 			deleteRecursive(patchStatus);
 			Toast.makeText(this, R.string.toast_bad_patch, Toast.LENGTH_LONG).show();
+
+			Intent pollIntent = new Intent(this, jackpal.androidterm.RunScript.class);
+			pollIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+			pollIntent.addCategory(Intent.CATEGORY_DEFAULT);
+			pollIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+			pollIntent.putExtra("jackpal.androidterm.iInitialCommand",
+					getInstallDir().getAbsolutePath() + "/support/waitForInstall");
+			startActivity(pollIntent);
 		}
 
 		if ((sharedVersion == null) || (!sharedVersion.equals(patchVersion))) {

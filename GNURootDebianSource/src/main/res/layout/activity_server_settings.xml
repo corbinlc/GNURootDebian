@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <CheckBox
+        android:text="Start SSH Server On Launch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:enabled="false"
+        android:id="@+id/launch_ssh_checkbox" />
+
+    <CheckBox
+        android:text="Open Terminal On Launch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/launch_term_checkbox" />
+
+    <CheckBox
+        android:text="Start VNC Server On Launch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/launch_vnc_checkbox" />
+
+    <CheckBox
+        android:text="Open Graphical Desktop On Launch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/launch_graphical_checkbox" />
+</LinearLayout>

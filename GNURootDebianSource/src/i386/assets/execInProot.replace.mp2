@@ -13,5 +13,23 @@ echo "  |_|  |___||_|  |__,||___||_  ||_|_||___|"
 echo "                           |___|          "
 echo -e "${NC}"
 
+#set path variables
+export PATH=$PATH:/usr/games
+export PATH=$PATH:/usr/local/games
+export PATH=$PATH:/bin
+export PATH=$PATH:/sbin
+export PATH=$PATH:/usr/bin
+export PATH=$PATH:/usr/sbin
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local/sbin
+
+#set environment variables
+export HOME="/home"
+export PS1="> "
+export TMPDIR="/tmp"
+export LD_LIBRARY_PATH=" "
+export LD_PRELOAD=" "
+export USER="root"
+
 #launch PRoot
 PROOT_TMP_DIR=ROOT_PATH/support/ ROOT_PATH/support/proot -r ROOT_PATH/debian -v -1 -p -H -0 -l -L -b /sys -b /dev -b /proc -b /data -b /mnt -b /proc/mounts:/etc/mtab -b /:/host-rootfs -b SDCARD_GNU_PATH/intents:/intents -b SDCARD_PATH:/sdcard -b ROOT_PATH/support/:/support -b ROOT_PATH/support/ld.so.preload:/etc/ld.so.preload EXTRA_BINDINGS $@
