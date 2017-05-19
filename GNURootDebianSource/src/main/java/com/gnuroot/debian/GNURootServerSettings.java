@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.Toast;
 
 public class GNURootServerSettings extends Activity implements CompoundButton.OnCheckedChangeListener {
     CheckBox check_ssh;
@@ -84,7 +83,6 @@ public class GNURootServerSettings extends Activity implements CompoundButton.On
                 editor.putBoolean("termLaunch", isChecked);
                 break;
             case R.id.launch_vnc_checkbox:
-                Toast.makeText(this, "vnc", Toast.LENGTH_LONG).show();
                 if(!isChecked && !check_ssh.isChecked())
                     check_ssh.setChecked(true);
                 if(!isChecked && check_graphical.isChecked())

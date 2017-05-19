@@ -89,17 +89,19 @@ public class GNURootService extends Service {
 		List<String> command = new ArrayList<String>();
 		command.add(getInstallDir().getAbsolutePath() + "/support/startServers");
 
-		// TODO we need to guarantee vnc support is installed instead of just adding vnc to script arguments
+		Intent notifIntent = new Intent(this, GNURootNotificationService.class);
+		notifIntent.putExtra("type", "GNURoot");
+		startService(notifIntent);
+
 		if(sshLaunch)
 			command.add("dropbear");
-		if(vncLaunch)
-			command.add("vnc");
+		if(vncLaunch) {
+			startVNCServer();
+			return;
+		}
 		try {
 			String[] cmd = command.toArray(new String[command.size()]);
 			Runtime.getRuntime().exec(cmd);
-			Intent notifIntent = new Intent(this, GNURootNotificationService.class);
-			notifIntent.putExtra("type", "GNURoot");
-			startService(notifIntent);
 		} catch (IOException e) {
 			Log.e("GNURootService", "Could not start servers: " + e);
 		}
@@ -114,8 +116,6 @@ public class GNURootService extends Service {
 		if(!checkXSupport.exists() || !checkXPackages.exists()) {
 			Intent xInstallIntent = new Intent(this, GNURootLauncherService.class);
 			xInstallIntent.putExtra("type", "installXSupport");
-			//xInstallIntent.putExtra("command",
-			//		getInstallDir().getAbsolutePath() + "/support/installXSupport");
 			startService(xInstallIntent);
 		}
 

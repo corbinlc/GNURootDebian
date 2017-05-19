@@ -1,3 +1,21 @@
-#!/support/busybox sh
+#!/bin/bash
 
-/support/untargz gnuroot_x_support /support/xsupport
+if [ ! -h /support/.gnuroot_x_support_passed ] && [ ! -e /support/.gnuroot_x_support_passed ]; then
+	echo "Installing xterm support..."
+	/support/busybox tar -xzvf /support/xsupport.tar.gz -C /home/user
+	if [[ $? == 0 ]]; then
+        touch /support/.gnuroot_x_support_passed
+    else
+        exit
+    fi
+fi
+
+if [ ! -h /support/.gnuroot_x_package_passed ] && [ ! -e /support/.gnuroot_x_package_passed ]; then
+	echo "Installing xterm packages..."
+	/support/installXPackages
+	if [ ! -f /support/.gnuroot_x_package_passed ]; then
+		exit
+	fi
+fi
+
+exit

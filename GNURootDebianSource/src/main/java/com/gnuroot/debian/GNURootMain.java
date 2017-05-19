@@ -47,6 +47,7 @@ import android.content.pm.PackageInfo;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
 import android.net.Uri;
@@ -127,6 +128,27 @@ public class GNURootMain extends Activity {
 		Uri sharedFile = intent.getData();
 		String launchType = intent.getStringExtra("launchType");
 		String command = intent.getStringExtra("command");
+		String versionNumber = intent.getStringExtra("GNURootVersion");
+		if(versionNumber == null) {
+			showUpdateErrorButton(intent.getStringExtra("packageName"));
+			return;
+		}
+
+		int packageNumber = 0;
+		PackageInfo pi;
+		String packageName = null;
+		try {
+			packageName = getPackageName();
+			pi = getPackageManager().getPackageInfo(packageName, 0);
+			packageNumber = pi.versionCode;
+		} catch (PackageManager.NameNotFoundException e) {
+			Log.e("ATE", "Could not get package number.");
+		}
+		if(packageNumber < Integer.parseInt(versionNumber)) {
+			showUpdateErrorButton(packageName);
+			return;
+		}
+
 
 		if (command != null) {
 			File file = new File(getInstallDir().getAbsolutePath() + "/support/newCommand");
@@ -163,6 +185,9 @@ public class GNURootMain extends Activity {
 	 * @param command is the command that will be executed when PRoot launches.
 	 */
 	public void launchTerm(final String command, boolean installationStep) {
+		File installStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_rootfs_passed");
+		if(!installStatus.exists())
+			installationStep = true;
 		checkPatches();
 
 		File dropbearStatus = new File(getInstallDir().getAbsolutePath() + "/support/.dropbear_running");
@@ -775,6 +800,14 @@ public class GNURootMain extends Activity {
 			File patchStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_patch_passed");
 			deleteRecursive(patchStatus);
 			Toast.makeText(this, R.string.toast_bad_patch, Toast.LENGTH_LONG).show();
+
+			Intent pollIntent = new Intent(this, jackpal.androidterm.RunScript.class);
+			pollIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+			pollIntent.addCategory(Intent.CATEGORY_DEFAULT);
+			pollIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+			pollIntent.putExtra("jackpal.androidterm.iInitialCommand",
+					getInstallDir().getAbsolutePath() + "/support/waitForInstall");
+			startActivity(pollIntent);
 		}
 
 		if ((sharedVersion == null) || (!sharedVersion.equals(patchVersion))) {

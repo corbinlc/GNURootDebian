@@ -53,6 +53,7 @@ public class GNURootLauncherService extends Service {
     }
 
     public void launchTerm(boolean installStep, final String command) {
+        // TODO make sure rootfs gets installed in cases where eco -> xterm while GNURoot isn't installed yet
         final Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
         termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
         termIntent.addCategory(Intent.CATEGORY_DEFAULT);
@@ -127,7 +128,6 @@ public class GNURootLauncherService extends Service {
                                 if (command == null)
                                     termIntent.putExtra("jackpal.androidterm.iInitialCommand",
                                             getInstallDir().getAbsolutePath() + "/support/startDBClient /bin/bash");
-                                    //getInstallDir().getAbsolutePath() + "/support/busybox sh");
                                 else
                                     termIntent.putExtra("jackpal.androidterm.iInitialCommand",
                                             getInstallDir().getAbsolutePath() + "/support/startDBClient " + command);
@@ -166,12 +166,13 @@ public class GNURootLauncherService extends Service {
                 Executors.newSingleThreadScheduledExecutor();
 
         final File dropbearStatus = new File(getInstallDir().getAbsolutePath() + "/support/.dropbear_running");
-        final File checkXSupport = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_support_passed");
-        final File checkXPackages = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_package_passed");
+        final File vncStatus = new File(getInstallDir().getAbsolutePath() + "/support/.vnc_running");
+        final File xSupportStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_support_passed");
+        final File xPackagesStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_package_passed");
         scheduler.scheduleAtFixedRate
                 (new Runnable() {
                     public void run() {
-                        if (dropbearStatus.exists() && checkXSupport.exists() && checkXPackages.exists()) {
+                        if (dropbearStatus.exists() && vncStatus.exists() && xSupportStatus.exists() && xPackagesStatus.exists()) {
                             try {
                                 Runtime.getRuntime().exec(cmd);
                             } catch (IOException e) {

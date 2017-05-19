@@ -77,7 +77,6 @@ public class GNURootNotificationService extends Service {
         builder.setAutoCancel(false);
         builder.setPriority(Notification.PRIORITY_MAX);
 
-        // TODO check these flags
         Notification notification = builder.build();
         notification.flags |= Notification.FLAG_ONGOING_EVENT | Notification.FLAG_NO_CLEAR;
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
