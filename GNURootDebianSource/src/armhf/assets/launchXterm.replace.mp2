@@ -2,4 +2,7 @@
 
 ROOT_PATH/support/busybox clear
 
-ROOT_PATH/support/startDBClient /support/startX $@
+DROPBEAR_PASSWORD = $1
+shift
+
+ROOT_PATH/support/startDBClient $DROPBEAR_PASSWORD /support/startX $@

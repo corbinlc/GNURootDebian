@@ -2,6 +2,7 @@ package com.gnuroot.debian;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.IBinder;
@@ -19,6 +20,8 @@ import java.util.concurrent.TimeUnit;
 
 public class GNURootLauncherService extends Service {
 
+    private String userPassword;
+
     @Override
     public IBinder onBind(Intent intent) {
         // We don't provide binding, so return null
@@ -27,6 +30,8 @@ public class GNURootLauncherService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startID) {
+        SharedPreferences prefs = getSharedPreferences("MAIN", MODE_PRIVATE);
+        userPassword = prefs.getString("userPassword", "gnuroot");
         String type = intent.getStringExtra("type");
         String command = intent.getStringExtra("command");
         if("launchTerm".equals(type)) {
@@ -53,16 +58,16 @@ public class GNURootLauncherService extends Service {
     }
 
     public void launchTerm(boolean installStep, final String command) {
-        // TODO make sure rootfs gets installed in cases where eco -> xterm while GNURoot isn't installed yet
         final Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
         termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
         termIntent.addCategory(Intent.CATEGORY_DEFAULT);
         termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
 
-
         // The rootfs needs to be installed before dropbear can set up a new user, which would prevent
         // connecting to that user.
         if(installStep) {
+
+
             // Do installation in a visible terminal, but exit once complete.
             // Command is either null, or to installXSupport.
             Intent pollIntent = new Intent(this, jackpal.androidterm.RunScript.class);
@@ -70,7 +75,7 @@ public class GNURootLauncherService extends Service {
             pollIntent.addCategory(Intent.CATEGORY_DEFAULT);
             pollIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
             pollIntent.putExtra("jackpal.androidterm.iInitialCommand",
-                    getInstallDir().getAbsolutePath() + "/support/waitForInstall");
+                    getInstallDir().getAbsolutePath() + "/support/waitForInstall " + userPassword);
             startActivity(pollIntent);
 
             final ScheduledExecutorService waitScheduler =
@@ -127,10 +132,10 @@ public class GNURootLauncherService extends Service {
                             if (dropbearStatus.exists()) {
                                 if (command == null)
                                     termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-                                            getInstallDir().getAbsolutePath() + "/support/startDBClient /bin/bash");
+                                            getInstallDir().getAbsolutePath() + "/support/startDBClient " + userPassword + " /bin/bash");
                                 else
                                     termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-                                            getInstallDir().getAbsolutePath() + "/support/startDBClient " + command);
+                                            getInstallDir().getAbsolutePath() + "/support/startDBClient " + userPassword + " " + command);
 
                                 startActivity(termIntent);
                                 stopSelf();
@@ -154,6 +159,7 @@ public class GNURootLauncherService extends Service {
         // Build the command to be run in the xterm
         ArrayList<String> cmdBuilder = new ArrayList<>();
         cmdBuilder.add(getInstallDir().getAbsolutePath() + "/support/launchXterm");
+        cmdBuilder.add(userPassword);
         if (!newXTerm)
             cmdBuilder.add("button_pressed");
         if (command == null)
@@ -187,6 +193,7 @@ public class GNURootLauncherService extends Service {
     }
 
     public void launchVNC() {
+
         // Once the VNC server is running, connect to it and start the notification.
         final ScheduledExecutorService vncScheduler =
                 Executors.newSingleThreadScheduledExecutor();
@@ -197,7 +204,7 @@ public class GNURootLauncherService extends Service {
                     public void run() {
                         if (vncStatus.exists()) {
                             Intent bvncIntent = new Intent(getBaseContext(), com.iiordanov.bVNC.RemoteCanvasActivity.class);
-                            bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?" + Constants.PARAM_VNC_PWD + "=gnuroot"));
+                            bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?" + Constants.PARAM_VNC_PWD + "=" + userPassword));
                             bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                             Intent notifIntent = new Intent(getBaseContext(), GNURootNotificationService.class);
