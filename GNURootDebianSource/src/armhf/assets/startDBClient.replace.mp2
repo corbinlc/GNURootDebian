@@ -1,6 +1,6 @@
 #!ROOT_PATH/support/busybox sh
 
-ROOT_PATH/support/busybox clear
+echo $@ > ROOT_PATH/support/.tDBC
 
 export DROPBEAR_PASSWORD=$1
 shift

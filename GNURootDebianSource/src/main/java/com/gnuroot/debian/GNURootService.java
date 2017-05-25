@@ -43,11 +43,9 @@ public class GNURootService extends Service {
 	boolean termLaunch;
 	boolean vncLaunch;
 	boolean graphicalLaunch;
+	private String userPassword;
 
 	//ArrayList<Process> sshServerList = new ArrayList<Process>();
-
-	@Override
-	public void onCreate() { Log.i("Service", "OnCreate() called"); }
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -57,6 +55,9 @@ public class GNURootService extends Service {
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startID) {
+		SharedPreferences prefs = getSharedPreferences("MAIN", MODE_PRIVATE);
+		userPassword = prefs.getString("userPassword", "gnuroot");
+
 		// This avoids service restarting in cases where the kill signal
 		// has been sent.
 		if(intent == null) {
@@ -88,6 +89,7 @@ public class GNURootService extends Service {
 
 		List<String> command = new ArrayList<String>();
 		command.add(getInstallDir().getAbsolutePath() + "/support/startServers");
+		command.add(userPassword);
 
 		Intent notifIntent = new Intent(this, GNURootNotificationService.class);
 		notifIntent.putExtra("type", "GNURoot");
@@ -121,7 +123,7 @@ public class GNURootService extends Service {
 
 		// This executor will wait for the installation to finish before moving on.
 		final String[] command = { getInstallDir().getAbsolutePath() + "/support/startServers",
-									"dropbear", "vnc" };
+				userPassword, "dropbear", "vnc" };
 		final ScheduledExecutorService xInstallScheduler =
 				Executors.newSingleThreadScheduledExecutor();
 

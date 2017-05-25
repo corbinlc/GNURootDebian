@@ -86,7 +86,7 @@ public class GNURootLauncherService extends Service {
                         public void run() {
                             if(waitingStatus.exists()) {
                                 termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-                                        getInstallDir().getAbsolutePath() + "/support/launchProot " + command + "exit");
+                                        getInstallDir().getAbsolutePath() + "/support/launchProot " + command + " exit");
                                 startActivity(termIntent);
 
                                 waitScheduler.shutdown();

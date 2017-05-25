@@ -1,8 +1,8 @@
 #!ROOT_PATH/support/busybox sh
 
-ROOT_PATH/support/busybox clear
+echo $@ > ROOT_PATH/support/.tX
 
-DROPBEAR_PASSWORD = $1
+DROPBEAR_PASSWORD=$1
 shift
 
 ROOT_PATH/support/startDBClient $DROPBEAR_PASSWORD /support/startX $@

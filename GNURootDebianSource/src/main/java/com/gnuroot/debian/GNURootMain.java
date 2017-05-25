@@ -801,15 +801,18 @@ public class GNURootMain extends Activity {
 			deleteRecursive(patchStatus);
 			Toast.makeText(this, R.string.toast_bad_patch, Toast.LENGTH_LONG).show();
 
+			String userPassword = prefs.getString("userPassword", "gnuroot");
+
 			Intent pollIntent = new Intent(this, jackpal.androidterm.RunScript.class);
 			pollIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
 			pollIntent.addCategory(Intent.CATEGORY_DEFAULT);
 			pollIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
 			pollIntent.putExtra("jackpal.androidterm.iInitialCommand",
-					getInstallDir().getAbsolutePath() + "/support/waitForInstall");
+					getInstallDir().getAbsolutePath() + "/support/waitForInstall " + userPassword);
 			startActivity(pollIntent);
 		}
 
+		patchVersion="a";
 		if ((sharedVersion == null) || (!sharedVersion.equals(patchVersion))) {
 			setupSupportFiles(false, false);
             checkHome();
