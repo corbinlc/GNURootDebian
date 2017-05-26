@@ -10,6 +10,7 @@
 #include "extension/extension.h"
 #include "tracee/mem.h"
 #include "syscall/chain.h"
+#include "path/path.h"
 
 /* Change the HIDDEN_PREFIX to change which files are hidden */
 #define HIDDEN_PREFIX ".proot"
@@ -74,8 +75,16 @@ static int handle_getdents(Tracee *tracee)
         unsigned int count = peek_reg(tracee, CURRENT, SYSARG_3);
         char orig[count];
 
+        char path[PATH_MAX];
+        int status = readlink_proc_pid_fd(tracee->pid, peek_reg(tracee, ORIGINAL, SYSARG_1), path);
+        if (status < 0) {
+           return 0;
+        }
+        if(!belongs_to_guestfs(tracee, path))
+           return 0;
+
         /* retrieve the data from getdents */
-        int status = read_data(tracee, orig, orig_start, res);
+        status = read_data(tracee, orig, orig_start, res);
         if (status < 0) {
             return status;
         }

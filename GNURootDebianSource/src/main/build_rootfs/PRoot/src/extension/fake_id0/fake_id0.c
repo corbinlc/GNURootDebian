@@ -91,7 +91,6 @@ static FilteredSysnum filtered_sysnums[] = {
     { PR_fchown32,      FILTER_SYSEXIT },
     { PR_fchownat,      FILTER_SYSEXIT },
     { PR_fstat,         FILTER_SYSEXIT },
-    { PR_fstat,         FILTER_SYSEXIT },
     { PR_fstat64,       FILTER_SYSEXIT },
     { PR_fstatat64,     FILTER_SYSEXIT },
     { PR_getegid,       FILTER_SYSEXIT },
@@ -110,6 +109,8 @@ static FilteredSysnum filtered_sysnums[] = {
     { PR_getuid32,      FILTER_SYSEXIT },
     { PR_lchown,        FILTER_SYSEXIT },
     { PR_lchown32,      FILTER_SYSEXIT },
+    { PR_link,          FILTER_SYSEXIT },
+    { PR_linkat,        FILTER_SYSEXIT },
     { PR_lstat,         FILTER_SYSEXIT },
     { PR_lstat64,       FILTER_SYSEXIT },
     { PR_mkdir,         FILTER_SYSEXIT },
@@ -151,6 +152,9 @@ static FilteredSysnum filtered_sysnums[] = {
     { PR_stat64,        FILTER_SYSEXIT },
     { PR_statfs,        FILTER_SYSEXIT },
     { PR_statfs64,      FILTER_SYSEXIT }, 
+    { PR_symlink,       FILTER_SYSEXIT },
+    { PR_symlinkat,     FILTER_SYSEXIT },
+    { PR_umask,         FILTER_SYSEXIT },
     { PR_unlink,        FILTER_SYSEXIT },
     { PR_unlinkat,      FILTER_SYSEXIT },
     { PR_utimensat,     FILTER_SYSEXIT },
@@ -504,7 +508,7 @@ static int handle_open(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
     char meta_path[PATH_MAX];
     word_t flags;
     mode_t mode;
-   
+
     status = read_sysarg_path(tracee, orig_path, path_sysarg, CURRENT);
     if(status < 0) 
         return status;
@@ -518,7 +522,7 @@ static int handle_open(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
     if(flags_sysarg != IGNORE_SYSARG) 
         flags = peek_reg(tracee, ORIGINAL, flags_sysarg);
     else  
-        flags = 0;
+        flags = O_CREAT;
 
     /* If the metafile doesn't exist and we aren't creating a new file, get out. */
     if(path_exists(meta_path) != 0 && (flags & O_CREAT) != O_CREAT) 
@@ -535,7 +539,7 @@ static int handle_open(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
      *  use O_TRUNC and O_WRONLY and instead incorporate other flags.
      *  A value in flags_sysarg of IGNORE_SYSARG signifies a creat(2) call.
      */
-    if((flags & O_CREAT) == O_CREAT || flags_sysarg == IGNORE_SYSARG) { 
+    if((flags & O_CREAT) == O_CREAT) { 
 
         /** Many open calls include O_CREAT flags even if the file exists
          *  already. Probably because many things don't check existence and
@@ -552,7 +556,8 @@ static int handle_open(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg,
 
         mode = peek_reg(tracee, ORIGINAL, mode_sysarg);
         poke_reg(tracee, mode_sysarg, (mode|0700));
-        return write_meta_file(meta_path, mode, config->euid, config->egid, 1, config);
+        status = write_meta_file(meta_path, mode, config->euid, config->egid, 1, config);
+	return status;
     }
 
 check:
@@ -1055,8 +1060,6 @@ static int handle_symlink(Tracee *tracee, Reg oldpath_sysarg,
     status = read_sysarg_path(tracee, oldpath, oldpath_sysarg, CURRENT);
     if(status < 0) 
         return status;
-    if(status == 1) 
-        return 0;
 
     status = read_sysarg_path(tracee, newpath, newpath_sysarg, CURRENT);
     if(status < 0) 
@@ -1313,6 +1316,7 @@ static int handle_sysenter_end(Tracee *tracee, Config *config)
     case PR_setfsuid32:
     case PR_setfsgid:
     case PR_setfsgid32:
+    case PR_umask:
         /* These syscalls are fully emulated.  */
         set_sysnum(tracee, PR_void);
         return 0;
@@ -1605,6 +1609,7 @@ static int handle_sysexit_end(Tracee *tracee, Config *config)
         return 0;
 
     case PR_umask:
+        poke_reg(tracee, SYSARG_RESULT, config->umask);
         config->umask = (mode_t) peek_reg(tracee, MODIFIED, SYSARG_1); 
         return 0;
         

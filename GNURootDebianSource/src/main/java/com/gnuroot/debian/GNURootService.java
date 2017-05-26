@@ -146,6 +146,7 @@ public class GNURootService extends Service {
 	 */
 	private void killServers() {
 		android.os.Process.killProcess(android.os.Process.myPid());
+
 		stopSelf();
 	}
 
