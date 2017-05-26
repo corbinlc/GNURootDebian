@@ -23,23 +23,28 @@ THE SOFTWARE.
 /* Author(s): Corbin Leigh Champion */
 package com.gnuroot.debian;
 
-
 import android.app.Service;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.iiordanov.bVNC.Constants;
-
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class GNURootService extends Service {
-	boolean shown = false;
+	boolean sshLaunch;
+	boolean termLaunch;
+	boolean vncLaunch;
+	boolean graphicalLaunch;
+
+	//ArrayList<Process> sshServerList = new ArrayList<Process>();
 
 	@Override
 	public void onCreate() { Log.i("Service", "OnCreate() called"); }
@@ -52,67 +57,96 @@ public class GNURootService extends Service {
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startID) {
+		// This avoids service restarting in cases where the kill signal
+		// has been sent.
+		if(intent == null) {
+			stopSelf();
+		}
 		String intentType = intent.getStringExtra("type");
 
-		if("VNC".equals(intentType)) {
-			startVNCServer(intent.getBooleanExtra("newXterm", false), intent.getStringExtra("command"));
+		// In the case of kill, don't try to start servers as this can cause
+		// the app to continue trying to do things.
+		if("kill".equals(intentType)) {
+			killServers();
 		}
-
-		if("VNCReconnect".equals(intentType)) {
-			reconnectVNC();
+		else if ("VNC".equals(intentType)) {
+			startVNCServer();
+		}
+		else {
+			startServers();
 		}
 
 		return Service.START_STICKY;
 	}
 
-	private void startVNCServer(boolean createNewXTerm, String command) {
-		Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
-		termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-		termIntent.addCategory(Intent.CATEGORY_DEFAULT);
-		termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
-		if(command == null)
-			command = "/bin/bash";
-		if (createNewXTerm)
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-					getInstallDir().getAbsolutePath() + "/support/launchXterm " + command);
-		else
-			// Button presses will not open a new xterm is one is alrady running.
-			termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-					getInstallDir().getAbsolutePath() + "/support/launchXterm  button_pressed " + command);
+	private void startServers() {
+		SharedPreferences prefs = getSharedPreferences("MAIN", MODE_PRIVATE);
+		sshLaunch = prefs.getBoolean("sshLaunch", true);
+		termLaunch = prefs.getBoolean("termLaunch", true);
+		vncLaunch = prefs.getBoolean("vncLaunch", false);
+		graphicalLaunch = prefs.getBoolean("graphicalLaunch", false);
 
-		startActivity(termIntent);
+		List<String> command = new ArrayList<String>();
+		command.add(getInstallDir().getAbsolutePath() + "/support/startServers");
 
-		final Intent notifServiceIntent = new Intent(this, com.gnuroot.debian.GNURootNotificationService.class);
-		notifServiceIntent.putExtra("type", "VNC");
+		Intent notifIntent = new Intent(this, GNURootNotificationService.class);
+		notifIntent.putExtra("type", "GNURoot");
+		startService(notifIntent);
 
-		final ScheduledExecutorService scheduler =
-				Executors.newSingleThreadScheduledExecutor();
-
-		scheduler.scheduleAtFixedRate
-				(new Runnable() {
-					public void run() {
-						File checkStarted = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_started");
-						File checkRunning = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_running");
-						if (checkStarted.exists() || checkRunning.exists()) {
-							Intent bvncIntent = new Intent(getBaseContext(), com.iiordanov.bVNC.RemoteCanvasActivity.class);
-							bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?" + Constants.PARAM_VNC_PWD + "=gnuroot"));
-							bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-							startActivity(bvncIntent);
-
-							startService(notifServiceIntent);
-							scheduler.shutdown();
-						}
-					}
-				}, 3, 2, TimeUnit.SECONDS); //Avoid race case in which tightvnc needs to be restarted
-
-		stopSelf();
+		if(sshLaunch)
+			command.add("dropbear");
+		if(vncLaunch) {
+			startVNCServer();
+			return;
+		}
+		try {
+			String[] cmd = command.toArray(new String[command.size()]);
+			Runtime.getRuntime().exec(cmd);
+		} catch (IOException e) {
+			Log.e("GNURootService", "Could not start servers: " + e);
+		}
 	}
 
-	private void reconnectVNC() {
-		Intent bvncIntent = new Intent(getBaseContext(), com.iiordanov.bVNC.RemoteCanvasActivity.class);
-		bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?" + Constants.PARAM_VNC_PWD + "=gnuroot"));
-		bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		startActivity(bvncIntent);
+	private void startVNCServer() {
+		// First, if VNC support isn't installed yet, we have to install it.
+		// This needs to be done in a way that's visible to the user, so it
+		// must be done in an ATE terminal.
+		final File checkXSupport = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_support_passed");
+		final File checkXPackages = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_package_passed");
+		if(!checkXSupport.exists() || !checkXPackages.exists()) {
+			Intent xInstallIntent = new Intent(this, GNURootLauncherService.class);
+			xInstallIntent.putExtra("type", "installXSupport");
+			startService(xInstallIntent);
+		}
+
+		// This executor will wait for the installation to finish before moving on.
+		final String[] command = { getInstallDir().getAbsolutePath() + "/support/startServers",
+									"dropbear", "vnc" };
+		final ScheduledExecutorService xInstallScheduler =
+				Executors.newSingleThreadScheduledExecutor();
+
+		xInstallScheduler.scheduleAtFixedRate
+				(new Runnable() {
+					public void run() {
+						if(checkXPackages.exists() && checkXSupport.exists()) {
+							// Start VNC
+							try {
+								Runtime.getRuntime().exec(command);
+							} catch (IOException e) {
+								Log.e("GNURootService", "Failed to start VNC server: " + e);
+							}
+							xInstallScheduler.shutdown();
+						}
+					}
+				}, 100, 100, TimeUnit.MILLISECONDS);
+	}
+
+	/**
+	 * Kill all processes related to GNURoot Debian.
+	 */
+	private void killServers() {
+		android.os.Process.killProcess(android.os.Process.myPid());
+
 		stopSelf();
 	}
 

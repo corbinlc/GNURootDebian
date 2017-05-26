@@ -1,0 +1,25 @@
+#! /bin/bash
+
+if id "user" >/dev/null 2>&1; then
+    :
+else
+    groupadd -g 1500 user
+    useradd -m -u 1500 -g 1500 user
+    echo user:gnuroot | chpasswd
+    adduser user sudo
+fi
+
+if [ ! -d /etc/dropbear ]; then
+    mkdir /etc/dropbear
+fi
+
+if [ ! -f /etc/dropbear/dropbear_dss_host_key ]; then
+    /support/dropbearkey -t dss -f /etc/dropbear/dropbear_dss_host_key
+fi
+
+if [ ! -f /etc/dropbear/dropbear_rsa_host_key ]; then
+    /support/dropbearkey -t rsa -f /etc/dropbear/dropbear_rsa_host_key
+fi
+
+/support/dropbear &
+touch /support/.dropbear_running

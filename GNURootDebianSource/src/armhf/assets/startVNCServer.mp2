@@ -1,0 +1,9 @@
+#! /bin/bash
+if [ ! -f /home/user/.vnc/passwd ]; then
+  tar -xzvf /support/xsupport.tar.gz -C /home/user/
+fi
+rm /tmp/.X51-lock
+rm /tmp/.X11-unix/X51
+HOME=/home/user tightvncserver -kill :51
+HOME=/home/user tightvncserver -geometry 1024x768 :51
+touch /support/.vnc_running

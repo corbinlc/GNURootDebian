@@ -2,36 +2,4 @@
 
 ROOT_PATH/support/busybox clear
 
-if [ ! -h ROOT_PATH/support/.gnuroot_rootfs_passed ] && [ ! -e ROOT_PATH/support/.gnuroot_rootfs_passed ]; then
-    echo "Installing new rootfs..."
-    ROOT_PATH/support/execInProot /support/installRootfs
-    if [ ! -f ROOT_PATH/support/.gnuroot_rootfs_passed ]; then
-        exit
-    fi
-fi
-
-if [ ! -h ROOT_PATH/support/.gnuroot_patch_passed ] && [ ! -e ROOT_PATH/support/.gnuroot_patch_passed ]; then
-    echo "Patching rootfs..."
-    ROOT_PATH/support/execInProot /support/patchRootfs
-    if [ ! -f ROOT_PATH/support/.gnuroot_patch_passed ]; then
-        exit
-    fi
-fi
-
-if [ ! -h ROOT_PATH/support/.gnuroot_x_support_passed ] && [ ! -e ROOT_PATH/support/.gnuroot_x_support_passed ]; then
-	echo "Installing xterm support..."
-	ROOT_PATH/support/execInProot /support/untargz gnuroot_x_support /support/xsupport.tar.gz
-	if [ ! -f ROOT_PATH/support/.gnuroot_x_support_passed ]; then
-		exit
-	fi
-fi
-
-if [ ! -h ROOT_PATH/support/.gnuroot_x_package_passed ] && [ ! -e ROOT_PATH/support/.gnuroot_x_package_passed ]; then
-	echo "Installing xterm packages..."
-	ROOT_PATH/support/execInProot /support/installXPackages
-	if [ ! -f ROOT_PATH/support/.gnuroot_x_package_passed ]; then
-		exit
-	fi
-fi
-
-ROOT_PATH/support/execInProot /support/startX $@
+ROOT_PATH/support/startDBClient /support/startX $@
