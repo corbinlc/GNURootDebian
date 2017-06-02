@@ -11,28 +11,4 @@ if [[ "$1" == "button_pressed" ]]; then
     fi
 fi
 
-cp /root/.Xauthority /home/user/.Xauthority
 DISPLAY=localhost:51 xterm -geometry 80x24+0+0 -e $@ &
-
-# ps -a | grep Xtightvnc
-# if [[ $START_NEW == 0 ]]; then
-#     touch /support/.tVNCrunningalready
-#     cp /root/.Xauthority /home/user/.Xauthority
-#     DISPLAY=localhost:51 xterm -geometry 80x24+0+0 -e $@ &
-#     blue='\033[0;34m'; NC='\033[0m'; echo -e "${blue}Killing this terminal will kill your xterm"
-#     echo -e "${NC}"
-#     touch /support/.gnuroot_x_started
-#     touch /support/.vnc_running
-# else
-#     touch /support/.tRestartingVNC
-#     rm /tmp/.X51-lock
-#     rm /tmp/.X11-unix/X51
-#     HOME=/home/user tightvncserver -kill :51
-#     HOME=/home/user tightvncserver -geometry 1024x768 :51
-#     cp /root/.Xauthority /home/user/.Xauthority
-#     DISPLAY=localhost:51 xterm -geometry 80x24+0+0 -e $@ &
-#     blue='\033[0;34m'; NC='\033[0m'; echo -e "${blue}Killing this terminal will kill your vnc server and xterm"
-#     echo -e "${NC}"
-#     touch /support/.gnuroot_x_started
-#     touch /support/.vnc_running
-# fi

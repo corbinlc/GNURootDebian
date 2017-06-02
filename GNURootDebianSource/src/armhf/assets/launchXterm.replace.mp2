@@ -1,7 +1,5 @@
 #!ROOT_PATH/support/busybox sh
 
-echo $@ > ROOT_PATH/support/.tX
-
 DROPBEAR_PASSWORD=$1
 shift
 

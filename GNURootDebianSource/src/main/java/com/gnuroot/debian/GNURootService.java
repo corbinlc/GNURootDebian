@@ -43,9 +43,7 @@ public class GNURootService extends Service {
 	boolean termLaunch;
 	boolean vncLaunch;
 	boolean graphicalLaunch;
-	private String userPassword;
-
-	//ArrayList<Process> sshServerList = new ArrayList<Process>();
+	private String sshPassword;
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -56,7 +54,7 @@ public class GNURootService extends Service {
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startID) {
 		SharedPreferences prefs = getSharedPreferences("MAIN", MODE_PRIVATE);
-		userPassword = prefs.getString("userPassword", "gnuroot");
+		sshPassword = prefs.getString("sshPassword", "gnuroot");
 
 		// This avoids service restarting in cases where the kill signal
 		// has been sent.
@@ -80,6 +78,9 @@ public class GNURootService extends Service {
 		return Service.START_STICKY;
 	}
 
+	/**
+	 * Determine which servers are to be started and start them.
+	 */
 	private void startServers() {
 		SharedPreferences prefs = getSharedPreferences("MAIN", MODE_PRIVATE);
 		sshLaunch = prefs.getBoolean("sshLaunch", true);
@@ -89,7 +90,7 @@ public class GNURootService extends Service {
 
 		List<String> command = new ArrayList<String>();
 		command.add(getInstallDir().getAbsolutePath() + "/support/startServers");
-		command.add(userPassword);
+		command.add(sshPassword);
 
 		Intent notifIntent = new Intent(this, GNURootNotificationService.class);
 		notifIntent.putExtra("type", "GNURoot");
@@ -109,10 +110,11 @@ public class GNURootService extends Service {
 		}
 	}
 
+	/**
+	 * Start a VNC server.
+	 */
 	private void startVNCServer() {
-		// First, if VNC support isn't installed yet, we have to install it.
-		// This needs to be done in a way that's visible to the user, so it
-		// must be done in an ATE terminal.
+		// Install VNC support if it isn't present.
 		final File checkXSupport = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_support_passed");
 		final File checkXPackages = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_package_passed");
 		if(!checkXSupport.exists() || !checkXPackages.exists()) {
@@ -123,7 +125,7 @@ public class GNURootService extends Service {
 
 		// This executor will wait for the installation to finish before moving on.
 		final String[] command = { getInstallDir().getAbsolutePath() + "/support/startServers",
-				userPassword, "dropbear", "vnc" };
+				sshPassword, "dropbear", "vnc" };
 		final ScheduledExecutorService xInstallScheduler =
 				Executors.newSingleThreadScheduledExecutor();
 

@@ -1,12 +1,16 @@
 package com.gnuroot.debian;
 
+import android.app.AlertDialog;
 import android.app.Service;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.IBinder;
+import android.text.InputType;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.iiordanov.bVNC.Constants;
@@ -20,18 +24,20 @@ import java.util.concurrent.TimeUnit;
 
 public class GNURootLauncherService extends Service {
 
-    private String userPassword;
+    private String sshPassword;
+    private String vncPassword;
 
     @Override
     public IBinder onBind(Intent intent) {
-        // We don't provide binding, so return null
+        // Binding not provided, so return null
         return null;
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startID) {
         SharedPreferences prefs = getSharedPreferences("MAIN", MODE_PRIVATE);
-        userPassword = prefs.getString("userPassword", "gnuroot");
+        sshPassword = prefs.getString("sshPassword", "gnuroot");
+        vncPassword = prefs.getString("vncPassword", "gnuroot");
         String type = intent.getStringExtra("type");
         String command = intent.getStringExtra("command");
         if("launchTerm".equals(type)) {
@@ -49,14 +55,18 @@ public class GNURootLauncherService extends Service {
             installXSupport();
         }
         else {
-            // TODO make this a string resource
             Toast.makeText(getApplicationContext(),
-                    "GNURoot received a launch type it does not know how to handle.",
+                    R.string.toast_bad_launch_type,
                     Toast.LENGTH_LONG).show();
         }
         return START_NOT_STICKY;
     }
 
+    /**
+     * Launch a Prooted terminal.
+     * @param installStep Designates whether installation needs to occur, so that it can before trying SSH.
+     * @param command Command to be run in the new terminal.
+     */
     public void launchTerm(boolean installStep, final String command) {
         final Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
         termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
@@ -67,19 +77,20 @@ public class GNURootLauncherService extends Service {
         // connecting to that user.
         if(installStep) {
 
-
             // Do installation in a visible terminal, but exit once complete.
             // Command is either null, or to installXSupport.
+            // waitForInstall prints waiting messages and connects through dropbear once installation is complete.
             Intent pollIntent = new Intent(this, jackpal.androidterm.RunScript.class);
             pollIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
             pollIntent.addCategory(Intent.CATEGORY_DEFAULT);
             pollIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
             pollIntent.putExtra("jackpal.androidterm.iInitialCommand",
-                    getInstallDir().getAbsolutePath() + "/support/waitForInstall " + userPassword);
+                    getInstallDir().getAbsolutePath() + "/support/waitForInstall " + sshPassword);
             startActivity(pollIntent);
 
             final ScheduledExecutorService waitScheduler =
                     Executors.newSingleThreadScheduledExecutor();
+            // Don't start installation until the waiting terminal has opened.
             final File waitingStatus = new File(getInstallDir().getAbsolutePath() + "/support/.waiting");
             waitScheduler.scheduleAtFixedRate
                     (new Runnable() {
@@ -93,13 +104,6 @@ public class GNURootLauncherService extends Service {
                             }
                         }
                     }, 1, 1, TimeUnit.MILLISECONDS);
-
-
-            /*
-            Toast.makeText(getApplicationContext(),
-                    "GNURoot will briefly close after installation while it creates an ssh sessioin.",
-                    Toast.LENGTH_LONG).show();
-                    */
 
             // After installation completes, call recursively so that an ssh client is the visible
             // terminal.
@@ -120,7 +124,7 @@ public class GNURootLauncherService extends Service {
                     }, 500, 5, TimeUnit.MILLISECONDS);
         }
 
-        // Otherwise, connect through a dbclient.
+        // If not installing, just connect through a dbclient once the dbserver has started.
         else {
 
             final ScheduledExecutorService scheduler =
@@ -132,10 +136,10 @@ public class GNURootLauncherService extends Service {
                             if (dropbearStatus.exists()) {
                                 if (command == null)
                                     termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-                                            getInstallDir().getAbsolutePath() + "/support/startDBClient " + userPassword + " /bin/bash");
+                                            getInstallDir().getAbsolutePath() + "/support/startDBClient " + sshPassword + " /bin/bash");
                                 else
                                     termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-                                            getInstallDir().getAbsolutePath() + "/support/startDBClient " + userPassword + " " + command);
+                                            getInstallDir().getAbsolutePath() + "/support/startDBClient " + sshPassword + " " + command);
 
                                 startActivity(termIntent);
                                 stopSelf();
@@ -146,6 +150,13 @@ public class GNURootLauncherService extends Service {
         }
     }
 
+    /**
+     * Launch an Xterm.
+     * Requires xsupport and xpackages to have successfully installed, as well as a dropbear
+     * and a vnc server to be running.
+     * @param newXTerm Designates whether a new x term should be launched. False for button presses when one is already running.
+     * @param command Command to be exectued in xterm.
+     */
     public void launchXTerm(boolean newXTerm, String command) {
         // Delete status files that signify whether x is started, in case they're left over from a
         // previous run.
@@ -159,7 +170,7 @@ public class GNURootLauncherService extends Service {
         // Build the command to be run in the xterm
         ArrayList<String> cmdBuilder = new ArrayList<>();
         cmdBuilder.add(getInstallDir().getAbsolutePath() + "/support/launchXterm");
-        cmdBuilder.add(userPassword);
+        cmdBuilder.add(sshPassword);
         if (!newXTerm)
             cmdBuilder.add("button_pressed");
         if (command == null)
@@ -192,6 +203,9 @@ public class GNURootLauncherService extends Service {
         launchVNC();
     }
 
+    /**
+     * Connect a VNC client.
+     */
     public void launchVNC() {
 
         // Once the VNC server is running, connect to it and start the notification.
@@ -204,7 +218,7 @@ public class GNURootLauncherService extends Service {
                     public void run() {
                         if (vncStatus.exists()) {
                             Intent bvncIntent = new Intent(getBaseContext(), com.iiordanov.bVNC.RemoteCanvasActivity.class);
-                            bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?" + Constants.PARAM_VNC_PWD + "=" + userPassword));
+                            bvncIntent.setData(Uri.parse("vnc://127.0.0.1:5951/?" + Constants.PARAM_VNC_PWD + "=" + vncPassword));
                             bvncIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                             Intent notifIntent = new Intent(getBaseContext(), GNURootNotificationService.class);
@@ -220,15 +234,18 @@ public class GNURootLauncherService extends Service {
 
     /**
      * Untar the xsupport directory and install necessary packages in a terminal visible to the
-     * user.
+     * user. Update VNC password.
      */
     public void installXSupport() {
         Intent termIntent = new Intent(this, jackpal.androidterm.RunScript.class);
         termIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
         termIntent.addCategory(Intent.CATEGORY_DEFAULT);
         termIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
+        // This command requires a vnc and ssh password, in case the vnc password needs to be updated
+        // now that expect is being installed. The user must be ssh'd to in order to run the
+        // changeVNCPasswd script.
         termIntent.putExtra("jackpal.androidterm.iInitialCommand",
-                getInstallDir().getAbsolutePath() + "/support/launchProot " + "/support/installXSupport");
+                getInstallDir().getAbsolutePath() + "/support/launchProot /support/installXSupport " + sshPassword + " " + vncPassword);
         startActivity(termIntent);
     }
 

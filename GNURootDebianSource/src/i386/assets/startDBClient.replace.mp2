@@ -1,11 +1,14 @@
 #!ROOT_PATH/support/busybox sh
 
-ROOT_PATH/support/busybox clear
+export DROPBEAR_PASSWORD=$1
+shift
 
-export DROPBEAR_PASSWORD="gnuroot"
 # If we're starting X, it should be in the background, which means using the -t option will cause failure.
-if [ $1 == '/support/startX' ] || [ $1 == '/support/startVNCServer' ] || [ $1 == "button_pressed" ]; then
-    ROOT_PATH/support/dbclient -y user@127.0.0.1/2022 "$@" 2> ROOT_PATH/support/.tDBCErrX.txt
+if [ $1 == '/support/startX' ] || [ $1 == '/support/startVNCServer' ] || [ $1 == "button_pressed" ] || [ $1 == "background" ]; then
+    if [ $1 == "background" ]; then
+        shift
+    fi
+    ROOT_PATH/support/dbclient -y user@127.0.0.1/2022 "$@" 2> ROOT_PATH/support/.DBCErrX.txt
 else
-    ROOT_PATH/support/dbclient -yt user@127.0.0.1/2022 "$@" 2> ROOT_PATH/support/.tDBCErr.txt
+    ROOT_PATH/support/dbclient -yt user@127.0.0.1/2022 "$@" 2> ROOT_PATH/support/.DBCErr.txt
 fi
