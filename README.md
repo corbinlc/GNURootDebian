@@ -124,7 +124,11 @@ installation script, but could also include files necessary for your program to 
 packaged with several extras. Installation will be handled automatically depending on the presence
 of certain extras.
 
-###Installation
+**MANDATORY EXTRAS:**
+- versionNumber. Check official apps for latest. 
+- packageName. The name of YOUR package.
+
+### Installation
 **a.)** Include the string extra "launchType" with either "launchTerm" or "launchXTerm". This
 this value will determine whether your program is launched in a regular terminal or in a
 VNC session once installation is completed.
@@ -141,10 +145,14 @@ the tar files are placed in the projects assets directory as .mp2 files, renamin
 once they have been installed, and then converted to a URI so that they can be shared with
 GNURoot Debian.
 
-###Launch
+### Launch
 **a.)** Include the string extra "launchType" as above.
 
 **b.)** Include the string extra "command" as above.
+
+**c.)** Include the string extra "versionNumber" as described above.
+
+**d.)** Include the string extra "packageName" as described above.
 
 ## Credits:
 
