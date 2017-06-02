@@ -131,6 +131,23 @@ public class GNURootMain extends Activity {
 		String launchType = intent.getStringExtra("launchType");
 		String command = intent.getStringExtra("command");
 		String versionNumber = intent.getStringExtra("GNURootVersion");
+		
+		// TODO This is how you would get the signature of another app.
+		// Note: If you're using debug versions generated on the same computer, the signatures will
+		// be the same, but they will be different once they're signed.
+		/*
+		String p = intent.getStringExtra("packageName");
+		try {
+			Signature[] sigs = this.getPackageManager().getPackageInfo("com.gnuroot.octave", PackageManager.GET_SIGNATURES).signatures;
+			for (Signature sig : sigs) {
+				int code = sig.hashCode();
+				Log.i("GNURootMain", "Got signature: " + String.valueOf(code) + " for package: " + p);
+			}
+		} catch (NameNotFoundException e) {
+			Log.e("GNURootMain", "Could not get package signatures: " + e);
+		}
+		*/
+		
 		if(versionNumber == null) {
 			showUpdateErrorButton(intent.getStringExtra("packageName"));
 			return;
