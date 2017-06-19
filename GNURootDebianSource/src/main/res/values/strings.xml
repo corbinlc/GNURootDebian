@@ -30,4 +30,16 @@
     <string name="toast_bad_install">Something went wrong. Please try reinstalling.</string>
     <string name="toast_bad_package">Could not get package information. Please reinstall.</string>
     <string name="toast_bad_patch">GNURoot needs to patch. This could take a bit. Please wait.</string>
+
+    <!-- GNURootServerSettings strings -->
+    <string name="ssh_launch_option">Start SSH Server On Launch</string>
+    <string name="term_launch_option">Open Terminal On Launch</string>
+    <string name="vnc_launch_option">Start VNC Server On Launch</string>
+    <string name="graphical_launch_option">Open Graphical Desktop On Launch</string>
+    <string name="update_ssh_password_button">Update SSH Password</string>
+    <string name="update_vnc_password_button">Update VNC Password</string>
+    <string name="short_password">Password must be at least 6 characters.</string>
+    <string name="password_prompt">Please enter a password:</string>
+    <string name="server_setting_positive_button">OK</string>
+    <string name="server_setting_negative_button">No thanks!</string>
 </resources>

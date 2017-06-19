@@ -53,7 +53,9 @@ import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.InputType;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class GNURootMain extends Activity {
@@ -129,6 +131,23 @@ public class GNURootMain extends Activity {
 		String launchType = intent.getStringExtra("launchType");
 		String command = intent.getStringExtra("command");
 		String versionNumber = intent.getStringExtra("GNURootVersion");
+		
+		// TODO This is how you would get the signature of another app.
+		// Note: If you're using debug versions generated on the same computer, the signatures will
+		// be the same, but they will be different once they're signed.
+		/*
+		String p = intent.getStringExtra("packageName");
+		try {
+			Signature[] sigs = this.getPackageManager().getPackageInfo("com.gnuroot.octave", PackageManager.GET_SIGNATURES).signatures;
+			for (Signature sig : sigs) {
+				int code = sig.hashCode();
+				Log.i("GNURootMain", "Got signature: " + String.valueOf(code) + " for package: " + p);
+			}
+		} catch (NameNotFoundException e) {
+			Log.e("GNURootMain", "Could not get package signatures: " + e);
+		}
+		*/
+		
 		if(versionNumber == null) {
 			showUpdateErrorButton(intent.getStringExtra("packageName"));
 			return;
@@ -798,15 +817,19 @@ public class GNURootMain extends Activity {
 
 		if (sharedVersion != null && !sharedVersion.equals(patchVersion)) {
 			File patchStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_patch_passed");
-			deleteRecursive(patchStatus);
+			File xPatchStatus = new File(getInstallDir().getAbsolutePath() + "/support/.gnuroot_x_package_passed");
+			patchStatus.delete();
+			xPatchStatus.delete();
 			Toast.makeText(this, R.string.toast_bad_patch, Toast.LENGTH_LONG).show();
+
+			String sshPassword = prefs.getString("sshPassword", "gnuroot");
 
 			Intent pollIntent = new Intent(this, jackpal.androidterm.RunScript.class);
 			pollIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
 			pollIntent.addCategory(Intent.CATEGORY_DEFAULT);
 			pollIntent.setAction("jackpal.androidterm.RUN_SCRIPT");
 			pollIntent.putExtra("jackpal.androidterm.iInitialCommand",
-					getInstallDir().getAbsolutePath() + "/support/waitForInstall");
+					getInstallDir().getAbsolutePath() + "/support/waitForInstall " + sshPassword);
 			startActivity(pollIntent);
 		}
 

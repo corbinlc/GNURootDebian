@@ -9,4 +9,6 @@ while [ ! -f ROOT_PATH/support/.dropbear_running ]; do
 done
 
 rm ROOT_PATH/support/.waiting
-ROOT_PATH/support/startDBClient /bin/bash
+
+# $1 is user password
+ROOT_PATH/support/startDBClient $1 /bin/bash

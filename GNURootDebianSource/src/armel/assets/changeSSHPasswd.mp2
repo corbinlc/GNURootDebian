@@ -1,0 +1,2 @@
+#! /bin/bash
+echo user:$1 | sudo chpasswd

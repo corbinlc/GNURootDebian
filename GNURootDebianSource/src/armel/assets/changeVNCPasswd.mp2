@@ -1,0 +1,20 @@
+#! /bin/bash
+rm /home/user/.vnc/passwd
+
+prog="/usr/bin/vncpasswd"
+pass=$1
+ans="n"
+
+/usr/bin/expect <<EOF
+spawn "$prog"
+expect "Password:"
+send "$pass\r"
+expect "Verify:"
+send "$pass\r"
+expect "Would you like to enter a view-only password (y/n)?"
+send "$ans\r"
+expect eof
+exit
+EOF
+
+exit
