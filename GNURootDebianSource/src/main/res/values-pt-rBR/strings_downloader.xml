@@ -1,0 +1,9 @@
+<resources>
+	<string name="text_paused_cellular">Você gostaria de habilitar o download na rede de dados? Dependendo do seu plano de dados, pode ser que você precisa pagar.</string>
+	<string name="text_paused_cellular_2">Se você optar por não habilitar o download em rede de dados, o downloda automaticamente irá continuar assim que você se conectar à uma rede wi-fi.</string>
+	<string name="text_button_resume_cellular">Continuar download</string>
+	<string name="text_button_wifi_settings">Configurações de Wi-Fi</string>
+	<string name="text_button_pause">Parar Download</string>
+	<string name="text_button_resume">Continuar Download</string>
+	<string name="text_button_cancel">Cancelar</string>
+</resources>
