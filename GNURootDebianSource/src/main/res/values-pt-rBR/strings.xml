@@ -27,7 +27,7 @@
     <string name="toast_bad_launch_type">O GNURoot recebeu uma tentativa de execução de um aplicativo que não especificou o tipo de execução correta. Por favor reporte este erro a um desenvolvedor.</string>
     <string name="toast_file_not_found">O GNURoot foi informado para copiar um arquivo que não pode ser encontrado. Por favor reporte este erro a um desenvolvedor.</string>
     <string name="toast_bad_tar_permissions">O GNURoot foi informado para descompactar um arquivo que não pode ser copiado para o espaço de armazenamento dele. Tente reinstalar o app que causou este erro. Nota: Isto deveria ser o aplicativo principal do GNURoot. Por favor reporte este erro a um desenvolvedor.</string>
-    <string name="toast_bad_install">Algo deu errad. Por favor tente reinstalar.</string>
-    <string name="toast_bad_package">Não foi possível conseguir informações do pacote. Por favor reinstale.</string>
-    <string name="toast_bad_patch">O GNURoot precisa atualizar. Isso pode demorar um pouco. Por favor aguarde.</string>
+    <string name="toast_bad_install">Algo deu errado. Por favor tente reinstalar.</string>
+    <string name="toast_bad_package">Não foi possível obter informações do pacote. Por favor reinstale.</string>
+    <string name="toast_bad_patch">É necessário atualizar o GNURoot. Isso pode demorar um pouco. Por favor aguarde.</string>
 </resources>
