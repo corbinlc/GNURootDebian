@@ -53,6 +53,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -92,6 +93,16 @@ public class GNURootMain extends Activity {
 
 	private void handleIntent(Intent intent) {
 		String intentAction = intent.getAction();
+		Log.i("intentAction",intentAction);
+
+		if (android.os.Build.VERSION.SDK_INT >= 26) {
+			Toast.makeText(this, "GNURoot Debian does not work at all on Android 8.0 or newer.  Please switch to the UserLAnd app.", Toast.LENGTH_LONG).show();
+			Intent marketIntent = new Intent(Intent.ACTION_VIEW);
+			marketIntent.setData(Uri.parse("market://details?id=tech.ula"));
+			startActivity(marketIntent);
+			finish();
+			return;
+		}
 
 		File installStatus = new File(getInstallDir().getAbsolutePath() +"/support/.gnuroot_rootfs_passed");
 		if ((!isSymlink(installStatus) && !installStatus.exists()) && (noInstallAgain == false)) {
@@ -103,11 +114,11 @@ public class GNURootMain extends Activity {
 			savedIntent = intent;
 			setupSupportFiles(true);
 			updateVersion();
-			setupFirstHalf();
+			setupFirstHalf("com.gnuroot.debian.LAUNCH".equals(intentAction));
 		} else if ("com.gnuroot.debian.GNUROOT_REINSTALL".equals(intentAction)) {
 			setupSupportFiles(true);
 			updateVersion();
-			setupFirstHalf();
+			setupFirstHalf(false);
 		} else if ("com.gnuroot.debian.LAUNCH".equals(intentAction)) {
 			noInstallAgain = false;
 			handleLaunchIntent(intent);
@@ -294,7 +305,16 @@ public class GNURootMain extends Activity {
 	/**
 	 * Launches the GNURootDownloaderActivity.
 	 */
-	private void setupFirstHalf() {
+	private void setupFirstHalf(Boolean allowInstall) {
+
+        if ((!allowInstall) && (android.os.Build.VERSION.SDK_INT >= 21)) {
+            Toast.makeText(this, "GNURoot Debian is broken and no longer being maintained.  Please switch to the UserLAnd app.", Toast.LENGTH_LONG).show();
+            Intent marketIntent = new Intent(Intent.ACTION_VIEW);
+            marketIntent.setData(Uri.parse("market://details?id=tech.ula"));
+            startActivity(marketIntent);
+            finish();
+            return;
+        }
 		errOcc = false;
 
 		expectingResult = true;
@@ -345,7 +365,8 @@ public class GNURootMain extends Activity {
 					};
 					t.start();
 				} else {
-					pdRing.dismiss();
+				    if (pdRing != null)
+					    pdRing.dismiss();
 					GNURootMain.this.runOnUiThread(new Runnable() {
 						public void run() {
 							GNURootMain.this.runOnUiThread(new Runnable() {

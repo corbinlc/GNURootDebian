@@ -1,83 +1,57 @@
-apply plugin: 'com.android.model.application'
+apply plugin: 'com.android.application'
 
-model {
+android {
+    compileSdkVersion 22
+    buildToolsVersion '27.0.3'
 
-    android {
-        compileSdkVersion 22
-        buildToolsVersion "23.0.1"
-
-        defaultConfig.with {
-            applicationId "com.gnuroot.debian"
-            minSdkVersion.apiLevel 8
-            targetSdkVersion.apiLevel 19
-            versionCode 1
-            versionName "1.0"
-        }
+    defaultConfig {
+        applicationId "com.gnuroot.debian"
+        minSdkVersion 8
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
     }
 
-    android.buildTypes {
+    buildTypes {
         release {
             minifyEnabled false
-            proguardFiles.add(file('proguard-rules.pro'))
+            proguardFiles 'proguard-rules.pro'
         }
     }
 
-    android.productFlavors {
-        create("armel") {
+    flavorDimensions "arch"
+
+    productFlavors {
+        armhf {
             applicationId "com.gnuroot.debian"
-            versionName "0.6.11_armel"
-            versionCode 73
-            ndk.with {
-                abiFilters.add("armeabi")
-            }
-            buildConfigFields.with {
-                create() {
-                    type "int"
-                    name 'OBBVERSION'
-                    value "9"
-                }
+            versionName "0.7.0_armhf"
+            versionCode 86
+            buildConfigField "int", "OBBVERSION", "10"
+            dimension "arch"
+            ndk {
+                abiFilters "armeabi-v7a"
             }
         }
-        create("armhf") {
+        i386 {
             applicationId "com.gnuroot.debian"
-            versionName "0.6.11_armhf"
-            versionCode 74
-            ndk.with {
-                abiFilters.add("armeabi-v7a")
-            }
-            buildConfigFields.with {
-                create() {
-                    type "int"
-                    name 'OBBVERSION'
-                    value "10"
-                }
-            }
-        }
-        create("i386") {
-            applicationId "com.gnuroot.debian"
-            versionName "0.6.11_i386"
-            versionCode 75
-            ndk.with {
-                abiFilters.add("x86")
-            }
-            buildConfigFields.with {
-                create() {
-                    type "int"
-                    name 'OBBVERSION'
-                    value "11"
-                }
+            versionName "0.7.0_i386"
+            versionCode 87
+            buildConfigField "int", "OBBVERSION", "11"
+            dimension "arch"
+            ndk {
+                abiFilters "x86"
             }
         }
     }
 }
 
 dependencies {
-    compile project(':downloader_library')
-    compile project(':Android-Terminal-Emulator:term')
-    compile project(':Android-Terminal-Emulator:emulatorview')
-    compile project(':Android-Terminal-Emulator:libtermexec')
-    compile project(':bVNC')
-    compile 'com.android.support:support-v4:22.0.0'
-    compile 'com.android.support:appcompat-v7:22.0.0'
-    compile fileTree(dir: 'libs', include: ['*.jar', '*.so'])
+    implementation project(':downloader_library')
+    implementation project(':Android-Terminal-Emulator:term')
+    implementation project(':Android-Terminal-Emulator:emulatorview')
+    implementation project(':Android-Terminal-Emulator:libtermexec')
+    implementation project(':bVNC')
+    implementation 'com.android.support:support-v4:22.0.0'
+    implementation 'com.android.support:appcompat-v7:22.0.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.so'])
 }

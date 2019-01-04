@@ -1,20 +1,18 @@
-apply plugin: 'com.android.model.library'
+apply plugin: 'com.android.library'
 
-model {
-    android {
-        compileSdkVersion 23
-        buildToolsVersion "23.0.1"
+android {
+    compileSdkVersion 23
+    buildToolsVersion '27.0.3'
 
-        defaultConfig.with {
-            minSdkVersion.apiLevel 3
-            targetSdkVersion.apiLevel 3
-        }
+    defaultConfig.with {
+        minSdkVersion 3
+        targetSdkVersion 3
     }
 
-    android.buildTypes {
+    buildTypes {
         release {
             minifyEnabled false
-            proguardFiles.add(file('proguard-rules.pro'))
+            proguardFiles 'proguard-rules.pro'
         }
     }
 }

@@ -1,36 +1,29 @@
-apply plugin: 'com.android.model.library'
+apply plugin: 'com.android.library'
 
-model {
-    android {
-        //Note: some features of bVNC become deprecated at API level 23.
-        compileSdkVersion 21
-        buildToolsVersion "23.0.1"
+android {
+    //Note: some features of bVNC become deprecated at API level 23.
+    compileSdkVersion 21
+    buildToolsVersion '27.0.3'
 
-        defaultConfig.with {
-            minSdkVersion.apiLevel 8
-            targetSdkVersion.apiLevel 10
-        }
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 10
     }
 
-    android.buildTypes {
+    buildTypes {
         release {
             minifyEnabled false
-            proguardFiles.add(file('proguard-rules.pro'))
+            proguardFiles 'proguard-rules.pro'
         }
     }
-    /*
-    android.ndk {
-        abiFilters.addAll("armeabi", "armeabi-v7a", "x86")
-    }
-    */
 }
 
 dependencies {
-    compile project(':zoomerWithKeys')
-    compile project(':pubkeyGenerator')
-    compile 'com.android.support:support-v4:21.+'
-    compile files('libs/com.antlersoft.android.contentxml.jar')
-    compile files('libs/com.antlersoft.android.db.jar')
-    compile files('libs/sqlcipher-javadoc.jar')
-    compile files('libs/sqlcipher.jar')
+    implementation project(':zoomerWithKeys')
+    implementation project(':pubkeyGenerator')
+    implementation 'com.android.support:support-v4:21.+'
+    implementation files('libs/com.antlersoft.android.contentxml.jar')
+    implementation files('libs/com.antlersoft.android.db.jar')
+    implementation files('libs/sqlcipher-javadoc.jar')
+    implementation files('libs/sqlcipher.jar')
 }
