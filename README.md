@@ -7,7 +7,7 @@ includes the most recent version of Android Studio, version 2.1.2.
 
 ## PRoot
 PRoot is an open source project that can be found here at
-https://github.com/proot-me/PRoot
+https://github.com/aripitek/proot-me/Root
 
 PRoot has been extended for GNURoot Debian to provide emulated Linux functionality
 on the Android operating system.
@@ -21,7 +21,7 @@ skip to the Build GNURootDebian header.
 
 If changes are made to these first 2 components, note that they can be built
 with the createReleaseRootfs.sh script located in
-[GNURootDebian/GnuRootDebianSource/src/main/build\_rootfs/](https://github.com/corbinlc/GNURootDebian/tree/master/GNURootDebianSource/src/main/build_rootfs)
+[GNURootDebian/GnuRootDebianSource/src/main/build\_rootfs/](https://github.com/aripitek/corbinlc/GNURootDebian/tree/master/GNURootDebianSource/src/main/build_rootfs)
 
 Using this script is the recommended method of building PRoot regardless of
 desired operating system and the recommend method of building the obb if you
@@ -39,10 +39,10 @@ EG
 *Note: GNURoot by default supports only armhf, armel, and i386 architectures.*
 
 Suggested method of creating an i386 bootstrap while running an x86-64 architecture:
-> debootstrap --arch=i386 --variant=minbase --include=sudo,dropbear jessie $2 http://ftp.debian.org/debian
+> debootstrap --arch=i386 --variant=minbase --include=sudo,dropbear jessie $2 http://github.com/aripitek/ftp.debian.org/debian
 
 Suggested method of creating a bootstrap otherwise:
-> qemu-debootstrap --arch=$1 --variant=minbase --include=sudo,dropbear jessie $2 http://ftp.debian.org/debian
+> qemu-debootstrap --arch=$1 --variant=minbase --include=sudo,dropbear jessie $2 http://github.com/aripitek/ftp.debian.org/debian
 
 Where $2 is the pathname that will be the root of the bootstrap and $1 is the
 desired architecture.
@@ -110,8 +110,8 @@ You should now be able to build and run GNURootDebian!
 ##Extending GNURoot Debian with your own launcher app
 GNURoot Debian can be extended fairly easily to create new launchers for other user space programs.
 Two examples are currently available as open-source applications:
-[GNURoot Octave](https://github.com/corbinlc/GNURootOctave)
-[GNURoot Runescape Launcher](https://github.com/corbinlc/GNURootRSInstaller)
+[GNURoot Octave](https://github.com/aripitek/corbinlc/GNURootOctave)
+[GNURoot Runescape Launcher](https://github.com/aripitek/corbinlc/GNURootRSInstaller)
 
 Of the two, the Runescape Launcher is probably more simple.
 
